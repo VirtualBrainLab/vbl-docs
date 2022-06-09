@@ -8,9 +8,9 @@ Virtual Brain Lab
 
 We build intuitive and interactive 3D visualizations for neuroscience data.
 
-We are located within the `Steinmetz Lab <http://steinmetzlab.net>` at the University of Washington.
+We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington.
 
-Many of our projects are close collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`.
+Many of our projects are close collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
 .. toctree::
    :maxdepth: 2
