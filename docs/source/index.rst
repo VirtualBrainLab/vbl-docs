@@ -3,18 +3,34 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Virtual Brain Lab's documentation!
+Virtual Brain Lab
 =============================================
+
+Please see the individual project pages for details.
+
+Projects
+--------
+
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Projects:
+
+   01_traj_planner
+   02_brain_viewer
+   03_session_viewer
 
 
+.. Indices and tables
+.. ==================
 
-Indices and tables
-==================
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :hidden:
+   :caption: API Reference
+   :maxdepth: 1
+
+   api_reference.rst
