@@ -1,3 +1,0 @@
-
-Neuropixels Trajectory Planner
-=============================================
