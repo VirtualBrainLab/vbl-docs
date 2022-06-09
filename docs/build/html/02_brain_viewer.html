@@ -42,6 +42,34 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_traj_planner.html">Neuropixels Trajectory Planner</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Brain Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#instructions">Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#interaction">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-calls">Render calls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ccf-3d-volumes">CCF 3D Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neurons">Neurons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#probes">Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cameras">Cameras</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#developer-instructions">Developer Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-new-functionality">Adding new functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-the-client">Deploying the client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unity-cloud-build">Unity Cloud Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uploading-to-the-server">Uploading to the server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-the-server">Deploying the server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-local-testing">For local testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-heroku">On Heroku</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#citing">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_session_viewer.html">Session Viewer</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
@@ -65,7 +93,7 @@
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Brain Viewer</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/02_brain_viewer.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/02_brain_viewer.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -75,6 +103,128 @@
              
   <section id="brain-viewer">
 <h1>Brain Viewer<a class="headerlink" href="#brain-viewer" title="Permalink to this heading"></a></h1>
+<p float="left">
+ <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/flatmap_layout.png" width="25%"> 
+ <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/data_onesided.png" width="25%"> 
+ <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/RS_fig1.png " width="35%">
+</p>
+<p float="center">
+ <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/brain_rotate_cropped.gif" width="45%"> 
+</p>
+<p>This project allows you to connect your Python scripts to a standalone “mouse brain renderer” program, to create graphics like the ones above. As a user, you only need to read the first set of instructions below (install + instructions).</p>
+</section>
+<section id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h1>
+<p>The fastest way to get running is to open http://data.virtualbrainlab.org/UMRenderer in a browser window.</p>
+<p>Your Python environment needs to have the package <code class="docutils literal notranslate"><span class="pre">python-socketio[client]</span></code> installed.</p>
+<p>You can also download the latest standalone desktop app for Windows from the <a class="reference external" href="https://github.com/dbirman/UMRenderer/releases">releases page</a>. Linux and Mac executables are available by request.</p>
+</section>
+<section id="instructions">
+<h1>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading"></a></h1>
+<p>Open either the web app page and allow it to load or run the desktop client. The desktop client will login automatically using your username (the python package will do the same). <strong>Note:</strong> If you are using the <em>web</em> app you will need to set your username manually. Press <code class="docutils literal notranslate"><span class="pre">I</span></code> and enter your account username. If you aren’t sure what that is, try running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For now to import the python package you need clone this repository and write your code within the repository folder. See the Examples folder for some Jupyter notebook examples of how this works, as well as how to load data and render it. The minimal requirement is to run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unitymouse.render</span> <span class="k">as</span> <span class="nn">umr</span>
+<span class="n">umr</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Once you are done using the renderer you can call <code class="docutils literal notranslate"><span class="pre">umr.close()</span></code> to close your connection.</p>
+<section id="interaction">
+<h2>Interaction<a class="headerlink" href="#interaction" title="Permalink to this heading"></a></h2>
+<p>Left click + drag along the Y axis to pitch the brain</p>
+<p>Left click + drag along the X axis to yaw the brain</p>
+<p>Hold shift while left clicking and dragging along the X axis to spin the brain</p>
+<p>Scroll to zoom</p>
+<p>Right click + drag to pan</p>
+</section>
+<section id="render-calls">
+<h2>Render calls<a class="headerlink" href="#render-calls" title="Permalink to this heading"></a></h2>
+<p>Once you have imported <code class="docutils literal notranslate"><span class="pre">umr</span></code> you can use the following calls to display data. Refer to the <code class="docutils literal notranslate"><span class="pre">unitymouse/render.py</span></code> file for detailed instructions about what data format to use for each call.</p>
+<section id="ccf-3d-volumes">
+<h3>CCF 3D Volumes<a class="headerlink" href="#ccf-3d-volumes" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_visibility</span></code> - pass a dictionary of area acronyms/IDs keys and boolean visibility values to load 3D meshes <strong>note:</strong> this must be called before you use any of the subsequent functions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_color</span></code> - pass a dictionary of area acronyms/IDs and hex color strings to set the color of each 3D mesh.</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_intensity</span></code> - pass a dictionary of area acronyms/IDs and floats to set the intensity according to the currently loaded colormap.</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_colormap</span></code> - pass a string to set the current colormap (options: ‘cool’, ‘gray’)</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_style</span></code> - pass a dictionary of area acronyms/IDs and strings to set the display style (options: ‘whole’, ‘left’, ‘right’)</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_alpha</span></code> - pass a dictionary of area acronyms/IDs and floats to set transparency, only works with the transparent shaders</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_shader</span></code> - pass a dictionary of area acronyms/IDs and strings to set shaders (options: ‘default’, ‘toon’, ‘toon-outline’, ‘transparent-lit’, ‘transparent-unlit’)</p>
+</section>
+<section id="neurons">
+<h3>Neurons<a class="headerlink" href="#neurons" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">umr.create_neurons</span></code> - pass a list of neuron names as strings to create new neurons</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_positions</span></code> - pass a dictionary of neuron names and lists of 3 floats to set neuron coordinates in ML/AP/DV space, units in um</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_size</span></code> - pass a dictionary of neuron names and floats to set neuron scale, units in um</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_color</span></code> - pass a dictionary of neuron names and hex colors</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_shape</span></code> - pass a dictionary of neuron names and strings (options: sphere, cube), use cube if you are displaying more than a few thousand objects</p>
+</section>
+<section id="probes">
+<h3>Probes<a class="headerlink" href="#probes" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">umr.create_probes</span></code> - pass a list of probe names as strings to create new probes</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_positions</span></code> - pass a dictionary of probe names and a list of 3 floats to probe tip coordinates in ML/AP/DV space, units in um</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_angles</span></code> - pass a dictionary of probe names and a list of 3 floats to set probe angles [Azimuth (phi), Elevation (theta), Spin (beta)]</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_size</span></code> - pass a dictionary of probe names and a list of 3 floats to set probe size in width / height / depth (default: [0.07, 3.84, 0.02])</p>
+</section>
+<section id="cameras">
+<h3>Cameras<a class="headerlink" href="#cameras" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_camera_target</span></code> - pass the ap/dv/lr coordinates in mm</p>
+<p><code class="docutils literal notranslate"><span class="pre">umr.set_camera_y_angle</span></code> - controls the rotation of the camera around the Y (up) axis</p>
+</section>
+</section>
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
+<p>In the application settings (which are open by default) you can “explode” the brain using the slider option. You can explode all areas, or just the cortex and hippocampus “vertically” sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.</p>
+<p>The camera rotation button continuously increments the <code class="docutils literal notranslate"><span class="pre">set_camera_y_angle</span></code> function to rotate the camera around the current camera target point. The speed is controlled by the slider.</p>
+</section>
+</section>
+<section id="developer-instructions">
+<h1>Developer Instructions<a class="headerlink" href="#developer-instructions" title="Permalink to this heading"></a></h1>
+<section id="adding-new-functionality">
+<h2>Adding new functionality<a class="headerlink" href="#adding-new-functionality" title="Permalink to this heading"></a></h2>
+<p>To add a new function you need to add three parts:</p>
+<ol class="arabic simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">unitymouse/render.py</span></code> to include the new function and add documentation</p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">socket.io</span></code> call to the set of EmitAll calls in <code class="docutils literal notranslate"><span class="pre">Server/server.js</span></code></p></li>
+<li><p>Add the new functionality to the UnityClient in <code class="docutils literal notranslate"><span class="pre">UM_Client.cs</span></code></p></li>
+</ol>
+<p>Before deploying you should add a new test script in <code class="docutils literal notranslate"><span class="pre">Examples</span></code> which runs your new functionality and makes sure that it works. See <code class="docutils literal notranslate"><span class="pre">example_script.py</span></code>.</p>
+</section>
+<section id="deploying-the-client">
+<h2>Deploying the client<a class="headerlink" href="#deploying-the-client" title="Permalink to this heading"></a></h2>
+<p>The client is accessed by users in two ways: either through the web server at <code class="docutils literal notranslate"><span class="pre">data.virtualbrainlab.org</span></code> or through a standalone desktop app which we include in each minor version release. To deploy a new client you need to take a few steps.</p>
+<ol class="arabic simple">
+<li><p>If you changed the Addressable assets or updated to a new version of Unity you need to re-build the assets. Do this for each build target separately. Then copy the <code class="docutils literal notranslate"><span class="pre">UnityClient/ServerData</span></code> folder to the <code class="docutils literal notranslate"><span class="pre">htdocs/UMData</span></code> subfolder on the server.</p></li>
+<li><p>Build the WebGL target build, then copy this to the <code class="docutils literal notranslate"><span class="pre">htdocs/UMRenderer</span></code> subfolder on the server.</p></li>
+<li><p>Build the Windows target build, compress to zip, and attach this to the next release version. Or, if you are hotfixing a previous release, update the hotfix version number and swap the new build for the previous one.</p></li>
+</ol>
+<section id="unity-cloud-build">
+<h3>Unity Cloud Build<a class="headerlink" href="#unity-cloud-build" title="Permalink to this heading"></a></h3>
+<p>[todo]</p>
+</section>
+<section id="uploading-to-the-server">
+<h3>Uploading to the server<a class="headerlink" href="#uploading-to-the-server" title="Permalink to this heading"></a></h3>
+<p>The server runs Apache, the htdocs file is at <code class="docutils literal notranslate"><span class="pre">C:/Apache24/htdocs</span></code>. Ask Dan for the login details. You can copy files locally onto the data server or copy them through google drive or slack.</p>
+</section>
+</section>
+<section id="deploying-the-server">
+<h2>Deploying the server<a class="headerlink" href="#deploying-the-server" title="Permalink to this heading"></a></h2>
+<section id="for-local-testing">
+<h3>For local testing<a class="headerlink" href="#for-local-testing" title="Permalink to this heading"></a></h3>
+<p>To run a local copy of the server you need to install Node.js and then run the command <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">server.js</span></code> in the Server folder. This will start the server on <code class="docutils literal notranslate"><span class="pre">localhost:5000</span></code>. You then need to redirect both the python client and UnityClient to access the local server. Do this by running <code class="docutils literal notranslate"><span class="pre">umr.setup(localhost=True)</span></code> and by checking the <code class="docutils literal notranslate"><span class="pre">localhost</span></code> option in the <code class="docutils literal notranslate"><span class="pre">main</span></code> GameObject.</p>
+</section>
+<section id="on-heroku">
+<h3>On Heroku<a class="headerlink" href="#on-heroku" title="Permalink to this heading"></a></h3>
+<p>Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.</p>
+</section>
+</section>
+</section>
+<section id="citing">
+<h1>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h1>
+<p>If you use this to make figures for a publication you should cite this repo, email me (dbirman&#64;uw.edu) and I can generate a DOI</p>
 </section>
 
 
