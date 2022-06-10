@@ -5,19 +5,18 @@
 
 <image src="../_static/people/dan.jpg" alt="Dan" position="left" style="border-radius: 8px;width:20vh">
 
-**[Daniel Birman, PhD](https://danbirman.com)** - Lead developer
+**[Daniel Birman, PhD](https://danbirman.com)**
 
 
 <image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh">
 
-**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** - Student developer
+**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)**
 
-**Qiqi Liang** - Student developer
+**Qiqi Liang**
 
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
-**[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)** - Student developer
-
+**[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
 
 
