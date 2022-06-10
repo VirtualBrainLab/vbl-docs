@@ -8,32 +8,42 @@ Virtual Brain Lab
 
 We build intuitive and interactive 3D visualizations for neuroscience data.
 
-We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington.
+The VBL is located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
-Many of our projects are close collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
+Please see the individual projects for installation instructions and documentation!
 
 .. toctree::
    :maxdepth: 2
    :caption: About the VBL
 
-   team
-   joinus
+   01_about/team
+   01_about/joinus
 
 .. toctree::
    :maxdepth: 2
-   :caption: Projects
+   :caption: Trajectory Planner
 
-   01_traj_planner
-   02_brain_viewer
-   03_session_viewer
+   02_traj_planner/01_tp_intro
+   02_traj_planner/02_tp_development
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Brain Viewer
 
-.. Indices and tables
-.. ==================
+   03_brain_viewer/brain_viewer
 
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+.. toctree::
+   :maxdepth: 2
+   :caption: Session Viewer
+
+   04_session_viewer/session_viewer
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Misc
+
+   05_misc/01_vbl_core
+   05_misc/02_addressables_storage
 
 .. toctree::
    :hidden:

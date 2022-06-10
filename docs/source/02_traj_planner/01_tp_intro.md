@@ -1,4 +1,4 @@
-# Neuropixels Trajectory Planner
+# Installation and Use
 
 This is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.
 
