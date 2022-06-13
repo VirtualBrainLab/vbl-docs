@@ -25,5 +25,3 @@
 <image src="../_static/people/yoni.jpg" alt="Yoni" position="left" style="border-radius: 8px;width:20vh">
 
 **[Yoni Browning, PhD](https://www.representations.space/)** - Allen Institute
-
-

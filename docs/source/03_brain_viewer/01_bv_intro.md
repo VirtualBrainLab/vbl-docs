@@ -1,4 +1,4 @@
-# Brain Viewer
+# Installation and Use
 
 <p float="left">
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/flatmap_layout.png" width="25%"> 
@@ -10,7 +10,7 @@
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/brain_rotate_cropped.gif" width="45%"> 
 </p>
 
-This project allows you to connect your Python scripts to a standalone "mouse brain renderer" program, to create graphics like the ones above. As a user, you only need to read the first set of instructions below (install + instructions).
+The Brain Viewer allows you to connect your Python scripts to a standalone "mouse brain renderer" program, to create graphics like the ones above. As a user, you only need to read the first set of instructions below (install + instructions).
 
 ## Install
 
@@ -22,13 +22,7 @@ You can also download the latest standalone desktop app for Windows from the [re
 
 ## Instructions
 
-Open either the web app page and allow it to load or run the desktop client. The desktop client will login automatically using your username (the python package will do the same). **Note:** If you are using the *web* app you will need to set your username manually. Press `I` and enter your account username. If you aren't sure what that is, try running:
-
-```
-python
-import os
-os.getlogin()
-```
+Open either the web app page and allow it to load or run the desktop client. The desktop client will login automatically using your username (the python package will do the same).
 
 For now to import the python package you need clone this repository and write your code within the repository folder. See the Examples folder for some Jupyter notebook examples of how this works, as well as how to load data and render it. The minimal requirement is to run:
 
@@ -37,7 +31,17 @@ import unitymouse.render as umr
 umr.setup()
 ```
 
-Once you are done using the renderer you can call `umr.close()` to close your connection.
+By default calling `setup()` opens a web browser and links it to your Python client. You can also set `standalone = True` to prevent this behavior. 
+
+### Setting ID on web
+
+If you open the web browser page automatically from Python your ID should be set automatically. If this fails or you need to change your ID press `I` and enter your account username. If you aren't sure what that is, try running:
+
+```
+python
+import os
+os.getlogin()
+```
 
 ## Interaction
 
@@ -104,40 +108,6 @@ Once you have imported `umr` you can use the following calls to display data. Re
 In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain. 
 
 The camera rotation button continuously increments the `set_camera_y_angle` function to rotate the camera around the current camera target point. The speed is controlled by the slider.
-
-## Developer Instructions
-
-### Adding new functionality
-
-To add a new function you need to add three parts:
-
- 1. Update `unitymouse/render.py` to include the new function and add documentation
- 2. Add the `socket.io` call to the set of EmitAll calls in `Server/server.js`
- 3. Add the new functionality to the UnityClient in `UM_Client.cs`
-
-Before deploying you should add a new test script in `Examples` which runs your new functionality and makes sure that it works. See `example_script.py`.
-
-### Deploying the client
-
-The client is accessed by users in two ways: either through the web server at `data.virtualbrainlab.org` or through a standalone desktop app which we include in each minor version release. To deploy a new client you need to take a few steps.
-
- 1. If you changed the Addressable assets or updated to a new version of Unity you need to re-build the assets. Do this for each build target separately. Then copy the `UnityClient/ServerData` folder to the `htdocs/UMData` subfolder on the server.
- 2. Build the WebGL target build, then copy this to the `htdocs/UMRenderer` subfolder on the server.
- 3. Build the Windows target build, compress to zip, and attach this to the next release version. Or, if you are hotfixing a previous release, update the hotfix version number and swap the new build for the previous one.
-
-#### Uploading to the server
-
-The server runs Apache, the htdocs file is at `C:/Apache24/htdocs`. Ask Dan for the login details. You can copy files locally onto the data server or copy them through google drive or slack. 
-
-### Deploying the server
-
-#### For local testing
-
-To run a local copy of the server you need to install Node.js and then run the command `node server.js` in the Server folder. This will start the server on `localhost:5000`. You then need to redirect both the python client and UnityClient to access the local server. Do this by running `umr.setup(localhost=True)` and by checking the `localhost` option in the `main` GameObject.
-
-#### On Heroku
-
-Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku. 
 
 ## Citing
 
