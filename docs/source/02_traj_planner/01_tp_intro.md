@@ -4,6 +4,8 @@ This is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, 
 
 ![Azimuth example](https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/2022_04_21.png)
 
+Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanner/).
+
 ## Known issues
 
 ### CCF -> in vivo issues
@@ -12,7 +14,7 @@ The CCF coordinates returned by this tool are not identical to the in vivo mouse
 
 ## Install
 
-The easiest way to use the trajectory planner is through our web app: http://data.virtualbrainlab.org/NPTrajectoryPlanner/. If you encounter issues please try refreshing the page (sometimes the 3D mesh files don't download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).
+The easiest way to use the trajectory planner is through our [web app](http://data.virtualbrainlab.org/NPTrajectoryPlanner/). If you encounter issues please try refreshing the page (sometimes the 3D mesh files don't download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).
 
 ### Standalone builds
 

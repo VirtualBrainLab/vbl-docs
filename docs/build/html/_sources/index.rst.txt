@@ -6,13 +6,14 @@
 Virtual Brain Lab
 =============================================
 
-We build intuitive and interactive 3D visualizations for neuroscience data.
+The Virtual Brain Lab builds intuitive and interactive 3D visualizations for neuroscience.
 
 The VBL is located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
 Please see the individual projects for installation instructions and documentation!
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: About the VBL
 
@@ -20,30 +21,38 @@ Please see the individual projects for installation instructions and documentati
    01_about/joinus
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Trajectory Planner
 
    02_traj_planner/01_tp_intro
-   02_traj_planner/02_tp_development
+   02_traj_planner/02_tp_alignment
+   02_traj_planner/03_tp_ephys_atlas
+   02_traj_planner/04_tp_development
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Brain Viewer
 
-   03_brain_viewer/brain_viewer
+   03_unity_neuro/01_urn_intro
+   03_unity_neuro/02_urn_development
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Session Viewer
 
    04_session_viewer/session_viewer
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Misc
 
    05_misc/01_vbl_core
    05_misc/02_addressables_storage
+   05_misc/03_unity_tutorials
 
 .. toctree::
    :hidden:
@@ -51,3 +60,4 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 1
 
    api_reference.rst
+   genindex

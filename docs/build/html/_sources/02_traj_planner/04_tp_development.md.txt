@@ -1,7 +1,5 @@
 # Development
 
-The Trajectory Planner is under active development, there is no requirement to maintain backwards compatibility with version changes. We are aiming for a 1.0.0 release at the end of 2022.
-
 ## Organization
 
 ### Unity 
@@ -23,35 +21,11 @@ Most of the VBL assets are shared across projects, these are accessed from a sha
 
 When contributing to a VBL project you should avoid modifying the main scenes, except to add or remove **Prefab** objects. Merges between scenes are very difficult to handle in git and should be avoided.
 
-There are two main scenes, a loading scene which loads very quickly and present users with a text warning that it takes time to load the main scene. A second scene loads the actual trajectory planner itself.
-
 ## Core components
 
-The trajectory planner runs out of a central class `TP_TrajectoryPlannerManager` which coordinates loading the main functionality of the planner. Most of the code uses a hub-and-spoke model where other components will communicate with the tpmanager but not with each other, to reduce the likelihood of creating deadlock situations. 
+The trajectory planner runs out of a central class `TP_TrajectoryPlannerManager` which coordinates the loading and ...
 
-### Annotation Dataset
-
-At the core of the planner is the Allen CCF annotation dataset. You can learn more about the dataset on the Allen's [documentation page](http://help.brain-map.org/display/mouseconnectivity/API#API-DownloadAtlas3-DReferenceModels=). We use the 25 um atlas which has dimensions 528 x 320 x 456, the `nrrd` file downloaded from the Allen. 
-
-The annotation dataset is stored internally as a [Texture3D](https://docs.unity3d.com/ScriptReference/Texture3D.html) object for GPU access as well as in an [AnnotationDataset](https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/AnnotationDataset.cs) object. 
-
-### Allen CCF 3D Models
-
-The 3D models are controlled via the [CCFModelControl](https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/CCFModelControl.cs) component. Models are loaded from the shared addressables system and the mesh is saved locally to render the models.
-
-### Probes
-
-Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a [TP_ProbeController](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeController.cs) component which handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the [TP_ProbePanel](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs) and [TP_ProbeUIManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeUIManager.cs) components. The probe panels are interpolated using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph) which is a variant of the Inplane Slice shader. 
-
-### Inplane Slice
-
-The inplane slice is rendered using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/InPlaneSliceShader.shadergraph) whose settings are controlled by the [TP_InPlaneSlice](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_InPlaneSlice.cs) component.
-
-### Collisions
-
-### Rigs
-
-Rigs are just a collection of 3D models stored as a prefab and marked as an addressable asset. These are loaded by the [TP_ToggleRigs](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ToggleRigs.cs) component, which also adds their corresponding colliders.  
+todo
 
 ## Building new features and fixing bugs
 

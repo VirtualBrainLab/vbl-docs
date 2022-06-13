@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Tips and Tutorials &mdash; Virtual Brain Lab 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="../api_reference.html" />
+    <link rel="prev" title="Addressables Storage" href="02_addressables_storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Virtual Brain Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trajectory Planner</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_brain_viewer/01_bv_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_brain_viewer/02_bv_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_vbl_core.html">VBL Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_addressables_storage.html">Addressables Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development Tips and Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-environment">Python environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#other-python-tips">Other Python tips</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unity">Unity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-tips">General tips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#version-and-packages">Version and packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#neurons-dots-ecs">Neurons (DOTS/ECS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#large-asset-streaming-addressables">Large asset streaming (Addressables)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#networking-unity-netcode-for-gameobjects">Networking (Unity Netcode for Gameobjects)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#webgl-limitations">WebGL limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Virtual Brain Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Development Tips and Tutorials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/05_misc/03_unity_tutorials.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-tips-and-tutorials">
+<h1>Development Tips and Tutorials<a class="headerlink" href="#development-tips-and-tutorials" title="Permalink to this heading"></a></h1>
+<section id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this heading"></a></h2>
+<section id="python-environment">
+<h3>Python environment<a class="headerlink" href="#python-environment" title="Permalink to this heading"></a></h3>
+<p>You should be using the <code class="docutils literal notranslate"><span class="pre">iblenv</span></code> conda environment during development, which you can <a class="reference external" href="https://github.com/int-brain-lab/iblenv">install here</a>.</p>
+<section id="other-python-tips">
+<h4>Other Python tips<a class="headerlink" href="#other-python-tips" title="Permalink to this heading"></a></h4>
+<p>Read <a class="reference external" href="https://goodresearch.dev">this website</a>!</p>
+</section>
+</section>
+<section id="unity">
+<h3>Unity<a class="headerlink" href="#unity" title="Permalink to this heading"></a></h3>
+<section id="general-tips">
+<h4>General tips<a class="headerlink" href="#general-tips" title="Permalink to this heading"></a></h4>
+<p><strong>Tutorials</strong></p>
+<p>Brackeys has a great high quality introductory sequence: <a class="reference external" href="https://www.youtube.com/watch?v=j48LtUkZRjU&amp;list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6">start here</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=pwZpJzpE2lQ">Imphenzia</a> also has a great and slightly more up-to date introduction.</p>
+</section>
+<section id="version-and-packages">
+<h4>Version and packages<a class="headerlink" href="#version-and-packages" title="Permalink to this heading"></a></h4>
+<p>The majority of our code relies only on the base Unity environment. We are currently (2022-06) on Unity Editor version 2020.3 LTS. We will move to the 2021 LTS when all of our required packages have migrated. We also migrate as soon as a new version is available.</p>
+<p>Below are a list of all the major packages we use with a short explanation for their use.</p>
+</section>
+<section id="neurons-dots-ecs">
+<h4>Neurons (DOTS/ECS)<a class="headerlink" href="#neurons-dots-ecs" title="Permalink to this heading"></a></h4>
+<p>To display large numbers of neurons we rely on the entities and components system (ECS) from DOTS. This codebase organizes memory in a more efficient layout which allows us to render and update hundreds of thousands of scene objects on each frame.</p>
+<p><strong>Tutorials</strong>: <a class="reference external" href="https://www.youtube.com/c/TurboMakesGames">Turbo Makes Games</a> probably has the best tutorials for DOTS/ECS.</p>
+</section>
+<section id="large-asset-streaming-addressables">
+<h4>Large asset streaming (Addressables)<a class="headerlink" href="#large-asset-streaming-addressables" title="Permalink to this heading"></a></h4>
+<p>Whenever we have to store and load large files we rely on Unity’s impressive Addressables asset bundle system. They use state-of-the-art compression and streaming which seriously reduces the overhead for us when using very large files.</p>
+<p>Addressable assets are an excellent way to reduce memory overhead in builds, but they come at the cost of increased complexity and the requirement to write code with asynchronous function calls.</p>
+<p><strong>Tutorials</strong>: Bit out of date but this one by <a class="reference external" href="https://www.youtube.com/watch?v=uNpBS0LPhaU">Jason Weimann</a> is good.</p>
+<p><strong>Warning:</strong> Addressables rely on the Unity version matching in the Addressables build and the Unity build, if you make any changes you must update the builds and change them on the asset server.</p>
+</section>
+<section id="networking-unity-netcode-for-gameobjects">
+<h4>Networking (Unity Netcode for Gameobjects)<a class="headerlink" href="#networking-unity-netcode-for-gameobjects" title="Permalink to this heading"></a></h4>
+<p>The currently not-in-development education tools used a Server/Client architecture to stream information about the neural datasets. We set this up using Unity’s Netcode for Gameobjects architecture. It’s possible that in the future a better solution would be to use Addressables for this purpose.</p>
+</section>
+</section>
+<section id="webgl-limitations">
+<h3>WebGL limitations<a class="headerlink" href="#webgl-limitations" title="Permalink to this heading"></a></h3>
+<p>When developing new Unity tools you should be very careful about introducing new memory requirements or heavy GPU usage. WebGL has a frame rate limitation of about 60hz on most computers and a memory limitation of 2GB.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_addressables_storage.html" class="btn btn-neutral float-left" title="Addressables Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Daniel Birman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

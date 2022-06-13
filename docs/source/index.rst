@@ -26,15 +26,17 @@ Please see the individual projects for installation instructions and documentati
    :caption: Trajectory Planner
 
    02_traj_planner/01_tp_intro
-   02_traj_planner/02_tp_development
+   02_traj_planner/02_tp_alignment
+   02_traj_planner/03_tp_ephys_atlas
+   02_traj_planner/04_tp_development
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Brain Viewer
 
-   03_brain_viewer/01_bv_intro
-   03_brain_viewer/02_bv_development
+   03_unity_neuro/01_urn_intro
+   03_unity_neuro/02_urn_development
 
 .. toctree::
    :hidden:
