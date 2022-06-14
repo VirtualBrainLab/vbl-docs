@@ -59,13 +59,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#interaction">Interaction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#render-calls">Render calls</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ccf-3d-volumes">CCF 3D Volumes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#neurons">Neurons</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#probes">Probes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cameras">Cameras</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a></li>
 </ul>
 </li>
@@ -126,19 +119,19 @@
 <p>The Unity Renderer for Neuroscience allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above. As a user, you only need to read the first set of instructions below (install + instructions).</p>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
-<p>The fastest way to get running is to open http://data.virtualbrainlab.org/UMRenderer in a browser window.</p>
-<p>Your Python environment needs to have the package <code class="docutils literal notranslate"><span class="pre">python-socketio[client]</span></code> installed.</p>
-<p>You can also download the latest standalone desktop app for Windows from the <a class="reference external" href="https://github.com/dbirman/UMRenderer/releases">releases page</a>. Linux and Mac executables are available by request.</p>
+<p>Clone the repository <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/dbirman/UnityNeuroscience/</span></code>. From inside the UnityNeuroscience directory run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>The bundled examples in the Examples folder should open the Unity Renderer web app automatically. You can also run in standalone mode by downloading the desktop app for Windows from the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/releases">releases page</a>. Linux standalone available on request.</p>
 </section>
 <section id="instructions">
 <h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading"></a></h2>
-<p>Open either the web app page and allow it to load or run the desktop client. The desktop client will login automatically using your username (the python package will do the same).</p>
-<p>For now to import the python package you need clone this repository and write your code within the repository folder. See the Examples folder for some Jupyter notebook examples of how this works, as well as how to load data and render it. The minimal requirement is to run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unitymouse.render</span> <span class="k">as</span> <span class="nn">umr</span>
-<span class="n">umr</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unityneuro.render</span> <span class="k">as</span> <span class="nn">urn</span>
+<span class="n">urn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>By default calling <code class="docutils literal notranslate"><span class="pre">setup()</span></code> opens a web browser and links it to your Python client. You can also set <code class="docutils literal notranslate"><span class="pre">standalone</span> <span class="pre">=</span> <span class="pre">True</span></code> to prevent this behavior.</p>
+<p>By default calling <code class="docutils literal notranslate"><span class="pre">setup()</span></code> opens a web browser and links it to your Python client. Setting <code class="docutils literal notranslate"><span class="pre">standalone</span> <span class="pre">=</span> <span class="pre">True</span></code> allows you to connect to the standalone Renderer application.</p>
 <section id="setting-id-on-web">
 <h3>Setting ID on web<a class="headerlink" href="#setting-id-on-web" title="Permalink to this heading"></a></h3>
 <p>If you open the web browser page automatically from Python your ID should be set automatically. If this fails or you need to change your ID press <code class="docutils literal notranslate"><span class="pre">I</span></code> and enter your account username. If you aren’t sure what that is, try running:</p>
@@ -147,6 +140,7 @@
 <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>You can press <code class="docutils literal notranslate"><span class="pre">C</span></code> to open the console to confirm your ID was set correctly.</p>
 </section>
 </section>
 <section id="interaction">
@@ -156,49 +150,15 @@
 <p>Hold shift while left clicking and dragging along the X axis to spin the brain</p>
 <p>Scroll to zoom</p>
 <p>Right click + drag to pan</p>
-<section id="render-calls">
-<h3>Render calls<a class="headerlink" href="#render-calls" title="Permalink to this heading"></a></h3>
-<p>Once you have imported <code class="docutils literal notranslate"><span class="pre">umr</span></code> you can use the following calls to display data. Refer to the <code class="docutils literal notranslate"><span class="pre">unitymouse/render.py</span></code> file for detailed instructions about what data format to use for each call.</p>
-<section id="ccf-3d-volumes">
-<h4>CCF 3D Volumes<a class="headerlink" href="#ccf-3d-volumes" title="Permalink to this heading"></a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_visibility</span></code> - pass a dictionary of area acronyms/IDs keys and boolean visibility values to load 3D meshes <strong>note:</strong> this must be called before you use any of the subsequent functions.</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_color</span></code> - pass a dictionary of area acronyms/IDs and hex color strings to set the color of each 3D mesh.</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_intensity</span></code> - pass a dictionary of area acronyms/IDs and floats to set the intensity according to the currently loaded colormap.</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_colormap</span></code> - pass a string to set the current colormap (options: ‘cool’, ‘gray’)</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_style</span></code> - pass a dictionary of area acronyms/IDs and strings to set the display style (options: ‘whole’, ‘left’, ‘right’)</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_alpha</span></code> - pass a dictionary of area acronyms/IDs and floats to set transparency, only works with the transparent shaders</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_volume_shader</span></code> - pass a dictionary of area acronyms/IDs and strings to set shaders (options: ‘default’, ‘toon’, ‘toon-outline’, ‘transparent-lit’, ‘transparent-unlit’)</p>
-</section>
-<section id="neurons">
-<h4>Neurons<a class="headerlink" href="#neurons" title="Permalink to this heading"></a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">umr.create_neurons</span></code> - pass a list of neuron names as strings to create new neurons</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_positions</span></code> - pass a dictionary of neuron names and lists of 3 floats to set neuron coordinates in ML/AP/DV space, units in um</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_size</span></code> - pass a dictionary of neuron names and floats to set neuron scale, units in um</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_color</span></code> - pass a dictionary of neuron names and hex colors</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_neuron_shape</span></code> - pass a dictionary of neuron names and strings (options: sphere, cube), use cube if you are displaying more than a few thousand objects</p>
-</section>
-<section id="probes">
-<h4>Probes<a class="headerlink" href="#probes" title="Permalink to this heading"></a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">umr.create_probes</span></code> - pass a list of probe names as strings to create new probes</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_positions</span></code> - pass a dictionary of probe names and a list of 3 floats to probe tip coordinates in ML/AP/DV space, units in um</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_angles</span></code> - pass a dictionary of probe names and a list of 3 floats to set probe angles [Azimuth (phi), Elevation (theta), Spin (beta)]</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_probe_size</span></code> - pass a dictionary of probe names and a list of 3 floats to set probe size in width / height / depth (default: [0.07, 3.84, 0.02])</p>
-</section>
-<section id="cameras">
-<h4>Cameras<a class="headerlink" href="#cameras" title="Permalink to this heading"></a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_camera_target</span></code> - pass the ap/dv/lr coordinates in mm</p>
-<p><code class="docutils literal notranslate"><span class="pre">umr.set_camera_y_angle</span></code> - controls the rotation of the camera around the Y (up) axis</p>
-</section>
-</section>
 <section id="settings">
 <h3>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h3>
-<p>In the application settings (which are open by default) you can “explode” the brain using the slider option. You can explode all areas, or just the cortex and hippocampus “vertically” sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.</p>
+<!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
 <p>The camera rotation button continuously increments the <code class="docutils literal notranslate"><span class="pre">set_camera_y_angle</span></code> function to rotate the camera around the current camera target point. The speed is controlled by the slider.</p>
 </section>
 </section>
 <section id="citing">
 <h2>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h2>
-<p>If you use this to make figures for a publication you should cite this repo, email me (dbirman&#64;uw.edu) and I can generate a DOI</p>
+<p>If you use this to make figures for a publication you should cite this repo, email me (dbirman&#64;uw.edu) and I can generate a DOI.</p>
 </section>
 </section>
 

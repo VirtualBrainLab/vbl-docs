@@ -61,3 +61,4 @@ Please see the individual projects for installation instructions and documentati
 
    api_reference.rst
    genindex
+   modindex
