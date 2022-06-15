@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unityneuro.render &mdash; Virtual Brain Lab 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Virtual Brain Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../01_about/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_about/joinus.html">Join Us</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trajectory Planner</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_traj_planner/04_tp_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_unity_neuro/02_urn_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../05_misc/01_vbl_core.html">VBL Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_misc/02_addressables_storage.html">Addressables Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_misc/03_general_dev.html">General Programming Advice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_misc/04_unity_tutorials.html">Unity</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Virtual Brain Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>unityneuro.render</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for unityneuro.render</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">socketio</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">sio</span> <span class="o">=</span> <span class="n">socketio</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<div class="viewcode-block" id="connect"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.connect">[docs]</a><span class="nd">@sio</span><span class="o">.</span><span class="n">event</span>
+<span class="k">def</span> <span class="nf">connect</span><span class="p">():</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(URN) connected to server&quot;</span><span class="p">)</span>
+	<span class="n">ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
+	<span class="n">change_id</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="disconnect"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.disconnect">[docs]</a><span class="nd">@sio</span><span class="o">.</span><span class="n">event</span>
+<span class="k">def</span> <span class="nf">disconnect</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(URN) disconnected from server&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">localhost</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">standalone</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Connect the Unity Renderer for Neuroscience Python API to the web-based (or standalone) viewer</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	localhost : bool, optional</span>
+<span class="sd">		connect to a local development server rather than the remote server, by default False</span>
+<span class="sd">	standalone : bool, optional</span>
+<span class="sd">		connect to a standalone Desktop build rather than the web-based Brain Viewer, by default False</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
+
+	<span class="k">if</span> <span class="n">localhost</span><span class="p">:</span>
+		<span class="n">sio</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000&#39;</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">sio</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;https://um-commserver.herokuapp.com/&#39;</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">standalone</span><span class="p">:</span>
+		<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://data.virtualbrainlab.org/UMRenderer/?ID=&quot;</span> <span class="o">+</span> <span class="n">ID</span>
+		<span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="close"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.close">[docs]</a><span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;Disconnect from the heroku server&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="change_id"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.change_id">[docs]</a><span class="k">def</span> <span class="nf">change_id</span><span class="p">(</span><span class="n">newID</span><span class="p">):</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">,[</span><span class="n">newID</span><span class="p">,</span><span class="s2">&quot;send&quot;</span><span class="p">])</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Login sent with ID: &quot;</span> <span class="o">+</span> <span class="n">newID</span><span class="p">)</span></div>
+
+
+<span class="c1">#######################</span>
+<span class="c1"># ALLEN CCF 3D MODELS #</span>
+<span class="c1">#######################</span>
+
+<div class="viewcode-block" id="load_beryl_areas"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.load_beryl_areas">[docs]</a><span class="k">def</span> <span class="nf">load_beryl_areas</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;Load all beryl areas and set visibility to True</span>
+
+<span class="sd">	NOTE: One of the load functions OR set_area_visibility must be called</span>
+<span class="sd">	before you set the color/alpha/etc of brain regions.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;LoadDefaultAreas&#39;</span><span class="p">,</span> <span class="s1">&#39;beryl&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="load_cosmos_areas"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.load_cosmos_areas">[docs]</a><span class="k">def</span> <span class="nf">load_cosmos_areas</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;Load all cosmos areas and set visibility to True</span>
+
+<span class="sd">	NOTE: One of the load functions OR set_area_visibility must be called</span>
+<span class="sd">	before you set the color/alpha/etc of brain regions.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;LoadDefaultAreas&#39;</span><span class="p">,</span> <span class="s1">&#39;cosmos&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_area_visibility"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_visibility">[docs]</a><span class="k">def</span> <span class="nf">set_area_visibility</span><span class="p">(</span><span class="n">areaData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set visibility of CCF volume regions</span>
+
+<span class="sd">	Note: use &quot;-l&quot; or &quot;-r&quot; suffix to control visibility of one-sided models</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	areaData : dict {string : bool}</span>
+<span class="sd">		Dictionary of area IDs or acronyms and visibility values</span>
+
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_area_visibility({&quot;root&quot;:True})</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_area_visibility({&quot;8&quot;:True})</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_area_visibility({&quot;VISp-l&quot;:True})</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaVisibility&#39;</span><span class="p">,</span> <span class="n">areaData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_area_color"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_color">[docs]</a><span class="k">def</span> <span class="nf">set_area_color</span><span class="p">(</span><span class="n">areaData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set color of CCF volume regions</span>
+
+<span class="sd">	Use &quot;-l&quot; and &quot;-r&quot; to set color of single-sided regions.</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	areaData -- dictionary of area ID or acronym and hex colors {&#39;root&#39;:&quot;#FFFFFF&quot;} or {8:&quot;#FFFFFF&quot;}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaColors&#39;</span><span class="p">,</span> <span class="n">areaData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_area_intensity"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_intensity">[docs]</a><span class="k">def</span> <span class="nf">set_area_intensity</span><span class="p">(</span><span class="n">areaData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set color of CCF volume regions according to intensity along a color map</span>
+
+<span class="sd">	Use &quot;-l&quot; and &quot;-r&quot; to set color of single-sided regions.</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	areaData -- dictionary of area ID or acronym and hex colors {&#39;root&#39;:&quot;#FFFFFF&quot;} or {8:&quot;#FFFFFF&quot;}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaIntensity&#39;</span><span class="p">,</span> <span class="n">areaData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_area_colormap"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_colormap">[docs]</a><span class="k">def</span> <span class="nf">set_area_colormap</span><span class="p">(</span><span class="n">colormap_name</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set colormap name</span>
+
+<span class="sd">	Options are:</span>
+<span class="sd">		cool (default, teal 0 -&gt; magenta 1)</span>
+<span class="sd">		gray (black 0 -&gt; white 1)</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	colormap_name -- string</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaColormap&#39;</span><span class="p">,</span> <span class="n">colormap_name</span><span class="p">)</span></div>
+
+<span class="c1"># def set_volume_explode_style</span>
+
+<div class="viewcode-block" id="set_area_alpha"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_alpha">[docs]</a><span class="k">def</span> <span class="nf">set_area_alpha</span><span class="p">(</span><span class="n">areaData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set alpha of CCF volume regions</span>
+
+<span class="sd">	Use &quot;-l&quot; and &quot;-r&quot; to set color of single-sided regions.</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	areaData -- dictionary of area ID or acronym and float {&#39;root&#39;:0.5} or {8:0.5}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaAlpha&#39;</span><span class="p">,</span> <span class="n">areaData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_area_shader"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_shader">[docs]</a><span class="k">def</span> <span class="nf">set_area_shader</span><span class="p">(</span><span class="n">areaData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set shader of CCF volume regions</span>
+
+<span class="sd">	Use &quot;-l&quot; and &quot;-r&quot; to set color of single-sided regions.</span>
+
+<span class="sd">	Shader options are:</span>
+<span class="sd">		&quot;default&quot;</span>
+<span class="sd">		&quot;toon&quot;</span>
+<span class="sd">		&quot;toon-outline&quot;</span>
+<span class="sd">		&quot;transparent-lit&quot;</span>
+<span class="sd">		&quot;transparent-unlit&quot;</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	areaData -- dictionary of area ID or acronym and string {&#39;root&#39;:0.5} or {8:0.5}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaShader&#39;</span><span class="p">,</span> <span class="n">areaData</span><span class="p">)</span></div>
+
+<span class="c1"># def set_volume_data(areaData):</span>
+<span class="c1"># 	&quot;&quot;&quot;Set data values for volumes (0-&gt;1). These are interpreted in the same way that the</span>
+<span class="c1"># 	set_area_intensity function works, but there is a slider in the settings that</span>
+<span class="c1"># 	lets you move through the index position of the values.</span>
+
+<span class="c1"># 	Inputs:</span>
+<span class="c1"># 	areaData -- dictionary of area ID or acronym and list of floats {&#39;root&#39;:[0,0.5,1.0]}</span>
+<span class="c1"># 	&quot;&quot;&quot;</span>
+<span class="c1"># 	sio.emit(&#39;SetVolumeData&#39;, areaData)</span>
+
+
+<span class="c1">###########</span>
+<span class="c1"># NEURONS #</span>
+<span class="c1">###########</span>
+
+<div class="viewcode-block" id="create_neurons"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.create_neurons">[docs]</a><span class="k">def</span> <span class="nf">create_neurons</span><span class="p">(</span><span class="n">neuronList</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Create neuron objects</span>
+
+<span class="sd">	Note: neurons must be created before setting other values</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	neuronList : List of strings</span>
+<span class="sd">		Names of the new neuron objects</span>
+
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.create_neurons([&quot;n1&quot;,&quot;n2&quot;,&quot;n3&quot;])</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateNeurons&#39;</span><span class="p">,</span> <span class="n">neuronList</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_neuron_positions"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_neuron_positions">[docs]</a><span class="k">def</span> <span class="nf">set_neuron_positions</span><span class="p">(</span><span class="n">neuronData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set positions of neurons in ML/AP/DV space in um units relative to CCF [0,0,0] coordinate</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	neuronData -- dictionary of neuron names and list of coordinates as values {&#39;n1&#39;:[500,1500,1800]}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronPos&#39;</span><span class="p">,</span> <span class="n">neuronData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_neuron_size"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_neuron_size">[docs]</a><span class="k">def</span> <span class="nf">set_neuron_size</span><span class="p">(</span><span class="n">neuronData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set size of neurons in mm units</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	neuronData -- dictionary of neuron names and floats {&#39;n1&#39;: 20}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronSize&#39;</span><span class="p">,</span> <span class="n">neuronData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_neuron_color"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_neuron_color">[docs]</a><span class="k">def</span> <span class="nf">set_neuron_color</span><span class="p">(</span><span class="n">neuronData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set color of neurons</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	neuronData -- dictionary of neuron names and hex colors {&#39;n1&#39;: &#39;#FFFFFF&#39;}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronColor&#39;</span><span class="p">,</span> <span class="n">neuronData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_neuron_shape"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_neuron_shape">[docs]</a><span class="k">def</span> <span class="nf">set_neuron_shape</span><span class="p">(</span><span class="n">neuronData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Change the neuron mesh</span>
+
+<span class="sd">	Options:</span>
+<span class="sd">		sphere (default)</span>
+<span class="sd">		cube (lower resolution option with better performance)</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	neuronData -- dictionary of neuron names and strings {&#39;n1&#39;:&#39;sphere&#39;}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronShape&#39;</span><span class="p">,</span> <span class="n">neuronData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="create_probes"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.create_probes">[docs]</a><span class="k">def</span> <span class="nf">create_probes</span><span class="p">(</span><span class="n">probeList</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Create probe objects</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	probeList -- list of probe names [&#39;p1&#39;,&#39;p2&#39;]</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateProbes&#39;</span><span class="p">,</span> <span class="n">probeList</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_probe_colors"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_colors">[docs]</a><span class="k">def</span> <span class="nf">set_probe_colors</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe object colors</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	probeData -- dictionary of probe names and color hex codes {&#39;p1&#39;:&#39;#FFFFFF&#39;}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeColors&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_probe_positions"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_positions">[docs]</a><span class="k">def</span> <span class="nf">set_probe_positions</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe object ML/AP/DV positions in um relative to the CCF (0,0,0) point</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	probeData -- dictionary of probe names and float3 list {&#39;p1&#39;:[500, 500, 500]}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbePos&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_probe_angles"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_angles">[docs]</a><span class="k">def</span> <span class="nf">set_probe_angles</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe azimuth/elevation/spin angles in degrees</span>
+<span class="sd">	Azimuth 0 = AP axis, + rotates clockwise</span>
+<span class="sd">	Elevation 0 = Vertical, 90 = Horizontal</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	probeData -- dictionary of probe names and float3 list {&#39;p1&#39;:[-90,0,0]}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeAngles&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+
+<span class="c1"># def set_probe_style(probeData):</span>
+<span class="c1"># 	&quot;&quot;&quot;Set probe rendering style</span>
+
+<span class="c1"># 	Style options are:</span>
+<span class="c1"># 		&quot;line&quot;</span>
+<span class="c1"># 		&quot;probe-tip&quot;</span>
+<span class="c1"># 		&quot;probe-silicon&quot;</span>
+<span class="c1"># 		&quot;probe&quot;</span>
+
+<span class="c1"># 	Inputs:</span>
+<span class="c1"># 	probeData -- dictionary of probe names and string {&#39;p1&#39;:&#39;line&#39;}</span>
+<span class="c1"># 	&quot;&quot;&quot;</span>
+<span class="c1"># 	sio.emit(&#39;SetProbeStyle&#39;, probeData)</span>
+
+<div class="viewcode-block" id="set_probe_size"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_size">[docs]</a><span class="k">def</span> <span class="nf">set_probe_size</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe rendering style</span>
+
+<span class="sd">	By default probes are scaled to their real size (70um wide x 20um deep x 3.84 mm tall)</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	probeData -- dictionary of probe names and float3 {&#39;p1&#39;:[0.07, 3.84, 0.02]}</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeSize&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+
+<span class="c1">##########</span>
+<span class="c1"># CAMERA #</span>
+<span class="c1">##########</span>
+
+<div class="viewcode-block" id="set_camera_target"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_target">[docs]</a><span class="k">def</span> <span class="nf">set_camera_target</span><span class="p">(</span><span class="n">cameraData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set camera angle around the Y (vertical) axis</span>
+
+<span class="sd">	By default the camera is centered at the center point of the CCF space</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	cameraData -- list containing the CCF coordinate in mm to target ap/dv/lr, default [5.7, 4, 6.6]</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraTarget&#39;</span><span class="p">,</span> <span class="n">cameraData</span><span class="p">)</span></div>
+
+<span class="c1"># def set_camera_target_area(cameraData):</span>
+<span class="c1"># 	&quot;&quot;&quot;Set camera angle around the Y (vertical) axis</span>
+
+<span class="c1"># 	By default the camera is centered at the center point of the CCF space. Append &quot;-l&quot; or &quot;-r&quot;</span>
+<span class="c1"># 	to target only the left hemisphere or right hemisphere areas. Note that area centers come from</span>
+<span class="c1"># 	the area mesh models, which for some areas (especially long/curved areas) will not be where</span>
+<span class="c1"># 	you think the center &quot;should&quot; be, so to speak. For those areas, calculate a center yourself</span>
+<span class="c1"># 	and use set_camera_target([ap,dv,lr])</span>
+
+<span class="c1"># 	Inputs:</span>
+<span class="c1"># 	cameraData -- string area name or acronym e.g. &#39;HIP&#39; or &#39;HIP-l&#39;</span>
+<span class="c1"># 	&quot;&quot;&quot;</span>
+<span class="c1"># 	sio.emit(&#39;SetCameraTargetArea&#39;, cameraData)</span>
+
+<div class="viewcode-block" id="set_camera_y_angle"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_y_angle">[docs]</a><span class="k">def</span> <span class="nf">set_camera_y_angle</span><span class="p">(</span><span class="n">cameraData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set camera angle around the Y (vertical) axis</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">	cameraData -- degree value to set the camera angle to, e.g. 0-&gt;360</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraYAngle&#39;</span><span class="p">,</span> <span class="n">cameraData</span><span class="p">)</span></div>
+
+<span class="c1">###########</span>
+<span class="c1"># VOLUMES #</span>
+<span class="c1">###########</span>
+
+<div class="viewcode-block" id="create_volume"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.create_volume">[docs]</a><span class="k">def</span> <span class="nf">create_volume</span><span class="p">(</span><span class="n">volumeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Create an empty volume</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	volumeData : string</span>
+<span class="sd">		name of volume</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateVolume&#39;</span><span class="p">,</span> <span class="n">volumeData</span><span class="p">)</span></div>
+
+	
+<div class="viewcode-block" id="set_volume_colormap"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_volume_colormap">[docs]</a><span class="k">def</span> <span class="nf">set_volume_colormap</span><span class="p">(</span><span class="n">volumeName</span><span class="p">,</span> <span class="n">volumeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set the colormap for a volume, maximum of 255 values</span>
+
+<span class="sd">	Note: currently you must set the colormap *before* sending data, the colormap will not re-interpolate the colors</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	volumeName : string</span>
+<span class="sd">		Volume name</span>
+<span class="sd">	volumeData : list of string</span>
+<span class="sd">		List of hex colors, values can be RGB or RGBA</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">newList</span> <span class="o">=</span> <span class="n">volumeData</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+	<span class="n">newList</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">volumeName</span><span class="p">)</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetVolumeColormap&#39;</span><span class="p">,</span> <span class="n">newList</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_volume_visibility"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_volume_visibility">[docs]</a><span class="k">def</span> <span class="nf">set_volume_visibility</span><span class="p">(</span><span class="n">volumeName</span><span class="p">,</span> <span class="n">volumeVisibility</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Change the visibility of a volume</span>
+
+<span class="sd">	Note: a volume must have data before it can be made visible</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	volumeName : string</span>
+<span class="sd">		Volume name</span>
+<span class="sd">	volumeVisibility : bool</span>
+<span class="sd">		New visibility setting</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetVolumeVisibility&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">volumeName</span><span class="p">,</span> <span class="n">volumeVisibility</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="set_volume_data"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_volume_data">[docs]</a><span class="k">def</span> <span class="nf">set_volume_data</span><span class="p">(</span><span class="n">volumeName</span><span class="p">,</span> <span class="n">volumeData</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set the data for a volume using uint8 values from 0-&gt;254 (255 is reserved for transparent).</span>
+<span class="sd">	Sending your data as any type other than np.uint8 is potentially unsafe.</span>
+<span class="sd">	Data will be remapped in the renderer according to the active colormap.</span>
+<span class="sd">	nan values will be set to transparent.</span>
+
+<span class="sd">	Note: this function slices the data by depth and sends data slice-by-slice, it may take a long time to run. Or does it?</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	volumeData : [string, numpy matrix]</span>
+<span class="sd">		Name of the volume and the volume itself. Volume should be [528, 320, 456] with +x = posterior, +y = ventral, +z = right</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">localData</span> <span class="o">=</span> <span class="n">volumeData</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+	<span class="n">localData</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">localData</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">255</span>
+	<span class="n">localData</span> <span class="o">=</span> <span class="n">localData</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">di</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">localData</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+		<span class="n">set_volume_slice_data</span><span class="p">(</span><span class="n">volumeName</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">456</span><span class="o">-</span><span class="n">di</span><span class="p">),</span> <span class="n">localData</span><span class="p">[:,:,</span><span class="n">di</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="set_volume_slice_data"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_volume_slice_data">[docs]</a><span class="k">def</span> <span class="nf">set_volume_slice_data</span><span class="p">(</span><span class="n">volumeName</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">volumeBytes</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set a single slice of data in a volume</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	volumeName : string</span>
+<span class="sd">		name of volume</span>
+<span class="sd">	slice : int</span>
+<span class="sd">		depth slice in volume (on lr dimension)</span>
+<span class="sd">	volumeBytes : bytes</span>
+<span class="sd">		flattened bytes array from slice</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetVolumeDataMeta&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">volumeName</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetVolumeData&#39;</span><span class="p">,</span> <span class="n">volumeBytes</span><span class="p">)</span></div>
+
+<span class="c1">######################</span>
+<span class="c1"># VOLUMES: Allen CCF #</span>
+<span class="c1">######################</span>
+
+<span class="c1"># special case of the regular volume visibility function</span>
+<div class="viewcode-block" id="set_allen_volume_visibility"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_allen_volume_visibility">[docs]</a><span class="k">def</span> <span class="nf">set_allen_volume_visibility</span><span class="p">(</span><span class="n">allenVisibility</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	allenData : bool</span>
+<span class="sd">		Visibility of Allen CCF volume</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">set_volume_visibility</span><span class="p">(</span><span class="s1">&#39;allen&#39;</span><span class="p">,</span><span class="n">allenVisibility</span><span class="p">)</span></div>
+
+<span class="c1"># def set_allen_annotation_color(annotationData):</span>
+<span class="c1"># 	&quot;&quot;&quot;Set the color of the annotation dataset areas on the slice</span>
+
+<span class="c1"># 	Inputs:</span>
+<span class="c1"># 	annotationData -- dictionary of acronyms/IDs and hex color codes {&#39;root&#39;:&#39;#FFFFFF&#39;}</span>
+<span class="c1"># 	&quot;&quot;&quot;</span>
+<span class="c1"># 	sio.emit(&#39;SetSliceColor&#39;, annotationData)</span>
+
+<div class="viewcode-block" id="clear"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.clear">[docs]</a><span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="clear_neurons"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.clear_neurons">[docs]</a><span class="k">def</span> <span class="nf">clear_neurons</span><span class="p">():</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="s1">&#39;neurons&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="clear_probes"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.clear_probes">[docs]</a><span class="k">def</span> <span class="nf">clear_probes</span><span class="p">():</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="s1">&#39;probes&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="clear_areas"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.clear_areas">[docs]</a><span class="k">def</span> <span class="nf">clear_areas</span><span class="p">():</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="s1">&#39;areas&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="clear_volumes"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.clear_volumes">[docs]</a><span class="k">def</span> <span class="nf">clear_volumes</span><span class="p">():</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="s1">&#39;volumes&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Daniel Birman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

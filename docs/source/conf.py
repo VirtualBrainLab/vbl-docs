@@ -33,7 +33,8 @@ release = '0.1.0'
 extensions = [
     'sphinx_rtd_theme',
     'myst_parser',
-    'sphinx.ext.autosummary'
+    'sphinx.ext.autosummary',
+    'sphinx.ext.viewcode'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -56,3 +57,15 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# -- Options for autosummary and autodoc ------------------------------------
+autosummary_generate = True
+# Don't add module names to function docs
+add_module_names = False
+
+autodoc_default_options = {
+    'members': True,
+    'member-order': 'bysource',
+    'undoc-members': True,
+    'show-inheritance': False
+}

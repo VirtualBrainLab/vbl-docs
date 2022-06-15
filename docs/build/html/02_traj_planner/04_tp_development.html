@@ -18,7 +18,9 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation and Use" href="../03_unity_neuro/01_urn_intro.html" />
+    <link rel="prev" title="Electrophysiology Atlas" href="03_tp_ephys_atlas.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,14 +44,45 @@
 <li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Trajectory Planner</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_tp_intro.html">Installation and Use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_tp_development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#organization">Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unity">Unity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assets">Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scenes">Scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#core-components">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#annotation-dataset">Annotation Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#allen-ccf-3d-models">Allen CCF 3D Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#probes">Probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inplane-slice">Inplane Slice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collisions">Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rigs">Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building-new-features-and-fixing-bugs">Building new features and fixing bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#builds">Builds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addressables">Addressables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#remote-build-and-load-paths">Remote Build and Load Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#webgl">WebGL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-builds">Mac builds</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../03_brain_viewer/01_bv_intro.html">Installation and Use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_brain_viewer/02_bv_development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/02_urn_development.html">Development</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
@@ -59,7 +92,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../05_misc/01_vbl_core.html">VBL Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05_misc/02_addressables_storage.html">Addressables Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05_misc/03_unity_tutorials.html">Unity Tips and Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_misc/03_general_dev.html">General Programming Advice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_misc/04_unity_tutorials.html">Unity</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -92,6 +126,7 @@
              
   <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h1>
+<p>The Trajectory Planner is under active development, there is no requirement to maintain backwards compatibility with version changes. We are aiming for a 1.0.0 release at the end of 2022.</p>
 <section id="organization">
 <h2>Organization<a class="headerlink" href="#organization" title="Permalink to this heading"></a></h2>
 <section id="unity">
@@ -110,12 +145,36 @@
 <section id="scenes">
 <h3>Scenes<a class="headerlink" href="#scenes" title="Permalink to this heading"></a></h3>
 <p>When contributing to a VBL project you should avoid modifying the main scenes, except to add or remove <strong>Prefab</strong> objects. Merges between scenes are very difficult to handle in git and should be avoided.</p>
+<p>There are two main scenes, a loading scene which loads very quickly and present users with a text warning that it takes time to load the main scene. A second scene loads the actual trajectory planner itself.</p>
 </section>
 </section>
 <section id="core-components">
 <h2>Core components<a class="headerlink" href="#core-components" title="Permalink to this heading"></a></h2>
-<p>The trajectory planner runs out of a central class <code class="docutils literal notranslate"><span class="pre">TP_TrajectoryPlannerManager</span></code> which coordinates the loading and …</p>
-<p>todo</p>
+<p>The trajectory planner runs out of a central class <code class="docutils literal notranslate"><span class="pre">TP_TrajectoryPlannerManager</span></code> which coordinates loading the main functionality of the planner. Most of the code uses a hub-and-spoke model where other components will communicate with the tpmanager but not with each other, to reduce the likelihood of creating deadlock situations.</p>
+<section id="annotation-dataset">
+<h3>Annotation Dataset<a class="headerlink" href="#annotation-dataset" title="Permalink to this heading"></a></h3>
+<p>At the core of the planner is the Allen CCF annotation dataset. You can learn more about the dataset on the Allen’s <a class="reference external" href="http://help.brain-map.org/display/mouseconnectivity/API#API-DownloadAtlas3-DReferenceModels=">documentation page</a>. We use the 25 um atlas which has dimensions 528 x 320 x 456, the <code class="docutils literal notranslate"><span class="pre">nrrd</span></code> file downloaded from the Allen.</p>
+<p>The annotation dataset is stored internally as a <a class="reference external" href="https://docs.unity3d.com/ScriptReference/Texture3D.html">Texture3D</a> object for GPU access as well as in an <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/AnnotationDataset.cs">AnnotationDataset</a> object.</p>
+</section>
+<section id="allen-ccf-3d-models">
+<h3>Allen CCF 3D Models<a class="headerlink" href="#allen-ccf-3d-models" title="Permalink to this heading"></a></h3>
+<p>The 3D models are controlled via the <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/CCFModelControl.cs">CCFModelControl</a> component. Models are loaded from the shared addressables system and the mesh is saved locally to render the models.</p>
+</section>
+<section id="probes">
+<h3>Probes<a class="headerlink" href="#probes" title="Permalink to this heading"></a></h3>
+<p>Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeController.cs">TP_ProbeController</a> component which handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs">TP_ProbePanel</a> and <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeUIManager.cs">TP_ProbeUIManager</a> components. The probe panels are interpolated using a <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph">custom shader</a> which is a variant of the Inplane Slice shader.</p>
+</section>
+<section id="inplane-slice">
+<h3>Inplane Slice<a class="headerlink" href="#inplane-slice" title="Permalink to this heading"></a></h3>
+<p>The inplane slice is rendered using a <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/InPlaneSliceShader.shadergraph">custom shader</a> whose settings are controlled by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_InPlaneSlice.cs">TP_InPlaneSlice</a> component.</p>
+</section>
+<section id="collisions">
+<h3>Collisions<a class="headerlink" href="#collisions" title="Permalink to this heading"></a></h3>
+</section>
+<section id="rigs">
+<h3>Rigs<a class="headerlink" href="#rigs" title="Permalink to this heading"></a></h3>
+<p>Rigs are just a collection of 3D models stored as a prefab and marked as an addressable asset. These are loaded by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ToggleRigs.cs">TP_ToggleRigs</a> component, which also adds their corresponding colliders.</p>
+</section>
 </section>
 <section id="building-new-features-and-fixing-bugs">
 <h2>Building new features and fixing bugs<a class="headerlink" href="#building-new-features-and-fixing-bugs" title="Permalink to this heading"></a></h2>
@@ -156,7 +215,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_tp_ephys_atlas.html" class="btn btn-neutral float-left" title="Electrophysiology Atlas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../03_unity_neuro/01_urn_intro.html" class="btn btn-neutral float-right" title="Installation and Use" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

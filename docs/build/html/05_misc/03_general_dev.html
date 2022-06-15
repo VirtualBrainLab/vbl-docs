@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General Programming Advice &mdash; Virtual Brain Lab 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unity" href="04_unity_tutorials.html" />
+    <link rel="prev" title="Addressables Storage" href="02_addressables_storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Virtual Brain Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trajectory Planner</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/02_urn_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_vbl_core.html">VBL Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_addressables_storage.html">Addressables Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General Programming Advice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-environment">Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_unity_tutorials.html">Unity</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Virtual Brain Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>General Programming Advice</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/05_misc/03_general_dev.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general-programming-advice">
+<h1>General Programming Advice<a class="headerlink" href="#general-programming-advice" title="Permalink to this heading"></a></h1>
+<p>Some general philosophy about coding is stored here. A good more in-depth dive into modern practices in science can be found <a class="reference external" href="https://goodresearch.dev">here</a>.</p>
+<p>In general my approach is to split projects into <strong>pipelines</strong> which process data, <strong>pilot notebooks</strong> which are for testing, <strong>summary notebooks</strong> which generate the final figures for processed data intended for public release or publication, and <strong>applications</strong> which perform a specialized function for public users. A pipeline should, ideally, run entirely on its own given access to raw data and may require tests and assertions to maintain when part of a collaboration. Pilot notebooks are where you do all our debugging and testing and the general expectation is that they will never be run by other users. Summary notebooks are the final output of a project and often tied closely with a publication. Applications are standalone products where all the necessary data are bundled into the product, which is released as an app or even better as a website.</p>
+<p>I build pipelines in Python and use Jupyter to create notebooks. For applications I build in Unity or in straight HTML/Javascript for simple apps.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<p>To work in the VBL ecosystem you will need to install Python 3.9, preferably through <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a>. You will also need the <span class="xref myst">Unity 2020.3 LTS</span> installed and the build tools for Windows and WebGL. I recommend you install and link <a class="reference external" href="https://visualstudio.microsoft.com/vs/">Visual Studio 2022</a> to Unity and use <a class="reference external" href="https://code.visualstudio.com/">VSCode</a> for Python.</p>
+<p>For version control I use <a class="reference external" href="https://desktop.github.com/">Github Desktop</a> rather than mess around with the command line, but this is because I have dozens of repositories some of which have submodules. If this is your first time using git and you are only handling a single repository learning the command line can be to your advantage.</p>
+<p>If you plan to work on the Unity Renderer for Neuroscience <strong>Server</strong> or the ephys-atlas server you will need to install <a class="reference external" href="https://nodejs.org/en/">Node.js</a>.</p>
+<section id="python-environment">
+<h3>Python environment<a class="headerlink" href="#python-environment" title="Permalink to this heading"></a></h3>
+<p>For the VBL you should be using the <code class="docutils literal notranslate"><span class="pre">iblenv</span></code> conda environment during development, which you can <a class="reference external" href="https://github.com/int-brain-lab/iblenv">install here</a>. We expect to migrate to the Open Ephys environment in the near future.</p>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h3>
+<p>If you plan to modify this documentation you will need to install Sphinx <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">sphinx</span></code> in your environment. Use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in the <code class="docutils literal notranslate"><span class="pre">vbl-docs/docs</span></code> folder to run the build script.</p>
+<p>To build the C# documentation you need to run <a class="reference external" href="https://doxygen.nl/">Doxygen</a> in XML output mode and then use <a class="reference external" href="https://breathe.readthedocs.io/en/latest/">Breathe</a> to convert the XML output for use with Sphinx.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_addressables_storage.html" class="btn btn-neutral float-left" title="Addressables Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_unity_tutorials.html" class="btn btn-neutral float-right" title="Unity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Daniel Birman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

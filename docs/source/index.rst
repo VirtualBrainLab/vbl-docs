@@ -52,7 +52,8 @@ Please see the individual projects for installation instructions and documentati
 
    05_misc/01_vbl_core
    05_misc/02_addressables_storage
-   05_misc/03_unity_tutorials
+   05_misc/03_general_dev
+   05_misc/04_unity_tutorials
 
 .. toctree::
    :hidden:
@@ -60,5 +61,3 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 1
 
    api_reference.rst
-   genindex
-   modindex
