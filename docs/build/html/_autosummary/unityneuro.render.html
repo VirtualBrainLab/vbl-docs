@@ -345,9 +345,9 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>area_colors<span class="classifier">dict {string: string}</span></dt><dd><p>Keys are area IDs or acronyms, Values are hex colors</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">({</span><span class="s2">&quot;VISp-l&quot;</span><span class="p">:</span><span class="s2">&quot;#00000080&quot;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">({</span><span class="s2">&quot;VISp-l&quot;</span><span class="p">:</span><span class="s2">&quot;#00000080&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -360,8 +360,8 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>area_intensities<span class="classifier">dict {string: float}</span></dt><dd><p>keys are area IDs or acronyms, values are hex colors</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_intensity</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_intensity</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_intensity</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_intensity</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -391,8 +391,8 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>area_alpha<span class="classifier">dict {string: float}</span></dt><dd><p>keys are area IDs or acronyms, values are percent transparency</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -471,7 +471,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>neuron_sizes<span class="classifier">dict {string: float}</span></dt><dd><p>keys are neuron names, values are float size in mm</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="mf">0.02</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="mf">0.02</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -484,7 +484,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>neuron_colors<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are hex colors</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -504,7 +504,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>neuron_shapes<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are shape strings</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_shapes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;sphere&#39;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_neuron_shapes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;sphere&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -521,7 +521,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>neuron_materials<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are material strings</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_materials</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;lit-transparent&#39;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_neuron_materials</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;lit-transparent&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -534,7 +534,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>probe_names<span class="classifier">string list</span></dt><dd><p>list of names of new probes to create</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">create_probes</span><span class="p">([</span><span class="s1">&#39;p1&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">create_probes</span><span class="p">([</span><span class="s1">&#39;p1&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -547,7 +547,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>probe_colors<span class="classifier">dict {string: string}</span></dt><dd><p>key is probe name, value is hex color</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_colors</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_probe_colors</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -560,7 +560,7 @@ before you set the color/alpha/etc of brain regions.</p>
 <dt>probe_positions<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats in ml/ap/dv in um</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_positions</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2500</span><span class="p">]})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_probe_positions</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2500</span><span class="p">]})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -575,7 +575,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>probe_angles<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats in az/elev/spin</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_angles</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_probe_angles</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -588,7 +588,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>probe_size<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats for width, height, depth</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_size</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mf">0.070</span><span class="p">,</span> <span class="mf">3.840</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">]})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_probe_size</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mf">0.070</span><span class="p">,</span> <span class="mf">3.840</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">]})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -601,7 +601,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>camera_target_coordinate<span class="classifier">float list</span></dt><dd><p>list of coordinates in ml/ap/dv in um</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_camera_target</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_camera_target</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -616,7 +616,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>preserve_target<span class="classifier">bool, optional</span></dt><dd><p>when True keeps the camera aimed at the current target, when False preserves the camera rotation, by default True</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_camera_position</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_camera_position</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -651,7 +651,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>volume_name<span class="classifier">string</span></dt><dd><p>volume name</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">create_volume</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">create_volume</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -667,7 +667,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>volumeData<span class="classifier">list of string</span></dt><dd><p>list of hex colors, values can be RGB or RGBA</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_volume_colormap</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,[</span><span class="s1">&#39;#800000&#39;</span><span class="p">,</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_volume_colormap</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,[</span><span class="s1">&#39;#800000&#39;</span><span class="p">,</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -682,7 +682,7 @@ Elevation 0 = probe is vertical, 90 = horizontal</p>
 <dt>volumeVisibility<span class="classifier">bool</span></dt><dd><p>New visibility setting</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_volume_visibility</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_volume_visibility</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

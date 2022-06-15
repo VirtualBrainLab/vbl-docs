@@ -117,11 +117,11 @@
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
 
-<span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+<span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;log-warning&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="message"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.message">[docs]</a><span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="message"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.message">[docs]</a><span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;log-error&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">FAIL</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span></div>
 
@@ -143,7 +143,7 @@
 		<span class="n">sio</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;https://um-commserver.herokuapp.com/&#39;</span><span class="p">)</span>
 
 	<span class="k">if</span> <span class="ow">not</span> <span class="n">standalone</span><span class="p">:</span>
-		<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://data.virtualbrainlab.org/urnenderer/?ID=&quot;</span> <span class="o">+</span> <span class="n">ID</span>
+		<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://data.virtualbrainlab.org/UnityNeuro/?ID=&quot;</span> <span class="o">+</span> <span class="n">ID</span>
 		<span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="close"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.close">[docs]</a><span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
@@ -204,9 +204,9 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_color( {&#39;grey&#39;:&quot;#FFFFFF&quot;})</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_color({8:&quot;#FFFFFF&quot;})</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_color({&quot;VISp-l&quot;:&quot;#00000080&quot;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_color( {&#39;grey&#39;:&quot;#FFFFFF&quot;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_color({8:&quot;#FFFFFF&quot;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_color({&quot;VISp-l&quot;:&quot;#00000080&quot;})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaColors&#39;</span><span class="p">,</span> <span class="n">area_colors</span><span class="p">)</span></div>
 
@@ -220,8 +220,8 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_intensity( {&#39;grey&#39;:1.0})</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_intensity({8:1.0})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_intensity( {&#39;grey&#39;:1.0})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_intensity({8:1.0})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaIntensity&#39;</span><span class="p">,</span> <span class="n">area_intensities</span><span class="p">)</span></div>
 
@@ -251,8 +251,8 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_alpha( {&#39;grey&#39;:0.5})</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_area_alpha({8:0.5})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_alpha( {&#39;grey&#39;:0.5})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_area_alpha({8:0.5})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaAlpha&#39;</span><span class="p">,</span> <span class="n">area_alpha</span><span class="p">)</span></div>
 
@@ -337,7 +337,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_neuron_sizes( {&#39;n1&#39;:0.02})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_neuron_sizes( {&#39;n1&#39;:0.02})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronSize&#39;</span><span class="p">,</span> <span class="n">neuron_sizes</span><span class="p">)</span></div>
 
@@ -351,7 +351,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_neuron_sizes( {&#39;n1&#39;:&quot;#FFFFFF&quot;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_neuron_sizes( {&#39;n1&#39;:&quot;#FFFFFF&quot;})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronColor&#39;</span><span class="p">,</span> <span class="n">neuron_colors</span><span class="p">)</span></div>
 
@@ -369,7 +369,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_neuron_shapes( {&#39;n1&#39;:&#39;sphere&#39;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_neuron_shapes( {&#39;n1&#39;:&#39;sphere&#39;})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronShape&#39;</span><span class="p">,</span> <span class="n">neuron_shapes</span><span class="p">)</span></div>
 
@@ -388,7 +388,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_neuron_materials( {&#39;n1&#39;:&#39;lit-transparent&#39;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_neuron_materials( {&#39;n1&#39;:&#39;lit-transparent&#39;})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetNeuronMaterial&#39;</span><span class="p">,</span> <span class="n">neuron_materials</span><span class="p">)</span></div>
 
@@ -406,7 +406,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.create_probes([&#39;p1&#39;])</span>
+<span class="sd">	&gt;&gt;&gt; urn.create_probes([&#39;p1&#39;])</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateProbes&#39;</span><span class="p">,</span> <span class="n">probe_names</span><span class="p">)</span></div>
 
@@ -420,7 +420,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_probe_colors({&#39;p1&#39;:&#39;#FFFFFF&#39;})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_probe_colors({&#39;p1&#39;:&#39;#FFFFFF&#39;})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeColors&#39;</span><span class="p">,</span> <span class="n">probe_colors</span><span class="p">)</span></div>
 
@@ -434,7 +434,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_probe_positions({&#39;p1&#39;:[500,1500,2500]})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_probe_positions({&#39;p1&#39;:[500,1500,2500]})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbePos&#39;</span><span class="p">,</span> <span class="n">probe_positions</span><span class="p">)</span></div>
 
@@ -451,7 +451,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_probe_angles({&#39;p1&#39;:[-90,0,0]})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_probe_angles({&#39;p1&#39;:[-90,0,0]})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeAngles&#39;</span><span class="p">,</span> <span class="n">probe_angles</span><span class="p">)</span></div>
 
@@ -479,7 +479,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_probe_size({&#39;p1&#39;:[0.070, 3.840, 0.020]})</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_probe_size({&#39;p1&#39;:[0.070, 3.840, 0.020]})</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeSize&#39;</span><span class="p">,</span> <span class="n">probe_size</span><span class="p">)</span></div>
 
@@ -497,7 +497,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_camera_target([500,1500,1000])</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_camera_target([500,1500,1000])</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraTarget&#39;</span><span class="p">,</span> <span class="n">camera_target_coordinate</span><span class="p">)</span></div>
 
@@ -513,7 +513,7 @@
 <span class="sd">	</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_camera_position([500,1500,1000])</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_camera_position([500,1500,1000])</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">packet</span> <span class="o">=</span> <span class="n">camera_pos</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 	<span class="n">packet</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">preserve_target</span><span class="p">)</span>
@@ -557,7 +557,7 @@
 
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.create_volume(&#39;histology&#39;)</span>
+<span class="sd">	&gt;&gt;&gt; urn.create_volume(&#39;histology&#39;)</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateVolume&#39;</span><span class="p">,</span> <span class="n">volume_name</span><span class="p">)</span></div>
 
@@ -576,7 +576,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_volume_colormap(&#39;histology&#39;,[&#39;#800000&#39;,&#39;#FF0000&#39;])</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_volume_colormap(&#39;histology&#39;,[&#39;#800000&#39;,&#39;#FF0000&#39;])</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">data_packet</span> <span class="o">=</span> <span class="n">colormap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 	<span class="n">data_packet</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">volume_name</span><span class="p">)</span>
@@ -594,7 +594,7 @@
 <span class="sd">		</span>
 <span class="sd">	Examples</span>
 <span class="sd">	--------</span>
-<span class="sd">	&gt;&gt;&gt; umr.set_volume_visibility(&#39;histology&#39;, True)</span>
+<span class="sd">	&gt;&gt;&gt; urn.set_volume_visibility(&#39;histology&#39;, True)</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetVolumeVisibility&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">volume_name</span><span class="p">,</span> <span class="n">volume_visibility</span><span class="p">])</span></div>
 

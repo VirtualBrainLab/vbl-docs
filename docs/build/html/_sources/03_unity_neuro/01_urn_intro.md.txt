@@ -14,10 +14,8 @@ The Unity Renderer for Neuroscience allows you to connect your Python scripts to
 
 ## Install
 
-Clone the repository `git clone https://github.com/dbirman/UnityNeuroscience/`. From inside the UnityNeuroscience directory run:
-
 ```
-pip install -e .
+pip install unityneuro
 ```
 
 The bundled examples in the Examples folder should open the Unity Renderer web app automatically. You can also run in standalone mode by downloading the desktop app for Windows from the [releases page](https://github.com/dbirman/UnityNeuroscience/releases). Linux standalone available on request.
