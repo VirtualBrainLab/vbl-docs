@@ -396,39 +396,64 @@
 <span class="c1"># PROBES #</span>
 <span class="c1">##########</span>
 
-<div class="viewcode-block" id="create_probes"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.create_probes">[docs]</a><span class="k">def</span> <span class="nf">create_probes</span><span class="p">(</span><span class="n">probeList</span><span class="p">):</span>
-	<span class="c1"># &quot;&quot;&quot;Create probe objects</span>
+<div class="viewcode-block" id="create_probes"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.create_probes">[docs]</a><span class="k">def</span> <span class="nf">create_probes</span><span class="p">(</span><span class="n">probe_names</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Create probe objects</span>
 
-	<span class="c1"># Inputs:</span>
-	<span class="c1"># probeList -- list of probe names [&#39;p1&#39;,&#39;p2&#39;]</span>
-	<span class="c1"># &quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateProbes&#39;</span><span class="p">,</span> <span class="n">probeList</span><span class="p">)</span></div>
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	probe_names : string list</span>
+<span class="sd">		list of names of new probes to create</span>
 
-<div class="viewcode-block" id="set_probe_colors"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_colors">[docs]</a><span class="k">def</span> <span class="nf">set_probe_colors</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
-	<span class="c1"># &quot;&quot;&quot;Set probe object colors</span>
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.create_probes([&#39;p1&#39;])</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;CreateProbes&#39;</span><span class="p">,</span> <span class="n">probe_names</span><span class="p">)</span></div>
 
-	<span class="c1"># Inputs:</span>
-	<span class="c1"># probeData -- dictionary of probe names and color hex codes {&#39;p1&#39;:&#39;#FFFFFF&#39;}</span>
-	<span class="c1"># &quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeColors&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+<div class="viewcode-block" id="set_probe_colors"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_colors">[docs]</a><span class="k">def</span> <span class="nf">set_probe_colors</span><span class="p">(</span><span class="n">probe_colors</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set colors of probe objects</span>
 
-<div class="viewcode-block" id="set_probe_positions"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_positions">[docs]</a><span class="k">def</span> <span class="nf">set_probe_positions</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
-	<span class="c1"># &quot;&quot;&quot;Set probe object ML/AP/DV positions in um relative to the CCF (0,0,0) point</span>
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	probe_colors : dict {string: string}</span>
+<span class="sd">		key is probe name, value is hex color</span>
 
-	<span class="c1"># Inputs:</span>
-	<span class="c1"># probeData -- dictionary of probe names and float3 list {&#39;p1&#39;:[500, 500, 500]}</span>
-	<span class="c1"># &quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbePos&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_probe_colors({&#39;p1&#39;:&#39;#FFFFFF&#39;})</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeColors&#39;</span><span class="p">,</span> <span class="n">probe_colors</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="set_probe_angles"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_angles">[docs]</a><span class="k">def</span> <span class="nf">set_probe_angles</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
-	<span class="c1"># &quot;&quot;&quot;Set probe azimuth/elevation/spin angles in degrees</span>
-	<span class="c1"># Azimuth 0 = AP axis, + rotates clockwise</span>
-	<span class="c1"># Elevation 0 = Vertical, 90 = Horizontal</span>
+<div class="viewcode-block" id="set_probe_positions"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_positions">[docs]</a><span class="k">def</span> <span class="nf">set_probe_positions</span><span class="p">(</span><span class="n">probe_positions</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe tip position in ml/ap/dv coordinates in um relative to the CCF (0,0,0) point</span>
 
-	<span class="c1"># Inputs:</span>
-	<span class="c1"># probeData -- dictionary of probe names and float3 list {&#39;p1&#39;:[-90,0,0]}</span>
-	<span class="c1"># &quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeAngles&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	probe_positions : dict {string: float list}</span>
+<span class="sd">		key is probe name, value is list of floats in ml/ap/dv in um</span>
+
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_probe_positions({&#39;p1&#39;:[500,1500,2500]})</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbePos&#39;</span><span class="p">,</span> <span class="n">probe_positions</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_probe_angles"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_angles">[docs]</a><span class="k">def</span> <span class="nf">set_probe_angles</span><span class="p">(</span><span class="n">probe_angles</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe azimuth/elevation/spin angles in degrees</span>
+
+<span class="sd">	Azimuth 0 = has the probe facing the AP axis, positive values rotate clockwise</span>
+<span class="sd">	Elevation 0 = probe is vertical, 90 = horizontal</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	probe_angles : dict {string: float list}</span>
+<span class="sd">		key is probe name, value is list of floats in az/elev/spin</span>
+<span class="sd">		</span>
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_probe_angles({&#39;p1&#39;:[-90,0,0]})</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeAngles&#39;</span><span class="p">,</span> <span class="n">probe_angles</span><span class="p">)</span></div>
 
 <span class="c1"># def set_probe_style(probeData):</span>
 <span class="c1"># 	&quot;&quot;&quot;Set probe rendering style</span>
@@ -444,15 +469,19 @@
 <span class="c1"># 	&quot;&quot;&quot;</span>
 <span class="c1"># 	sio.emit(&#39;SetProbeStyle&#39;, probeData)</span>
 
-<div class="viewcode-block" id="set_probe_size"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_size">[docs]</a><span class="k">def</span> <span class="nf">set_probe_size</span><span class="p">(</span><span class="n">probeData</span><span class="p">):</span>
-	<span class="c1"># &quot;&quot;&quot;Set probe rendering style</span>
+<div class="viewcode-block" id="set_probe_size"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_probe_size">[docs]</a><span class="k">def</span> <span class="nf">set_probe_size</span><span class="p">(</span><span class="n">probe_size</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set probe scale in mm units, by default probes are scaled to 70 um wide x 20 um deep x 3840 um tall which is the size of a NP 1.0 probe.</span>
 
-	<span class="c1"># By default probes are scaled to their real size (70um wide x 20um deep x 3.84 mm tall)</span>
-
-	<span class="c1"># Inputs:</span>
-	<span class="c1"># probeData -- dictionary of probe names and float3 {&#39;p1&#39;:[0.07, 3.84, 0.02]}</span>
-	<span class="c1"># &quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeSize&#39;</span><span class="p">,</span> <span class="n">probeData</span><span class="p">)</span></div>
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	probe_size : dict {string: float list}</span>
+<span class="sd">		key is probe name, value is list of floats for width, height, depth</span>
+<span class="sd">		</span>
+<span class="sd">	Examples</span>
+<span class="sd">	--------</span>
+<span class="sd">	&gt;&gt;&gt; umr.set_probe_size({&#39;p1&#39;:[0.070, 3.840, 0.020]})</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetProbeSize&#39;</span><span class="p">,</span> <span class="n">probe_size</span><span class="p">)</span></div>
 
 <span class="c1">##########</span>
 <span class="c1"># CAMERA #</span>

@@ -139,7 +139,7 @@
 <td><p>Create neuron objects</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.create_probes" title="unityneuro.render.create_probes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_probes</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Create probe objects</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.create_volume" title="unityneuro.render.create_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_volume</span></code></a></p></td>
 <td><p>Create an empty volume data matrix in the renderer.</p></td>
@@ -211,16 +211,16 @@
 <td><p>Set size of neuron objects in mm units</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_angles" title="unityneuro.render.set_probe_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_angles</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set probe azimuth/elevation/spin angles in degrees</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_colors" title="unityneuro.render.set_probe_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_colors</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set colors of probe objects</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_positions" title="unityneuro.render.set_probe_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_positions</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set probe tip position in ml/ap/dv coordinates in um relative to the CCF (0,0,0) point</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_size" title="unityneuro.render.set_probe_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_size</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set probe scale in mm units, by default probes are scaled to 70 um wide x 20 um deep x 3840 um tall which is the size of a NP 1.0 probe.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_colormap" title="unityneuro.render.set_volume_colormap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_colormap</span></code></a></p></td>
 <td><p>Set the colormap for a volume, maximum of 254 values</p></td>
@@ -528,28 +528,70 @@ before you set the color/alpha/etc of brain regions.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.create_probes">
-<span class="sig-name descname"><span class="pre">create_probes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probeList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_probes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_probes" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">create_probes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_probes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_probes" title="Permalink to this definition"></a></dt>
+<dd><p>Create probe objects</p>
+<dl class="simple">
+<dt>probe_names<span class="classifier">string list</span></dt><dd><p>list of names of new probes to create</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">create_probes</span><span class="p">([</span><span class="s1">&#39;p1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_probe_colors">
-<span class="sig-name descname"><span class="pre">set_probe_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probeData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_colors" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_probe_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_colors" title="Permalink to this definition"></a></dt>
+<dd><p>Set colors of probe objects</p>
+<dl class="simple">
+<dt>probe_colors<span class="classifier">dict {string: string}</span></dt><dd><p>key is probe name, value is hex color</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_colors</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_probe_positions">
-<span class="sig-name descname"><span class="pre">set_probe_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probeData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_positions" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_probe_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_positions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_positions" title="Permalink to this definition"></a></dt>
+<dd><p>Set probe tip position in ml/ap/dv coordinates in um relative to the CCF (0,0,0) point</p>
+<dl class="simple">
+<dt>probe_positions<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats in ml/ap/dv in um</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_positions</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2500</span><span class="p">]})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_probe_angles">
-<span class="sig-name descname"><span class="pre">set_probe_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probeData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_angles" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_probe_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_angles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_angles" title="Permalink to this definition"></a></dt>
+<dd><p>Set probe azimuth/elevation/spin angles in degrees</p>
+<p>Azimuth 0 = has the probe facing the AP axis, positive values rotate clockwise
+Elevation 0 = probe is vertical, 90 = horizontal</p>
+<dl class="simple">
+<dt>probe_angles<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats in az/elev/spin</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_angles</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_probe_size">
-<span class="sig-name descname"><span class="pre">set_probe_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probeData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_size" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_probe_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_probe_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_probe_size" title="Permalink to this definition"></a></dt>
+<dd><p>Set probe scale in mm units, by default probes are scaled to 70 um wide x 20 um deep x 3840 um tall which is the size of a NP 1.0 probe.</p>
+<dl class="simple">
+<dt>probe_size<span class="classifier">dict {string: float list}</span></dt><dd><p>key is probe name, value is list of floats for width, height, depth</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_probe_size</span><span class="p">({</span><span class="s1">&#39;p1&#39;</span><span class="p">:[</span><span class="mf">0.070</span><span class="p">,</span> <span class="mf">3.840</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">]})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_camera_target">
