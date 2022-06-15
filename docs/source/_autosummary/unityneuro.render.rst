@@ -1,4 +1,4 @@
-unityneuro.render
+﻿unityneuro.render
 =================
 
 .. automodule:: unityneuro.render
@@ -28,6 +28,7 @@ unityneuro.render
       disconnect
       load_beryl_areas
       load_cosmos_areas
+      message
       set_allen_volume_visibility
       set_area_alpha
       set_area_color
@@ -35,8 +36,10 @@ unityneuro.render
       set_area_intensity
       set_area_shader
       set_area_visibility
+      set_camera_position
+      set_camera_rotation
       set_camera_target
-      set_camera_y_angle
+      set_camera_target_area
       set_neuron_color
       set_neuron_positions
       set_neuron_shape
@@ -54,6 +57,13 @@ unityneuro.render
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      bcolors
    
    
 
