@@ -115,19 +115,19 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.clear" title="unityneuro.render.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Clear the renderer scene of all objects</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.clear_areas" title="unityneuro.render.clear_areas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_areas</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Clear all CCF area models</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.clear_neurons" title="unityneuro.render.clear_neurons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_neurons</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Clear all neuron objects</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.clear_probes" title="unityneuro.render.clear_probes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_probes</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Clear all probe objects</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.clear_volumes" title="unityneuro.render.clear_volumes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_volumes</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Clear all 3D volumes</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.close" title="unityneuro.render.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a></p></td>
 <td><p>Disconnect from the Node.js server</p></td>
@@ -142,7 +142,7 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.create_volume" title="unityneuro.render.create_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_volume</span></code></a></p></td>
-<td><p>Create an empty volume</p></td>
+<td><p>Create an empty volume data matrix in the renderer.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.disconnect" title="unityneuro.render.disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disconnect</span></code></a></p></td>
 <td><p></p></td>
@@ -157,75 +157,84 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_allen_volume_visibility" title="unityneuro.render.set_allen_volume_visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_allen_volume_visibility</span></code></a></p></td>
-<td><p>_summary_</p></td>
+<td><p>Set the visibility of the Allen CCF annotation volume</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_area_alpha" title="unityneuro.render.set_area_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_alpha</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set transparency of CCF area models.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_area_color" title="unityneuro.render.set_area_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_color</span></code></a></p></td>
-<td><p>Set color of CCF volume regions.</p></td>
+<td><p>Set color of CCF area models.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_area_colormap" title="unityneuro.render.set_area_colormap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_colormap</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set colormap used for CCF area intensity mapping</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_area_data" title="unityneuro.render.set_area_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_data</span></code></a></p></td>
+<td><p>Set the data array for each CCF area model</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_area_data_index" title="unityneuro.render.set_area_data_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_data_index</span></code></a></p></td>
+<td><p>_summary_</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_area_intensity" title="unityneuro.render.set_area_intensity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_intensity</span></code></a></p></td>
-<td><p>Set color of CCF volume regions using colormap.</p></td>
+<td><p>Set color of CCF area models using colormap.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_area_shader" title="unityneuro.render.set_area_shader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_shader</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_area_material" title="unityneuro.render.set_area_material"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_material</span></code></a></p></td>
+<td><p>Set material of CCF area models.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_area_visibility" title="unityneuro.render.set_area_visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_area_visibility</span></code></a></p></td>
-<td><p>Set visibility of CCF volume regions</p></td>
+<td><p>Set visibility of CCF area models</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_camera_position" title="unityneuro.render.set_camera_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_camera_position</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set the camera position in CCF space in um relative to CCF (0,0,0), coordinates can be outside CCF space.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_camera_rotation" title="unityneuro.render.set_camera_rotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_camera_rotation</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set the camera rotation using euler angles</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_camera_target" title="unityneuro.render.set_camera_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_camera_target</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set the camera target coordinate in CCF space in um relative to CCF (0,0,0), without moving the camera.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_camera_target_area" title="unityneuro.render.set_camera_target_area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_camera_target_area</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Set the camera rotation to look towards a target area</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_color" title="unityneuro.render.set_neuron_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_color</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_colors" title="unityneuro.render.set_neuron_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_colors</span></code></a></p></td>
+<td><p>Set colors of neuron objects</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_positions" title="unityneuro.render.set_neuron_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_positions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_materials" title="unityneuro.render.set_neuron_materials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_materials</span></code></a></p></td>
+<td><p>Change the material used to render neurons</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_positions" title="unityneuro.render.set_neuron_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_positions</span></code></a></p></td>
 <td><p>Set neuron positions</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_shape" title="unityneuro.render.set_neuron_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_shape</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_shapes" title="unityneuro.render.set_neuron_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_shapes</span></code></a></p></td>
+<td><p>Change the mesh used to render neurons</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_sizes" title="unityneuro.render.set_neuron_sizes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_sizes</span></code></a></p></td>
+<td><p>Set size of neuron objects in mm units</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_angles" title="unityneuro.render.set_probe_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_angles</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_neuron_size" title="unityneuro.render.set_neuron_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_neuron_size</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_colors" title="unityneuro.render.set_probe_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_colors</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_angles" title="unityneuro.render.set_probe_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_angles</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_positions" title="unityneuro.render.set_probe_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_positions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_colors" title="unityneuro.render.set_probe_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_colors</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_size" title="unityneuro.render.set_probe_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_size</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_positions" title="unityneuro.render.set_probe_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_positions</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_colormap" title="unityneuro.render.set_volume_colormap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_colormap</span></code></a></p></td>
+<td><p>Set the colormap for a volume, maximum of 254 values</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_probe_size" title="unityneuro.render.set_probe_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_probe_size</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_colormap" title="unityneuro.render.set_volume_colormap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_colormap</span></code></a></p></td>
-<td><p>Set the colormap for a volume, maximum of 255 values</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_data" title="unityneuro.render.set_volume_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_data</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_data" title="unityneuro.render.set_volume_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_data</span></code></a></p></td>
 <td><p>Set the data for a volume using uint8 values from 0-&gt;254 (255 is reserved for transparent).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_slice_data" title="unityneuro.render.set_volume_slice_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_slice_data</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_slice_data" title="unityneuro.render.set_volume_slice_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_slice_data</span></code></a></p></td>
 <td><p>Set a single slice of data in a volume</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_visibility" title="unityneuro.render.set_volume_visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_visibility</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.set_volume_visibility" title="unityneuro.render.set_volume_visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_volume_visibility</span></code></a></p></td>
 <td><p>Change the visibility of a volume</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unityneuro.render.setup" title="unityneuro.render.setup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unityneuro.render.setup" title="unityneuro.render.setup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup</span></code></a></p></td>
 <td><p>Connect the Unity Renderer for Neuroscience Python API to the web-based (or standalone) viewer</p></td>
 </tr>
 </tbody>
@@ -314,26 +323,26 @@ before you set the color/alpha/etc of brain regions.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_area_visibility">
-<span class="sig-name descname"><span class="pre">set_area_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">areaData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_visibility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_visibility" title="Permalink to this definition"></a></dt>
-<dd><p>Set visibility of CCF volume regions</p>
-<p>Note: use “-l” or “-r” suffix to control visibility of one-sided models</p>
+<span class="sig-name descname"><span class="pre">set_area_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_visibilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_visibility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_visibility" title="Permalink to this definition"></a></dt>
+<dd><p>Set visibility of CCF area models</p>
+<p><strong>Note:</strong> you can append a “-l” or “-r” suffix to any area acronym or ID to control the visibility of just one-half of the model. This can be used in all of the set_area_* functions.</p>
 <dl class="simple">
-<dt>areaData<span class="classifier">dict {string</span><span class="classifier">bool}</span></dt><dd><p>dictionary of area IDs or acronyms and visibility values</p>
+<dt>area_visibilities<span class="classifier">dict {string</span><span class="classifier">bool}</span></dt><dd><p>dictionary of area IDs or acronyms and visibility values</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="s2">&quot;root&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="s2">&quot;8&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="s2">&quot;VISp-l&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_area_visibility</span><span class="p">({</span><span class="s1">&#39;VISp-l&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_area_color">
-<span class="sig-name descname"><span class="pre">set_area_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">areaData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_color" title="Permalink to this definition"></a></dt>
-<dd><p>Set color of CCF volume regions. Append “-l” or “-r” for single-sided.</p>
+<span class="sig-name descname"><span class="pre">set_area_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_color" title="Permalink to this definition"></a></dt>
+<dd><p>Set color of CCF area models.</p>
 <dl class="simple">
-<dt>areaData<span class="classifier">dict {string: string}</span></dt><dd><p>Keys are area IDs or acronyms, Values are hex colors</p>
+<dt>area_colors<span class="classifier">dict {string: string}</span></dt><dd><p>Keys are area IDs or acronyms, Values are hex colors</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_color</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
@@ -345,10 +354,10 @@ before you set the color/alpha/etc of brain regions.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_area_intensity">
-<span class="sig-name descname"><span class="pre">set_area_intensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">areaData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_intensity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_intensity" title="Permalink to this definition"></a></dt>
-<dd><p>Set color of CCF volume regions using colormap. Append “-l/-r” for single-sided.</p>
+<span class="sig-name descname"><span class="pre">set_area_intensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_intensities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_intensity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_intensity" title="Permalink to this definition"></a></dt>
+<dd><p>Set color of CCF area models using colormap.</p>
 <dl class="simple">
-<dt>areaData<span class="classifier">dict {string: float}</span></dt><dd><p>keys are area IDs or acronyms, values are hex colors</p>
+<dt>area_intensities<span class="classifier">dict {string: float}</span></dt><dd><p>keys are area IDs or acronyms, values are hex colors</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_intensity</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
@@ -360,25 +369,80 @@ before you set the color/alpha/etc of brain regions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_area_colormap">
 <span class="sig-name descname"><span class="pre">set_area_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colormap_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_colormap" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set colormap used for CCF area intensity mapping</p>
+<dl class="simple">
+<dt>Options are</dt><dd><ul class="simple">
+<li><p>cool (default, teal 0 -&gt; magenta 1)</p></li>
+<li><p>gray (black 0 -&gt; white 1)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>colormap_name<span class="classifier">string</span></dt><dd><p>colormap name</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_area_alpha">
-<span class="sig-name descname"><span class="pre">set_area_alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">areaData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_alpha" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_area_alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_alpha" title="Permalink to this definition"></a></dt>
+<dd><p>Set transparency of CCF area models.</p>
+<dl class="simple">
+<dt>area_alpha<span class="classifier">dict {string: float}</span></dt><dd><p>keys are area IDs or acronyms, values are percent transparency</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;grey&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_area_alpha</span><span class="p">({</span><span class="mi">8</span><span class="p">:</span><span class="mf">0.5</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_area_shader">
-<span class="sig-name descname"><span class="pre">set_area_shader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">areaData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_shader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_shader" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="unityneuro.render.set_area_material">
+<span class="sig-name descname"><span class="pre">set_area_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_materials</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_material"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_material" title="Permalink to this definition"></a></dt>
+<dd><p>Set material of CCF area models.</p>
+<dl class="simple">
+<dt>Material options are</dt><dd><ul class="simple">
+<li><p>‘default’</p></li>
+<li><p>‘transparent-lit’</p></li>
+<li><p>‘transparent-unlit’</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>area_materials<span class="classifier">dict {string: string}</span></dt><dd><p>keys are area IDs or acronyms, values are material options</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unityneuro.render.set_area_data">
+<span class="sig-name descname"><span class="pre">set_area_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_data" title="Permalink to this definition"></a></dt>
+<dd><p>Set the data array for each CCF area model</p>
+<p>Data arrays work the same as the set_area_intensity() function but are controlled by the area_index value, which can be set in the renderer or through the API.</p>
+<dl class="simple">
+<dt>area_data<span class="classifier">dict {string: float list}</span></dt><dd><p>keys area IDs or acronyms, values are a list of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unityneuro.render.set_area_data_index">
+<span class="sig-name descname"><span class="pre">set_area_data_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_area_data_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_area_data_index" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="simple">
+<dt>area_index<span class="classifier">_type_</span></dt><dd><p>_description_</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.create_neurons">
-<span class="sig-name descname"><span class="pre">create_neurons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuronList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_neurons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_neurons" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">create_neurons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_neurons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_neurons" title="Permalink to this definition"></a></dt>
 <dd><p>Create neuron objects</p>
 <p>Note: neurons must be created before setting other values</p>
 <dl class="simple">
-<dt>neuronList<span class="classifier">List of strings</span></dt><dd><p>Names of the new neuron objects</p>
+<dt>neuron_names<span class="classifier">string list</span></dt><dd><p>names of the new neuron objects</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">create_neurons</span><span class="p">([</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span><span class="s2">&quot;n3&quot;</span><span class="p">])</span>
@@ -388,10 +452,10 @@ before you set the color/alpha/etc of brain regions.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_neuron_positions">
-<span class="sig-name descname"><span class="pre">set_neuron_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuronData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_positions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_neuron_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_positions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_positions" title="Permalink to this definition"></a></dt>
 <dd><p>Set neuron positions</p>
 <dl class="simple">
-<dt>neuronData<span class="classifier">Dictionary&lt;string, list of int&gt;</span></dt><dd><p>Keys are neuron names, values are ML/AP/DV coordinates in um units relative to CCF (0,0,0)</p>
+<dt>neuron_positions<span class="classifier">dict {string: int list}</span></dt><dd><p>keys are neuron names, values are ML/AP/DV coordinates in um units relative to CCF (0,0,0)</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urn</span><span class="o">.</span><span class="n">set_neuron_positions</span><span class="p">({</span><span class="s1">&#39;n1&#39;</span><span class="p">:[</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1800</span><span class="p">]})</span>
@@ -400,19 +464,67 @@ before you set the color/alpha/etc of brain regions.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_neuron_size">
-<span class="sig-name descname"><span class="pre">set_neuron_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuronData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_size" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="unityneuro.render.set_neuron_sizes">
+<span class="sig-name descname"><span class="pre">set_neuron_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_sizes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_sizes" title="Permalink to this definition"></a></dt>
+<dd><p>Set size of neuron objects in mm units</p>
+<dl class="simple">
+<dt>neuron_sizes<span class="classifier">dict {string: float}</span></dt><dd><p>keys are neuron names, values are float size in mm</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="mf">0.02</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_neuron_color">
-<span class="sig-name descname"><span class="pre">set_neuron_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuronData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_color" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="unityneuro.render.set_neuron_colors">
+<span class="sig-name descname"><span class="pre">set_neuron_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_colors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_colors" title="Permalink to this definition"></a></dt>
+<dd><p>Set colors of neuron objects</p>
+<dl class="simple">
+<dt>neuron_colors<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are hex colors</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_sizes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_neuron_shape">
-<span class="sig-name descname"><span class="pre">set_neuron_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuronData</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_shape" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="unityneuro.render.set_neuron_shapes">
+<span class="sig-name descname"><span class="pre">set_neuron_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_shapes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_shapes" title="Permalink to this definition"></a></dt>
+<dd><p>Change the mesh used to render neurons</p>
+<dl class="simple">
+<dt>Options are</dt><dd><ul class="simple">
+<li><p>‘sphere’ (default)</p></li>
+<li><p>‘cube’ better performance when rendering tens of thousands of neurons</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>neuron_shapes<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are shape strings</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_shapes</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;sphere&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unityneuro.render.set_neuron_materials">
+<span class="sig-name descname"><span class="pre">set_neuron_materials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron_materials</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_neuron_materials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_neuron_materials" title="Permalink to this definition"></a></dt>
+<dd><p>Change the material used to render neurons</p>
+<p>Options are
+- ‘lit-transparent’ (default)
+- ‘lit’
+- ‘unlit’</p>
+<dl class="simple">
+<dt>neuron_materials<span class="classifier">dict {string: string}</span></dt><dd><p>keys are neuron names, values are material strings</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_neuron_materials</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span><span class="s1">&#39;lit-transparent&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.create_probes">
@@ -442,57 +554,95 @@ before you set the color/alpha/etc of brain regions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_camera_target">
 <span class="sig-name descname"><span class="pre">set_camera_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_target_coordinate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_target" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set the camera target coordinate in CCF space in um relative to CCF (0,0,0), without moving the camera. Coordinates can be negative or larger than the CCF space (11400,13200,8000)</p>
+<dl class="simple">
+<dt>camera_target_coordinate<span class="classifier">float list</span></dt><dd><p>list of coordinates in ml/ap/dv in um</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_camera_target</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_camera_position">
-<span class="sig-name descname"><span class="pre">set_camera_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_position" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_camera_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_position" title="Permalink to this definition"></a></dt>
+<dd><p>Set the camera position in CCF space in um relative to CCF (0,0,0), coordinates can be outside CCF space.</p>
+<dl class="simple">
+<dt>camera_pos<span class="classifier">float list</span></dt><dd><p>list of coordinates in ml/ap/dv in um</p>
+</dd>
+<dt>preserve_target<span class="classifier">bool, optional</span></dt><dd><p>when True keeps the camera aimed at the current target, when False preserves the camera rotation, by default True</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_camera_position</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_camera_rotation">
 <span class="sig-name descname"><span class="pre">set_camera_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_rot</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_rotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_rotation" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_camera_target_area">
-<span class="sig-name descname"><span class="pre">set_camera_target_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_target_area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_target_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_target_area" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.create_volume">
-<span class="sig-name descname"><span class="pre">create_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_volume" title="Permalink to this definition"></a></dt>
-<dd><p>Create an empty volume</p>
+<dd><p>Set the camera rotation using euler angles</p>
 <dl class="simple">
-<dt>volumeData<span class="classifier">string</span></dt><dd><p>name of volume</p>
+<dt>camera_rot<span class="classifier">float list</span></dt><dd><p>list of euler angles to set the camera rotation</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unityneuro.render.set_volume_colormap">
-<span class="sig-name descname"><span class="pre">set_volume_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colormap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_volume_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_volume_colormap" title="Permalink to this definition"></a></dt>
-<dd><p>Set the colormap for a volume, maximum of 255 values</p>
-<p>Note: currently you must set the colormap <em>before</em> sending data, the colormap will not re-interpolate the colors</p>
+<dt class="sig sig-object py" id="unityneuro.render.set_camera_target_area">
+<span class="sig-name descname"><span class="pre">set_camera_target_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_target_area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_camera_target_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_camera_target_area" title="Permalink to this definition"></a></dt>
+<dd><p>Set the camera rotation to look towards a target area</p>
+<p>Note: some long/curved areas have mesh centers that aren’t the ‘logical’ center. For these areas, calculate a center yourself and use set_camera_target.</p>
 <dl class="simple">
-<dt>volumeName<span class="classifier">string</span></dt><dd><p>Volume name</p>
-</dd>
-<dt>volumeData<span class="classifier">list of string</span></dt><dd><p>List of hex colors, values can be RGB or RGBA</p>
+<dt>camera_target_area<span class="classifier">string</span></dt><dd><p>area ID or acronym, append “-l” or “-r” for one-sided meshes</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unityneuro.render.create_volume">
+<span class="sig-name descname"><span class="pre">create_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#create_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.create_volume" title="Permalink to this definition"></a></dt>
+<dd><p>Create an empty volume data matrix in the renderer.</p>
+<p>Note: you must call create_volume and set_volume_colormap before setting data.</p>
+<dl class="simple">
+<dt>volume_name<span class="classifier">string</span></dt><dd><p>volume name</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">create_volume</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unityneuro.render.set_volume_colormap">
+<span class="sig-name descname"><span class="pre">set_volume_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colormap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_volume_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_volume_colormap" title="Permalink to this definition"></a></dt>
+<dd><p>Set the colormap for a volume, maximum of 254 values</p>
+<p>Note: index 255 is reserved by the renderer for transparency.</p>
+<dl class="simple">
+<dt>volumeName<span class="classifier">string</span></dt><dd><p>volume name</p>
+</dd>
+<dt>volumeData<span class="classifier">list of string</span></dt><dd><p>list of hex colors, values can be RGB or RGBA</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_volume_colormap</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,[</span><span class="s1">&#39;#800000&#39;</span><span class="p">,</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_volume_visibility">
 <span class="sig-name descname"><span class="pre">set_volume_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_visibility</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_volume_visibility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_volume_visibility" title="Permalink to this definition"></a></dt>
 <dd><p>Change the visibility of a volume</p>
-<p>Note: a volume must have data before it can be made visible</p>
 <dl class="simple">
 <dt>volumeName<span class="classifier">string</span></dt><dd><p>Volume name</p>
 </dd>
 <dt>volumeVisibility<span class="classifier">bool</span></dt><dd><p>New visibility setting</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umr</span><span class="o">.</span><span class="n">set_volume_visibility</span><span class="p">(</span><span class="s1">&#39;histology&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -502,7 +652,7 @@ before you set the color/alpha/etc of brain regions.</p>
 Sending your data as any type other than np.uint8 is potentially unsafe.
 Data will be remapped in the renderer according to the active colormap.
 nan values will be set to transparent.</p>
-<p>Note: this function slices the data by depth and sends data slice-by-slice, it may take a long time to run. Or does it?</p>
+<p>Note: this function slices the data by depth and sends data slice-by-slice, it may take a long time to run.</p>
 <dl class="simple">
 <dt>volumeData<span class="classifier">[string, numpy matrix]</span></dt><dd><p>Name of the volume and the volume itself. Volume should be [528, 320, 456] with +x = posterior, +y = ventral, +z = right</p>
 </dd>
@@ -511,14 +661,16 @@ nan values will be set to transparent.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_volume_slice_data">
-<span class="sig-name descname"><span class="pre">set_volume_slice_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumeBytes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_volume_slice_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_volume_slice_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_volume_slice_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_gpu_apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_volume_slice_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_volume_slice_data" title="Permalink to this definition"></a></dt>
 <dd><p>Set a single slice of data in a volume</p>
 <dl class="simple">
 <dt>volumeName<span class="classifier">string</span></dt><dd><p>name of volume</p>
 </dd>
 <dt>slice<span class="classifier">int</span></dt><dd><p>depth slice in volume (on lr dimension)</p>
 </dd>
-<dt>volumeBytes<span class="classifier">bytes</span></dt><dd><p>flattened bytes array from slice</p>
+<dt>volume_bytes<span class="classifier">bytes</span></dt><dd><p>flattened bytes array from slice</p>
+</dd>
+<dt>override_gpu_apply<span class="classifier">bool, optional</span></dt><dd><p>immediately set the GPU texture data after this slice is sent, by default False</p>
 </dd>
 </dl>
 </dd></dl>
@@ -526,9 +678,9 @@ nan values will be set to transparent.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.set_allen_volume_visibility">
 <span class="sig-name descname"><span class="pre">set_allen_volume_visibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allenVisibility</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#set_allen_volume_visibility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.set_allen_volume_visibility" title="Permalink to this definition"></a></dt>
-<dd><p>_summary_</p>
+<dd><p>Set the visibility of the Allen CCF annotation volume</p>
 <dl class="simple">
-<dt>allenData<span class="classifier">bool</span></dt><dd><p>Visibility of Allen CCF volume</p>
+<dt>allenData<span class="classifier">bool</span></dt><dd><p>visibility of Allen CCF volume</p>
 </dd>
 </dl>
 </dd></dl>
@@ -536,27 +688,32 @@ nan values will be set to transparent.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.clear" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Clear the renderer scene of all objects</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.clear_neurons">
 <span class="sig-name descname"><span class="pre">clear_neurons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#clear_neurons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.clear_neurons" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Clear all neuron objects</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.clear_probes">
 <span class="sig-name descname"><span class="pre">clear_probes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#clear_probes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.clear_probes" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Clear all probe objects</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.clear_areas">
 <span class="sig-name descname"><span class="pre">clear_areas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#clear_areas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.clear_areas" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Clear all CCF area models</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unityneuro.render.clear_volumes">
 <span class="sig-name descname"><span class="pre">clear_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/unityneuro/render.html#clear_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#unityneuro.render.clear_volumes" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Clear all 3D volumes</p>
+</dd></dl>
 
 </section>
 
