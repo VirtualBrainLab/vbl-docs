@@ -17,6 +17,7 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: About the VBL
 
+   01_about/overview
    01_about/team
    01_about/joinus
 
