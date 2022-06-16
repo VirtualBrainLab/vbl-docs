@@ -53,17 +53,31 @@ Scroll to zoom
 
 Right click + drag to pan
 
-## Rendering
+### Grids and Axes
 
-Our basic test suite can be run using the [example script](https://github.com/dbirman/UnityNeuroscience/blob/main/Examples/example_client.py) which is also a good starting point for learning about the different function calls that are available. 
+In orthographic camera mode these will look a bit weird, use the perspective camera.
 
-Please see the [Examples](https://github.com/dbirman/UnityNeuroscience/tree/main/Examples) and [API](file:///C:/proj/VBL/vbl-docs/docs/build/html/_autosummary/unityneuro.render.html#module-unityneuro.render) for more comprehensive examples.
+Press [G] to bring up a flat grid
 
-### Settings
+Press [A] to bring up a set of 3D axes (I know... they'll get better eventually)
+
+### Photo mode
+
+Press [S] to hide the settings menus
+
+## Settings
 
 <!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
 
-The camera rotation button continuously increments the `set_camera_y_angle` function to rotate the camera around the current camera target point. The speed is controlled by the slider.
+The camera rotation button continuously increments the `set_camera_y_angle` function to rotate the camera around the current camera target. The speed is controlled by the slider.
+
+## Rendering
+
+We're in full beta mode right now -- asking Dan to build you an example is probably the best way to get started.
+
+You can also browse the [Examples](https://github.com/dbirman/UnityNeuroscience/tree/main/Examples) and [API](file:///C:/proj/VBL/vbl-docs/docs/build/html/_autosummary/unityneuro.render.html#module-unityneuro.render) for inspiration.
+
+<!-- Our basic test suite can be run using the [example script](https://github.com/dbirman/UnityNeuroscience/blob/main/Examples/example_client.py) which is also a good starting point for learning about the different function calls that are available.  -->
 
 ## Citing
 

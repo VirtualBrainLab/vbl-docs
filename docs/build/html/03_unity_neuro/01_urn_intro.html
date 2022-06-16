@@ -58,11 +58,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#setting-id-on-web">Setting ID on web</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#interaction">Interaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rendering">Rendering</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interaction">Interaction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grids-and-axes">Grids and Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#photo-mode">Photo mode</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rendering">Rendering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#citing">Citing</a></li>
 </ul>
 </li>
@@ -151,16 +153,27 @@
 <p>Hold shift while left clicking and dragging along the X axis to spin the brain</p>
 <p>Scroll to zoom</p>
 <p>Right click + drag to pan</p>
+<section id="grids-and-axes">
+<h3>Grids and Axes<a class="headerlink" href="#grids-and-axes" title="Permalink to this heading"></a></h3>
+<p>In orthographic camera mode these will look a bit weird, use the perspective camera.</p>
+<p>Press [G] to bring up a flat grid</p>
+<p>Press [A] to bring up a set of 3D axes (I know… they’ll get better eventually)</p>
+</section>
+<section id="photo-mode">
+<h3>Photo mode<a class="headerlink" href="#photo-mode" title="Permalink to this heading"></a></h3>
+<p>Press [S] to hide the settings menus</p>
+</section>
+</section>
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
+<!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
+<p>The camera rotation button continuously increments the <code class="docutils literal notranslate"><span class="pre">set_camera_y_angle</span></code> function to rotate the camera around the current camera target. The speed is controlled by the slider.</p>
 </section>
 <section id="rendering">
 <h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this heading"></a></h2>
-<p>Our basic test suite can be run using the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/blob/main/Examples/example_client.py">example script</a> which is also a good starting point for learning about the different function calls that are available.</p>
-<p>Please see the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/tree/main/Examples">Examples</a> and [API](file:///C:/proj/VBL/vbl-docs/docs/build/html/_autosummary/unityneuro.render.html#module-unityneuro.render) for more comprehensive examples.</p>
-<section id="settings">
-<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h3>
-<!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
-<p>The camera rotation button continuously increments the <code class="docutils literal notranslate"><span class="pre">set_camera_y_angle</span></code> function to rotate the camera around the current camera target point. The speed is controlled by the slider.</p>
-</section>
+<p>We’re in full beta mode right now – asking Dan to build you an example is probably the best way to get started.</p>
+<p>You can also browse the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/tree/main/Examples">Examples</a> and [API](file:///C:/proj/VBL/vbl-docs/docs/build/html/_autosummary/unityneuro.render.html#module-unityneuro.render) for inspiration.</p>
+<!-- Our basic test suite can be run using the [example script](https://github.com/dbirman/UnityNeuroscience/blob/main/Examples/example_client.py) which is also a good starting point for learning about the different function calls that are available.  -->
 </section>
 <section id="citing">
 <h2>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h2>
