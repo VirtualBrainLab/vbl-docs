@@ -1,3 +1,3 @@
-# Electrophysiology Atlas
+# Sensapex Link
 
-This project is a collaboration with the International Brain Laboratory
+[todo]
