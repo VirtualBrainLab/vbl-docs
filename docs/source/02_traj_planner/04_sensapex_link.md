@@ -27,7 +27,7 @@ ws.emit('get_pos', 1)
 
 # Returns [x, y, z, w] of a manipulator to 'get_pos'
 onMessage('get_pos')
-# Example:
+# Example output:
 # {
 #     'manipulator_id': 1,
 #     'pos': [1234.56789, 1234.56789, 1234.56789, 1234.56789]
@@ -47,7 +47,7 @@ ws.emit('goto_pos', {
 
 # Returns [x, y, z, w] of a manipulator to 'goto_pos'
 onMessage('goto_pos')
-# Example:
+# Example output:
 # {
 #     'manipulator_id': 1,
 #     'pos': [1234.56789, 1234.56789, 1234.56789, 1234.56789]
