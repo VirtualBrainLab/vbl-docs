@@ -29,7 +29,8 @@ Please see the individual projects for installation instructions and documentati
    02_traj_planner/01_tp_intro
    02_traj_planner/02_tp_alignment
    02_traj_planner/03_tp_ephys_atlas
-   02_traj_planner/04_tp_development
+   02_traj_planner/04_sensapex_link
+   02_traj_planner/05_tp_development
 
 .. toctree::
    :hidden:
@@ -44,7 +45,8 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: Session Viewer
 
-   04_session_viewer/session_viewer
+   04_session_viewer/01_sv_overview
+   04_session_viewer/02_ibl_average_trial
 
 .. toctree::
    :hidden:
