@@ -34,7 +34,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Brain Viewer
+   :caption: Unity Renderer for Neuroscience
 
    03_unity_neuro/01_urn_intro
    03_unity_neuro/02_urn_development
