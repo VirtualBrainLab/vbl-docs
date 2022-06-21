@@ -35,7 +35,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Brain Viewer
+   :caption: Unity Renderer for Neuroscience
 
    03_unity_neuro/01_urn_intro
    03_unity_neuro/02_urn_development
@@ -45,7 +45,8 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: Session Viewer
 
-   04_session_viewer/session_viewer
+   04_session_viewer/01_sv_overview
+   04_session_viewer/02_ibl_average_trial
 
 .. toctree::
    :hidden:

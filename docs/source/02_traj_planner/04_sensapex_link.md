@@ -26,11 +26,12 @@ This is a list of available WebSocket events. The code shown is example pseudo-W
 In general, each event will take in an input and call a callback function with certain arguments.
 
 **Table of Contents**
-- [Registering a manipulator](#registering-a-manipulator)
-- [Get a manipulator's position](#get-a-manipulators-position)
-- [Set position of a manipulator](#set-position-of-a-manipulator)
+- [Registering a manipulator](registering-a-manipulator)
+- [Get a manipulator's position](get-a-manipulators-position)
+- [Set position of a manipulator](set-position-of-a-manipulator)
 
-## [Registering a manipulator](#registering-a-manipulator)
+(registering-a-manipulator)=
+## Registering a manipulator
 Every manipulator in a Sensapex setup must be registered to the server before being used.
 
 **Event:** `register_manipulator`
@@ -50,7 +51,8 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 ws.emit('register_manipulator', 1, callback=my_callback_func)
 ```
 
-## [Get a manipulator's position](#get-a-manipulators-position)
+(get-a-manipulators-position)=
+## Get a manipulator's position
 Recieve the position of a specified manipulator as X, Y, Z, W (depth)
 
 **Event:** `get_pos`
@@ -68,7 +70,8 @@ Recieve the position of a specified manipulator as X, Y, Z, W (depth)
 ws.emit('get_pos', 1, callback=my_callback_func)
 ```
 
-## [Set position of a manipulator](#set-position-of-a-manipulator)
+(set-position-of-a-manipulator)=
+## Set position of a manipulator
 Instructs a manipulator to go to a position. The manipulator will travel to the given positions in the order the server receives them. All movement is sequential and the handler for this event is blocked while a movement is taking place.
 
 **Event:** `goto_pos`

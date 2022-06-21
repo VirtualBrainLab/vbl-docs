@@ -14,12 +14,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Session Viewer" href="../04_session_viewer/session_viewer.html" />
+    <link rel="next" title="Session Viewer" href="../04_session_viewer/01_sv_overview.html" />
     <link rel="prev" title="Installation and Use" href="01_urn_intro.html" /> 
 </head>
 
@@ -40,6 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
 </ul>
@@ -48,9 +48,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html">Sensapex Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/05_tp_development.html">Development</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<p class="caption" role="heading"><span class="caption-text">Unity Renderer for Neuroscience</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_urn_intro.html">Installation and Use</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
@@ -73,7 +76,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
@@ -112,11 +116,11 @@
            <div itemprop="articleBody">
              
   <section id="development">
-<h1>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h1>
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline"></a></h1>
 <section id="organization">
-<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this heading"></a></h2>
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline"></a></h2>
 <section id="adding-new-functionality">
-<h3>Adding new functionality<a class="headerlink" href="#adding-new-functionality" title="Permalink to this heading"></a></h3>
+<h3>Adding new functionality<a class="headerlink" href="#adding-new-functionality" title="Permalink to this headline"></a></h3>
 <p>To add a new render function you need three pieces:</p>
 <ol class="arabic simple">
 <li><p>Update <code class="docutils literal notranslate"><span class="pre">unitymouse/render.py</span></code> to include the new function and add documentation</p></li>
@@ -126,7 +130,7 @@
 <p>Before deploying you should add a new test script in <code class="docutils literal notranslate"><span class="pre">Examples</span></code> which runs your new functionality and makes sure that it works. See <code class="docutils literal notranslate"><span class="pre">example_script.py</span></code>.</p>
 </section>
 <section id="deploying-the-client">
-<h3>Deploying the client<a class="headerlink" href="#deploying-the-client" title="Permalink to this heading"></a></h3>
+<h3>Deploying the client<a class="headerlink" href="#deploying-the-client" title="Permalink to this headline"></a></h3>
 <p>The client is accessed by users in two ways: either through the <a class="reference external" href="http://data.virtualbrainlab.org/UMRenderer/">web server</a> or through a standalone desktop app which we include in each minor version release. To deploy a new client you need to take a few steps.</p>
 <ol class="arabic simple">
 <li><p>If you changed the Addressable assets or updated to a new version of Unity you need to re-build the assets. Do this for each build target separately. Then copy the <code class="docutils literal notranslate"><span class="pre">UnityClient/ServerData</span></code> folder to the <code class="docutils literal notranslate"><span class="pre">htdocs/UMData</span></code> subfolder on the server.</p></li>
@@ -134,12 +138,12 @@
 <li><p>Build the Windows target build, compress to zip, and attach this to the next release version. Or, if you are hotfixing a previous release, update the hotfix version number and swap the new build for the previous one.</p></li>
 </ol>
 <section id="uploading-to-the-server">
-<h4>Uploading to the server<a class="headerlink" href="#uploading-to-the-server" title="Permalink to this heading"></a></h4>
+<h4>Uploading to the server<a class="headerlink" href="#uploading-to-the-server" title="Permalink to this headline"></a></h4>
 <p>The server runs Apache, the htdocs file is at <code class="docutils literal notranslate"><span class="pre">C:/Apache24/htdocs</span></code>. Ask Dan for the login details. You can copy files locally onto the data server or copy them through google drive or slack.</p>
 </section>
 </section>
 <section id="pushing-the-pypi-package">
-<h3>Pushing the Pypi package<a class="headerlink" href="#pushing-the-pypi-package" title="Permalink to this heading"></a></h3>
+<h3>Pushing the Pypi package<a class="headerlink" href="#pushing-the-pypi-package" title="Permalink to this headline"></a></h3>
 <p>Confirm that the current renderer works</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">sdist</span> <span class="n">bdist_wheel</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
@@ -160,13 +164,13 @@
 </div>
 </section>
 <section id="deploying-the-server">
-<h3>Deploying the server<a class="headerlink" href="#deploying-the-server" title="Permalink to this heading"></a></h3>
+<h3>Deploying the server<a class="headerlink" href="#deploying-the-server" title="Permalink to this headline"></a></h3>
 <section id="for-local-testing">
-<h4>For local testing<a class="headerlink" href="#for-local-testing" title="Permalink to this heading"></a></h4>
+<h4>For local testing<a class="headerlink" href="#for-local-testing" title="Permalink to this headline"></a></h4>
 <p>To run a local copy of the server you need to install Node.js and then run the command <code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">server.js</span></code> in the Server folder. This will start the server on <code class="docutils literal notranslate"><span class="pre">localhost:5000</span></code>. You then need to redirect both the python client and UnityClient to access the local server. Do this by running <code class="docutils literal notranslate"><span class="pre">umr.setup(localhost=True)</span></code> and by checking the <code class="docutils literal notranslate"><span class="pre">localhost</span></code> option in the <code class="docutils literal notranslate"><span class="pre">main</span></code> GameObject.</p>
 </section>
 <section id="on-heroku">
-<h4>On Heroku<a class="headerlink" href="#on-heroku" title="Permalink to this heading"></a></h4>
+<h4>On Heroku<a class="headerlink" href="#on-heroku" title="Permalink to this headline"></a></h4>
 <p>Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.</p>
 </section>
 </section>
@@ -178,7 +182,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="01_urn_intro.html" class="btn btn-neutral float-left" title="Installation and Use" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../04_session_viewer/session_viewer.html" class="btn btn-neutral float-right" title="Session Viewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../04_session_viewer/01_sv_overview.html" class="btn btn-neutral float-right" title="Session Viewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

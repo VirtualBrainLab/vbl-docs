@@ -14,13 +14,12 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Development" href="02_urn_development.html" />
-    <link rel="prev" title="Development" href="../02_traj_planner/04_tp_development.html" /> 
+    <link rel="prev" title="Development" href="../02_traj_planner/05_tp_development.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,6 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
 </ul>
@@ -48,9 +48,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html">Sensapex Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/05_tp_development.html">Development</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<p class="caption" role="heading"><span class="caption-text">Unity Renderer for Neuroscience</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and Use</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
@@ -72,7 +75,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
@@ -111,7 +115,7 @@
            <div itemprop="articleBody">
              
   <section id="installation-and-use">
-<h1>Installation and Use<a class="headerlink" href="#installation-and-use" title="Permalink to this heading"></a></h1>
+<h1>Installation and Use<a class="headerlink" href="#installation-and-use" title="Permalink to this headline"></a></h1>
 <p float="left">
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/flatmap_layout.png" width="25%"> 
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/data_onesided.png" width="25%"> 
@@ -122,21 +126,21 @@
 </p>
 <p>The Unity Renderer for Neuroscience allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above. As a user, you only need to read the first set of instructions below (install + instructions).</p>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">unityneuro</span>
 </pre></div>
 </div>
 <p>The bundled examples in the Examples folder should open the Unity Renderer web app automatically. You can also run in standalone mode by downloading the desktop app for Windows from the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/releases">releases page</a>. Linux standalone available on request.</p>
 </section>
 <section id="instructions">
-<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading"></a></h2>
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unityneuro.render</span> <span class="k">as</span> <span class="nn">urn</span>
 <span class="n">urn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>By default calling <code class="docutils literal notranslate"><span class="pre">setup()</span></code> opens a web browser and links it to your Python client. Setting <code class="docutils literal notranslate"><span class="pre">standalone</span> <span class="pre">=</span> <span class="pre">True</span></code> allows you to connect to the standalone Renderer application.</p>
 <section id="setting-id-on-web">
-<h3>Setting ID on web<a class="headerlink" href="#setting-id-on-web" title="Permalink to this heading"></a></h3>
+<h3>Setting ID on web<a class="headerlink" href="#setting-id-on-web" title="Permalink to this headline"></a></h3>
 <p>If you open the web browser page automatically from Python your ID should be set automatically. If this fails or you need to change your ID press <code class="docutils literal notranslate"><span class="pre">I</span></code> and enter your account username. If you aren’t sure what that is, try running:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -147,36 +151,36 @@
 </section>
 </section>
 <section id="interaction">
-<h2>Interaction<a class="headerlink" href="#interaction" title="Permalink to this heading"></a></h2>
+<h2>Interaction<a class="headerlink" href="#interaction" title="Permalink to this headline"></a></h2>
 <p>Left click + drag along the Y axis to pitch the brain</p>
 <p>Left click + drag along the X axis to yaw the brain</p>
 <p>Hold shift while left clicking and dragging along the X axis to spin the brain</p>
 <p>Scroll to zoom</p>
 <p>Right click + drag to pan</p>
 <section id="grids-and-axes">
-<h3>Grids and Axes<a class="headerlink" href="#grids-and-axes" title="Permalink to this heading"></a></h3>
+<h3>Grids and Axes<a class="headerlink" href="#grids-and-axes" title="Permalink to this headline"></a></h3>
 <p>In orthographic camera mode these will look a bit weird, use the perspective camera.</p>
 <p>Press [G] to bring up a flat grid</p>
 <p>Press [A] to bring up a set of 3D axes (I know… they’ll get better eventually)</p>
 </section>
 <section id="photo-mode">
-<h3>Photo mode<a class="headerlink" href="#photo-mode" title="Permalink to this heading"></a></h3>
+<h3>Photo mode<a class="headerlink" href="#photo-mode" title="Permalink to this headline"></a></h3>
 <p>Press [S] to hide the settings menus</p>
 </section>
 </section>
 <section id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline"></a></h2>
 <!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
 <p>The camera rotation button continuously increments the <code class="docutils literal notranslate"><span class="pre">set_camera_y_angle</span></code> function to rotate the camera around the current camera target. The speed is controlled by the slider.</p>
 </section>
 <section id="rendering">
-<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this heading"></a></h2>
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline"></a></h2>
 <p>We’re in full beta mode right now – asking Dan to build you an example is probably the best way to get started.</p>
 <p>You can also browse the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/tree/main/Examples">Examples</a> and [API](file:///C:/proj/VBL/vbl-docs/docs/build/html/_autosummary/unityneuro.render.html#module-unityneuro.render) for inspiration.</p>
 <!-- Our basic test suite can be run using the [example script](https://github.com/dbirman/UnityNeuroscience/blob/main/Examples/example_client.py) which is also a good starting point for learning about the different function calls that are available.  -->
 </section>
 <section id="citing">
-<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h2>
+<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this headline"></a></h2>
 <p>If you use this to make figures for a publication you should cite this repo, email me (dbirman&#64;uw.edu) and I can generate a DOI.</p>
 </section>
 </section>
@@ -185,7 +189,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../02_traj_planner/04_tp_development.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../02_traj_planner/05_tp_development.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="02_urn_development.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

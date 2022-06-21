@@ -69,3 +69,8 @@ autodoc_default_options = {
     'undoc-members': True,
     'show-inheritance': False
 }
+
+# Breathe options
+breathe_projects = {
+    "urchin":"../../../UnityNeuroscience/UnityClient/docs/xml/",
+    }

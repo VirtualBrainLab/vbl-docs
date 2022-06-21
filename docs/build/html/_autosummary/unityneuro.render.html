@@ -14,11 +14,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="UnityClient" href="../api_reference_urn_csharp.html" />
     <link rel="prev" title="unityneuro" href="unityneuro.html" /> 
 </head>
 
@@ -39,6 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
 </ul>
@@ -47,16 +48,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html">Sensapex Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_sensapex_link.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/05_tp_development.html">Development</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<p class="caption" role="heading"><span class="caption-text">Unity Renderer for Neuroscience</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/02_urn_development.html">Development</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/session_viewer.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
@@ -68,10 +73,15 @@
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="unityneuro.html">unityneuro</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">unityneuro.render</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference_urn.html">Unity Renderer for Neuroscience</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="unityneuro.html">unityneuro</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">unityneuro.render</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../api_reference_urn_csharp.html">UnityClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference_tp.html">Trajectory Planner</a></li>
 </ul>
 </li>
 </ul>
@@ -91,6 +101,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+          <li><a href="../api_reference_urn.html">Unity Renderer for Neuroscience</a> &raquo;</li>
           <li><a href="unityneuro.html">unityneuro</a> &raquo;</li>
       <li>unityneuro.render</li>
       <li class="wy-breadcrumbs-aside">
@@ -103,7 +114,7 @@
            <div itemprop="articleBody">
              
   <section id="module-unityneuro.render">
-<span id="unityneuro-render"></span><h1>unityneuro.render<a class="headerlink" href="#module-unityneuro.render" title="Permalink to this heading"></a></h1>
+<span id="unityneuro-render"></span><h1>unityneuro.render<a class="headerlink" href="#module-unityneuro.render" title="Permalink to this headline"></a></h1>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -764,6 +775,7 @@ nan values will be set to transparent.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="unityneuro.html" class="btn btn-neutral float-left" title="unityneuro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_reference_urn_csharp.html" class="btn btn-neutral float-right" title="UnityClient" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
