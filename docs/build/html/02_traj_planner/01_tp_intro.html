@@ -14,7 +14,6 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -40,6 +39,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
 </ul>
@@ -74,7 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_tp_development.html">Development</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Brain Viewer</span></p>
+<p class="caption" role="heading"><span class="caption-text">Unity Renderer for Neuroscience</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/02_urn_development.html">Development</a></li>
@@ -120,22 +120,22 @@
            <div itemprop="articleBody">
              
   <section id="installation-and-use">
-<h1>Installation and Use<a class="headerlink" href="#installation-and-use" title="Permalink to this heading"></a></h1>
+<h1>Installation and Use<a class="headerlink" href="#installation-and-use" title="Permalink to this headline"></a></h1>
 <p>This is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.</p>
 <p><img alt="Azimuth example" src="https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/2022_04_21.png" /></p>
 <p>Code is on our <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/">Github repository</a>.</p>
 <section id="known-issues">
-<h2>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this heading"></a></h2>
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline"></a></h2>
 <section id="alignment">
-<h3>Alignment<a class="headerlink" href="#alignment" title="Permalink to this heading"></a></h3>
+<h3>Alignment<a class="headerlink" href="#alignment" title="Permalink to this headline"></a></h3>
 <p>Please see the alignment section for details.</p>
 </section>
 </section>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline"></a></h2>
 <p>The easiest way to use the trajectory planner is through our <a class="reference external" href="http://data.virtualbrainlab.org/NPTrajectoryPlanner/">web app</a>. If you encounter issues please try refreshing the page (sometimes the 3D mesh files don’t download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).</p>
 <section id="standalone-builds">
-<h3>Standalone builds<a class="headerlink" href="#standalone-builds" title="Permalink to this heading"></a></h3>
+<h3>Standalone builds<a class="headerlink" href="#standalone-builds" title="Permalink to this headline"></a></h3>
 <p>You can also download a Desktop build from the <img alt="releases page" src="https://github.com/dbirman/NPTrajectoryPlanner/releases" />. We can build for linux on request.</p>
 <!-- ### Additional linux instructions
 
@@ -146,11 +146,11 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 </section>
 </section>
 <section id="instructions-for-use">
-<h2>Instructions for use<a class="headerlink" href="#instructions-for-use" title="Permalink to this heading"></a></h2>
+<h2>Instructions for use<a class="headerlink" href="#instructions-for-use" title="Permalink to this headline"></a></h2>
 <p>To set up a new probe, select the button in the bottom right corresponding to the probe type (NP1/NP2/NP2.4). By default the probe’s (0,0,0) coordinate is set to the IBL bregma coordinate (CCF: AP 5.4f, ML 5.739f, DV 0.332f).</p>
 <p>At any time you can press [M] to open the manual coordinate entry window and enter coordinates directly.</p>
 <section id="controls">
-<h3>Controls<a class="headerlink" href="#controls" title="Permalink to this heading"></a></h3>
+<h3>Controls<a class="headerlink" href="#controls" title="Permalink to this headline"></a></h3>
 <p>The easiest way to control your probe is to click on the probe, press one of the axis keys [W/S], [A/D], or [Z/X] and then drag. This will move the probe along the corresponding axis. You can also press any of the keyboard keys in the diagram below to move along that axis. Hold <strong>SHIFT</strong> as you to move faster along any axis. Hold <strong>CTRL</strong> to move slower. Pressing and holding a key will move continuously.</p>
 <p><img alt="probe controls" src="https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/ProbeControls.png" /></p>
 <p>Use [W/A/S/D] to move the probe along the AP or ML axis.</p>
@@ -162,31 +162,31 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 <p>Probes can be deleted with [Backspace]. To recover a probe you didn’t mean to delete press [CTRL + Backspace].</p>
 </section>
 <section id="recording-region">
-<h3>Recording region<a class="headerlink" href="#recording-region" title="Permalink to this heading"></a></h3>
+<h3>Recording region<a class="headerlink" href="#recording-region" title="Permalink to this headline"></a></h3>
 <p>Once the probe is at the position and angles you want, you can adjust the recording region size (in the settings) and position (using [T/G]) to match what you plan to do in your recording and adjust the insertion depth accordingly.</p>
 </section>
 <section id="export-coordinates">
-<h3>Export coordinates<a class="headerlink" href="#export-coordinates" title="Permalink to this heading"></a></h3>
+<h3>Export coordinates<a class="headerlink" href="#export-coordinates" title="Permalink to this headline"></a></h3>
 <p>Clicking on the coordinates shown at the bottom of the screen copies them to the clipboard. If the azimuth angle is not at 0/90/180 use the “convert AP/ML to probe axis” setting to export the position along the probe forward/side axis.</p>
 </section>
 <section id="changing-the-active-probe">
-<h3>Changing the active probe<a class="headerlink" href="#changing-the-active-probe" title="Permalink to this heading"></a></h3>
+<h3>Changing the active probe<a class="headerlink" href="#changing-the-active-probe" title="Permalink to this headline"></a></h3>
 <p>When setting up multi-probe insertions you can click the probe panel, the probe model, or the probe coordinate text to set that probe to active.</p>
 </section>
 </section>
 <section id="using-coordinates-for-surgery">
-<h2>Using coordinates for surgery<a class="headerlink" href="#using-coordinates-for-surgery" title="Permalink to this heading"></a></h2>
+<h2>Using coordinates for surgery<a class="headerlink" href="#using-coordinates-for-surgery" title="Permalink to this headline"></a></h2>
 <p>To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle and set the probe elevation angle. Then move your probe tip to Bregma and zero your manipulator.</p>
 <p>To translate the probe you can either use the AP/ML coordinates (if you kept the azimuth angle at a multiple of 90 degrees) or you can turn on the “Convert AP/ML to probe axis” setting, which exports the translation coordinates in the probe’s forward and side axes.</p>
 <p>To insert the probe, drive the probe forward until the tip touches the brain, zero the depth axis, and continue forward at a slow speed until you reach the specified depth.</p>
 <p>In a future release we will add a display of the expected channel activity for a live recording, to help ensure accurate targeting. Coming soon!</p>
 </section>
 <section id="saving-and-loading-probes">
-<h2>Saving and loading probes<a class="headerlink" href="#saving-and-loading-probes" title="Permalink to this heading"></a></h2>
+<h2>Saving and loading probes<a class="headerlink" href="#saving-and-loading-probes" title="Permalink to this headline"></a></h2>
 <p>You can save the coordinates of an insertion for future use by clicking on the coordinate text. This copies the active probe coordinates to a string.</p>
 </section>
 <section id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline"></a></h2>
 <p><strong>Reset active probe</strong> - Returns the active probe to the original starting position (Bregma by default)</p>
 <p><strong>Spawn IBL probes</strong> - Places two NP1.0 probes in the configuration used by the IBL</p>
 <p><strong>Detect collisions</strong> - Warns the user when two probes are colliding on their shank or on their probe holders</p>
@@ -205,21 +205,21 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 <p><strong>IBL map</strong> - On: displays a sphere at the location of each remaining second pass map location, clicking on a sphere moves the active probe controller to that location. You must set the depth value by hand (click probe, press [Z/X], then drag down; or just press [Z/X])</p>
 </section>
 <section id="bugs">
-<h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this heading"></a></h2>
+<h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline"></a></h2>
 <p>Please report issues on the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/issues">issues page</a>.</p>
 </section>
 <section id="electrophysiology-atlas">
-<h2>Electrophysiology atlas<a class="headerlink" href="#electrophysiology-atlas" title="Permalink to this heading"></a></h2>
+<h2>Electrophysiology atlas<a class="headerlink" href="#electrophysiology-atlas" title="Permalink to this headline"></a></h2>
 <p>The ephys atlas functionality is provided by a server running this repository: https://github.com/dbirman/nptraj-ephys-server</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
 <p>Based on the trajectory explorer by Andy Peters https://github.com/petersaj/neuropixels_trajectory_explorer.</p>
 <p>CCF Atlas downloaded from http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/</p>
 <p>Mouse brain artwork from https://scidraw.io/drawing/286</p>
 </section>
 <section id="citing">
-<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h2>
+<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this headline"></a></h2>
 <p>If this project is used as part of a research project you should cite this repository. Please email Dan (dbirman&#64;uw.edu) and we can set up a DOI for the version you are using.</p>
 </section>
 </section>

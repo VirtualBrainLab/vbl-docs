@@ -2,9 +2,16 @@
 API Reference
 =============================================
 
-.. autosummary::
-   :toctree: _autosummary
-   :template: custom-module-template.rst
-   :recursive:
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: URN
 
-   unityneuro
+   api_reference_urn
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: TP
+   
+   api_reference_tp
