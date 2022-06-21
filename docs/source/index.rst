@@ -45,7 +45,8 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: Session Viewer
 
-   04_session_viewer/session_viewer
+   04_session_viewer/01_sv_overview
+   04_session_viewer/02_ibl_average_trial
 
 .. toctree::
    :hidden:
