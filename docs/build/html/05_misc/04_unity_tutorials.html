@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -61,7 +62,7 @@
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">IBL Average Trial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="current">
@@ -110,36 +111,36 @@
            <div itemprop="articleBody">
              
   <section id="unity">
-<h1>Unity<a class="headerlink" href="#unity" title="Permalink to this headline"></a></h1>
+<h1>Unity<a class="headerlink" href="#unity" title="Permalink to this heading"></a></h1>
 <section id="general-tips">
-<h2>General tips<a class="headerlink" href="#general-tips" title="Permalink to this headline"></a></h2>
+<h2>General tips<a class="headerlink" href="#general-tips" title="Permalink to this heading"></a></h2>
 <p><strong>Tutorials</strong></p>
 <p>Brackeys has a great high quality introductory sequence: <a class="reference external" href="https://www.youtube.com/watch?v=j48LtUkZRjU&amp;list=PLPV2KyIb3jR5QFsefuO2RlAgWEz6EvVi6">start here</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=pwZpJzpE2lQ">Imphenzia</a> also has a great and slightly more up-to date introduction.</p>
 <section id="version-and-packages">
-<h3>Version and packages<a class="headerlink" href="#version-and-packages" title="Permalink to this headline"></a></h3>
+<h3>Version and packages<a class="headerlink" href="#version-and-packages" title="Permalink to this heading"></a></h3>
 <p>The majority of our code relies only on the base Unity environment. We are currently (2022-06) on Unity Editor version 2020.3 LTS. We will move to the 2021 LTS when all of our required packages have migrated. We also migrate as soon as a new version is available.</p>
 <p>Below are a list of all the major packages we use with a short explanation for their use.</p>
 </section>
 <section id="neurons-dots-ecs">
-<h3>Neurons (DOTS/ECS)<a class="headerlink" href="#neurons-dots-ecs" title="Permalink to this headline"></a></h3>
+<h3>Neurons (DOTS/ECS)<a class="headerlink" href="#neurons-dots-ecs" title="Permalink to this heading"></a></h3>
 <p>To display large numbers of neurons we rely on the entities and components system (ECS) from DOTS. This codebase organizes memory in a more efficient layout which allows us to render and update hundreds of thousands of scene objects on each frame.</p>
 <p><strong>Tutorials</strong>: <a class="reference external" href="https://www.youtube.com/c/TurboMakesGames">Turbo Makes Games</a> probably has the best tutorials for DOTS/ECS.</p>
 </section>
 <section id="large-asset-streaming-addressables">
-<h3>Large asset streaming (Addressables)<a class="headerlink" href="#large-asset-streaming-addressables" title="Permalink to this headline"></a></h3>
+<h3>Large asset streaming (Addressables)<a class="headerlink" href="#large-asset-streaming-addressables" title="Permalink to this heading"></a></h3>
 <p>Whenever we have to store and load large files we rely on Unity’s impressive Addressables asset bundle system. They use state-of-the-art compression and streaming which seriously reduces the overhead for us when using very large files.</p>
 <p>Addressable assets are an excellent way to reduce memory overhead in builds, but they come at the cost of increased complexity and the requirement to write code with asynchronous function calls.</p>
 <p><strong>Tutorials</strong>: Bit out of date but this one by <a class="reference external" href="https://www.youtube.com/watch?v=uNpBS0LPhaU">Jason Weimann</a> is good.</p>
 <p><strong>Warning:</strong> Addressables rely on the Unity version matching in the Addressables build and the Unity build, if you make any changes you must update the builds and change them on the asset server.</p>
 </section>
 <section id="networking-unity-netcode-for-gameobjects">
-<h3>Networking (Unity Netcode for Gameobjects)<a class="headerlink" href="#networking-unity-netcode-for-gameobjects" title="Permalink to this headline"></a></h3>
+<h3>Networking (Unity Netcode for Gameobjects)<a class="headerlink" href="#networking-unity-netcode-for-gameobjects" title="Permalink to this heading"></a></h3>
 <p>The currently not-in-development education tools used a Server/Client architecture to stream information about the neural datasets. We set this up using Unity’s Netcode for Gameobjects architecture. It’s possible that in the future a better solution would be to use Addressables for this purpose.</p>
 </section>
 </section>
 <section id="webgl-limitations">
-<h2>WebGL limitations<a class="headerlink" href="#webgl-limitations" title="Permalink to this headline"></a></h2>
+<h2>WebGL limitations<a class="headerlink" href="#webgl-limitations" title="Permalink to this heading"></a></h2>
 <p>When developing new Unity tools you should be very careful about introducing new memory requirements or heavy GPU usage. WebGL has a frame rate limitation of about 60hz on most computers and a memory limitation of 2GB.</p>
 </section>
 </section>

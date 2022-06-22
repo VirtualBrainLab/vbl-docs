@@ -10,7 +10,7 @@ The Virtual Brain Lab builds intuitive and interactive 3D visualizations for neu
 
 The VBL is located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
-Please see the individual projects for installation instructions and documentation!
+Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`.
 
 .. toctree::
    :hidden:
