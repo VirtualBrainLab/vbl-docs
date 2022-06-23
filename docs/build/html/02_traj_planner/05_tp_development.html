@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -90,7 +91,7 @@
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">IBL Average Trial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
@@ -129,12 +130,12 @@
            <div itemprop="articleBody">
              
   <section id="development">
-<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline"></a></h1>
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h1>
 <p>The Trajectory Planner is under active development, there is no requirement to maintain backwards compatibility with version changes. We are aiming for a 1.0.0 release at the end of 2022.</p>
 <section id="organization">
-<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline"></a></h2>
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this heading"></a></h2>
 <section id="unity">
-<h3>Unity<a class="headerlink" href="#unity" title="Permalink to this headline"></a></h3>
+<h3>Unity<a class="headerlink" href="#unity" title="Permalink to this heading"></a></h3>
 <p>The Trajectory Planner is built out of a single <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/">main repository</a> which holds the Unity codebase. Code that is shared across multiple VBL projects is stored in the <a class="reference external" href="https://github.com/dbirman/vbl-core">vbl-core repository</a> which you should add to the main repo as a git submodule. The full pull sequence for the entire repository is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dbirman</span><span class="o">/</span><span class="n">NPTrajectoryPlanner</span>
 <span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dbirman</span><span class="o">/</span><span class="n">vbl</span><span class="o">-</span><span class="n">core</span> <span class="n">Assets</span><span class="o">/</span><span class="n">vbl</span><span class="o">-</span><span class="n">core</span>
@@ -143,74 +144,74 @@
 <p>If you use Github Desktop the <code class="docutils literal notranslate"><span class="pre">vbl-core</span></code> repository will automatically be pulled. You should add the repository as a separate repo in Desktop and give it an alias, e.g. <code class="docutils literal notranslate"><span class="pre">NPTrajectoryPlanner-vbl-core</span></code> to distinguish it from other copies of the submodule if you are working on multiple VBL projects.</p>
 </section>
 <section id="assets">
-<h3>Assets<a class="headerlink" href="#assets" title="Permalink to this headline"></a></h3>
+<h3>Assets<a class="headerlink" href="#assets" title="Permalink to this heading"></a></h3>
 <p>Most of the VBL assets are shared across projects, these are accessed from a shared <a class="reference external" href="https://github.com/dbirman/AddressablesStorage/">Addressables Storage</a> repository. Assets in this repository are accessed via the <code class="docutils literal notranslate"><span class="pre">AddressablesRemoteLoader</span></code> class in <code class="docutils literal notranslate"><span class="pre">vbl-core</span></code>, see <a class="reference external" href="https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables">here</a>.</p>
 </section>
 <section id="scenes">
-<h3>Scenes<a class="headerlink" href="#scenes" title="Permalink to this headline"></a></h3>
+<h3>Scenes<a class="headerlink" href="#scenes" title="Permalink to this heading"></a></h3>
 <p>When contributing to a VBL project you should avoid modifying the main scenes, except to add or remove <strong>Prefab</strong> objects. Merges between scenes are very difficult to handle in git and should be avoided.</p>
 <p>There are two main scenes, a loading scene which loads very quickly and present users with a text warning that it takes time to load the main scene. A second scene loads the actual trajectory planner itself.</p>
 </section>
 </section>
 <section id="core-components">
-<h2>Core components<a class="headerlink" href="#core-components" title="Permalink to this headline"></a></h2>
+<h2>Core components<a class="headerlink" href="#core-components" title="Permalink to this heading"></a></h2>
 <p>The trajectory planner runs out of a central class <code class="docutils literal notranslate"><span class="pre">TP_TrajectoryPlannerManager</span></code> which coordinates loading the main functionality of the planner. Most of the code uses a hub-and-spoke model where other components will communicate with the tpmanager but not with each other, to reduce the likelihood of creating deadlock situations.</p>
 <section id="annotation-dataset">
-<h3>Annotation Dataset<a class="headerlink" href="#annotation-dataset" title="Permalink to this headline"></a></h3>
+<h3>Annotation Dataset<a class="headerlink" href="#annotation-dataset" title="Permalink to this heading"></a></h3>
 <p>At the core of the planner is the Allen CCF annotation dataset. You can learn more about the dataset on the Allen’s <a class="reference external" href="http://help.brain-map.org/display/mouseconnectivity/API#API-DownloadAtlas3-DReferenceModels=">documentation page</a>. We use the 25 um atlas which has dimensions 528 x 320 x 456, the <code class="docutils literal notranslate"><span class="pre">nrrd</span></code> file downloaded from the Allen.</p>
 <p>The annotation dataset is stored internally as a <a class="reference external" href="https://docs.unity3d.com/ScriptReference/Texture3D.html">Texture3D</a> object for GPU access as well as in an <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/AnnotationDataset.cs">AnnotationDataset</a> object.</p>
 </section>
 <section id="allen-ccf-3d-models">
-<h3>Allen CCF 3D Models<a class="headerlink" href="#allen-ccf-3d-models" title="Permalink to this headline"></a></h3>
+<h3>Allen CCF 3D Models<a class="headerlink" href="#allen-ccf-3d-models" title="Permalink to this heading"></a></h3>
 <p>The 3D models are controlled via the <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Scripts/AllenCCF/CCFModelControl.cs">CCFModelControl</a> component. Models are loaded from the shared addressables system and the mesh is saved locally to render the models.</p>
 </section>
 <section id="probes">
-<h3>Probes<a class="headerlink" href="#probes" title="Permalink to this headline"></a></h3>
+<h3>Probes<a class="headerlink" href="#probes" title="Permalink to this heading"></a></h3>
 <p>Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeController.cs">TP_ProbeController</a> component which handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs">TP_ProbePanel</a> and <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeUIManager.cs">TP_ProbeUIManager</a> components. The probe panels are interpolated using a <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph">custom shader</a> which is a variant of the Inplane Slice shader.</p>
 </section>
 <section id="inplane-slice">
-<h3>Inplane Slice<a class="headerlink" href="#inplane-slice" title="Permalink to this headline"></a></h3>
+<h3>Inplane Slice<a class="headerlink" href="#inplane-slice" title="Permalink to this heading"></a></h3>
 <p>The inplane slice is rendered using a <a class="reference external" href="https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/InPlaneSliceShader.shadergraph">custom shader</a> whose settings are controlled by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_InPlaneSlice.cs">TP_InPlaneSlice</a> component.</p>
 </section>
 <section id="collisions">
-<h3>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline"></a></h3>
+<h3>Collisions<a class="headerlink" href="#collisions" title="Permalink to this heading"></a></h3>
 </section>
 <section id="rigs">
-<h3>Rigs<a class="headerlink" href="#rigs" title="Permalink to this headline"></a></h3>
+<h3>Rigs<a class="headerlink" href="#rigs" title="Permalink to this heading"></a></h3>
 <p>Rigs are just a collection of 3D models stored as a prefab and marked as an addressable asset. These are loaded by the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ToggleRigs.cs">TP_ToggleRigs</a> component, which also adds their corresponding colliders.</p>
 </section>
 </section>
 <section id="building-new-features-and-fixing-bugs">
-<h2>Building new features and fixing bugs<a class="headerlink" href="#building-new-features-and-fixing-bugs" title="Permalink to this headline"></a></h2>
+<h2>Building new features and fixing bugs<a class="headerlink" href="#building-new-features-and-fixing-bugs" title="Permalink to this heading"></a></h2>
 <p>We use Github Issues to track development. Any changes you make should first be posted as an issue and flagged either as a <em>bug</em> or a <em>feature</em> and assigned to the relevant developer. When you complete adding a new feature you should either merge it to the main branch (if it’s minor) or submit a pull request (if it’s a major feature change). In either case, you should link to the relevant commit in the issue.</p>
 <p>When a <strong>bug/feature</strong> is closed it should be added to the incremental update list on the next Release page, or added to the current release as a <strong>hotfix</strong>.</p>
 </section>
 <section id="builds">
-<h2>Builds<a class="headerlink" href="#builds" title="Permalink to this headline"></a></h2>
+<h2>Builds<a class="headerlink" href="#builds" title="Permalink to this heading"></a></h2>
 <p>The Trajectory Planner can build to WebGL (primary), Windows, and Linux.</p>
 <section id="addressables">
-<h3>Addressables<a class="headerlink" href="#addressables" title="Permalink to this headline"></a></h3>
+<h3>Addressables<a class="headerlink" href="#addressables" title="Permalink to this heading"></a></h3>
 <p>Any assets that don’t need to be immediately loaded with the trajectory planner should be marked as Addressable and loaded asynchronously.</p>
 <p>If you modified the Addressables assets you need to re-build these and deploy them on the asset server before you build to targets. In the Addressables Groups window go to Build &gt; New Build &gt; Default Build Script, or use Build &gt; Update a Previous Build if you only modified existing assets but did not add new ones.</p>
 <section id="remote-build-and-load-paths">
-<h4>Remote Build and Load Paths<a class="headerlink" href="#remote-build-and-load-paths" title="Permalink to this headline"></a></h4>
+<h4>Remote Build and Load Paths<a class="headerlink" href="#remote-build-and-load-paths" title="Permalink to this heading"></a></h4>
 <p>Addressables should be built to the remote build and load paths, which should point to <code class="docutils literal notranslate"><span class="pre">ServerData</span></code> and <code class="docutils literal notranslate"><span class="pre">http://data.virtualbrainlab.org/NPTraj/[BuildTarget]</span></code> respectively. These can be modified in the Addressables Profiles window</p>
 </section>
 </section>
 <section id="webgl">
-<h3>WebGL<a class="headerlink" href="#webgl" title="Permalink to this headline"></a></h3>
+<h3>WebGL<a class="headerlink" href="#webgl" title="Permalink to this heading"></a></h3>
 <p>WebGL builds function without extra steps, just zip the output directory, move it to the asset server, and swap it for the existing file. Note that there is an <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> file in the <code class="docutils literal notranslate"><span class="pre">Build</span></code> directory which needs to be manually copied to the new release.</p>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline"></a></h3>
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h3>
 <p>Windows builds function without extra steps, just zip the output directory and upload it as either a hotfix to the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/releases">Releases page</a> (make sure to increment the hotfix number) or as a new release.</p>
 </section>
 <section id="linux">
-<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline"></a></h3>
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h3>
 <p>Linux builds function but you need to load the build on a Linux machine and mark the output file as executable.</p>
 </section>
 <section id="mac-builds">
-<h3>Mac builds<a class="headerlink" href="#mac-builds" title="Permalink to this headline"></a></h3>
+<h3>Mac builds<a class="headerlink" href="#mac-builds" title="Permalink to this heading"></a></h3>
 <p>Mac builds require extra steps to certify the build, we don’t have the capacity right now to deal with these.</p>
 </section>
 </section>

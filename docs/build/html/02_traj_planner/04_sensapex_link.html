@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -73,7 +74,7 @@
 <p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">IBL Average Trial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul>
@@ -112,20 +113,20 @@
            <div itemprop="articleBody">
              
   <section id="sensapex-link">
-<h1>Sensapex Link<a class="headerlink" href="#sensapex-link" title="Permalink to this headline"></a></h1>
+<h1>Sensapex Link<a class="headerlink" href="#sensapex-link" title="Permalink to this heading"></a></h1>
 <p>The Sensapex Link is a python server which allows any WebSocket compliant application (such as <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/">Pinpoint (Neuropixels Trajectory Planner)</a>) to have limited communication with <a class="reference external" href="https://www.sensapex.com/products/ump-micromanipulators/">Sensapex uMp Micromanipulators</a></p>
 </section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <section id="for-usage">
-<h2>For usage<a class="headerlink" href="#for-usage" title="Permalink to this headline"></a></h2>
+<h2>For usage<a class="headerlink" href="#for-usage" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Ensure Python &gt;3.5 and pip are installed</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nptraj-sensapex-link</span></code></p></li>
 </ol>
 </section>
 <section id="for-development">
-<h2>For development<a class="headerlink" href="#for-development" title="Permalink to this headline"></a></h2>
+<h2>For development<a class="headerlink" href="#for-development" title="Permalink to this heading"></a></h2>
 <p>Pulled from the <a class="reference external" href="https://github.com/dbirman/nptraj-sensapex-link/blob/main/README.md">repository README</a></p>
 <ol class="arabic simple">
 <li><p>Ensure Python &gt;3.5 and pip are installed</p></li>
@@ -134,9 +135,10 @@
 <li><p>Get the <a class="reference external" href="http://dist.sensapex.com/misc/um-sdk/latest/">Sensapex uM SDK</a> binary zip</p>
 <ol class="arabic simple">
 <li><p>Currently (June 2022), the SDK version is that is compatible with the Sensapex python SDK is <a class="reference external" href="http://dist.sensapex.com/misc/um-sdk/latest/umsdk-1.022-binaries.zip">v1.022</a></p></li>
+<li><p><strong>Make sure the firmware version installed on the manipulators matches the SDK version you install</strong></p></li>
 </ol>
 </li>
-<li><p>Extract the zip and copy the DLL or lib file appropriate for your system into the install location for the python Sensapex module</p>
+<li><p>Extract the zip and copy the DLL or lib file appropriate for your system into the installation location for the python Sensapex module</p>
 <ol class="arabic simple">
 <li><p>i.e. if you are using a virtual environment in windows, copy the DLL into <code class="docutils literal notranslate"><span class="pre">{path</span> <span class="pre">to</span> <span class="pre">venv}/Lib/site-packages/sensapex/</span></code></p></li>
 </ol>
@@ -147,7 +149,7 @@
 </section>
 </section>
 <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h1>
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
 <p>This is a list of available WebSocket events. The code shown is example pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.</p>
 <p>In general, each event will take in an input and call a callback function with certain arguments.</p>
 <p><strong>Table of Contents</strong></p>
@@ -157,7 +159,7 @@
 <li><p><a class="reference internal" href="#set-position-of-a-manipulator"><span class="std std-ref">Set position of a manipulator</span></a></p></li>
 </ul>
 <section id="registering-a-manipulator">
-<span id="id1"></span><h2>Registering a manipulator<a class="headerlink" href="#registering-a-manipulator" title="Permalink to this headline"></a></h2>
+<span id="id1"></span><h2>Registering a manipulator<a class="headerlink" href="#registering-a-manipulator" title="Permalink to this heading"></a></h2>
 <p>Every manipulator in a Sensapex setup must be registered to the server before being used.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">register_manipulator</span></code></p>
 <p><strong>Expected Arguments:</strong></p>
@@ -172,7 +174,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id,</span> <span class="pre">'Error</span> <span class="pre">registering</span> <span class="pre">manipulator'</span></code>: An unknown error has occured while getting position</p></li>
 </ul>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register manipulator with ID 1</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;register_manipulator&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
 </pre></div>
@@ -180,7 +182,7 @@
 </section>
 </section>
 <section id="get-a-manipulator-s-position">
-<span id="get-a-manipulators-position"></span><h2>Get a manipulator’s position<a class="headerlink" href="#get-a-manipulator-s-position" title="Permalink to this headline"></a></h2>
+<span id="get-a-manipulators-position"></span><h2>Get a manipulator’s position<a class="headerlink" href="#get-a-manipulator-s-position" title="Permalink to this heading"></a></h2>
 <p>Recieve the position of a specified manipulator as X, Y, Z, W (depth)</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">get_pos</span></code></p>
 <p><strong>Expected Arguments:</strong></p>
@@ -199,7 +201,7 @@
 </div>
 </section>
 <section id="set-position-of-a-manipulator">
-<span id="id2"></span><h2>Set position of a manipulator<a class="headerlink" href="#set-position-of-a-manipulator" title="Permalink to this headline"></a></h2>
+<span id="id2"></span><h2>Set position of a manipulator<a class="headerlink" href="#set-position-of-a-manipulator" title="Permalink to this heading"></a></h2>
 <p>Instructs a manipulator to go to a position. The manipulator will travel to the given positions in the order the server receives them. All movement is sequential and the handler for this event is blocked while a movement is taking place.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">goto_pos</span></code></p>
 <p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
