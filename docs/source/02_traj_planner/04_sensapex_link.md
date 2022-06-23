@@ -5,18 +5,18 @@ The Sensapex Link is a python server which allows any WebSocket compliant applic
 Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-link/blob/main/README.md)
 
 ## For usage like a standalone app/server
-1. Ensure Python >3.5 and pip are installed
+1. Ensure Python 3.8+ and pip are installed
 2. `pip install nptraj-sensapex-link`
 3. Run `python -m nptraj-sensapex-link` to start the server
 
 ## For usage like a library
-1. Ensure Python >3.5 and pip are installed
+1. Ensure Python 3.8+ and pip are installed
 2. `pip install nptraj-sensapex-link`
 3. Use `from nptraj_sensapex_link import launch` and call `launch()` to start the server
    1. Alternatively, use `import nptraj_sensapex_link` and call `nptraj_sensapex_link.launch()`
 
 ## To develop this package
-1. Ensure Python >3.5 and pip are installed
+1. Ensure Python 3.8+ and pip are installed
 2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
 3. `cd nptraj-sensapex-link` and run `pip install requirements.txt`
 4. Get the [Sensapex uM SDK](http://dist.sensapex.com/misc/um-sdk/latest/) binary zip
@@ -26,6 +26,7 @@ Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-li
    1. i.e. if you are using a virtual environment in windows, copy the DLL into `{path to venv}/Lib/site-packages/sensapex/`
 6. Upon completion, run `python main.py` to launch the server
 7. Unit tests are available to run under the `tests/` directory
+
 
 # Usage
 This is a list of available WebSocket events. The code shown is example pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.
