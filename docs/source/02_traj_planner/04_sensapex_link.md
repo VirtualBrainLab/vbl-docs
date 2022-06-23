@@ -25,7 +25,7 @@ Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-li
 ## To develop this package
 1. Ensure Python 3.8+ and pip are installed
 2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
-3. `cd nptraj-sensapex-link` and run `pip install requirements.txt`
+3. `cd nptraj-sensapex-link` and run `pip install -r requirements.txt`
 4. The package is located in `src/`
 5. `python src/nptraj_sensapex_link/server.py` launches the server
 6. Unit tests are available to run under the `tests/` directory
