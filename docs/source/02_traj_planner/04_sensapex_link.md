@@ -1,5 +1,5 @@
 # Sensapex Link
-The Sensapex Link is a python server that allows any WebSocket compliant application (such as [Pinpoint (Neuropixels Trajectory Planner)](https://github.com/dbirman/NPTrajectoryPlanner/)) to have limited communication with [Sensapex uMp Micromanipulators](https://www.sensapex.com/products/ump-micromanipulators/)
+The Sensapex Link is a python WebSocket server that allows any WebSocket compliant application (such as [Pinpoint (Neuropixels Trajectory Planner)](https://github.com/dbirman/NPTrajectoryPlanner/)) to have limited communication with [Sensapex uMp Micromanipulators](https://www.sensapex.com/products/ump-micromanipulators/)
 
 **Table of Contents**
 - [Installation](installation)
@@ -35,10 +35,15 @@ Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-li
 # Usage
 This is a list of available WebSocket events. The code shown is pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.
 
-In general, each event will take in an input and call a callback function with certain arguments.
+In general:
+- Each event will take in an input and call a callback function with certain arguments
+- Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
+- The server will log unknown events, but will not return callback arguments or emit any messages
 
 **Table of Contents**
 - [Registering a manipulator](registering-a-manipulator)
+- [Calibrating a manipulator](calibrating-a-manipulator)
+  - [Bypassing Calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
 - [Set position of a manipulator](set-position-of-a-manipulator)
 
@@ -55,13 +60,57 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 - `(manipulator_id, '')`: No errors, registered manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator already registered')`: Manipulator is already registered, no action taken
 - `(manipulator_id, 'Manipulator not found')`: The manipulator is not discoverable by the API and may be disconnected or offline
-- `(manipulator_id, 'Error registering manipulator')`: An unknown error has occurred while getting position
+- `(manipulator_id, 'Error registering manipulator')`: An unknown error has occurred while registering
 
 ### Example
 ```python
 # Register manipulator with ID 1
 ws.emit('register_manipulator', 1, callback=my_callback_func)
 ```
+
+(calibrating-a-manipulator)=
+## Calibrating a manipulator
+To ensure all manipulators are working properly before applying autonomous control, all manipulators must have their movement checked and calibrated. This is done by moving all *four* axes through their full range of motion while also invoking the calibrate functionality.
+
+**Event:** `calibrate`
+
+**Expected Arguments:**
+- Manipulator ID: `int`
+
+**Callback Responses `(int, string)`:**
+- `(manipulator_id, '')`: No errors, calibrated manipulator with ID `manipulator_id`
+- `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, 'Error calling calibrate')`: A Sensapex SDK error has occured while calibrating
+- `(manipulator_id, 'Error calibrating manipulator')`: An unknown error has occurred while calibrating
+
+### Example
+```python
+# Register manipulator with ID 1
+ws.emit('calibrate', 1, callback=my_callback_func)
+```
+
+(bypassing-calibration)=
+## Bypassing Calibration
+***FOR TESTING PURPOSES ONLY!! Do not use in production code.***
+
+The calibration requirement may be bypassed by sending this event.
+
+**Event:** `bypass_calibration`
+
+**Expected Arguments:**
+- Manipulator ID: `int`
+
+**Callback Responses `(int, string)`:**
+- `(manipulator_id, '')`: No errors, calibration bypassed for manipulator with ID `manipulator_id`
+- `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, 'Error bypassing calibration')`: An unknown error has occurred while bypassing calibration
+
+### Example
+```python
+# Register manipulator with ID 1
+ws.emit('bypass_calibration', 1, callback=my_callback_func)
+```
+
 
 (get-a-manipulators-position)=
 ## Get a manipulator's position
@@ -84,7 +133,7 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 
 (set-position-of-a-manipulator)=
 ## Set position of a manipulator
-Instructs a manipulator to go to a position relative to the origin in µm. The manipulator will travel to the given positions in the order the server receives them. All movement is sequential and the handler for this event is blocked while a movement is taking place.
+Instructs a manipulator to go to a position relative to the origin in µm. Manipulator move asynchronously from each other. This means large batches of movement events can be sent to the sever for several manipulators and each manipulator will move through the events assigned to them independently.
 
 **Event:** `goto_pos`
 
