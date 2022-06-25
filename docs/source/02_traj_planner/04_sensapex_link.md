@@ -46,6 +46,8 @@ In general:
   - [Bypassing Calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
 - [Set position of a manipulator](set-position-of-a-manipulator)
+- [Drive manipualtor to depth](drive-to-depth)
+- [Set "inside brain" state of a manipulator](set-inside-brain)
 
 (registering-a-manipulator)=
 ## Registering a manipulator
@@ -80,7 +82,7 @@ To ensure all manipulators are working properly before applying autonomous contr
 **Callback Responses `(int, string)`:**
 - `(manipulator_id, '')`: No errors, calibrated manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
-- `(manipulator_id, 'Error calling calibrate')`: A Sensapex SDK error has occured while calibrating
+- `(manipulator_id, 'Error calling calibrate')`: A Sensapex SDK error has occurred while calibrating
 - `(manipulator_id, 'Error calibrating manipulator')`: An unknown error has occurred while calibrating
 
 ### Example
@@ -103,6 +105,7 @@ The calibration requirement may be bypassed by sending this event.
 **Callback Responses `(int, string)`:**
 - `(manipulator_id, '')`: No errors, calibration bypassed for manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, 'Error bypassing calibration')`: An unknown error has occurred while bypassing calibration
 
 ### Example
@@ -124,6 +127,7 @@ Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm fro
 **Callback Responses `(int, float[4], string)`**
 - `(manipulator_id, (x, y, z, w), '')`: No errors, position is returned
 - `(manipulator_id, (), 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, (), 'Error getting position')`: An unknown error has occured while getting position
 
 ```python
@@ -133,7 +137,11 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 
 (set-position-of-a-manipulator)=
 ## Set position of a manipulator
-Instructs a manipulator to go to a position relative to the origin in µm. Manipulator move asynchronously from each other. This means large batches of movement events can be sent to the sever for several manipulators and each manipulator will move through the events assigned to them independently.
+Instructs a manipulator to go to a position relative to the origin in µm.
+
+Manipulators move asynchronously from each other. This means large batches of movement events can be sent to the server for several manipulators and each manipulator will move through the events assigned to them independently.
+
+When a manipulator is set to be "inside" the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue. This state is set by [`set_inside_brain`](set-inside-brain). One may also explicitly specify movement in only the depth axis using [`drive_to_depth`](drive-to-depth)
 
 **Event:** `goto_pos`
 
@@ -144,7 +152,10 @@ Instructs a manipulator to go to a position relative to the origin in µm. Manip
 
 **Callback Responses `(int, float[4], string)`**
 - `(manipulator_id, (x, y, z, w), '')`: No errors, final position is returned
+- `(manipulator_id or -1, (), 'Invalid data format')`: Invalid/unexpected argument format
+- `(manipulator_id or -1, (), 'Error in goto_pos')`: An unknown error occured while starting this function
 - `(manipulator_id, (), 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, (), 'Error moving manipulator')`: An unknown error has occured while getting position
 
 ```python
@@ -156,6 +167,61 @@ ws.emit('goto_pos', {
 })
 ```
 
+(drive-to-depth)=
+## Drive to depth
+Instructs a manipulator to go to a specific depth in µm. This is equivalent to setting the position of the manipulator to the same position but with a different depth. This function helps to explicitly make sure no other axis except the depth axis is moving during a movement call.
+
+**Event:** `drive_to_depth`
+
+**Expected Arguments (dictionary/object with the following format):**
+- `manipulator_id`: `int`
+- `depth`: `float` (in µm from the origin)
+- `speed`: `int` (in µm/s)
+
+**Callback Responses `(int, float, string)`**
+- `(manipulator_id, depth, '')`: No errors, final position is returned
+- `(manipulator_id or -1, 0, 'Invalid data format')`: Invalid/unexpected argument format
+- `(manipulator_id or -1, 0, 'Error in drive_to_depth')`: An unknown error occured while starting this function
+- `(manipulator_id, 0, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, 0, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
+- `(manipulator_id, 0, 'Error driving manipulator')`: An unknown error has occurred while driving to depth
+
+### Example
+```python
+# Drive manipulator 1 to a depth of 1000 µm at 2000 µm/s
+ws.emit('drive_to_depth', {
+    'manipulator_id': 1,
+    'depth': 1000,
+    'speed': 2000
+})
+```
+
+(set-inside-brain)=
+## Set inside brain
+Sets the "inside brain" state of a manipulator. When a manipulator is inside the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue.
+
+**Event:** `set_inside_brain`
+
+**Expected Arguments (dictionary/object with the following format):**
+- `manipulator_id`: `int`
+- `inside`: `bool`
+
+**Callback Responses `(int, bool, string)`**
+- `(manipulator_id, inside, '')`: No errors, set state is returned
+- `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
+- `(manipulator_id or -1, False, 'Error in inside_brain')`: An unknown error occurred while starting this function
+- `(manipulator_id, False, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
+- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while driving to depth
+
+### Example
+```python
+# Set manipulator 1 to be inside the brain
+ws.emit('inside_brain', {
+    'manipulator_id': 1,
+    'inside': True
+})
+```
 
 (code-organization)=
 # Code Organization
