@@ -24,7 +24,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Trajectory Planner
+   :caption: Pinpoint
 
    02_traj_planner/01_tp_intro
    02_traj_planner/02_tp_alignment
@@ -35,7 +35,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Unity Renderer for Neuroscience
+   :caption: Urchin
 
    03_unity_neuro/01_urn_intro
    03_unity_neuro/02_urn_development

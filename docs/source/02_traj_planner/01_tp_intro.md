@@ -1,6 +1,6 @@
 # Installation and Use
 
-This is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.
+Pinpoint is a trajectory planning tool for Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.
 
 ![Azimuth example](https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/2022_04_21.png)
 
