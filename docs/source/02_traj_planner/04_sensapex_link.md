@@ -8,21 +8,21 @@ The Sensapex Link is a python WebSocket server that allows any WebSocket complia
 
 
 (installation)=
-# Installation
+## Installation
 Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-link/blob/main/README.md)
 
-## For usage like a standalone app/server
+### For usage like a standalone app/server
 1. Ensure Python 3.8+ and pip are installed
 2. `pip install nptraj-sensapex-link`
 3. Run `python -m nptraj-sensapex-link` to start the server
 
-## For usage like a library
+### For usage like a library
 1. Ensure Python 3.8+ and pip are installed
 2. `pip install nptraj-sensapex-link`
 3. Use `from nptraj_sensapex_link import launch` and call `launch()` to start the server
    1. Alternatively, use `import nptraj_sensapex_link` and call `nptraj_sensapex_link.launch()`
 
-## To develop this package
+### To develop this package
 1. Ensure Python 3.8+ and pip are installed
 2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
 3. `cd nptraj-sensapex-link` and run `pip install -r requirements.txt`
@@ -32,7 +32,7 @@ Copied from the [repo's README.md](https://github.com/dbirman/nptraj-sensapex-li
 
 
 (usage)=
-# Usage
+## Usage
 This is a list of available WebSocket events. The code shown is pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.
 
 In general:
@@ -50,7 +50,7 @@ In general:
 - [Set "inside brain" state of a manipulator](set-inside-brain)
 
 (registering-a-manipulator)=
-## Registering a manipulator
+### Registering a manipulator
 Every manipulator in a Sensapex setup must be registered to the server before being used.
 
 **Event:** `register_manipulator`
@@ -64,14 +64,14 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 - `(manipulator_id, 'Manipulator not found')`: The manipulator is not discoverable by the API and may be disconnected or offline
 - `(manipulator_id, 'Error registering manipulator')`: An unknown error has occurred while registering
 
-### Example
+#### Example
 ```python
 # Register manipulator with ID 1
 ws.emit('register_manipulator', 1, callback=my_callback_func)
 ```
 
 (calibrating-a-manipulator)=
-## Calibrating a manipulator
+### Calibrating a manipulator
 To ensure all manipulators are working properly before applying autonomous control, all manipulators must have their movement checked and calibrated. This is done by moving all *four* axes through their full range of motion while also invoking the calibrate functionality.
 
 **Event:** `calibrate`
@@ -85,14 +85,14 @@ To ensure all manipulators are working properly before applying autonomous contr
 - `(manipulator_id, 'Error calling calibrate')`: A Sensapex SDK error has occurred while calibrating
 - `(manipulator_id, 'Error calibrating manipulator')`: An unknown error has occurred while calibrating
 
-### Example
+#### Example
 ```python
 # Register manipulator with ID 1
 ws.emit('calibrate', 1, callback=my_callback_func)
 ```
 
 (bypassing-calibration)=
-## Bypassing Calibration
+### Bypassing Calibration
 ***FOR TESTING PURPOSES ONLY!! Do not use in production code.***
 
 The calibration requirement may be bypassed by sending this event.
@@ -108,7 +108,7 @@ The calibration requirement may be bypassed by sending this event.
 - `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, 'Error bypassing calibration')`: An unknown error has occurred while bypassing calibration
 
-### Example
+#### Example
 ```python
 # Register manipulator with ID 1
 ws.emit('bypass_calibration', 1, callback=my_callback_func)
@@ -116,7 +116,7 @@ ws.emit('bypass_calibration', 1, callback=my_callback_func)
 
 
 (get-a-manipulators-position)=
-## Get a manipulator's position
+### Get a manipulator's position
 Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm from the origin.
 
 **Event:** `get_pos`
@@ -136,7 +136,7 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 ```
 
 (set-position-of-a-manipulator)=
-## Set position of a manipulator
+### Set position of a manipulator
 Instructs a manipulator to go to a position relative to the origin in µm.
 
 Manipulators move asynchronously from each other. This means large batches of movement events can be sent to the server for several manipulators and each manipulator will move through the events assigned to them independently.
@@ -168,7 +168,7 @@ ws.emit('goto_pos', {
 ```
 
 (drive-to-depth)=
-## Drive to depth
+### Drive to depth
 Instructs a manipulator to go to a specific depth in µm. This is equivalent to setting the position of the manipulator to the same position but with a different depth. This function helps to explicitly make sure no other axis except the depth axis is moving during a movement call.
 
 **Event:** `drive_to_depth`
@@ -186,7 +186,7 @@ Instructs a manipulator to go to a specific depth in µm. This is equivalent to 
 - `(manipulator_id, 0, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, 0, 'Error driving manipulator')`: An unknown error has occurred while driving to depth
 
-### Example
+#### Example
 ```python
 # Drive manipulator 1 to a depth of 1000 µm at 2000 µm/s
 ws.emit('drive_to_depth', {
@@ -197,7 +197,7 @@ ws.emit('drive_to_depth', {
 ```
 
 (set-inside-brain)=
-## Set inside brain
+### Set inside brain
 Sets the "inside brain" state of a manipulator. When a manipulator is inside the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue.
 
 **Event:** `set_inside_brain`
@@ -214,7 +214,7 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 - `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while driving to depth
 
-### Example
+#### Example
 ```python
 # Set manipulator 1 to be inside the brain
 ws.emit('inside_brain', {
@@ -224,14 +224,14 @@ ws.emit('inside_brain', {
 ```
 
 (code-organization)=
-# Code Organization
+## Code Organization
 There are three main components of this package:
 1. `server.py`: The main server code
 2. `sensapex_handler.py`: Code for communicating with the Sensapex API
 3. `manipulator.py`: A class for representing a manipulator
 
 
-## `server.py`
+### `server.py`
 All code responsible for WebSocket server functionality is in this file. This includes client connection/disconnection, event handling, and the main server loop.
 
 For every event, the server does the following:
@@ -242,7 +242,7 @@ For every event, the server does the following:
 4. Call the callback function with the response from `sensapex_handler.py` as parameters
 
 
-## `sensapex_handler.py`
+### `sensapex_handler.py`
 All code responsible for communicating with the Sensapex API is in this file. This loading the DLL, establishing a connection with the equipment and maintaining a dictionary of registered manipulators.
 
 Functions names here are the same as the WebSocket events. They are called when the server receives an event from a client. In general, the function does the following:
@@ -252,12 +252,12 @@ Functions names here are the same as the WebSocket events. They are called when 
 4. Return the callback parameters to `server.py`
 
 
-## `manipulator.py`
+### `manipulator.py`
 To help make calling functions on manipulators easier, a custom class containing the necessary functions and flags is created. This class is used by `sensapex_handler.py` to call manipulator-specific APIs such as `get_pos` (get position) and to keep track of manipulator-specific flags such as if it has been calibrated yet.
 
 Manipulator functions handle errors and return the appropriate callback parameters like in `sensapex_handler.py`.
 
-# General code practices (for developers looking to contribute)
+## General code practices (for developers looking to contribute)
 - Type hinting is implemented where possible
 - Tuples are used when possible
 - Only one client can be connected at a time
