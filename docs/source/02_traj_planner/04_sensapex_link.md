@@ -154,6 +154,7 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 - `(manipulator_id, (x, y, z, w), '')`: No errors, final position is returned
 - `(manipulator_id or -1, (), 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, (), 'Error in goto_pos')`: An unknown error occured while starting this function
+- `(manipualtor_id, (), 'Manipulator movement canceled')`: Emergency stop was used and manipulator movements have been canceled
 - `(manipulator_id, (), 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, (), 'Error moving manipulator')`: An unknown error has occured while getting position
@@ -222,6 +223,28 @@ ws.emit('inside_brain', {
     'inside': True
 })
 ```
+
+### Emergency Stop
+There are two ways an emergency stop can be triggered: through this event or through the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. 
+
+Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, ***and set all manipulators to be uncalibrated.*** Therefore, one must recalibrate the manipulators before continuing.
+
+
+**Event:** `stop`
+
+**Expected Arguments (dictionary/object with the following format):**
+- None
+
+**Callback Responses `(int, bool, string)`**
+- `true`: No errors, all movement stopped
+- `false`: An unknown error has occurred while stopping all movement
+
+#### Example
+```python
+# Stop all movement
+ws.emit('stop')
+```
+
 
 (code-organization)=
 ## Code Organization
