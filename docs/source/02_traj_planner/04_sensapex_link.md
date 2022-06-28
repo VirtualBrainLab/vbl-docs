@@ -154,6 +154,7 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 - `(manipulator_id, (x, y, z, w), '')`: No errors, final position is returned
 - `(manipulator_id or -1, (), 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, (), 'Error in goto_pos')`: An unknown error occured while starting this function
+- `(manipualtor_id, (), 'Manipulator movement canceled')`: Emergency stop was used and manipulator movements have been canceled
 - `(manipulator_id, (), 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
 - `(manipulator_id, (), 'Error moving manipulator')`: An unknown error has occured while getting position
