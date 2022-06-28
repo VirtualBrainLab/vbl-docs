@@ -224,6 +224,28 @@ ws.emit('inside_brain', {
 })
 ```
 
+### Emergency Stop
+There are two ways an emergency stop can be triggered: through this event or through the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. 
+
+Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, ***and set all manipulators to be uncalibrated.*** Therefore, one must recalibrate the manipulators before continuing.
+
+
+**Event:** `stop`
+
+**Expected Arguments (dictionary/object with the following format):**
+- None
+
+**Callback Responses `(int, bool, string)`**
+- `true`: No errors, all movement stopped
+- `false`: An unknown error has occurred while stopping all movement
+
+#### Example
+```python
+# Stop all movement
+ws.emit('stop')
+```
+
+
 (code-organization)=
 ## Code Organization
 There are three main components of this package:
