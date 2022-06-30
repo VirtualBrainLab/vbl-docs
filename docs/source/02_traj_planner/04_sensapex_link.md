@@ -48,6 +48,7 @@ In general:
 - [Set position of a manipulator](set-position-of-a-manipulator)
 - [Drive manipualtor to depth](drive-to-depth)
 - [Set "inside brain" state of a manipulator](set-inside-brain)
+- [Emergency Stop](emergency-stop)
 
 (registering-a-manipulator)=
 ### Registering a manipulator
@@ -224,8 +225,9 @@ ws.emit('inside_brain', {
 })
 ```
 
+(emergency-stop)=
 ### Emergency Stop
-There are two ways an emergency stop can be triggered: through this event or through the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. 
+There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. 
 
 Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, ***and set all manipulators to be uncalibrated.*** Therefore, one must recalibrate the manipulators before continuing.
 
