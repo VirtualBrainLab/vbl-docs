@@ -38,16 +38,19 @@ This is a list of available WebSocket events. The code shown is pseudo-WebSocket
 In general:
 - Each event will take in an input and call a callback function with certain arguments
 - Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
+  - Before a manipulator can be moved, it must have its [movement enabled](enable-movement)
+  - A manpulator's position can be read before its movement is enabled though
 - The server will log unknown events, but will not return callback arguments or emit any messages
 
 **Table of Contents**
 - [Registering a manipulator](registering-a-manipulator)
 - [Calibrating a manipulator](calibrating-a-manipulator)
-  - [Bypassing Calibration](bypassing-calibration)
+  - [Bypassing calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
 - [Set position of a manipulator](set-position-of-a-manipulator)
 - [Drive manipualtor to depth](drive-to-depth)
 - [Set "inside brain" state of a manipulator](set-inside-brain)
+- [Enable movement](enable-movement)
 - [Emergency Stop](emergency-stop)
 
 (registering-a-manipulator)=
@@ -88,12 +91,12 @@ To ensure all manipulators are working properly before applying autonomous contr
 
 #### Example
 ```python
-# Register manipulator with ID 1
+# Calibrate manipulator 1
 ws.emit('calibrate', 1, callback=my_callback_func)
 ```
 
 (bypassing-calibration)=
-### Bypassing Calibration
+### Bypassing calibration
 ***FOR TESTING PURPOSES ONLY!! Do not use in production code.***
 
 The calibration requirement may be bypassed by sending this event.
@@ -111,8 +114,43 @@ The calibration requirement may be bypassed by sending this event.
 
 #### Example
 ```python
-# Register manipulator with ID 1
+# Bypass calibration for manipulator 1
 ws.emit('bypass_calibration', 1, callback=my_callback_func)
+```
+
+
+(enable-movement)=
+### Enable movement
+To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.
+
+**Event:** `set_can_write`
+
+**Expected Arguments (dictionary/object with the following format):**
+- `manipulator_id`: `int`
+- `can_write`: `bool`
+- `hours`: `float`
+
+**Callback Responses `(int, bool, string)`**
+- `(manipulator_id, can_write, '')`: No errors, set state is returned
+- `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
+- `(manipulator_id or -1, False, 'Error in set_can_write')`: An unknown error occurred while starting this function
+- `(manipulator_id, False, 'Manipulator not registered')`: Manipulator is not registered yet
+- `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
+- `(manipulator_id, False, 'Error setting can_write')`: An unknown error has occurred enabling movement
+
+**Reponse Event:** `write_disabled`
+
+**Payload:** `manipulator_id`: `int`
+
+#### Example
+```python
+```python
+# Enable movement for manipulator 1 indefinitely (0 = indefinite hours)
+ws.emit('set_can_write', {
+    'manipulator_id': 1,
+    'can_write': True,
+    'hours': 0
+})
 ```
 
 
@@ -211,10 +249,10 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 **Callback Responses `(int, bool, string)`**
 - `(manipulator_id, inside, '')`: No errors, set state is returned
 - `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
-- `(manipulator_id or -1, False, 'Error in inside_brain')`: An unknown error occurred while starting this function
+- `(manipulator_id or -1, False, 'Error in set_inside_brain')`: An unknown error occurred while starting this function
 - `(manipulator_id, False, 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
-- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while driving to depth
+- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while  setting inside brain
 
 #### Example
 ```python
