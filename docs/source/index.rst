@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Virtual Brain Lab
-=============================================
+.. image:: https://github.com/VirtualBrainLab/.github/raw/main/images/brain_text-01.png
+  :width: 400
+  :alt: logo
 
 The Virtual Brain Lab builds intuitive and interactive 3D visualizations for neuroscience.
 

@@ -18,6 +18,9 @@
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
+<!-- ## International Brain Laboratory
+
+**Mayo Faulkner** -->
 
 
 ## Collaborators

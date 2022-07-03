@@ -10,7 +10,7 @@
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/brain_rotate_cropped.gif" width="45%"> 
 </p>
 
-Urchin (Unity Renderer for Neuroscience) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
+Unity Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
 
 ## Install
 
@@ -18,7 +18,7 @@ Urchin (Unity Renderer for Neuroscience) allows you to connect your Python scrip
 pip install unityneuro
 ```
 
-The bundled examples in the Examples folder should open the Unity Renderer web app automatically. You can also run in standalone mode by downloading the desktop app for Windows from the [releases page](https://github.com/dbirman/UnityNeuroscience/releases). Linux standalone available on request.
+No additional installation is required if you plan to run Urchin in a browser. A standalone desktop application is also available from the [releases page](https://github.com/dbirman/UnityNeuroscience/releases). Linux standalone available on request.
 
 ## Instructions
 
@@ -27,11 +27,11 @@ import unityneuro.render as urn
 urn.setup()
 ```
 
-By default calling `setup()` opens a web browser and links it to your Python client. Passing `urn.setup(standalone = True)` allows you to connect to a Desktop renderer.
+Calling `setup()` opens a web browser and links it to your Python client. You can also set the parameter `standalone = True` to connect to a standalone Desktop application. 
 
 ### Troubleshooting ID
 
-Your Python scripts and the renderer are linked by an ID, which should be set automatically when you call `setup()`. If this link fails you can manually set your ID in the renderer by pressing `I` and entering your account username, which can be obtained with:
+When opening the renderer your ID should be set automatically. If this fails or you need to change your ID press `I` and enter your account username. If you aren't sure what that is, try running:
 
 ```
 python
@@ -39,9 +39,9 @@ import os
 os.getlogin()
 ```
 
-You can press `C` to open the console to confirm your ID was set correctly.
+You can press `C` to open the console in the renderer to confirm your ID was set correctly.
 
-## Interaction
+## Camera control
 
 Left click + drag along the Y axis to pitch the brain
 
