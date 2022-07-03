@@ -65,7 +65,16 @@
 <p class="caption" role="heading"><span class="caption-text">Misc</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_vbl_core.html">VBL Core</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Addressables Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Addressables Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-new-file">Adding a new file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-asset">Setting up the asset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-new-bundles">Building new bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pushing-to-the-server">Pushing to the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-projects">Update projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="03_general_dev.html">General Programming Advice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_unity_tutorials.html">Unity</a></li>
 </ul>
@@ -100,6 +109,28 @@
              
   <section id="addressables-storage">
 <h1>Addressables Storage<a class="headerlink" href="#addressables-storage" title="Permalink to this heading"></a></h1>
+<p>The Addressables Storage repository holds binary files and assets that are re-used across multiple projects. Loading these files is done through the <code class="docutils literal notranslate"><span class="pre">AddressablesRemoteLoader</span></code> component which can be attached to any empty GameObject.</p>
+<section id="adding-a-new-file">
+<h2>Adding a new file<a class="headerlink" href="#adding-a-new-file" title="Permalink to this heading"></a></h2>
+<section id="setting-up-the-asset">
+<h3>Setting up the asset<a class="headerlink" href="#setting-up-the-asset" title="Permalink to this heading"></a></h3>
+<p>You can add a new file by importing it into the project and marking it as Addressable in the inspector. The file will be assigned a string for access, which you will need to use when loading the file in the remote loader. Set the group settings appropriately so that the file loads as part of an existing or new bundle.</p>
+<p>Make sure to set the “load separately” flag if your bundle contains multiple assets that need to be separated.</p>
+<p>In the remote loader you will then need to add a function so that other projects can access the file. Use the existing examples as a template.</p>
+</section>
+<section id="building-new-bundles">
+<h3>Building new bundles<a class="headerlink" href="#building-new-bundles" title="Permalink to this heading"></a></h3>
+<p>The remote loader uses a simple versioning setup by tagging each build with a tag (e.g. v0.1.1). Increment the patch number if you are modifying an existing file. Increment the minor number if you are adding new files that don’t modify existing functionality. Increment the major number if you are making a backward-incompatible change to the codebase.</p>
+</section>
+<section id="pushing-to-the-server">
+<h3>Pushing to the server<a class="headerlink" href="#pushing-to-the-server" title="Permalink to this heading"></a></h3>
+<p>Build the addressable assets and copy the entire new ServerData/ folder to the local server. Make sure to build for Windows standalone and for WebGL (and Linux, if needed).</p>
+</section>
+<section id="update-projects">
+<h3>Update projects<a class="headerlink" href="#update-projects" title="Permalink to this heading"></a></h3>
+<p>Existing projects should then be migrated to target the new storage version, by modifying the field in the <code class="docutils literal notranslate"><span class="pre">AddressablesRemoteLoader</span></code> component.</p>
+</section>
+</section>
 </section>
 
 

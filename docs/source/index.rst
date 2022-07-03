@@ -4,14 +4,19 @@
    contain the root `toctree` directive.
 
 .. image:: https://github.com/VirtualBrainLab/.github/raw/main/images/brain_text-01.png
-  :width: 400
+  :width: 650
   :alt: logo
 
-The Virtual Brain Lab builds intuitive and interactive 3D visualizations for neuroscience.
+=================
 
-The VBL is located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
+Virtual Brain Lab
+==================
 
-Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`.
+The VBL builds intuitive and interactive 3D visualizations for neuroscience.
+
+We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
+
+Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`_.
 
 .. toctree::
    :hidden:

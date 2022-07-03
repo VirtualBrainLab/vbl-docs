@@ -65,18 +65,26 @@
 <li class="toctree-l4"><a class="reference internal" href="#id5">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#bypassing-calibration">Bypassing Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bypassing-calibration">Bypassing calibration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id7">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-movement">Enable movement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#get-a-manipulator-s-position">Get a manipulator’s position</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-position-of-a-manipulator">Set position of a manipulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#drive-to-depth">Drive to depth</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id10">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#set-inside-brain">Set inside brain</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id12">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#emergency-stop">Emergency Stop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -188,7 +196,12 @@
 <p>In general:</p>
 <ul class="simple">
 <li><p>Each event will take in an input and call a callback function with certain arguments</p></li>
-<li><p>Before a manipulator can be used, it must be <a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">registered</span></a> and <a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">calibrated</span></a></p></li>
+<li><p>Before a manipulator can be used, it must be <a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">registered</span></a> and <a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">calibrated</span></a></p>
+<ul>
+<li><p>Before a manipulator can be moved, it must have its <a class="reference internal" href="#enable-movement"><span class="std std-ref">movement enabled</span></a></p></li>
+<li><p>A manpulator’s position can be read before its movement is enabled though</p></li>
+</ul>
+</li>
 <li><p>The server will log unknown events, but will not return callback arguments or emit any messages</p></li>
 </ul>
 <p><strong>Table of Contents</strong></p>
@@ -196,13 +209,15 @@
 <li><p><a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">Registering a manipulator</span></a></p></li>
 <li><p><a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">Calibrating a manipulator</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="#bypassing-calibration"><span class="std std-ref">Bypassing Calibration</span></a></p></li>
+<li><p><a class="reference internal" href="#bypassing-calibration"><span class="std std-ref">Bypassing calibration</span></a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#get-a-manipulators-position"><span class="std std-ref">Get a manipulator’s position</span></a></p></li>
 <li><p><a class="reference internal" href="#set-position-of-a-manipulator"><span class="std std-ref">Set position of a manipulator</span></a></p></li>
 <li><p><a class="reference internal" href="#drive-to-depth"><span class="std std-ref">Drive manipualtor to depth</span></a></p></li>
 <li><p><a class="reference internal" href="#set-inside-brain"><span class="std std-ref">Set “inside brain” state of a manipulator</span></a></p></li>
+<li><p><a class="reference internal" href="#enable-movement"><span class="std std-ref">Enable movement</span></a></p></li>
+<li><p><a class="reference internal" href="#emergency-stop"><span class="std std-ref">Emergency Stop</span></a></p></li>
 </ul>
 <section id="registering-a-manipulator">
 <span id="id3"></span><h3>Registering a manipulator<a class="headerlink" href="#registering-a-manipulator" title="Permalink to this heading"></a></h3>
@@ -244,14 +259,14 @@
 </ul>
 <section id="id5">
 <h4>Example<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register manipulator with ID 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calibrate manipulator 1</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;calibrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="bypassing-calibration">
-<span id="id6"></span><h3>Bypassing Calibration<a class="headerlink" href="#bypassing-calibration" title="Permalink to this heading"></a></h3>
+<span id="id6"></span><h3>Bypassing calibration<a class="headerlink" href="#bypassing-calibration" title="Permalink to this heading"></a></h3>
 <p><em><strong>FOR TESTING PURPOSES ONLY!! Do not use in production code.</strong></em></p>
 <p>The calibration requirement may be bypassed by sending this event.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">bypass_calibration</span></code></p>
@@ -268,8 +283,42 @@
 </ul>
 <section id="id7">
 <h4>Example<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register manipulator with ID 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bypass calibration for manipulator 1</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;bypass_calibration&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enable-movement">
+<span id="id8"></span><h3>Enable movement<a class="headerlink" href="#enable-movement" title="Permalink to this heading"></a></h3>
+<p>To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">set_can_write</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">can_write</span></code>: <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hours</span></code>: <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+</ul>
+<p><strong>Callback Responses <code class="docutils literal notranslate"><span class="pre">(int,</span> <span class="pre">bool,</span> <span class="pre">string)</span></code></strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">can_write,</span> <span class="pre">'')</span></code>: No errors, set state is returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Invalid</span> <span class="pre">data</span> <span class="pre">format')</span></code>: Invalid/unexpected argument format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">set_can_write')</span></code>: An unknown error occurred while starting this function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">registered')</span></code>: Manipulator is not registered yet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated')</span></code>: Manipulator is not calibrated yet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">setting</span> <span class="pre">can_write')</span></code>: An unknown error has occurred enabling movement</p></li>
+</ul>
+<p><strong>Reponse Event:</strong> <code class="docutils literal notranslate"><span class="pre">write_disabled</span></code></p>
+<p><strong>Payload:</strong> <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<section id="id9">
+<h4>Example<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>```python
+# Enable movement for manipulator 1 indefinitely (0 = indefinite hours)
+ws.emit(&#39;set_can_write&#39;, {
+    &#39;manipulator_id&#39;: 1,
+    &#39;can_write&#39;: True,
+    &#39;hours&#39;: 0
+})
 </pre></div>
 </div>
 </section>
@@ -295,7 +344,7 @@
 </div>
 </section>
 <section id="set-position-of-a-manipulator">
-<span id="id8"></span><h3>Set position of a manipulator<a class="headerlink" href="#set-position-of-a-manipulator" title="Permalink to this heading"></a></h3>
+<span id="id10"></span><h3>Set position of a manipulator<a class="headerlink" href="#set-position-of-a-manipulator" title="Permalink to this heading"></a></h3>
 <p>Instructs a manipulator to go to a position relative to the origin in µm.</p>
 <p>Manipulators move asynchronously from each other. This means large batches of movement events can be sent to the server for several manipulators and each manipulator will move through the events assigned to them independently.</p>
 <p>When a manipulator is set to be “inside” the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue. This state is set by <a class="reference internal" href="#set-inside-brain"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">set_inside_brain</span></code></span></a>. One may also explicitly specify movement in only the depth axis using <a class="reference internal" href="#drive-to-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">drive_to_depth</span></code></span></a></p>
@@ -311,6 +360,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">w),</span> <span class="pre">'')</span></code>: No errors, final position is returned</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">(),</span> <span class="pre">'Invalid</span> <span class="pre">data</span> <span class="pre">format')</span></code>: Invalid/unexpected argument format</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">(),</span> <span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">goto_pos')</span></code>: An unknown error occured while starting this function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipualtor_id,</span> <span class="pre">(),</span> <span class="pre">'Manipulator</span> <span class="pre">movement</span> <span class="pre">canceled')</span></code>: Emergency stop was used and manipulator movements have been canceled</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">(),</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">registered')</span></code>: Manipulator is not registered yet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">(),</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated')</span></code>: Manipulator is not calibrated yet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">(),</span> <span class="pre">'Error</span> <span class="pre">moving</span> <span class="pre">manipulator')</span></code>: An unknown error has occured while getting position</p></li>
@@ -325,7 +375,7 @@
 </div>
 </section>
 <section id="drive-to-depth">
-<span id="id9"></span><h3>Drive to depth<a class="headerlink" href="#drive-to-depth" title="Permalink to this heading"></a></h3>
+<span id="id11"></span><h3>Drive to depth<a class="headerlink" href="#drive-to-depth" title="Permalink to this heading"></a></h3>
 <p>Instructs a manipulator to go to a specific depth in µm. This is equivalent to setting the position of the manipulator to the same position but with a different depth. This function helps to explicitly make sure no other axis except the depth axis is moving during a movement call.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">drive_to_depth</span></code></p>
 <p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
@@ -343,8 +393,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">0,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated')</span></code>: Manipulator is not calibrated yet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">0,</span> <span class="pre">'Error</span> <span class="pre">driving</span> <span class="pre">manipulator')</span></code>: An unknown error has occurred while driving to depth</p></li>
 </ul>
-<section id="id10">
-<h4>Example<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<section id="id12">
+<h4>Example<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drive manipulator 1 to a depth of 1000 µm at 2000 µm/s</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;drive_to_depth&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -356,7 +406,7 @@
 </section>
 </section>
 <section id="set-inside-brain">
-<span id="id11"></span><h3>Set inside brain<a class="headerlink" href="#set-inside-brain" title="Permalink to this heading"></a></h3>
+<span id="id13"></span><h3>Set inside brain<a class="headerlink" href="#set-inside-brain" title="Permalink to this heading"></a></h3>
 <p>Sets the “inside brain” state of a manipulator. When a manipulator is inside the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">set_inside_brain</span></code></p>
 <p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
@@ -368,13 +418,13 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">inside,</span> <span class="pre">'')</span></code>: No errors, set state is returned</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Invalid</span> <span class="pre">data</span> <span class="pre">format')</span></code>: Invalid/unexpected argument format</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">inside_brain')</span></code>: An unknown error occurred while starting this function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">set_inside_brain')</span></code>: An unknown error occurred while starting this function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">registered')</span></code>: Manipulator is not registered yet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated')</span></code>: Manipulator is not calibrated yet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">setting</span> <span class="pre">inside</span> <span class="pre">brain')</span></code>: An unknown error has occurred while driving to depth</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">setting</span> <span class="pre">inside</span> <span class="pre">brain')</span></code>: An unknown error has occurred while  setting inside brain</p></li>
 </ul>
-<section id="id12">
-<h4>Example<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<section id="id14">
+<h4>Example<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set manipulator 1 to be inside the brain</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;inside_brain&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -384,9 +434,31 @@
 </div>
 </section>
 </section>
+<section id="emergency-stop">
+<span id="id15"></span><h3>Emergency Stop<a class="headerlink" href="#emergency-stop" title="Permalink to this heading"></a></h3>
+<p>There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself “USB Serial Device” (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check.</p>
+<p>Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, <em><strong>and set all manipulators to be uncalibrated.</strong></em> Therefore, one must recalibrate the manipulators before continuing.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">stop</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Callback Responses <code class="docutils literal notranslate"><span class="pre">(int,</span> <span class="pre">bool,</span> <span class="pre">string)</span></code></strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>: No errors, all movement stopped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code>: An unknown error has occurred while stopping all movement</p></li>
+</ul>
+<section id="id16">
+<h4>Example<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop all movement</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 <section id="code-organization">
-<span id="id13"></span><h2>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this heading"></a></h2>
+<span id="id17"></span><h2>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this heading"></a></h2>
 <p>There are three main components of this package:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">server.py</span></code>: The main server code</p></li>

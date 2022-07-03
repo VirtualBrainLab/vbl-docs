@@ -42,6 +42,7 @@
       set_camera_rotation
       set_camera_target
       set_camera_target_area
+      set_camera_zoom
       set_neuron_colors
       set_neuron_materials
       set_neuron_positions

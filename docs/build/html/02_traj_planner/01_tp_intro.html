@@ -56,7 +56,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#instructions-for-use">Instructions for use</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#controls">Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controls">Controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#click-drag">Click + Drag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyboard">Keyboard</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#recording-region">Recording region</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#export-coordinates">Export coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changing-the-active-probe">Changing the active probe</a></li>
@@ -64,9 +68,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#using-coordinates-for-surgery">Using coordinates for surgery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#saving-and-loading-probes">Saving and loading probes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bugs">Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#electrophysiology-atlas">Electrophysiology atlas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#citing">Citing</a></li>
 </ul>
@@ -124,7 +127,7 @@
              
   <section id="installation-and-use">
 <h1>Installation and Use<a class="headerlink" href="#installation-and-use" title="Permalink to this heading"></a></h1>
-<p>Pinpoint is a trajectory planning tool for Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.</p>
+<p>Pinpoint is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.</p>
 <p><img alt="Azimuth example" src="https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/2022_04_21.png" /></p>
 <p>Code is on our <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/">Github repository</a>.</p>
 <section id="known-issues">
@@ -136,10 +139,11 @@
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
-<p>The easiest way to use the trajectory planner is through our <a class="reference external" href="http://data.virtualbrainlab.org/NPTrajectoryPlanner/">web app</a>. If you encounter issues please try refreshing the page (sometimes the 3D mesh files don’t download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).</p>
+<p>The easiest way to use the trajectory planner is through our <a class="reference external" href="http://data.virtualbrainlab.org/Pinpoint/">web app</a>.</p>
+<p>If you encounter issues please try refreshing the page (sometimes the 3D mesh files don’t download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).</p>
 <section id="standalone-builds">
 <h3>Standalone builds<a class="headerlink" href="#standalone-builds" title="Permalink to this heading"></a></h3>
-<p>You can also download a Desktop build from the <img alt="releases page" src="https://github.com/dbirman/NPTrajectoryPlanner/releases" />. We can build for linux on request.</p>
+<p>You can also download a Desktop build from the <img alt="releases page" src="https://github.com/VirtualBrainLab/NPTrajectoryPlanner/releases" />. We can build for linux on request.</p>
 <!-- ### Additional linux instructions
 
 To run the linux executable you need to go to the unzipped folder and run `chmod +x` on the .x86_64 file. Some users may run into permissions issues, in which case running ` chown -R yourusername .` from within the folder should repair those. -->
@@ -150,19 +154,25 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 </section>
 <section id="instructions-for-use">
 <h2>Instructions for use<a class="headerlink" href="#instructions-for-use" title="Permalink to this heading"></a></h2>
-<p>To set up a new probe, select the button in the bottom right corresponding to the probe type (NP1/NP2/NP2.4). By default the probe’s (0,0,0) coordinate is set to the IBL bregma coordinate (CCF: AP 5.4f, ML 5.739f, DV 0.332f).</p>
+<p>To set up a new probe, select the button on the right panel corresponding to the probe type (NP1/NP2/NP2.4). By default we transform coordinates into the IBL “Needles” space, where the AP=0, ML=0, DV=0 coordinate is placed at Bregma. This setting can be disabled in the settings (under Atlas).</p>
+<p>A probe <strong>insertion</strong> is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the <strong>brain surface coordinate</strong> and <strong>depth</strong> of the probe, which you will need to actually perform your experiment.</p>
 <p>At any time you can press [M] to open the manual coordinate entry window and enter coordinates directly.</p>
 <section id="controls">
 <h3>Controls<a class="headerlink" href="#controls" title="Permalink to this heading"></a></h3>
-<p>The easiest way to control your probe is to click on the probe, press one of the axis keys [W/S], [A/D], or [Z/X] and then drag. This will move the probe along the corresponding axis. You can also press any of the keyboard keys in the diagram below to move along that axis. Hold <strong>SHIFT</strong> as you to move faster along any axis. Hold <strong>CTRL</strong> to move slower. Pressing and holding a key will move continuously.</p>
+<section id="click-drag">
+<h4>Click + Drag<a class="headerlink" href="#click-drag" title="Permalink to this heading"></a></h4>
+<p>The easiest way to control your probe is to left click and hold on the brain and then press one of the axis keys, dragging will then allow you to move the probe along that axis.</p>
+</section>
+<section id="keyboard">
+<h4>Keyboard<a class="headerlink" href="#keyboard" title="Permalink to this heading"></a></h4>
+<p>You can also press any of the keyboard keys to move the probe along that axis in 10um units. Hold <strong>SHIFT</strong> to move in 100um units. Hold <strong>CTRL</strong> to move in 1um units. Pressing and holding a key will move continuously.</p>
 <p><img alt="probe controls" src="https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/ProbeControls.png" /></p>
-<p>Use [W/A/S/D] to move the probe along the AP or ML axis.</p>
-<p>Azimuth is the angle of the probe manipulator relative to the brain. Use [Q/E] to control azimuth.</p>
-<p>Elevation is the angle of the probe on the manipulator, and is restricted to the range 0 (vertical) to 90 (horizontal). Use [R/F] to control elevation.</p>
-<p>Use [Z/X] to insert the probe.</p>
-<p>Note that the rotation point is the insertion coordinate with depth==0 (i.e. the point the tip was at before you inserted the probe). I’ll change this in a future release, but for now if you rotate the probe after inserting it will rotate around that insertion point.</p>
-<p>Use [1/3] to spin the probe along the axis of the probe shank. Note that NP2.4 probes spin around the rightmost probe shank when looking towards the side with the electrodes.</p>
+<p>Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Z/X] to move the probe along the DV axis.</p>
+<p>USe [Q/E] to rotate the probe azimuth, which corresponds to the angle of the probe manipulator relative to the brain.</p>
+<p>Use [R/F] to change the angle of the probe on the manipulator (restricted to 0-90 deg range).</p>
+<p>Use [1/3] to spin the probe along the axis of the probe shank. Note that NP2.4 probes spin around the leftmost probe shank when looking from the back.</p>
 <p>Probes can be deleted with [Backspace]. To recover a probe you didn’t mean to delete press [CTRL + Backspace].</p>
+</section>
 </section>
 <section id="recording-region">
 <h3>Recording region<a class="headerlink" href="#recording-region" title="Permalink to this heading"></a></h3>
@@ -180,13 +190,16 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 <section id="using-coordinates-for-surgery">
 <h2>Using coordinates for surgery<a class="headerlink" href="#using-coordinates-for-surgery" title="Permalink to this heading"></a></h2>
 <p>To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle and set the probe elevation angle. Then move your probe tip to Bregma and zero your manipulator.</p>
-<p>To translate the probe you can either use the AP/ML coordinates (if you kept the azimuth angle at a multiple of 90 degrees) or you can turn on the “Convert AP/ML to probe axis” setting, which exports the translation coordinates in the probe’s forward and side axes.</p>
-<p>To insert the probe, drive the probe forward until the tip touches the brain, zero the depth axis, and continue forward at a slow speed until you reach the specified depth.</p>
-<p>In a future release we will add a display of the expected channel activity for a live recording, to help ensure accurate targeting. Coming soon!</p>
+<p>Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the <em>convert AP/ML to probe axis</em> setting so that you can match the Forward/Side/DV position instead.</p>
+<p>Once the probe is touching the dura, zero the depth axis and insert until you reach the specified depth.</p>
 </section>
 <section id="saving-and-loading-probes">
 <h2>Saving and loading probes<a class="headerlink" href="#saving-and-loading-probes" title="Permalink to this heading"></a></h2>
 <p>You can save the coordinates of an insertion for future use by clicking on the coordinate text. This copies the active probe coordinates to a string.</p>
+</section>
+<section id="bugs">
+<h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this heading"></a></h2>
+<p>Please report issues on the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/issues">issues page</a>.</p>
 </section>
 <section id="settings">
 <h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
@@ -207,17 +220,9 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 <p><strong>Craniotomy</strong> - On: opens a window that allows the user to control the skull craniotomy window, use with the Rig: Skull dropdown option (default: off)</p>
 <p><strong>IBL map</strong> - On: displays a sphere at the location of each remaining second pass map location, clicking on a sphere moves the active probe controller to that location. You must set the depth value by hand (click probe, press [Z/X], then drag down; or just press [Z/X])</p>
 </section>
-<section id="bugs">
-<h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this heading"></a></h2>
-<p>Please report issues on the <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/issues">issues page</a>.</p>
-</section>
-<section id="electrophysiology-atlas">
-<h2>Electrophysiology atlas<a class="headerlink" href="#electrophysiology-atlas" title="Permalink to this heading"></a></h2>
-<p>The ephys atlas functionality is provided by a server running this repository: https://github.com/dbirman/nptraj-ephys-server</p>
-</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
-<p>Based on the trajectory explorer by Andy Peters https://github.com/petersaj/neuropixels_trajectory_explorer.</p>
+<p>Inspired by Andy Peters’ trajectory explorer https://github.com/petersaj/neuropixels_trajectory_explorer.</p>
 <p>CCF Atlas downloaded from http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/</p>
 <p>Mouse brain artwork from https://scidraw.io/drawing/286</p>
 </section>

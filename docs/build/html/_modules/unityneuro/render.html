@@ -116,19 +116,22 @@
 <span class="k">def</span> <span class="nf">disconnect</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(URN) disconnected from server&quot;</span><span class="p">)</span></div>
 
+<span class="n">log_messages</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">log_messages</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
 
 <span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;log-warning&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">log_messages</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
 
 <div class="viewcode-block" id="message"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.message">[docs]</a><span class="nd">@sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;log-error&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(Renderer) &#39;</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">FAIL</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">localhost</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">standalone</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">localhost</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">standalone</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Connect the Unity Renderer for Neuroscience Python API to the web-based (or standalone) viewer</span>
 
 <span class="sd">	Parameters</span>
@@ -139,6 +142,8 @@
 <span class="sd">		connect to a standalone Desktop build rather than the web-based Brain Viewer, by default False</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
+
+	<span class="n">log_messages</span> <span class="o">=</span> <span class="n">verbose</span>
 
 	<span class="k">if</span> <span class="n">localhost</span><span class="p">:</span>
 		<span class="n">sio</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000&#39;</span><span class="p">)</span>
@@ -182,7 +187,7 @@
 <div class="viewcode-block" id="set_area_visibility"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_visibility">[docs]</a><span class="k">def</span> <span class="nf">set_area_visibility</span><span class="p">(</span><span class="n">area_visibilities</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Set visibility of CCF area models</span>
 
-<span class="sd">	**Note:** you can append a &quot;-l&quot; or &quot;-r&quot; suffix to any area acronym or ID to control the visibility of just one-half of the model. This can be used in all of the set_area_* functions.</span>
+<span class="sd">	**Note:** you can append a &quot;-lh&quot; or &quot;-rh&quot; suffix to any area acronym or ID to control the visibility of just one-half of the model. This can be used in all of the set_area_* functions.</span>
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
@@ -234,8 +239,10 @@
 
 <span class="sd">	Options are</span>
 <span class="sd">	 - cool (default, teal 0 -&gt; magenta 1)</span>
-<span class="sd">	 - gray (black 0 -&gt; white 1)</span>
-
+<span class="sd">	 - grey (black 0 -&gt; white 1)</span>
+<span class="sd">	 - grey-green (grey 0, light 1/255 -&gt; dark 1)</span>
+<span class="sd">	 - grey-purple (grey 0, light 1/255 -&gt; dark 1)</span>
+<span class="sd">	 - grey-red (grey 0, light 1/255 -&gt; dark 1)</span>
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
@@ -263,7 +270,8 @@
 	<span class="sd">&quot;&quot;&quot;Set material of CCF area models.</span>
 
 <span class="sd">	Material options are</span>
-<span class="sd">	 - &#39;default&#39;</span>
+<span class="sd">	 - &#39;opaque-lit&#39; or &#39;default&#39;</span>
+<span class="sd">	 - &#39;opaque-unlit&#39;</span>
 <span class="sd">	 - &#39;transparent-lit&#39;</span>
 <span class="sd">	 - &#39;transparent-unlit&#39;</span>
 
@@ -287,12 +295,12 @@
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaData&#39;</span><span class="p">,</span> <span class="n">area_data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="set_area_data_index"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_area_data_index">[docs]</a><span class="k">def</span> <span class="nf">set_area_data_index</span><span class="p">(</span><span class="n">area_index</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;_summary_</span>
+	<span class="sd">&quot;&quot;&quot;Set the data index for the CCF area models</span>
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
-<span class="sd">	area_index : _type_</span>
-<span class="sd">		_description_</span>
+<span class="sd">	area_index : int</span>
+<span class="sd">		data index</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetAreaIndex&#39;</span><span class="p">,</span> <span class="n">area_index</span><span class="p">)</span></div>
 
@@ -522,15 +530,27 @@
 	<span class="n">packet</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">preserve_target</span><span class="p">)</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraPosition&#39;</span><span class="p">,</span> <span class="n">packet</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="set_camera_rotation"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_rotation">[docs]</a><span class="k">def</span> <span class="nf">set_camera_rotation</span><span class="p">(</span><span class="n">camera_rot</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;Set the camera rotation using euler angles</span>
+<div class="viewcode-block" id="set_camera_rotation"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_rotation">[docs]</a><span class="k">def</span> <span class="nf">set_camera_rotation</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="n">yaw</span><span class="p">,</span> <span class="n">spin</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set the camera rotation (pitch, yaw, spin). The camera is locked to a target, so this rotation rotates around the target.</span>
+
+<span class="sd">	Rotations are applied in order: pitch, then yaw, then spin.</span>
 
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
 <span class="sd">	camera_rot : float list</span>
-<span class="sd">		list of euler angles to set the camera rotation</span>
+<span class="sd">		list of euler angles to set the camera rotation in (pitch, yaw, spin)</span>
 <span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraRotation&#39;</span><span class="p">,</span> <span class="n">camera_rot</span><span class="p">)</span></div>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraRotation&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">pitch</span><span class="p">,</span> <span class="n">yaw</span><span class="p">,</span> <span class="n">spin</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="set_camera_zoom"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_zoom">[docs]</a><span class="k">def</span> <span class="nf">set_camera_zoom</span><span class="p">(</span><span class="n">zoom</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Set the camera zoom. </span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	zoom : float	</span>
+<span class="sd">		camera zoom parameter</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraZoom&#39;</span><span class="p">,</span> <span class="n">zoom</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="set_camera_target_area"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_camera_target_area">[docs]</a><span class="k">def</span> <span class="nf">set_camera_target_area</span><span class="p">(</span><span class="n">camera_target_area</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Set the camera rotation to look towards a target area</span>
@@ -540,7 +560,7 @@
 <span class="sd">	Parameters</span>
 <span class="sd">	----------</span>
 <span class="sd">	camera_target_area : string</span>
-<span class="sd">		area ID or acronym, append &quot;-l&quot; or &quot;-r&quot; for one-sided meshes</span>
+<span class="sd">		area ID or acronym, append &quot;-lh&quot; or &quot;-rh&quot; for one-sided meshes</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;SetCameraTargetArea&#39;</span><span class="p">,</span> <span class="n">camera_target_area</span><span class="p">)</span></div>
 
@@ -622,9 +642,9 @@
 
 	<span class="k">for</span> <span class="n">di</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ndepth</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">di</span> <span class="o">==</span> <span class="p">(</span><span class="n">ndepth</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-			<span class="n">set_volume_slice_data</span><span class="p">(</span><span class="n">volume_name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ndepth</span><span class="o">-</span><span class="n">di</span><span class="p">),</span> <span class="n">localData</span><span class="p">[:,:,</span><span class="n">di</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
+			<span class="n">set_volume_slice_data</span><span class="p">(</span><span class="n">volume_name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ndepth</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">di</span><span class="p">),</span> <span class="n">localData</span><span class="p">[:,:,</span><span class="n">di</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="n">set_volume_slice_data</span><span class="p">(</span><span class="n">volume_name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ndepth</span><span class="o">-</span><span class="n">di</span><span class="p">),</span> <span class="n">localData</span><span class="p">[:,:,</span><span class="n">di</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">())</span></div>
+			<span class="n">set_volume_slice_data</span><span class="p">(</span><span class="n">volume_name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ndepth</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">di</span><span class="p">),</span> <span class="n">localData</span><span class="p">[:,:,</span><span class="n">di</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="set_volume_slice_data"><a class="viewcode-back" href="../../_autosummary/unityneuro.render.html#unityneuro.render.set_volume_slice_data">[docs]</a><span class="k">def</span> <span class="nf">set_volume_slice_data</span><span class="p">(</span><span class="n">volume_name</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">volume_bytes</span><span class="p">,</span> <span class="n">override_gpu_apply</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Set a single slice of data in a volume</span>

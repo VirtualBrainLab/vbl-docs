@@ -60,7 +60,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting-id">Troubleshooting ID</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#interaction">Interaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#camera-control">Camera control</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#grids-and-axes">Grids and Axes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#screenshot-mode">Screenshot mode</a></li>
 </ul>
@@ -123,13 +123,13 @@
 <p float="center">
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/brain_rotate_cropped.gif" width="45%"> 
 </p>
-<p>Urchin (Unity Renderer for Neuroscience) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.</p>
+<p>Unity Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.</p>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">unityneuro</span>
 </pre></div>
 </div>
-<p>The bundled examples in the Examples folder should open the Unity Renderer web app automatically. You can also run in standalone mode by downloading the desktop app for Windows from the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/releases">releases page</a>. Linux standalone available on request.</p>
+<p>No additional installation is required if you plan to run Urchin in a browser. A standalone desktop application is also available from the <a class="reference external" href="https://github.com/dbirman/UnityNeuroscience/releases">releases page</a>. Linux standalone available on request.</p>
 </section>
 <section id="instructions">
 <h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading"></a></h2>
@@ -137,20 +137,20 @@
 <span class="n">urn</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>By default calling <code class="docutils literal notranslate"><span class="pre">setup()</span></code> opens a web browser and links it to your Python client. Passing <code class="docutils literal notranslate"><span class="pre">urn.setup(standalone</span> <span class="pre">=</span> <span class="pre">True)</span></code> allows you to connect to a Desktop renderer.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">setup()</span></code> opens a web browser and links it to your Python client. You can also set the parameter <code class="docutils literal notranslate"><span class="pre">standalone</span> <span class="pre">=</span> <span class="pre">True</span></code> to connect to a standalone Desktop application.</p>
 <section id="troubleshooting-id">
 <h3>Troubleshooting ID<a class="headerlink" href="#troubleshooting-id" title="Permalink to this heading"></a></h3>
-<p>Your Python scripts and the renderer are linked by an ID, which should be set automatically when you call <code class="docutils literal notranslate"><span class="pre">setup()</span></code>. If this link fails you can manually set your ID in the renderer by pressing <code class="docutils literal notranslate"><span class="pre">I</span></code> and entering your account username, which can be obtained with:</p>
+<p>When opening the renderer your ID should be set automatically. If this fails or you need to change your ID press <code class="docutils literal notranslate"><span class="pre">I</span></code> and enter your account username. If you aren’t sure what that is, try running:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>You can press <code class="docutils literal notranslate"><span class="pre">C</span></code> to open the console to confirm your ID was set correctly.</p>
+<p>You can press <code class="docutils literal notranslate"><span class="pre">C</span></code> to open the console in the renderer to confirm your ID was set correctly.</p>
 </section>
 </section>
-<section id="interaction">
-<h2>Interaction<a class="headerlink" href="#interaction" title="Permalink to this heading"></a></h2>
+<section id="camera-control">
+<h2>Camera control<a class="headerlink" href="#camera-control" title="Permalink to this heading"></a></h2>
 <p>Left click + drag along the Y axis to pitch the brain</p>
 <p>Left click + drag along the X axis to yaw the brain</p>
 <p>Hold shift while left clicking and dragging along the X axis to spin the brain</p>
