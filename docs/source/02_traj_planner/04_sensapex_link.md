@@ -39,7 +39,7 @@ In general:
 - Each event will take in an input and call a callback function with certain arguments
 - Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
   - Before a manipulator can be moved (including being calibrated), it must have its [movement enabled](enable-movement)
-  - A manpulator's position can be read before its movement is enabled though
+  - A manipulator's position can be read before its movement is enabled though
 - The server will log unknown events, but will not return callback arguments or emit any messages
 
 **Table of Contents**
@@ -121,7 +121,7 @@ ws.emit('bypass_calibration', 1, callback=my_callback_func)
 
 (enable-movement)=
 ### Enable movement
-To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.
+To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for a set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.
 
 **Event:** `set_can_write`
 
@@ -252,7 +252,7 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 - `(manipulator_id or -1, False, 'Error in set_inside_brain')`: An unknown error occurred while starting this function
 - `(manipulator_id, False, 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
-- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while  setting inside brain
+- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while setting inside brain
 
 #### Example
 ```python
