@@ -38,7 +38,7 @@ This is a list of available WebSocket events. The code shown is pseudo-WebSocket
 In general:
 - Each event will take in an input and call a callback function with certain arguments
 - Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
-  - Before a manipulator can be moved, it must have its [movement enabled](enable-movement)
+  - Before a manipulator can be moved (including being calibrated), it must have its [movement enabled](enable-movement)
   - A manpulator's position can be read before its movement is enabled though
 - The server will log unknown events, but will not return callback arguments or emit any messages
 
