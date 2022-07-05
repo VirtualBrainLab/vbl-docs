@@ -265,9 +265,9 @@ ws.emit('inside_brain', {
 
 (emergency-stop)=
 ### Emergency Stop
-There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. 
+There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself "USB Serial Device" (which is what an Arduino would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. The Arduino is running [this sketch](https://github.com/VirtualBrainLab/StopSignal) which will continuously send `1` (followed by a new line symbol) through serial whenever the stop button is pressed.
 
-Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, ***and set all manipulators to be uncalibrated.*** Therefore, one must recalibrate the manipulators before continuing.
+Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, ***and set all manipulators to be unwritable.*** Therefore, one must re-enable movement on the manipulators again before continuing.
 
 
 **Event:** `stop`
