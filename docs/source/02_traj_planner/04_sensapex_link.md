@@ -13,7 +13,7 @@ The Sensapex Link is a python WebSocket server that allows any WebSocket complia
 1. Ensure Python 3.8+ and pip are installed
 2. `pip install nptraj-sensapex-link`
 3. Run `python -m nptraj-sensapex-link` to start the server 
-   1. To view available command line arguments, run `python -m nptraj-sensapex-link --help`
+   1. To view available command-line arguments, run `python -m nptraj-sensapex-link --help`
    2. Note: all arguments are optional and none are needed to use the server normally
 
 ### For usage like a library
@@ -121,7 +121,7 @@ ws.emit('bypass_calibration', 1, callback=my_callback_func)
 
 (enable-movement)=
 ### Enable movement
-To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for a set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.
+To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for a set period or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.
 
 **Event:** `set_can_write`
 
@@ -306,7 +306,7 @@ For every event, the server does the following:
 
 
 ### `sensapex_handler.py`
-All code responsible for communicating with the Sensapex API is in this file. This loading the DLL, establishing a connection with the equipment and maintaining a dictionary of registered manipulators.
+All code responsible for communicating with the Sensapex API is in this file. This includes loading the DLL, establishing a connection with the equipment, and maintaining a dictionary of registered manipulators.
 
 Functions names here are the same as the WebSocket events. They are called when the server receives an event from a client. In general, the function does the following:
 1. Recieve extracted arguments from `server.py`
