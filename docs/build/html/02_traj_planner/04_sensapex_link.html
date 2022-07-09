@@ -157,13 +157,17 @@
 </ul>
 <section id="installation">
 <span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p>Copied from the <a class="reference external" href="https://github.com/dbirman/nptraj-sensapex-link/blob/main/README.md">repo’s README.md</a></p>
 <section id="for-usage-like-a-standalone-app-server">
 <h3>For usage like a standalone app/server<a class="headerlink" href="#for-usage-like-a-standalone-app-server" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Ensure Python 3.8+ and pip are installed</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nptraj-sensapex-link</span></code></p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nptraj-sensapex-link</span></code> to start the server</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nptraj-sensapex-link</span></code> to start the server</p>
+<ol class="arabic simple">
+<li><p>To view available command-line arguments, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nptraj-sensapex-link</span> <span class="pre">--help</span></code></p></li>
+<li><p>Note: all arguments are optional and none are needed to use the server normally</p></li>
+</ol>
+</li>
 </ol>
 </section>
 <section id="for-usage-like-a-library">
@@ -198,8 +202,8 @@
 <li><p>Each event will take in an input and call a callback function with certain arguments</p></li>
 <li><p>Before a manipulator can be used, it must be <a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">registered</span></a> and <a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">calibrated</span></a></p>
 <ul>
-<li><p>Before a manipulator can be moved, it must have its <a class="reference internal" href="#enable-movement"><span class="std std-ref">movement enabled</span></a></p></li>
-<li><p>A manpulator’s position can be read before its movement is enabled though</p></li>
+<li><p>Before a manipulator can be moved (including being calibrated), it must have its <a class="reference internal" href="#enable-movement"><span class="std std-ref">movement enabled</span></a></p></li>
+<li><p>A manipulator’s position can be read before its movement is enabled though</p></li>
 </ul>
 </li>
 <li><p>The server will log unknown events, but will not return callback arguments or emit any messages</p></li>
@@ -291,7 +295,7 @@
 </section>
 <section id="enable-movement">
 <span id="id8"></span><h3>Enable movement<a class="headerlink" href="#enable-movement" title="Permalink to this heading"></a></h3>
-<p>To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for set period of time or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.</p>
+<p>To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for a set period or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">set_can_write</span></code></p>
 <p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
 <ul class="simple">
@@ -421,7 +425,7 @@ ws.emit(&#39;set_can_write&#39;, {
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id</span> <span class="pre">or</span> <span class="pre">-1,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">in</span> <span class="pre">set_inside_brain')</span></code>: An unknown error occurred while starting this function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">registered')</span></code>: Manipulator is not registered yet</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated')</span></code>: Manipulator is not calibrated yet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">setting</span> <span class="pre">inside</span> <span class="pre">brain')</span></code>: An unknown error has occurred while  setting inside brain</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(manipulator_id,</span> <span class="pre">False,</span> <span class="pre">'Error</span> <span class="pre">setting</span> <span class="pre">inside</span> <span class="pre">brain')</span></code>: An unknown error has occurred while setting inside brain</p></li>
 </ul>
 <section id="id14">
 <h4>Example<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
@@ -436,8 +440,8 @@ ws.emit(&#39;set_can_write&#39;, {
 </section>
 <section id="emergency-stop">
 <span id="id15"></span><h3>Emergency Stop<a class="headerlink" href="#emergency-stop" title="Permalink to this heading"></a></h3>
-<p>There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself “USB Serial Device” (which is what an Arduinos would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check.</p>
-<p>Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, <em><strong>and set all manipulators to be uncalibrated.</strong></em> Therefore, one must recalibrate the manipulators before continuing.</p>
+<p>There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself “USB Serial Device” (which is what an Arduino would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. The Arduino is running <a class="reference external" href="https://github.com/VirtualBrainLab/StopSignal">this sketch</a> which will continuously send <code class="docutils literal notranslate"><span class="pre">1</span></code> (followed by a new line symbol) through serial whenever the stop button is pressed.</p>
+<p>Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, <em><strong>and set all manipulators to be unwritable.</strong></em> Therefore, one must re-enable movement on the manipulators again before continuing.</p>
 <p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">stop</span></code></p>
 <p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
 <ul class="simple">
@@ -478,7 +482,7 @@ ws.emit(&#39;set_can_write&#39;, {
 </section>
 <section id="sensapex-handler-py">
 <h3><code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code><a class="headerlink" href="#sensapex-handler-py" title="Permalink to this heading"></a></h3>
-<p>All code responsible for communicating with the Sensapex API is in this file. This loading the DLL, establishing a connection with the equipment and maintaining a dictionary of registered manipulators.</p>
+<p>All code responsible for communicating with the Sensapex API is in this file. This includes loading the DLL, establishing a connection with the equipment, and maintaining a dictionary of registered manipulators.</p>
 <p>Functions names here are the same as the WebSocket events. They are called when the server receives an event from a client. In general, the function does the following:</p>
 <ol class="arabic simple">
 <li><p>Recieve extracted arguments from <code class="docutils literal notranslate"><span class="pre">server.py</span></code></p></li>

@@ -47,6 +47,26 @@ Probe models are stored as prefabs and instantiated by the tpmanager. Each probe
 
 #### Probe Coordinates
 
+The `TP_ProbeController` component handles movement and positioning of probes. At the lowest level a probe is represented by it's AP (anterior-posterior), ML (medial-lateral), and DV (depth) coordinates. Probes store these in the variables `apml` and `depth` and they are relative to the (ap=0,ml=0,dv=0) coordinate of the CCF space, which is anterior, lateral (left), and dorsal or in english the front, left, top corner of the CCF space box. The CCF space itself is 13.2 mm long on AP, 11.4 mm wide on ML, and 8 mm deep on DV. Probe coordinates are defined so that +AP goes posterior, +ML goes right, and +DV goes down. 
+
+Probes also have a rotation. `phi` defines the probe's azimuth and we define 0 as forward (AP axis), -90 as facing left, and +90 as facing right. `theta` defines the probe's pitch with 0 being vertical and -90 horizontal, this is the only variable that we restrict to a specific range. `spin` controls the rotation of the probe on its own axis. 
+
+**Dealing with coordinate transforms**
+
+There are two kinds of coordinate transforms we have to consider. First are conventions around presenting angles. The IBL defined angles differently with `phi=0` indicating left, -90 forward, and 90 backward. They also defined `theta=0` as vertical and `theta=90` as horizontal. There is a flag in the settings that changes how angles are displayed so that they match the IBL conventions. This does not have any effect under the hood.
+
+The second kind of transforms we have to deal with are transformations of the CCF space itself, both linear affine and nonlinear warping. The raw CCF coordinates are not useful to most users, since almost all recordings are performed relative to bregma and in a live animal. The live mouse brain is quite different from the CCF brain (stretch on AP, squashed on DV, and tilted) and if you have individual MRIs for your mice you can do even better with your targeting.
+
+**CoordinateTransforms**
+
+We use a class `CoordinateTransform` to handle moving back and forth between spaces. Classes that implement this interface are required to have two functions `FromCCF` and `ToCCF` that let you go back and forth. These are used throughout the planner when displaying coordinates. The `CoordinateTransform` object is also required to have a `prefix` string, which we use to differentiate between which coordinate system a user is working in. Raw coordinates in the trajectory planner are therefore in `ccfAP` space (etc), while, for example, IBL NeedlesTransform coordinates are reffered to as `neAP` (etc).
+
+Note again, these transforms are performed on the output coordinates (and reversed on input coordinates). Under the hood, everything is in CCF. Because of this it can sometimes be confusing to be moving the probe in what appears to be CCF space while seeing the target coordinates in a transformed space. If you want to *move* the probe in warped space you can enable an additional feature to **Warp 3D Meshes** which, when turned on, will warp all of the 3D mesh files into the current Transform space. On the back-end dealing with this is quite difficult -- we do this in two steps:
+ 1. We transform all the mesh vertices into the warped space.
+ 2. We transform the visible location of the probe into the warped space, while keeping the true position under the hood in CCF. 
+
+### Inplane Slice
+
 Each probe has a [TP_ProbeInsertion](todo) that defines the tip position in CCF AP/ML/DV and the probe angles in Phi/Theta/Spin. The ProbeController component handles interpolating the brain surface position that a probe is going through as well as the depth required to reach the target insertion coordinate.
 
 When a [CoordinateTransform] is active in Pinpoint the ProbeController class modifies the tip and brain surface coordinates accordingly. Rotations are more complex -- (and not currently functional), but to deal with rotations the ProbeController will eventually interpolate the tip and surface coordinates and then back out the corresponding angles needed to reach these points. 
