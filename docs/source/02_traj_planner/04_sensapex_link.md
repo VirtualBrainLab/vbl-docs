@@ -54,7 +54,7 @@ An x86 machine or Docker is required to install or run the server.
 This is a list of available WebSocket events. The code shown is pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.
 
 In general:
-- Each event will take in an input and call a callback function with certain arguments
+- Each event will take in an input and call a callback function with a response dictionary/object as the argument
 - Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
   - Before a manipulator can be moved (including being calibrated), it must have its [movement enabled](enable-movement)
   - A manipulator's position can be read before its movement is enabled though
@@ -80,7 +80,7 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses `(int, string)`:**
+**Callback Responses Format:** `(manipulator_id: int, error: str)`
 - `(manipulator_id, '')`: No errors, registered manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator already registered')`: Manipulator is already registered, no action taken
 - `(manipulator_id, 'Manipulator not found')`: The manipulator is not discoverable by the API and may be disconnected or offline
@@ -101,7 +101,7 @@ To ensure all manipulators are working properly before applying autonomous contr
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses `(int, string)`:**
+**Callback Responses `(manipulator_id: int, error: str)`:**
 - `(manipulator_id, '')`: No errors, calibrated manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, 'Error calling calibrate')`: A Sensapex SDK error has occurred while calibrating
@@ -124,7 +124,7 @@ The calibration requirement may be bypassed by sending this event.
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses `(int, string)`:**
+**Callback Responses `(manipulator_id: int, error: str)`:**
 - `(manipulator_id, '')`: No errors, calibration bypassed for manipulator with ID `manipulator_id`
 - `(manipulator_id, 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
@@ -148,7 +148,7 @@ To prevent accidental movement commands, a manipulator must have its movement fe
 - `can_write`: `bool`
 - `hours`: `float`
 
-**Callback Responses `(int, bool, string)`**
+**Callback Responses `(manipulator_id: int, state: bool, error: str)`**
 - `(manipulator_id, can_write, '')`: No errors, set state is returned
 - `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, False, 'Error in set_can_write')`: An unknown error occurred while starting this function
@@ -180,7 +180,7 @@ Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm fro
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses `(int, float[4], string)`**
+**Callback Responses `(manipulator_id: int, position: tuple, error: str)`**
 - `(manipulator_id, (x, y, z, w), '')`: No errors, position is returned
 - `(manipulator_id, (), 'Manipulator not registered')`: Manipulator is not registered yet
 - `(manipulator_id, (), 'Manipulator not calibrated')`: Manipulator is not calibrated yet
@@ -206,7 +206,7 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 - `pos`: `float[4]` (in x, y, z, w as µm from the origin)
 - `speed`: `int` (in µm/s)
 
-**Callback Responses `(int, float[4], string)`**
+**Callback Responses `(manipulator_id: int, position: tuple, error: str)`**
 - `(manipulator_id, (x, y, z, w), '')`: No errors, final position is returned
 - `(manipulator_id or -1, (), 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, (), 'Error in goto_pos')`: An unknown error occured while starting this function
@@ -235,7 +235,7 @@ Instructs a manipulator to go to a specific depth in µm. This is equivalent to 
 - `depth`: `float` (in µm from the origin)
 - `speed`: `int` (in µm/s)
 
-**Callback Responses `(int, float, string)`**
+**Callback Responses `(manipulator_id: int, depth: float, error: str)`**
 - `(manipulator_id, depth, '')`: No errors, final position is returned
 - `(manipulator_id or -1, 0, 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, 0, 'Error in drive_to_depth')`: An unknown error occured while starting this function
@@ -263,7 +263,7 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 - `manipulator_id`: `int`
 - `inside`: `bool`
 
-**Callback Responses `(int, bool, string)`**
+**Callback Responses `(manipulator_id: int, state: bool, error: str)`**
 - `(manipulator_id, inside, '')`: No errors, set state is returned
 - `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
 - `(manipulator_id or -1, False, 'Error in set_inside_brain')`: An unknown error occurred while starting this function
@@ -292,7 +292,7 @@ Both the WebSocket event and the serial method will stop all movement, remove al
 **Expected Arguments (dictionary/object with the following format):**
 - None
 
-**Callback Responses `(int, bool, string)`**
+**Callback Responses `(manipulator_id: int, state: bool, error: str)`**
 - `true`: No errors, all movement stopped
 - `false`: An unknown error has occurred while stopping all movement
 
