@@ -43,10 +43,11 @@ An x86 machine or Docker is required to install or run the server.
 3. `cd nptraj-sensapex-link`
 4. `docker-compose up` to build the container and run the server
 5. `docker attach <container-id>` to view the server logs
-6. `docker exec -it <container_id> /bin/bash` if you need to enter the container
-7. The package is located in `src/`
-8. Unit tests are available to run under the `tests/` directory
-9. `docker-compose stop` to stop the container or `docker-compose down` to stop and remove the container
+6. You can edit the `command` line in `docker-compose.yml` to configure the server's parameters
+7. `docker exec -it <container_id> /bin/bash` if you need to enter the container
+8. The package is located in `src/`
+9. Unit tests are available to run under the `tests/` directory
+10. `docker-compose stop` to stop the container or `docker-compose down` to stop and remove the container
 
 
 (usage)=
