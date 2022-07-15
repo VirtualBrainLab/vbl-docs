@@ -41,10 +41,10 @@ An x86 machine or Docker is required to install or run the server.
 1. [Install Docker](https://www.docker.com/get-started/) in any way you like
 2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
 3. `cd nptraj-sensapex-link`
-4. `docker-compose up` to build the container
-5. `docker exec -it <container_id> /bin/bash` to enter to the container
-6. The package is located in `src/`
-7. `python src/nptraj_sensapex_link/server.py` launches the server
+4. `docker-compose up` to build the container and run the server
+5. `docker attach <container-id>` to view the server logs
+6. `docker exec -it <container_id> /bin/bash` if you need to enter the container
+7. The package is located in `src/`
 8. Unit tests are available to run under the `tests/` directory
 9. `docker-compose stop` to stop the container or `docker-compose down` to stop and remove the container
 
@@ -61,6 +61,7 @@ In general:
 - The server will log unknown events, but will not return callback arguments or emit any messages
 
 **Table of Contents**
+- [Getting available manipulators](getting-manipulators)
 - [Registering a manipulator](registering-a-manipulator)
 - [Calibrating a manipulator](calibrating-a-manipulator)
   - [Bypassing calibration](bypassing-calibration)
@@ -70,6 +71,29 @@ In general:
 - [Set "inside brain" state of a manipulator](set-inside-brain)
 - [Enable movement](enable-movement)
 - [Emergency Stop](emergency-stop)
+
+(getting-manipulators)=
+### Getting available manipulators
+Many implementations may want to first find out what manipulators are available. This can be done by simply sending this event which takes no arguments. A callback will return a list of the available manipulators (up to 50 of them).
+
+**Event:** `get_manipulators`
+
+**Expected Arguments:** None
+
+**Callback Responses Format:** `(manipulators: list[int], error: string)`
+
+| Error message (`error: string`) | Description                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------- |
+| `''`                            | No errors, the list of all discoverable/available manipulators is returned |
+| `Error getting manipulators`    | An unknown error has occurred getting discoverable/available manipulators   |
+
+- `manipulators` will be an empty list on error, however, it is possible that there truly are no discoverable/available/compatible manipulators
+
+#### Example
+```python
+# Register manipulator with ID 1
+ws.emit('get_manipulators', callback=my_callback_func)
+```
 
 (registering-a-manipulator)=
 ### Registering a manipulator
@@ -136,12 +160,12 @@ The calibration requirement may be bypassed by sending this event.
 
 **Callback Responses Format:** `(manipulator_id: int, error: string)`:
 
-| Error message (`error: string`) | Description                                                             |
-| ------------------------------- | ----------------------------------------------------------------------- |
+| Error message (`error: string`) | Description                                                              |
+| ------------------------------- | ------------------------------------------------------------------------ |
 | `''`                            | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
-| `Manipulator not registered`    | Manipulator is not registered yet                                       |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                       |
-| `Error bypassing calibration`   | An unknown error has occurred while bypassing calibration               |
+| `Manipulator not registered`    | Manipulator is not registered yet                                        |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                        |
+| `Error bypassing calibration`   | An unknown error has occurred while bypassing calibration                |
 
 - `manipulator_id`: Will be `-1` if one was not provided properly in the request
 
@@ -243,7 +267,7 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 | `Manipulator movement canceled` | Emergency stop was used and manipulator movements have been canceled |
 | `Manipulator not registered`    | Manipulator is not registered yet                                    |
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                                    |
-| `Error moving manipulator`      | An unknown error has occurred while getting position                  |
+| `Error moving manipulator`      | An unknown error has occurred while getting position                 |
 
 - `manipulator_id`: Will be `-1` if one was not provided properly in the request
 - `position`: Will be an empty array if one was not provided properly in the request or if an error occurred
