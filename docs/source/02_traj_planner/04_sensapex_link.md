@@ -105,7 +105,7 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(manipulator_id: int, error: string)`
+**Callback Responses Format:** `(error: string)`
 
 | Error message (`error: string`)  | Description                                                                       |
 | -------------------------------- | --------------------------------------------------------------------------------- |
@@ -114,7 +114,6 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 | `Manipulator not found`          | The manipulator is not discoverable by the API and may be disconnected or offline |
 | `Error registering manipulator`  | An unknown error has occurred while registering                                   |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 
 #### Example
 ```python
@@ -131,7 +130,7 @@ To ensure all manipulators are working properly before applying autonomous contr
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(manipulator_id: int, error: string)`
+**Callback Responses Format:** `(error: string)`
 
 | Error message (`error: string`) | Description                                                |
 | ------------------------------- | ---------------------------------------------------------- |
@@ -140,7 +139,6 @@ To ensure all manipulators are working properly before applying autonomous contr
 | `Error calling calibrate`       | A Sensapex SDK error has occurred while calibrating        |
 | `Error calibrating manipulator` | An unknown error has occurred while calibrating            |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 
 #### Example
 ```python
@@ -159,7 +157,7 @@ The calibration requirement may be bypassed by sending this event.
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(manipulator_id: int, error: string)`:
+**Callback Responses Format:** `(error: string)`:
 
 | Error message (`error: string`) | Description                                                              |
 | ------------------------------- | ------------------------------------------------------------------------ |
@@ -168,7 +166,6 @@ The calibration requirement may be bypassed by sending this event.
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                                        |
 | `Error bypassing calibration`   | An unknown error has occurred while bypassing calibration                |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 
 #### Example
 ```python
@@ -188,7 +185,7 @@ To prevent accidental movement commands, a manipulator must have its movement fe
 - `can_write`: `bool`
 - `hours`: `float`
 
-**Callback Responses Format:** `(manipulator_id: int, state: bool, error: string)`
+**Callback Responses Format:** `(state: bool, error: string)`
 
 | Error message (`error: string`) | Description                                            |
 | ------------------------------- | ------------------------------------------------------ |
@@ -199,7 +196,6 @@ To prevent accidental movement commands, a manipulator must have its movement fe
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                      |
 | `Error setting can_write`       | An unknown error has occurred enabling movement        |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 - `state`: Will be `False` if one was not provided properly in the request or if an error occurred
 
 **Response Event:** `write_disabled` (sent when the write lease has expired)
@@ -226,7 +222,7 @@ Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm fro
 **Expected Arguments:**
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(manipulator_id: int, position: array, error: string)`
+**Callback Responses Format:** `(position: array, error: string)`
 
 | Error message (`error: string`) | Description                                          |
 | ------------------------------- | ---------------------------------------------------- |
@@ -235,7 +231,6 @@ Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm fro
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                    |
 | `Error getting position`        | An unknown error has occurred while getting position |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 - `position`: Will be an empty array if one was not provided properly in the request or if an error occurred
 
 ```python
@@ -258,7 +253,7 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 - `pos`: `float[4]` (in x, y, z, w as µm from the origin)
 - `speed`: `int` (in µm/s)
 
-**Callback Responses Format:** `(manipulator_id: int, position: array, error: string)`
+**Callback Responses Format:** `(position: array, error: string)`
 
 | Error message (`error: string`) | Description                                                          |
 | ------------------------------- | -------------------------------------------------------------------- |
@@ -268,9 +263,8 @@ When a manipulator is set to be "inside" the brain, it will have all axes except
 | `Manipulator movement canceled` | Emergency stop was used and manipulator movements have been canceled |
 | `Manipulator not registered`    | Manipulator is not registered yet                                    |
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                                    |
-| `Error moving manipulator`      | An unknown error has occurred while getting position                 |
+| `Error moving manipulator`      | An unknown error has occurred while moving to position               |
 
-- `manipulator_id`: Will be `-1` if one was not provided properly in the request
 - `position`: Will be an empty array if one was not provided properly in the request or if an error occurred
 
 ```python
@@ -293,13 +287,16 @@ Instructs a manipulator to go to a specific depth in µm. This is equivalent to 
 - `depth`: `float` (in µm from the origin)
 - `speed`: `int` (in µm/s)
 
-**Callback Responses `(manipulator_id: int, depth: float, error: string)`**
-- `(manipulator_id, depth, '')`: No errors, final position is returned
-- `(manipulator_id or -1, 0, 'Invalid data format')`: Invalid/unexpected argument format
-- `(manipulator_id or -1, 0, 'Error in drive_to_depth')`: An unknown error occured while starting this function
-- `(manipulator_id, 0, 'Manipulator not registered')`: Manipulator is not registered yet
-- `(manipulator_id, 0, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
-- `(manipulator_id, 0, 'Error driving manipulator')`: An unknown error has occurred while driving to depth
+**Callback Responses `(depth: float, error: string)`**
+| Error message (`error: string`) | Description                                                          |
+| ------------------------------- | -------------------------------------------------------------------- |
+| `''`                            | No errors, position is returned                                      |
+| `Invalid data format`           | Invalid/unexpected argument format                                   |
+| `Error in drive_to_depth`       | An unknown error occurred while starting this function               |
+| `Manipulator movement canceled` | Emergency stop was used and manipulator movements have been canceled |
+| `Manipulator not registered`    | Manipulator is not registered yet                                    |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                    |
+| `Error moving manipulator`      | An unknown error has occurred while driving to depth                 |
 
 #### Example
 ```python
@@ -321,13 +318,16 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 - `manipulator_id`: `int`
 - `inside`: `bool`
 
-**Callback Responses `(manipulator_id: int, state: bool, error: string)`**
-- `(manipulator_id, inside, '')`: No errors, set state is returned
-- `(manipulator_id or -1, False, 'Invalid data format')`: Invalid/unexpected argument format
-- `(manipulator_id or -1, False, 'Error in set_inside_brain')`: An unknown error occurred while starting this function
-- `(manipulator_id, False, 'Manipulator not registered')`: Manipulator is not registered yet
-- `(manipulator_id, False, 'Manipulator not calibrated')`: Manipulator is not calibrated yet
-- `(manipulator_id, False, 'Error setting inside brain')`: An unknown error has occurred while setting inside brain
+**Callback Responses `(state: bool, error: string)`**
+
+| Error message (`error: string`) | Description                                                          |
+| ------------------------------- | -------------------------------------------------------------------- |
+| `''`                            | No errors, position is returned                                      |
+| `Invalid data format`           | Invalid/unexpected argument format                                   |
+| `Error in set_inside_brain`     | An unknown error occurred while starting this function               |
+| `Manipulator not registered`    | Manipulator is not registered yet                                    |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                    |
+| `Error moving manipulator`      | An unknown error has occurred while setting inside brain             |
 
 #### Example
 ```python
