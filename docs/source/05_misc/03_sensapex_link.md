@@ -57,17 +57,18 @@ In general:
 - Each event will take in an input and call a callback function with a response dictionary/object as the argument
 - Before a manipulator can be used, it must be [registered](registering-a-manipulator) and [calibrated](calibrating-a-manipulator)
   - Before a manipulator can be moved (including being calibrated), it must have its [movement enabled](enable-movement)
-  - A manipulator's position can be read before its movement is enabled though
+  - A manipulator's position can be read before its movement is enabled, though
 - The server will log unknown events, but will not return callback arguments or emit any messages
 
 **Table of Contents**
 - [Getting available manipulators](getting-manipulators)
 - [Registering a manipulator](registering-a-manipulator)
+- [Unregistering a manipulator](unregistering-a-manipulator)
 - [Calibrating a manipulator](calibrating-a-manipulator)
   - [Bypassing calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
 - [Set position of a manipulator](set-position-of-a-manipulator)
-- [Drive manipualtor to depth](drive-to-depth)
+- [Drive manipulator to depth](drive-to-depth)
 - [Set "inside brain" state of a manipulator](set-inside-brain)
 - [Enable movement](enable-movement)
 - [Emergency Stop](emergency-stop)
@@ -120,6 +121,30 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 ws.emit('register_manipulator', 1, callback=my_callback_func)
 ```
 
+(unregistering-a-manipulator)=
+### Unregistering a manipulator
+Any registered manipulator can be easily disconnected from control by simply unregistering it.
+
+**Event:** `unregister_manipulator`
+
+**Expected Arguments:**
+- Manipulator ID: `int`
+
+**Callback Responses Format:** `(error: string)`
+
+| Error message (`error: string`)   | Description                                                            |
+| --------------------------------- | ---------------------------------------------------------------------- |
+| `''`                              | No errors, unregistered manipulator with ID `manipulator_id`           |
+| `Manipulator not registered`      | The manipulator is not registered and therefore cannot be unregistered |
+| `Error unregistering manipulator` | An unknown error has occurred while unregistering                      |
+
+
+#### Example
+```python
+# Unregister manipulator with ID 1
+ws.emit('unregister_manipulator', 1, callback=my_callback_func)
+```
+
 (calibrating-a-manipulator)=
 ### Calibrating a manipulator
 To ensure all manipulators are working properly before applying autonomous control, all manipulators must have their movement checked and calibrated. This is done by moving all *four* axes through their full range of motion while also invoking the calibrate functionality.
@@ -147,7 +172,7 @@ ws.emit('calibrate', 1, callback=my_callback_func)
 
 (bypassing-calibration)=
 ### Bypassing calibration
-***FOR TESTING PURPOSES ONLY!! Do not use in production code.***
+***FOR TESTING PURPOSES ONLY!! Do not use it in production code.***
 
 The calibration requirement may be bypassed by sending this event.
 
@@ -238,7 +263,7 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 ```
 
 (set-position-of-a-manipulator)=
-### Set position of a manipulator
+### Set the position of a manipulator
 Instructs a manipulator to go to a position relative to the origin in µm.
 
 Manipulators move asynchronously from each other. This means large batches of movement events can be sent to the server for several manipulators and each manipulator will move through the events assigned to them independently.
@@ -308,7 +333,7 @@ ws.emit('drive_to_depth', {
 ```
 
 (set-inside-brain)=
-### Set inside brain
+### Set "inside brain" state
 Sets the "inside brain" state of a manipulator. When a manipulator is inside the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue.
 
 **Event:** `set_inside_brain`
