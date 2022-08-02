@@ -63,6 +63,7 @@ In general:
 **Table of Contents**
 - [Getting available manipulators](getting-manipulators)
 - [Registering a manipulator](registering-a-manipulator)
+- [Unregistering a manipulator](unregistering-a-manipulator)
 - [Calibrating a manipulator](calibrating-a-manipulator)
   - [Bypassing calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
@@ -118,6 +119,30 @@ Every manipulator in a Sensapex setup must be registered to the server before be
 ```python
 # Register manipulator with ID 1
 ws.emit('register_manipulator', 1, callback=my_callback_func)
+```
+
+(unregistering-a-manipulator)=
+### Unregistering a manipulator
+Any registered manipulator can be easily disconnected from control by simply unregistering it.
+
+**Event:** `unregister_manipulator`
+
+**Expected Arguments:**
+- Manipulator ID: `int`
+
+**Callback Responses Format:** `(error: string)`
+
+| Error message (`error: string`)   | Description                                                            |
+| --------------------------------- | ---------------------------------------------------------------------- |
+| `''`                              | No errors, unregistered manipulator with ID `manipulator_id`           |
+| `Manipulator not registered`      | The manipulator is not registered and therefore cannot be unregistered |
+| `Error unregistering manipulator` | An unknown error has occurred while unregistering                      |
+
+
+#### Example
+```python
+# Unregister manipulator with ID 1
+ws.emit('unregister_manipulator', 1, callback=my_callback_func)
 ```
 
 (calibrating-a-manipulator)=
