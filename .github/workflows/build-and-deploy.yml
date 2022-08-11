@@ -29,19 +29,19 @@ jobs:
     - name: 🛎 Checkout
       uses: actions/checkout@v3
     
-    - name: Setup Python
+    - name: 🐍 Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
         cache: 'pip'
     
-    - name: Install dependencies
+    - name: 📦 Install dependencies
       run: pip install -r requirements.txt
     
-    - name: Build
+    - name: 🔨 Build
       run: make html
     
-    - name: 🛠 Setup Pages
+    - name: 🎛 Setup Pages
       uses: actions/configure-pages@v1
 
     - name: ⬆️ Upload artifact
