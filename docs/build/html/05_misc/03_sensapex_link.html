@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensapex Link &mdash; Virtual Brain Lab 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="General Programming Advice" href="04_general_dev.html" />
+    <link rel="prev" title="Addressables Storage" href="02_addressables_storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Virtual Brain Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About the VBL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_about/joinus.html">Join Us</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pinpoint</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/01_tp_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/02_tp_alignment.html">Allen CCF to In Vivo Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/03_tp_ephys_atlas.html">Electrophysiology Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/04_tp_sensapex_link.html">Sensapex Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_traj_planner/05_tp_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Urchin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/01_urn_intro.html">Installation and Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_unity_neuro/02_urn_development.html">Development</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Session Viewer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/01_sv_overview.html">Session Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_session_viewer/02_ibl_average_trial.html">IBL Average Trial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_vbl_core.html">VBL Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_addressables_storage.html">Addressables Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sensapex Link</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-locally-and-use-like-a-standalone-app-server">Install locally and use like a standalone app/server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-usage-like-a-library">For usage like a library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to-develop-this-package-with-a-local-install">To develop this package with a local install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to-develop-this-package-with-docker">To develop this package with Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-available-manipulators">Getting available manipulators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#registering-a-manipulator">Registering a manipulator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unregistering-a-manipulator">Unregistering a manipulator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calibrating-a-manipulator">Calibrating a manipulator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bypassing-calibration">Bypassing calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-movement">Enable movement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-manipulator-s-position">Get a manipulator’s position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-the-position-of-a-manipulator">Set the position of a manipulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drive-to-depth">Drive to depth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#set-inside-brain-state">Set “inside brain” state</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#emergency-stop">Emergency Stop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-organization">Code Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server-py"><code class="docutils literal notranslate"><span class="pre">server.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensapex-handler-py"><code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulator-py"><code class="docutils literal notranslate"><span class="pre">manipulator.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#general-code-practices-for-developers-looking-to-contribute">General code practices (for developers looking to contribute)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_general_dev.html">General Programming Advice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_unity_tutorials.html">Unity</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Virtual Brain Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Sensapex Link</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/05_misc/03_sensapex_link.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sensapex-link">
+<h1>Sensapex Link<a class="headerlink" href="#sensapex-link" title="Permalink to this heading"></a></h1>
+<p>The Sensapex Link is a python WebSocket server that allows any WebSocket compliant application (such as <a class="reference external" href="https://github.com/dbirman/NPTrajectoryPlanner/">Pinpoint (Neuropixels Trajectory Planner)</a>) to have limited communication with <a class="reference external" href="https://www.sensapex.com/products/ump-micromanipulators/">Sensapex uMp Micromanipulators</a></p>
+<p><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation"><span class="std std-ref">Installation</span></a></p></li>
+<li><p><a class="reference internal" href="#usage"><span class="std std-ref">Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#code-organization"><span class="std std-ref">Code Organization</span></a></p></li>
+</ul>
+<section id="installation">
+<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>An x86 machine or Docker is required to install or run the server.</p>
+<section id="install-locally-and-use-like-a-standalone-app-server">
+<h3>Install locally and use like a standalone app/server<a class="headerlink" href="#install-locally-and-use-like-a-standalone-app-server" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure Python 3.8+ and pip are installed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nptraj-sensapex-link</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nptraj-sensapex-link</span></code> to start the server</p>
+<ol class="arabic simple">
+<li><p>To view available command-line arguments, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">nptraj-sensapex-link</span> <span class="pre">--help</span></code></p></li>
+<li><p>Note: all arguments are optional and none are needed to use the server normally</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="for-usage-like-a-library">
+<h3>For usage like a library<a class="headerlink" href="#for-usage-like-a-library" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure Python 3.8+ and pip are installed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nptraj-sensapex-link</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">nptraj_sensapex_link</span> <span class="pre">import</span> <span class="pre">launch</span></code> and call <code class="docutils literal notranslate"><span class="pre">launch()</span></code> to start the server</p>
+<ol class="arabic simple">
+<li><p>Alternatively, use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">nptraj_sensapex_link</span></code> and call <code class="docutils literal notranslate"><span class="pre">nptraj_sensapex_link.launch()</span></code></p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="to-develop-this-package-with-a-local-install">
+<h3>To develop this package with a local install<a class="headerlink" href="#to-develop-this-package-with-a-local-install" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure Python 3.8+ and pip are installed</p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/dbirman/nptraj-sensapex-link">repo</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">nptraj-sensapex-link</span></code> and run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">nptraj_sensapex_link/server.py</span></code> launches the server</p></li>
+<li><p>Unit tests are available to run under the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory</p></li>
+</ol>
+</section>
+<section id="to-develop-this-package-with-docker">
+<h3>To develop this package with Docker<a class="headerlink" href="#to-develop-this-package-with-docker" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.docker.com/get-started/">Install Docker</a> in any way you like</p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/dbirman/nptraj-sensapex-link">repo</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">nptraj-sensapex-link</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code> to build the container and run the server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">attach</span> <span class="pre">&lt;container-id&gt;</span></code> to view the server logs</p></li>
+<li><p>You can edit the <code class="docutils literal notranslate"><span class="pre">command</span></code> line in <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> to configure the server’s parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">&lt;container_id&gt;</span> <span class="pre">/bin/bash</span></code> if you need to enter the container</p></li>
+<li><p>The package is located in the root directory as <code class="docutils literal notranslate"><span class="pre">nptraj_sensapex_link</span></code></p></li>
+<li><p>Unit tests are available to run under the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">stop</span></code> to stop the container or <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">down</span></code> to stop and remove the container</p></li>
+</ol>
+</section>
+</section>
+<section id="usage">
+<span id="id2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>This is a list of available WebSocket events. The code shown is pseudo-WebSocket code that can be used to interact with the server. The exact implementation will depend on the platform and WebSocket interface used.</p>
+<p>In general:</p>
+<ul class="simple">
+<li><p>Each event will take in an input and call a callback function with a response dictionary/object as the argument</p></li>
+<li><p>Before a manipulator can be used, it must be <a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">registered</span></a> and <a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">calibrated</span></a></p>
+<ul>
+<li><p>Before a manipulator can be moved (including being calibrated), it must have its <a class="reference internal" href="#enable-movement"><span class="std std-ref">movement enabled</span></a></p></li>
+<li><p>A manipulator’s position can be read before its movement is enabled, though</p></li>
+</ul>
+</li>
+<li><p>The server will log unknown events, but will not return callback arguments or emit any messages</p></li>
+</ul>
+<p><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#getting-manipulators"><span class="std std-ref">Getting available manipulators</span></a></p></li>
+<li><p><a class="reference internal" href="#registering-a-manipulator"><span class="std std-ref">Registering a manipulator</span></a></p></li>
+<li><p><a class="reference internal" href="#unregistering-a-manipulator"><span class="std std-ref">Unregistering a manipulator</span></a></p></li>
+<li><p><a class="reference internal" href="#calibrating-a-manipulator"><span class="std std-ref">Calibrating a manipulator</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#bypassing-calibration"><span class="std std-ref">Bypassing calibration</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#get-a-manipulators-position"><span class="std std-ref">Get a manipulator’s position</span></a></p></li>
+<li><p><a class="reference internal" href="#set-position-of-a-manipulator"><span class="std std-ref">Set position of a manipulator</span></a></p></li>
+<li><p><a class="reference internal" href="#drive-to-depth"><span class="std std-ref">Drive manipulator to depth</span></a></p></li>
+<li><p><a class="reference internal" href="#set-inside-brain"><span class="std std-ref">Set “inside brain” state of a manipulator</span></a></p></li>
+<li><p><a class="reference internal" href="#enable-movement"><span class="std std-ref">Enable movement</span></a></p></li>
+<li><p><a class="reference internal" href="#emergency-stop"><span class="std std-ref">Emergency Stop</span></a></p></li>
+</ul>
+<section id="getting-available-manipulators">
+<span id="getting-manipulators"></span><h3>Getting available manipulators<a class="headerlink" href="#getting-available-manipulators" title="Permalink to this heading"></a></h3>
+<p>Many implementations may want to first find out what manipulators are available. This can be done by simply sending this event which takes no arguments. A callback will return a list of the available manipulators (up to 50 of them).</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">get_manipulators</span></code></p>
+<p><strong>Expected Arguments:</strong> None</p>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(manipulators:</span> <span class="pre">list[int],</span> <span class="pre">error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, the list of all discoverable/available manipulators is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">getting</span> <span class="pre">manipulators</span></code></p></td>
+<td><p>An unknown error has occurred getting discoverable/available manipulators</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulators</span></code> will be an empty list on error, however, it is possible that there truly are no discoverable/available/compatible manipulators</p></li>
+</ul>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register manipulator with ID 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;get_manipulators&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="registering-a-manipulator">
+<span id="id3"></span><h3>Registering a manipulator<a class="headerlink" href="#registering-a-manipulator" title="Permalink to this heading"></a></h3>
+<p>Every manipulator in a Sensapex setup must be registered to the server before being used.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">register_manipulator</span></code></p>
+<p><strong>Expected Arguments:</strong></p>
+<ul class="simple">
+<li><p>Manipulator ID: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, registered manipulator with ID <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">already</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is already registered, no action taken</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">found</span></code></p></td>
+<td><p>The manipulator is not discoverable by the API and may be disconnected or offline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">registering</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while registering</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id4">
+<h4>Example<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register manipulator with ID 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;register_manipulator&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="unregistering-a-manipulator">
+<span id="id5"></span><h3>Unregistering a manipulator<a class="headerlink" href="#unregistering-a-manipulator" title="Permalink to this heading"></a></h3>
+<p>Any registered manipulator can be easily disconnected from control by simply unregistering it.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">unregister_manipulator</span></code></p>
+<p><strong>Expected Arguments:</strong></p>
+<ul class="simple">
+<li><p>Manipulator ID: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, unregistered manipulator with ID <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>The manipulator is not registered and therefore cannot be unregistered</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">unregistering</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while unregistering</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id6">
+<h4>Example<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unregister manipulator with ID 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;unregister_manipulator&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="calibrating-a-manipulator">
+<span id="id7"></span><h3>Calibrating a manipulator<a class="headerlink" href="#calibrating-a-manipulator" title="Permalink to this heading"></a></h3>
+<p>To ensure all manipulators are working properly before applying autonomous control, all manipulators must have their movement checked and calibrated. This is done by moving all <em>four</em> axes through their full range of motion while also invoking the calibrate functionality.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">calibrate</span></code></p>
+<p><strong>Expected Arguments:</strong></p>
+<ul class="simple">
+<li><p>Manipulator ID: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, calibrated manipulator with ID <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">calling</span> <span class="pre">calibrate</span></code></p></td>
+<td><p>A Sensapex SDK error has occurred while calibrating</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">calibrating</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while calibrating</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id8">
+<h4>Example<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calibrate manipulator 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;calibrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bypassing-calibration">
+<span id="id9"></span><h3>Bypassing calibration<a class="headerlink" href="#bypassing-calibration" title="Permalink to this heading"></a></h3>
+<p><em><strong>FOR TESTING PURPOSES ONLY!! Do not use it in production code.</strong></em></p>
+<p>The calibration requirement may be bypassed by sending this event.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">bypass_calibration</span></code></p>
+<p><strong>Expected Arguments:</strong></p>
+<ul class="simple">
+<li><p>Manipulator ID: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(error:</span> <span class="pre">string)</span></code>:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, bypassed calibration for manipulator with ID <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">bypassing</span> <span class="pre">calibration</span></code></p></td>
+<td><p>An unknown error has occurred while bypassing calibration</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id10">
+<h4>Example<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bypass calibration for manipulator 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;bypass_calibration&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enable-movement">
+<span id="id11"></span><h3>Enable movement<a class="headerlink" href="#enable-movement" title="Permalink to this heading"></a></h3>
+<p>To prevent accidental movement commands, a manipulator must have its movement feature enabled. A manipulator may have its movement enabled for a set period or enabled indefinitely. Relevant information is passed through the event. Once a write lease has expired, an event is emitted back to the server with the ID of the manipulator which can no longer write as the payload.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">set_can_write</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">can_write</span></code>: <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hours</span></code>: <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(state:</span> <span class="pre">bool,</span> <span class="pre">error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, set state is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">data</span> <span class="pre">format</span></code></p></td>
+<td><p>Invalid/unexpected argument format</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">in</span> <span class="pre">set_can_write</span></code></p></td>
+<td><p>An unknown error occurred while starting this function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">setting</span> <span class="pre">can_write</span></code></p></td>
+<td><p>An unknown error has occurred enabling movement</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">state</span></code>: Will be <code class="docutils literal notranslate"><span class="pre">False</span></code> if one was not provided properly in the request or if an error occurred</p></li>
+</ul>
+<p><strong>Response Event:</strong> <code class="docutils literal notranslate"><span class="pre">write_disabled</span></code> (sent when the write lease has expired)</p>
+<p><strong>Payload:</strong> <code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<section id="id12">
+<h4>Example<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable movement for manipulator 1 indefinitely (0 = indefinite hours)</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;set_can_write&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;can_write&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;hours&#39;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="get-a-manipulator-s-position">
+<span id="get-a-manipulators-position"></span><h3>Get a manipulator’s position<a class="headerlink" href="#get-a-manipulator-s-position" title="Permalink to this heading"></a></h3>
+<p>Receive the position of a specified manipulator as X, Y, Z, W (depth) in µm from the origin.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">get_pos</span></code></p>
+<p><strong>Expected Arguments:</strong></p>
+<ul class="simple">
+<li><p>Manipulator ID: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(position:</span> <span class="pre">array,</span> <span class="pre">error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, position is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">getting</span> <span class="pre">position</span></code></p></td>
+<td><p>An unknown error has occurred while getting position</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: Will be an empty array if one was not provided properly in the request or if an error occurred</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gets the position of manipulator 1</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;get_pos&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">my_callback_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="set-the-position-of-a-manipulator">
+<span id="set-position-of-a-manipulator"></span><h3>Set the position of a manipulator<a class="headerlink" href="#set-the-position-of-a-manipulator" title="Permalink to this heading"></a></h3>
+<p>Instructs a manipulator to go to a position relative to the origin in µm.</p>
+<p>Manipulators move asynchronously from each other. This means large batches of movement events can be sent to the server for several manipulators and each manipulator will move through the events assigned to them independently.</p>
+<p>When a manipulator is set to be “inside” the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue. This state is set by <a class="reference internal" href="#set-inside-brain"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">set_inside_brain</span></code></span></a>. One may also explicitly specify movement in only the depth axis using <a class="reference internal" href="#drive-to-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">drive_to_depth</span></code></span></a></p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">goto_pos</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code>: <code class="docutils literal notranslate"><span class="pre">float[4]</span></code> (in x, y, z, w as µm from the origin)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speed</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code> (in µm/s)</p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">(position:</span> <span class="pre">array,</span> <span class="pre">error:</span> <span class="pre">string)</span></code></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, position is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">data</span> <span class="pre">format</span></code></p></td>
+<td><p>Invalid/unexpected argument format</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">in</span> <span class="pre">goto_pos</span></code></p></td>
+<td><p>An unknown error occurred while starting this function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">movement</span> <span class="pre">canceled</span></code></p></td>
+<td><p>Emergency stop was used and manipulator movements have been canceled</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">moving</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while moving to position</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: Will be an empty array if one was not provided properly in the request or if an error occurred</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set manipulator 1 to position 0, 0, 0, 0 at 2000 µm/s</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;goto_pos&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;pos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="mi">2000</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="drive-to-depth">
+<span id="id13"></span><h3>Drive to depth<a class="headerlink" href="#drive-to-depth" title="Permalink to this heading"></a></h3>
+<p>Instructs a manipulator to go to a specific depth in µm. This is equivalent to setting the position of the manipulator to the same position but with a different depth. This function helps to explicitly make sure no other axis except the depth axis is moving during a movement call.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">drive_to_depth</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth</span></code>: <code class="docutils literal notranslate"><span class="pre">float</span></code> (in µm from the origin)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speed</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code> (in µm/s)</p></li>
+</ul>
+<p><strong>Callback Responses <code class="docutils literal notranslate"><span class="pre">(depth:</span> <span class="pre">float,</span> <span class="pre">error:</span> <span class="pre">string)</span></code></strong></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, position is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">data</span> <span class="pre">format</span></code></p></td>
+<td><p>Invalid/unexpected argument format</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">in</span> <span class="pre">drive_to_depth</span></code></p></td>
+<td><p>An unknown error occurred while starting this function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">movement</span> <span class="pre">canceled</span></code></p></td>
+<td><p>Emergency stop was used and manipulator movements have been canceled</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">moving</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while driving to depth</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id14">
+<h4>Example<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drive manipulator 1 to a depth of 1000 µm at 2000 µm/s</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;drive_to_depth&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="mi">2000</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="set-inside-brain-state">
+<span id="set-inside-brain"></span><h3>Set “inside brain” state<a class="headerlink" href="#set-inside-brain-state" title="Permalink to this heading"></a></h3>
+<p>Sets the “inside brain” state of a manipulator. When a manipulator is inside the brain, it will have all axes except the depth axis locked. This is to prevent accidental lateral movement while inside brain tissue.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">set_inside_brain</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator_id</span></code>: <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inside</span></code>: <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+<p><strong>Callback Responses <code class="docutils literal notranslate"><span class="pre">(state:</span> <span class="pre">bool,</span> <span class="pre">error:</span> <span class="pre">string)</span></code></strong></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error message (<code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">string</span></code>)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>No errors, position is returned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">data</span> <span class="pre">format</span></code></p></td>
+<td><p>Invalid/unexpected argument format</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">in</span> <span class="pre">set_inside_brain</span></code></p></td>
+<td><p>An unknown error occurred while starting this function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">registered</span></code></p></td>
+<td><p>Manipulator is not registered yet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Manipulator</span> <span class="pre">not</span> <span class="pre">calibrated</span></code></p></td>
+<td><p>Manipulator is not calibrated yet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">moving</span> <span class="pre">manipulator</span></code></p></td>
+<td><p>An unknown error has occurred while setting inside brain</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id15">
+<h4>Example<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set manipulator 1 to be inside the brain</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;inside_brain&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;manipulator_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;inside&#39;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="emergency-stop">
+<span id="id16"></span><h3>Emergency Stop<a class="headerlink" href="#emergency-stop" title="Permalink to this heading"></a></h3>
+<p>There are two ways an emergency stop can be triggered: through this event or the hardware/serial attached button. The server will connect to the first serial device it finds which names itself “USB Serial Device” (which is what an Arduino would appear as) and listen for any serial input from this source (at a baud rate of 9600). The system will poll the serial port every 50 ms to check. The Arduino is running <a class="reference external" href="https://github.com/VirtualBrainLab/StopSignal">this sketch</a> which will continuously send <code class="docutils literal notranslate"><span class="pre">1</span></code> (followed by a new line symbol) through serial whenever the stop button is pressed.</p>
+<p>Both the WebSocket event and the serial method will stop all movement, remove all movement in the queue, <em><strong>and set all manipulators to be unwritable.</strong></em> Therefore, one must re-enable movement on the manipulators again before continuing.</p>
+<p><strong>Event:</strong> <code class="docutils literal notranslate"><span class="pre">stop</span></code></p>
+<p><strong>Expected Arguments (dictionary/object with the following format):</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Callback Responses Format:</strong> <code class="docutils literal notranslate"><span class="pre">state:</span> <span class="pre">bool</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>: No errors, all movement stopped</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code>: An unknown error has occurred while stopping all movement</p></li>
+</ul>
+<section id="id17">
+<h4>Example<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop all movement</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="code-organization">
+<span id="id18"></span><h2>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this heading"></a></h2>
+<p>There are three main components of this package:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">server.py</span></code>: The main server code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code>: Code for communicating with the Sensapex API</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manipulator.py</span></code>: A class for representing a manipulator</p></li>
+</ol>
+<section id="server-py">
+<h3><code class="docutils literal notranslate"><span class="pre">server.py</span></code><a class="headerlink" href="#server-py" title="Permalink to this heading"></a></h3>
+<p>All code responsible for WebSocket server functionality is in this file. This includes client connection/disconnection, event handling, and the main server loop.</p>
+<p>For every event, the server does the following:</p>
+<ol class="arabic simple">
+<li><p>Extract the arguments passed in the event</p></li>
+<li><p>Log that the event was received</p></li>
+<li><p>Call the appropriate function in <code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code> with the arguments</p></li>
+<li><p>Call the callback function with the response from <code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code> as parameters</p></li>
+</ol>
+</section>
+<section id="sensapex-handler-py">
+<h3><code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code><a class="headerlink" href="#sensapex-handler-py" title="Permalink to this heading"></a></h3>
+<p>All code responsible for communicating with the Sensapex API is in this file. This includes loading the DLL, establishing a connection with the equipment, and maintaining a dictionary of registered manipulators.</p>
+<p>Functions names here are the same as the WebSocket events. They are called when the server receives an event from a client. In general, the function does the following:</p>
+<ol class="arabic simple">
+<li><p>Recieve extracted arguments from <code class="docutils literal notranslate"><span class="pre">server.py</span></code></p></li>
+<li><p>Inside try/except block, call the appropriate Sensapex API function</p></li>
+<li><p>Log/handle successes and failures</p></li>
+<li><p>Return the callback parameters to <code class="docutils literal notranslate"><span class="pre">server.py</span></code></p></li>
+</ol>
+</section>
+<section id="manipulator-py">
+<h3><code class="docutils literal notranslate"><span class="pre">manipulator.py</span></code><a class="headerlink" href="#manipulator-py" title="Permalink to this heading"></a></h3>
+<p>To help make calling functions on manipulators easier, a custom class containing the necessary functions and flags is created. This class is used by <code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code> to call manipulator-specific APIs such as <code class="docutils literal notranslate"><span class="pre">get_pos</span></code> (get position) and to keep track of manipulator-specific flags such as if it has been calibrated yet.</p>
+<p>Manipulator functions handle errors and return the appropriate callback parameters like in <code class="docutils literal notranslate"><span class="pre">sensapex_handler.py</span></code>.</p>
+</section>
+</section>
+<section id="general-code-practices-for-developers-looking-to-contribute">
+<h2>General code practices (for developers looking to contribute)<a class="headerlink" href="#general-code-practices-for-developers-looking-to-contribute" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Type hinting is implemented where possible</p></li>
+<li><p>Tuples are used when possible</p></li>
+<li><p>Only one client can be connected at a time</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_addressables_storage.html" class="btn btn-neutral float-left" title="Addressables Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_general_dev.html" class="btn btn-neutral float-right" title="General Programming Advice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Daniel Birman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
