@@ -7,11 +7,6 @@
 
 **[Daniel Birman, PhD](https://danbirman.com)**
 
-
-<image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh">
-
-**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)**
-
 **Qiqi Liang**
 
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
@@ -27,3 +22,9 @@
 <image src="../_static/people/yoni.jpg" alt="Yoni Browning" position="left" style="border-radius: 8px;width:20vh">
 
 **[Yoni Browning, PhD](https://www.representations.space/)** - Allen Institute
+
+## Alumni
+
+<image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh">
+
+**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** (Undergraduate research assistant - 2021-2022)
