@@ -1,0 +1,35 @@
+name: Build Documentation
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+  workflow_call:
+
+concurrency:
+  group: "build"
+  cancel-in-progress: true
+
+jobs:
+
+  build:
+    name: Build Documentation
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: 🛎 Checkout
+      uses: actions/checkout@v3
+    
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+        cache: 'pip'
+    
+    - name: 📦 Install dependencies
+      run: pip install -r requirements.txt
+    
+    - name: 🔨 Build
+      run: make html
