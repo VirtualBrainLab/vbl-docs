@@ -1,5 +1,7 @@
 # vbl-docs
 
+[![Build and Deploy](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build-and-deploy.yml)
+
 [Documentation website](https://virtualbrainlab.org) for Virtual Brain Lab projects:
 
  - [Pinpoint (Neuropixels trajectory planner)](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/)
