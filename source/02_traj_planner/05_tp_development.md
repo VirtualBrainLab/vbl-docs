@@ -17,7 +17,7 @@ If you use Github Desktop the `vbl-core` repository will automatically be pulled
 
 ### Assets
 
-Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) repository. Assets in this repository are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables).
+Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) repository. Shared assets are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables).
 
 ### Scenes
 
@@ -43,13 +43,15 @@ The 3D models are controlled via the [CCFModelControl](https://github.com/dbirma
 
 ### Probes
 
-Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a [TP_ProbeController](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeController.cs) component which handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the [TP_ProbePanel](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs) and [TP_ProbeUIManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbeUIManager.cs) components. The probe panels are interpolated using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph) which is a variant of the Inplane Slice shader. 
+Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a [ProbeManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/ProbeManager.cs) component which also handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the [TP_ProbePanel](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs) and [ProbeUIManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/ProbeUIManager.cs) components. The probe panels are interpolated using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph) which is a variant of the Inplane Slice shader. 
 
 #### Probe Coordinates
 
-The `TP_ProbeController` component handles movement and positioning of probes. At the lowest level a probe is represented by it's AP (anterior-posterior), ML (medial-lateral), and DV (depth) coordinates. Probes store these in the variables `apml` and `depth` and they are relative to the (ap=0,ml=0,dv=0) coordinate of the CCF space, which is anterior, lateral (left), and dorsal or in english the front, left, top corner of the CCF space box. The CCF space itself is 13.2 mm long on AP, 11.4 mm wide on ML, and 8 mm deep on DV. Probe coordinates are defined so that +AP goes posterior, +ML goes right, and +DV goes down. 
+The `TP_ProbeController` component handles movement and positioning of probes. At the lowest level a probe is represented by it's AP (anterior-posterior), ML (medial-lateral), and DV (depth) coordinates and the azimuth (phi), elevation (theta), and spin of the probe. This data is stored inside of a [ProbeInsertion](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/blob/main/Assets/Scripts/Insertion/ProbeInsertion.cs) object. 
 
-Probes also have a rotation. `phi` defines the probe's azimuth and we define 0 as forward (AP axis), -90 as facing left, and +90 as facing right. `theta` defines the probe's pitch with 0 being vertical and -90 horizontal, this is the only variable that we restrict to a specific range. `spin` controls the rotation of the probe on its own axis. 
+Internally we represent positions in the CCF space starting from the front/left/top corner of the CCF space box (anterior, left, dorsal). The CCF box is 13.2 mm long on AP, 11.4 mm wide, and 8 mm deep. Probe coordinates are defined so that +AP goes posterior, +ML goes right, and +DV goes down. 
+
+Probes also have a rotation. `phi` defines the probe's azimuth and we define 0 as forward (AP axis), -90 as facing left, and +90 as facing right. `theta` defines the probe's pitch with 0 being vertical and -90 horizontal, this is the only variable that we restrict to a specific range. `spin` controls the rotation of the probe on its own axis.
 
 **Dealing with coordinate transforms**
 
@@ -87,6 +89,8 @@ Rigs are a collection of 3D models stored as a prefab and marked as an addressab
 
 We use Github Issues to track development. Any changes you make should first be posted as an issue and flagged either as a *bug* or a *feature* and assigned to the relevant developer. When you complete adding a new feature you should either merge it to the corresponding development branch (if it's minor) or submit a pull request (if it's a major feature change). In either case, you should link to the relevant commit in the issue. 
 
+We use a Project to track development on the planner and milestones to assign bugs/features to releases. 
+
 When a **bug/feature** is closed it should be added to the incremental update list on the next Release page, or added to the current release as a **hotfix**.
 
 ## Builds
@@ -101,7 +105,7 @@ If you modified the Addressables assets you need to re-build these and deploy th
 
 #### Remote Build and Load Paths
 
-Addressables should be built to the remote build and load paths, which should point to `ServerData` and `http://data.virtualbrainlab.org/NPTraj/[BuildTarget]` respectively. These can be modified in the Addressables Profiles window 
+Addressables should be built to the remote build and load paths, which should point to `ServerData` and `http://data.virtualbrainlab.org/NPTraj/[BuildTarget]` respectively. These can be modified in the Addressables Profiles window.
 
 ### WebGL
 

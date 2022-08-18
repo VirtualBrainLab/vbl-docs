@@ -27,7 +27,7 @@ import unityneuro.render as urn
 urn.setup()
 ```
 
-Calling `setup()` opens a web browser and links it to your Python client. You can also set the parameter `standalone = True` to connect to a standalone Desktop application. 
+Calling `setup()` opens a web browser and links it to your Python client. Set the parameter `standalone = True` to connect to a standalone Desktop application. 
 
 ### Troubleshooting ID
 

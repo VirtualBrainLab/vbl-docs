@@ -10,7 +10,7 @@ Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanne
 
 ### Alignment
 
-Please see the alignment section for details.
+The CCF atlas is not aligned with the in vivo mouse brain. We transform the CCF to try to account for this, but please read the alignment section for details and make sure you understand what is happening before performing a surgery. 
 
 ## Install
 
@@ -32,7 +32,7 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 
 ## Instructions for use
 
-To set up a new probe, select the button on the right panel corresponding to the probe type (NP1/NP2/NP2.4). By default we transform coordinates into the IBL "Needles" space, where the AP=0, ML=0, DV=0 coordinate is placed at Bregma. This setting can be disabled in the settings (under Atlas).
+To set up a new probe, select the button on the right panel corresponding to the probe type (NP1/NP2/NP2.4). By default we transform coordinates into the IBL "Needles" space, so that AP=0, ML=0, DV=0 coordinate is placed at Bregma. This setting can be disabled in the settings (under Atlas).
 
 A probe **insertion** is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the **brain surface coordinate** and **depth** of the probe, which you will need to actually perform your experiment. 
 
@@ -42,7 +42,7 @@ At any time you can press [M] to open the manual coordinate entry window and ent
 
 #### Click + Drag
 
-The easiest way to control your probe is to left click and hold on the brain and then press one of the axis keys, dragging will then allow you to move the probe along that axis. 
+To control your probe left-click on the probe object. While holding the left mouse button press one of the axis keys (e.g. [W] for the AP axis) and drag the probe in space to move the probe along that axis.
 
 #### Keyboard
 
@@ -76,9 +76,13 @@ When setting up multi-probe insertions you can click the probe panel, the probe 
 
 To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle and set the probe elevation angle. Then move your probe tip to Bregma and zero your manipulator.
 
-Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the *convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV position instead. 
+Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the *convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV position instead. Depending on your craniotomy you may reach the brain surface before you reach the DV value specified by Pinpoint, don't break your probe!
 
 Once the probe is touching the dura, zero the depth axis and insert until you reach the specified depth.
+
+### Sensapex Link
+
+Coming soon...
 
 ## Saving and loading probes
 
@@ -89,9 +93,9 @@ You can save the coordinates of an insertion for future use by clicking on the c
 Please report issues on the [issues page](https://github.com/dbirman/NPTrajectoryPlanner/issues).
 
 
-## Settings
+<!-- ## Settings -->
 
-**Reset active probe** - Returns the active probe to the original starting position (Bregma by default)
+<!-- **Reset active probe** - Returns the active probe to the original starting position (Bregma by default)
 
 **Spawn IBL probes** - Places two NP1.0 probes in the configuration used by the IBL
 
@@ -121,7 +125,7 @@ Please report issues on the [issues page](https://github.com/dbirman/NPTrajector
 
 **Craniotomy** - On: opens a window that allows the user to control the skull craniotomy window, use with the Rig: Skull dropdown option (default: off)
 
-**IBL map** - On: displays a sphere at the location of each remaining second pass map location, clicking on a sphere moves the active probe controller to that location. You must set the depth value by hand (click probe, press [Z/X], then drag down; or just press [Z/X])
+**IBL map** - On: displays a sphere at the location of each remaining second pass map location, clicking on a sphere moves the active probe controller to that location. You must set the depth value by hand (click probe, press [Z/X], then drag down; or just press [Z/X]) -->
 
 ## References
 

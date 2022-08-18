@@ -1,15 +1,15 @@
 
 # Join Us
 
-Please contact Dan (dbirman@uw.edu) if you are interested in contributing to the Virtual Brain Lab.
+Are you motivated by the idea of building software for scientists? If you have some experience creating an independent software program (e.g. a hackathon or side project) and you are comfortable in either Python or Java/C# you may be a good fit for our projects!
 
-Academia has systematically excluded Black, Indigenous, and people of color and the fields of systems and computational neuroscience further exclude women and intersectional identities. The Virtual Brain Lab project is committed to making neuroscience a more open and inclusive field.
+Academia has systematically excluded Black, Indigenous, and people of color and the fields of systems and computational neuroscience further exclude women and intersectional identities. Embedded in the Virtual Brain Lab project is the idea that neuroscience should be more accessible and we are committed to empowering a diverse group of neuroscientists. We welcome applications from non-traditional backgrounds and underrepresented groups. If you are excited about our projects, please reach out!
+
+Contact Dan Birman with inquiries/questions (dbirman@uw.edu).
 
 ## Undergraduate research positions at UW
 
-Are you motivated by the idea of building software for scientists? If you have some experience creating an independent software program (e.g. a hackathon or side project) and you are comfortable in either Python or Java/C# you may be a good fit for our projects!
-
-Joining the VBL as a student developer is an opportunity to build applied technology while developing your skills as a programmer. Because we are part of a cutting-edge neuroscience laboratory at UW you will learn a lot of neuroscience along the way.
+Joining the VBL as a student is an opportunity to build applied technology while developing your skills as a programmer. Because we are part of a cutting-edge neuroscience laboratory at UW you will learn a lot of neuroscience along the way. Because we pay all undergraduate researchers who join the lab there are limited spaces available, reach out to Dan if you believe you would be a good fit. 
 
 ## Software devs / Researchers
 
@@ -17,4 +17,4 @@ The VBL does not have independent funding to pay researchers (graduate students,
 
 ## Volunteers
 
-All VBL software is released open-source. You are welcome to make a pull request to any repository with your contributions. 
+All VBL software is released open-source under either an MIT or GPLv3 license. You are welcome to make a pull request to any repository with your contributions.

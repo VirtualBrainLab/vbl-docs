@@ -7,11 +7,15 @@
 
 **[Daniel Birman, PhD](https://danbirman.com)**
 
-**Qiqi Liang**
-
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
+
+<image src="../_static/people/default.png" alt="Qiqi" position="left" style="border-radius: 8px;width:20vh">
+
+**Qiqi Liang**
+
+*** 
 
 ## Collaborators
 
@@ -23,8 +27,10 @@
 
 **[Yoni Browning, PhD](https://www.representations.space/)** - Allen Institute
 
+*** 
+
 ## Alumni
 
 <image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh">
 
-**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** (Undergraduate research assistant - 2021-2022)
+**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** - Steimetz lab undergraduate research assistant (2021-2022)

@@ -4,7 +4,7 @@ The CCF coordinates returned by this tool are not identical to the in vivo mouse
 
 ## Linear stereotaxic transforms
 
-We know for sure that the CCF atlas is stretched along the DV axis (`in vivo = 0.952 * CCF`) and squashed on the AP axis (`in vivo = 1.087 * CCF`). You can use the **Stereotaxic coordinates** setting to output coordinates that have been corrected for these differences.
+We know for sure that the CCF atlas is stretched along the DV axis (`in vivo = 0.952 * CCF`) and squashed on the AP axis (`in vivo = 1.087 * CCF`). In the **Atlas** settings panel you can choose a coordinate transform to implement these changes. By default, we enable the **Needles Transform** which stretches/squashes the brain as described above and sets the (0,0,0) coordinate to Bregma.
 
 Note that there also appears to be a rotation in the lamda-bregma angle of about 7 degrees (CCF is pitched forward), we are not yet accounting for this.
 
