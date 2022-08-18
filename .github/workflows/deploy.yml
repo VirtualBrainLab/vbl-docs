@@ -28,8 +28,11 @@ jobs:
 
     steps:
 
+    - name: 🛎 Checkout
+      uses: actions/checkout@v3
+
     - name: 🔨 Build
-      uses: VirtualBrainLab/vbl-docs/.github/workflows/build.yml
+      uses: ./.github/workflows/build.yml
     
     - name: 🎛 Setup Pages
       uses: actions/configure-pages@v1
