@@ -29,7 +29,7 @@ jobs:
     steps:
 
     - name: 🔨 Build
-      uses: ./.github/workflows/build.yml
+      uses: VirtualBrainLab/vbl-docs/.github/workflows/build.yml
     
     - name: 🎛 Setup Pages
       uses: actions/configure-pages@v1
