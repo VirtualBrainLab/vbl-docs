@@ -1,6 +1,7 @@
 # vbl-docs
 
-[![Build and Deploy](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build-and-deploy.yml)
+[![Build Documentation](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build.yml/badge.svg)](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/build.yml)
+[![Deploy Documentation](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/VirtualBrainLab/vbl-docs/actions/workflows/deploy.yml)
 
 [Documentation website](https://virtualbrainlab.org) for Virtual Brain Lab projects:
 

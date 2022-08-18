@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy Documentation
 
 on:
   push:
@@ -11,35 +11,23 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "deploy"
   cancel-in-progress: true
 
 jobs:
 
-  build-and-deploy:
-    name: Build and Deploy
+  deploy:
+    name: Deploy Documentation
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     runs-on: ubuntu-latest
 
     steps:
-    
-    - name: 🛎 Checkout
-      uses: actions/checkout@v3
-    
-    - name: 🐍 Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-        cache: 'pip'
-    
-    - name: 📦 Install dependencies
-      run: pip install -r requirements.txt
-    
+
     - name: 🔨 Build
-      run: make html
+      uses: ./.github/workflows/build.yml
     
     - name: 🎛 Setup Pages
       uses: actions/configure-pages@v1
