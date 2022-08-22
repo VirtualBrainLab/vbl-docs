@@ -1,4 +1,4 @@
-# Electrophysiology Manipulator Link
+# Electrophysiology Manipulator Link Server
 The Electrophysiology Manipulator Link (or Ephys Link for short) is a Python WebSocket server that allows any WebSocket-compliant application
 (such as [Pinpoint (Neuropixels Trajectory Planner)](https://github.com/dbirman/NPTrajectoryPlanner/)) to
 communication with manipulators used in electrophysiology experiments.
