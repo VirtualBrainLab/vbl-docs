@@ -34,7 +34,8 @@ Please see the individual projects for installation instructions and documentati
 
    02_traj_planner/01_tp_intro
    02_traj_planner/02_tp_alignment
-   02_traj_planner/04_tp_sensapex_link
+   02_traj_planner/03_tp_ephys_atlas
+   02_traj_planner/04_tp_ephys_link
    02_traj_planner/05_tp_development
 
 .. toctree::
@@ -60,7 +61,7 @@ Please see the individual projects for installation instructions and documentati
 
    05_misc/01_vbl_core
    05_misc/02_addressables_storage
-   05_misc/03_sensapex_link
+   05_misc/03_ephys_link
    05_misc/04_general_dev
    05_misc/05_unity_tutorials
 

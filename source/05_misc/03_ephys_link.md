@@ -1,5 +1,9 @@
-# Sensapex Link
-The Sensapex Link is a python WebSocket server that allows any WebSocket compliant application (such as [Pinpoint (Neuropixels Trajectory Planner)](https://github.com/dbirman/NPTrajectoryPlanner/)) to have limited communication with [Sensapex uMp Micromanipulators](https://www.sensapex.com/products/ump-micromanipulators/)
+# Electrophysiology Manipulator Link
+The Electrophysiology Manipulator Link (or Ephys Link for short) is a Python WebSocket server that allows any WebSocket-compliant application
+(such as [Pinpoint (Neuropixels Trajectory Planner)](https://github.com/dbirman/NPTrajectoryPlanner/)) to
+communication with manipulators used in electrophysiology experiments.
+
+Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However, this platform is designed to be extensible to other manipulators and more may be added in the future.
 
 **Table of Contents**
 - [Installation](installation)
@@ -10,41 +14,42 @@ The Sensapex Link is a python WebSocket server that allows any WebSocket complia
 (installation)=
 ## Installation
 
-An x86 machine or Docker is required to install or run the server.
+An x86 machine is required to run this server. Windows is recommended for smoothest compatibility with other manipulator
+software, however, Linux and macOS are also supported.
 
 ### Install locally and use like a standalone app/server
 
 1. Ensure Python 3.8+ and pip are installed
-2. `pip install nptraj-sensapex-link`
-3. Run `python -m nptraj-sensapex-link` to start the server
-    1. To view available command-line arguments, run `python -m nptraj-sensapex-link --help`
+2. `pip install ephys-link`
+3. Run `python -m ephys-link` to start the server
+    1. To view available command-line arguments, run `python -m ephys-link --help`
     2. Note: all arguments are optional and none are needed to use the server normally
 
 ### For usage like a library
 
 1. Ensure Python 3.8+ and pip are installed
-2. `pip install nptraj-sensapex-link`
-3. Use `from nptraj_sensapex_link import launch` and call `launch()` to start the server
-    1. Alternatively, use `import nptraj_sensapex_link` and call `nptraj_sensapex_link.launch()`
+2. `pip install ephys-link`
+3. Use `from ephys_link import server` and call `server.launch()` to start the server
+   1. Alternatively, use `import ephys_link.server` and call `ephys_link.server.launch()`
 
 ### To develop this package with a local install
 
 1. Ensure Python 3.8+ and pip are installed
-2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
-3. `cd nptraj-sensapex-link` and run `pip install -r requirements.txt`
-4. `python nptraj_sensapex_link/server.py` launches the server
+2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+3. `cd ephys-link` and run `pip install -r requirements.txt`
+4. `python ephys_link/server.py` launches the server
 5. Unit tests are available to run under the `tests/` directory
 
 ### To develop this package with Docker
 
 1. [Install Docker](https://www.docker.com/get-started/) in any way you like
-2. Clone the [repo](https://github.com/dbirman/nptraj-sensapex-link)
-3. `cd nptraj-sensapex-link`
+2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+3. `cd ephys-link`
 4. `docker-compose up` to build the container and run the server
 5. `docker attach <container-id>` to view the server logs
 6. You can edit the `command` line in `docker-compose.yml` to configure the server's parameters
 7. `docker exec -it <container_id> /bin/bash` if you need to enter the container
-8. The package is located in the root directory as `nptraj_sensapex_link`
+8. The package is located in the root directory as `ephys_link`
 9. Unit tests are available to run under the `tests/` directory
 10. `docker-compose stop` to stop the container or `docker-compose down` to stop and remove the container
 
@@ -83,10 +88,10 @@ Many implementations may want to first find out what manipulators are available.
 
 **Callback Responses Format:** `(manipulators: list[int], error: string)`
 
-| Error message (`error: string`) | Description                                                                 |
-| ------------------------------- | --------------------------------------------------------------------------- |
+| Error message (`error: string`) | Description                                                                |
+| ------------------------------- | -------------------------------------------------------------------------- |
 | `''`                            | No errors, the list of all discoverable/available manipulators is returned |
-| `Error getting manipulators`    | An unknown error has occurred getting discoverable/available manipulators   |
+| `Error getting manipulators`    | An unknown error has occurred getting discoverable/available manipulators  |
 
 - `manipulators` will be an empty list on error, however, it is possible that there truly are no discoverable/available/compatible manipulators
 
@@ -344,14 +349,14 @@ Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 
 **Callback Responses `(state: bool, error: string)`**
 
-| Error message (`error: string`) | Description                                                          |
-| ------------------------------- | -------------------------------------------------------------------- |
-| `''`                            | No errors, position is returned                                      |
-| `Invalid data format`           | Invalid/unexpected argument format                                   |
-| `Error in set_inside_brain`     | An unknown error occurred while starting this function               |
-| `Manipulator not registered`    | Manipulator is not registered yet                                    |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                    |
-| `Error moving manipulator`      | An unknown error has occurred while setting inside brain             |
+| Error message (`error: string`) | Description                                              |
+| ------------------------------- | -------------------------------------------------------- |
+| `''`                            | No errors, position is returned                          |
+| `Invalid data format`           | Invalid/unexpected argument format                       |
+| `Error in set_inside_brain`     | An unknown error occurred while starting this function   |
+| `Manipulator not registered`    | Manipulator is not registered yet                        |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                        |
+| `Error moving manipulator`      | An unknown error has occurred while setting inside brain |
 
 #### Example
 ```python
@@ -421,5 +426,5 @@ Manipulator functions handle errors and return the appropriate callback paramete
 
 ## General code practices (for developers looking to contribute)
 - Type hinting is implemented where possible
-- Tuples are used when possible
+- All functions and classes must have a docstring
 - Only one client can be connected at a time
