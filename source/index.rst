@@ -71,3 +71,4 @@ Please see the individual projects for installation instructions and documentati
 
    api_reference_urn
    api_reference_tp
+   api_reference_ephys_link
