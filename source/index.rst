@@ -69,4 +69,5 @@ Please see the individual projects for installation instructions and documentati
    :caption: API Reference
    :maxdepth: 1
 
-   api_reference.rst
+   api_reference_urn
+   api_reference_tp
