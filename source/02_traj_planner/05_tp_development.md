@@ -15,6 +15,20 @@ git submodule add https://github.com/dbirman/vbl-core Assets/vbl-core
 
 If you use Github Desktop the `vbl-core` repository will automatically be pulled. If you are working on multiple VBL projects you should add the repository as a separate repo in Desktop and give it an alias, e.g. `NPTrajectoryPlanner-vbl-core`.
 
+#### Build process
+
+Before starting the build process make sure you are on the WebGL pipeline.
+
+To run a new build there are three steps:
+
+  1. Re-build [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) (if needed) and push this to the server.
+    a) If you modify the storage files you need to update the version number in Pinpoint
+  2. Re-build the Addressables build for Pinpoint and push this to the server.
+    a) You can copy the files without over-writing the existing files, to maintain backward compatibility
+  3. Build the WebGL build and again push these files to the server in the htdocs/Pinpoint/ folder. We recommend labeling the folder with the version number.
+
+Once you confirm that the new version works you can re-name the folders appropriately. The current stable version is always labeled `Pinpoint` and older versions have the version number appended, e.g. `Pinpoint_0_1_0`.
+
 ### Assets
 
 Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) repository. Shared assets are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables).
