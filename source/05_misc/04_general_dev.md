@@ -8,7 +8,7 @@ I build pipelines in Python and use Jupyter to create notebooks. For application
 
 ## Getting started
 
-To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python through [Anaconda](https://www.anaconda.com/products/distribution) is easy and painless, but you can also maintain your own installation. Whatever you do, **make sure to use virtual environments** to isolate your projects. You will also need the [Unity 2020.3 LTS](unityhub://2020.3.33f1/915a7af8b0d5) installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. 
+To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python through [Anaconda](https://www.anaconda.com/products/distribution) is easy and painless, but you can also maintain your own installation. Whatever you do, **make sure to use virtual environments** to isolate your projects. You will also need the [Unity 2021.3 LTS](unityhub://2021.3.8f1/b30333d56e81) installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. 
 
 For version control I use [Github Desktop](https://desktop.github.com/) rather than mess around with the command line, but this is because I have dozens of repositories some of which have submodules. If this is your first time using git and you are only handling a single repository learning the command line can be to your advantage. 
 
@@ -20,9 +20,9 @@ For the VBL you should be using the `iblenv` conda environment during developmen
 
 ### Documentation
 
-If you plan to modify this documentation you will need to install Sphinx `pip install -U sphinx` in your environment. Use `make html` in the `vbl-docs/docs` folder to run the build script.
+The documentation files are markdown (`.md`) files and can be edited directly, see [Markdown guide](https://www.markdownguide.org/) for style conventions. The documentation builds and deploys through Github Actions.
 
-Todo: decide how to deal with C# documentation.
+<!-- Todo: decide how to deal with C# documentation. -->
 <!-- To build the C# documentation you need to run [Doxygen](https://doxygen.nl/) in XML output mode and then use [Breathe](https://breathe.readthedocs.io/en/latest/) to convert the XML output for use with Sphinx. -->
 
 ## Starting a project
