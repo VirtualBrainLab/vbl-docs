@@ -81,3 +81,6 @@ build/*
 
 # Python
 .python-version
+
+# Virtual Environments
+venv/*
