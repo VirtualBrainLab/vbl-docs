@@ -8,14 +8,24 @@ Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However, thi
 **Table of Contents**
 - [Installation](installation)
 - [Usage](usage)
-- [Code Organization](code-organization)
+- [General code practices](code-practices)
 
+For more information regarding the server's implementation and how the code is organized, see the [package's API reference](https://virtualbrainlab.org/api_reference_ephys_link.html)
 
 (installation)=
 ## Installation
 
-An x86 machine is required to run this server. Windows is recommended for smoothest compatibility with other manipulator
-software, however, Linux and macOS are also supported.
+### Prerequisites
+
+1. A **x86 Windows PC is recommended** to run this server.
+    1. Running the server on Windows to control Sensapex devices has been
+       verified to work with the server. Communication with Sensapex devices is
+       unverified for Linux and macOS. However, developing the server is
+       possible on a Linux operating system (Mac users should use Docker).
+2. To use the emergency stop feature, ensure an Arduino with
+   the [StopSignal](https://github.com/VirtualBrainLab/StopSignal) sketch is
+   connected to the computer. Follow the
+   instructions on that repo for how to set up the Arduino.
 
 ### Install locally and use like a standalone app/server
 
@@ -30,7 +40,7 @@ software, however, Linux and macOS are also supported.
 1. Ensure Python 3.8+ and pip are installed
 2. `pip install ephys-link`
 3. Use `from ephys_link import server` and call `server.launch()` to start the server
-   1. Alternatively, use `import ephys_link.server` and call `ephys_link.server.launch()`
+   1. Alternatively, use `import ephys_link` and call `ephys_link.server.launch()`
 
 ### To develop this package with a local install
 
@@ -389,42 +399,8 @@ Both the WebSocket event and the serial method will stop all movement, remove al
 ws.emit('stop')
 ```
 
-
-(code-organization)=
-## Code Organization
-There are three main components of this package:
-1. `server.py`: The main server code
-2. `sensapex_handler.py`: Code for communicating with the Sensapex API
-3. `manipulator.py`: A class for representing a manipulator
-
-
-### `server.py`
-All code responsible for WebSocket server functionality is in this file. This includes client connection/disconnection, event handling, and the main server loop.
-
-For every event, the server does the following:
-
-1. Extract the arguments passed in the event
-2. Log that the event was received
-3. Call the appropriate function in `sensapex_handler.py` with the arguments
-4. Call the callback function with the response from `sensapex_handler.py` as parameters
-
-
-### `sensapex_handler.py`
-All code responsible for communicating with the Sensapex API is in this file. This includes loading the DLL, establishing a connection with the equipment, and maintaining a dictionary of registered manipulators.
-
-Functions names here are the same as the WebSocket events. They are called when the server receives an event from a client. In general, the function does the following:
-1. Recieve extracted arguments from `server.py`
-2. Inside try/except block, call the appropriate Sensapex API function
-3. Log/handle successes and failures
-4. Return the callback parameters to `server.py`
-
-
-### `manipulator.py`
-To help make calling functions on manipulators easier, a custom class containing the necessary functions and flags is created. This class is used by `sensapex_handler.py` to call manipulator-specific APIs such as `get_pos` (get position) and to keep track of manipulator-specific flags such as if it has been calibrated yet.
-
-Manipulator functions handle errors and return the appropriate callback parameters like in `sensapex_handler.py`.
-
+(code-practices)=
 ## General code practices (for developers looking to contribute)
 - Type hinting is implemented where possible
-- All functions and classes must have a docstring
-- Only one client can be connected at a time
+- All functions and classes must have a Sphinx/reStructuredText formated docstring
+- Only one client can be connected to the server at a time
