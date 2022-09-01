@@ -31,12 +31,6 @@ jobs:
     - name: 📦 Install dependencies
       run: pip install -r requirements.txt
 
-    - name: View package
-      run: ls /opt/hostedtoolcache/Python/3.10.6/x64/lib/python3.10/site-packages/ephys_link/
-    
-    - name: View resources
-      run: ls /opt/hostedtoolcache/Python/3.10.6/x64/lib/python3.10/site-packages/ephys_link/resources
-
     - name: 🔨 Build
       run: make html
 
