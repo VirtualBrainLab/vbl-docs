@@ -78,3 +78,9 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux
 
 build/*
+
+# Python
+.python-version
+
+# Virtual Environments
+venv/*
