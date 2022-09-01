@@ -18,10 +18,13 @@ For more information regarding the server's implementation and how the code is o
 ### Prerequisites
 
 1. A **x86 Windows PC is recommended** to run this server.
-    1. Running the server on Windows to control Sensapex devices has been
-       verified to work with the server. Communication with Sensapex devices is
-       unverified for Linux and macOS. However, developing the server is
-       possible on a Linux operating system (Mac users should use Docker).
+    1. The server has been verified to work well with Sensapex devices on
+       Windows. This is unverified for Linux and
+       macOS. However, developing the server is possible on a Linux operating
+       system (macOS users should virtualize Linux).
+    2. To use the emergency stop feature, ensure an Arduino with
+       the [StopSignal][StopSignal] sketch is connected to the computer. Follow
+       the instructions on that repo for how to set up the Arduino.
 2. To use the emergency stop feature, ensure an Arduino with
    the [StopSignal](https://github.com/VirtualBrainLab/StopSignal) sketch is
    connected to the computer. Follow the
