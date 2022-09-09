@@ -26,27 +26,10 @@ The server runs Apache, the htdocs file is at `C:/Apache24/htdocs`. Ask Dan for 
 
 ### Pushing the Pypi package
 
-Confirm that the current renderer works
-
-```
-python setup.py sdist bdist_wheel
-pip install -e .
-pip uninstall unityneuro
-```
-
-Push to the test server
-
-```
-python setup.py sdist bdist_wheel
-python -m twine upload --repository testpypi dist/*
-pip install -i https://test.pypi.org/unityneuro/
-pip uninstall unityneuro
-```
-
 Push to the real server
 ```
-python setup.py sdist bdist_wheel
-python -m twine upload dist/*
+py -m build
+py -m twine upload dist/*
 ```
 
 ### Deploying the server
