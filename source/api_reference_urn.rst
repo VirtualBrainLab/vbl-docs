@@ -7,7 +7,7 @@ Unity Renderer for Neuroscience
    :template: custom-module-template.rst
    :recursive:
 
-   unityneuro
+   unityneuro.render
 
 .. toctree::
    :hidden:
