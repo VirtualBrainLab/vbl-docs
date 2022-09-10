@@ -22,10 +22,8 @@ For more information regarding the server's implementation and how the code is o
        Windows. This is unverified for Linux and
        macOS. However, developing the server is possible on a Linux operating
        system (macOS users should virtualize Linux).
-    2. To use the emergency stop feature, ensure an Arduino with
-       the [StopSignal][StopSignal] sketch is connected to the computer. Follow
-       the instructions on that repo for how to set up the Arduino.
-2. To use the emergency stop feature, ensure an Arduino with
+2. For Sensapex devices, the controller unit must be connect to the PC via an Ethernet cable. A USB-to-Ethernet adapter is acceptable as well.
+3. To use the emergency stop feature, ensure an Arduino with
    the [StopSignal](https://github.com/VirtualBrainLab/StopSignal) sketch is
    connected to the computer. Follow the
    instructions on that repo for how to set up the Arduino.
