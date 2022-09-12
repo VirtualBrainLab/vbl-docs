@@ -29,6 +29,10 @@ To run a new build there are three steps:
 
 Once you confirm that the new version works you can re-name the folders appropriately. The current stable version is always labeled `Pinpoint` and older versions have the version number appended, e.g. `Pinpoint_0_1_0`.
 
+#### IL2CPP
+
+You may have to install optional visual studios features specifically the Windows 10 SDK and MSVC, see: https://forum.unity.com/threads/unable-to-build-il2cpp-in-2021-2.1189441/
+
 ### Assets
 
 Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) repository. Shared assets are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables).
