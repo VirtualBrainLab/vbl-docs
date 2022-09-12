@@ -4,7 +4,7 @@
 
 [Documentation website](https://virtualbrainlab.org) for Virtual Brain Lab projects:
 
- - [Pinpoint (Neuropixels trajectory planner)](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/)
+ - [Pinpoint (electrophysiology planning tool)](https://github.com/VirtualBrainLab/Pinpoint)
  - [Urchin (Unity Renderer for Neuroscience)](https://github.com/VirtualBrainLab/UnityNeuroscience/)
  - [IBL Session Viewer](https://github.com/VirtualBrainLab/VirtualBrainLab)
  - [vbl-core](https://github.com/VirtualBrainLab/vbl-core)
