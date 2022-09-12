@@ -34,7 +34,8 @@ extensions = [
     'sphinx_rtd_theme',
     'myst_parser',
     'sphinx.ext.autosummary',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.viewcode',
+	'breathe'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -71,3 +72,9 @@ autodoc_default_options = {
     'undoc-members': True,
     'show-inheritance': False
 }
+
+# -- Options for breathe ----------------------------------------------------
+breathe_projects = {
+	"pinpoint": "pinpoint_docs"
+}
+breathe_default_project = "pinpoint"

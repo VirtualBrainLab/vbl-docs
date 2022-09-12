@@ -84,3 +84,6 @@ build/*
 
 # Virtual Environments
 venv/*
+
+# Doxygen
+source/pinpoint_docs/*

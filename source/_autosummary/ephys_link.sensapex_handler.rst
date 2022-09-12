@@ -16,6 +16,7 @@
    
       bypass_calibration
       calibrate
+      connect_to_ump
       drive_to_depth
       get_manipulators
       get_pos
