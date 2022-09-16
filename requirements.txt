@@ -1,5 +1,7 @@
+breathe==4.34.0
 ephys-link==0.0.5
 myst-parser==0.18.0
 sphinx==5.1.1
+sphinx-csharp==0.1.8
 sphinx-rtd-theme==1.0.0
 unityneuro==0.4.2

@@ -35,6 +35,7 @@ extensions = [
     'myst_parser',
     'sphinx.ext.autosummary',
     'sphinx.ext.viewcode',
+    'sphinx_csharp.csharp',
 	'breathe'
 ]
 
@@ -75,6 +76,6 @@ autodoc_default_options = {
 
 # -- Options for breathe ----------------------------------------------------
 breathe_projects = {
-	"pinpoint": "pinpoint_docs"
+	"pinpoint": "pinpoint_docs/xml"
 }
 breathe_default_project = "pinpoint"
