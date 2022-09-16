@@ -1,9 +1,13 @@
 # Electrophysiology Manipulator Link Server
-The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link) (or Ephys Link for short) is a Python WebSocket server that allows any WebSocket-compliant application
-(such as [Pinpoint (electrophysiology planning tool)](https://github.com/VirtualBrainLab/Pinpoint)) to
-communication with manipulators used in electrophysiology experiments.
 
-Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However, this platform is designed to be extensible to other manipulators and more may be added in the future.
+The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link) (or Ephys Link for short) is a Python
+WebSocket server that allows any WebSocket-compliant application (such
+as [Pinpoint (electrophysiology planning tool)][Pinpoint])
+to communicate with manipulators used in electrophysiology experiments.
+
+Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However,
+this platform is designed to be extensible to other manipulators and more may be
+added in the future.
 
 **Table of Contents**
 - [Installation](installation)
@@ -23,7 +27,7 @@ For more information regarding the server's implementation and how the code is o
        macOS. However, developing the server is possible on a Linux operating
        system (macOS users should virtualize Linux).
 2. For Sensapex devices, the controller unit must be connected to the PC via an
-   Ethernet cable. A USB-to-Ethernet adapter is acceptable as well.
+   ethernet cable. A USB-to-ethernet adapter is acceptable as well.
 3. To use the emergency stop feature, ensure an Arduino with
    the [StopSignal][StopSignal] sketch is connected to the computer. Follow
    the instructions on that repo for how to set up the Arduino.
