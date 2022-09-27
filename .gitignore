@@ -84,3 +84,4 @@ build/*
 
 # Virtual Environments
 venv/*
+.idea/*
