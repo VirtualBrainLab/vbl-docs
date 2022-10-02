@@ -2,17 +2,17 @@
 
 Some general philosophy about coding is stored here. A good more in-depth dive into modern practices in science can be found [here](https://goodresearch.dev). 
 
-In general my approach is to split projects into **pipelines** which process data, **pilot notebooks** which are for testing, **summary notebooks** which generate figures used in a public release or publication, and **applications** which perform a specialized function for users. A pipeline should run entirely on its own given access to raw data and may require tests and assertions to maintain. Pilot notebooks are where you do all your debugging and testing and the general expectation is that they will never be run by other users. Summary notebooks are the final output of a project and often tied closely with a publication. Applications are standalone products where all the necessary data are bundled into the product, which is released as an app or even better as a website.
+In general my approach is to split projects into **pipelines** which process data, **pilot notebooks** which are for testing, **summary notebooks** which generate figures used in a public release or publication, and **packages** which perform a specialized function for users. A pipeline should run entirely on its own given access to raw data and may require tests and assertions to maintain. Pilot notebooks are where you do all your debugging and testing and the general expectation is that they will never be run by other users. Summary notebooks are the final output of a project and often tied closely with a publication. Packages are standalone products where all the necessary data are bundled into the product, which is released as an app or even better as a website.
 
 I build pipelines in Python and use Jupyter to create notebooks. For applications I build in Unity or in straight HTML/Javascript for simple apps. 
 
 ## Getting started
 
-To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python through [Anaconda](https://www.anaconda.com/products/distribution) is easy and painless, but you can also maintain your own installation. Whatever you do, **make sure to use virtual environments** to isolate your projects. You will also need the [Unity 2021.3 LTS](unityhub://2021.3.8f1/b30333d56e81) installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. 
+To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python and then using virtual environments to isolate your work is the standard. You will also need the [Unity 2021.3 LTS](unityhub://2021.3.8f1/b30333d56e81) installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. Rider is probably the best IDE right now, but since Unity builds through VS anyways you may as well use it to code. 
 
 For version control I use [Github Desktop](https://desktop.github.com/) rather than mess around with the command line, but this is because I have dozens of repositories some of which have submodules. If this is your first time using git and you are only handling a single repository learning the command line can be to your advantage. 
 
-If you plan to work on the Unity Renderer for Neuroscience **Server** or the ephys-atlas server you will need to install [Node.js](https://nodejs.org/en/).
+If you plan to work on the Unity Renderer for Neuroscience **Server** you will need to install [Node.js](https://nodejs.org/en/).
 
 ### Python environment
 

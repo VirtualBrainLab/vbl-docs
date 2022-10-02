@@ -33,7 +33,8 @@ Please see the individual projects for installation instructions and documentati
    :caption: Pinpoint
 
    02_traj_planner/01_tp_intro
-   02_traj_planner/02_tp_alignment
+   02_traj_planner/02_tp_tutorial
+   02_traj_planner/03_tp_alignment
    02_traj_planner/04_tp_ephys_link
    02_traj_planner/05_tp_development
 
@@ -48,9 +49,9 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Session Viewer
+   :caption: Trial Viewer
 
-   04_session_viewer/01_sv_overview
+   04_session_viewer/01_tv_overview
    04_session_viewer/02_ibl_average_trial
 
 .. toctree::

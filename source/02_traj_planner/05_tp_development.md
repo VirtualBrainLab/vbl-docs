@@ -15,9 +15,17 @@ git submodule add https://github.com/dbirman/vbl-core Assets/vbl-core
 
 If you use Github Desktop the `vbl-core` repository will automatically be pulled. If you are working on multiple VBL projects you should add the repository as a separate repo in Desktop and give it an alias, e.g. `NPTrajectoryPlanner-vbl-core`.
 
+#### Branch structure
+
+The latest minor release version (e.g. X.Y.**Z**) is kept on the **main** branch and released to the [/Pinpoint/](https://data.virtualbrainlab.org/Pinpoint/) folder.
+
+The latest development build is kept on the **develop** branch and released to the [/Pinpoint-develop/](https://data.virtualbrainlab.org/Pinpoint-develop/) folder.
+
+Incremental features are built on separate branches off of develop and are not released to the public. Outdated builds will be kept available in their corresponding [/Pinpoint_X.Y.Z/](https://data.virtualbrainlab.org/Pinpoint/) folder on the server. Until **v1.0.0** we are not making any promises of backward compatibility or maintenance. 
+
 #### Build process
 
-Before starting the build process make sure you are on the WebGL pipeline.
+A Windows (win64) and WebGL build configuration are included 
 
 To run a new build there are three steps:
 

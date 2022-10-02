@@ -16,9 +16,11 @@ In the remote loader you will then need to add a function so that other projects
 
 The remote loader uses a simple versioning setup by tagging each build with a tag (e.g. v0.1.1). Increment the patch number if you are modifying an existing file. Increment the minor number if you are adding new files that don't modify existing functionality. Increment the major number if you are making a backward-incompatible change to the codebase.
 
+To ensure backward-compatibility you should modify the remote URL to include the build target version as a suffix on the url. This avoids accidentally over-writing files and causing hash code mis-matches. 
+
 ### Pushing to the server
 
-Build the addressable assets and copy the entire new ServerData/ folder to the local server. Make sure to build for Windows standalone and for WebGL (and Linux, if needed).
+Build the addressable assets and copy the entire new `ServerData/` folder folder to the `ServerData/X.Y.Z/` folder on the local server. Make sure to build for Windows standalone, WebGL, MacOS, and Linux.
 
 ### Update projects
 
