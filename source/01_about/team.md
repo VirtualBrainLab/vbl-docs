@@ -9,11 +9,11 @@
 
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
-**[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
+**[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)** - UW (2025)
 
-<image src="../_static/people/default.png" alt="Qiqi" position="left" style="border-radius: 8px;width:20vh">
+<image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:20vh">
 
-**Qiqi Liang**
+**Qiqi Liang** - UW (2023)
 
 *** 
 
@@ -33,4 +33,4 @@
 
 <!-- <image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh"> -->
 
-**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** - Steimetz lab undergraduate research assistant (2021-2022)
+**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)** - UW (2022)
