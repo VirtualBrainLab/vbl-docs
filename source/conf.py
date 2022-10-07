@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 
 project = 'Virtual Brain Lab'
 copyright = '2022, Daniel Birman'
-author = 'Daniel Birman'
+author = 'Daniel Birman, Kenneth Yang'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'

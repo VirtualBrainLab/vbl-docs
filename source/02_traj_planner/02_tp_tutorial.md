@@ -2,7 +2,17 @@
 
 Press [H] at any time to open the help and settings menu.
 
-To set up a new probe, select the button on the right panel corresponding to the probe type (NP1/NP2/NP2.4). By default we transform coordinates into the IBL "Needles" space, so that AP=0, ML=0, DV=0 coordinate is placed at Bregma. The reference coordinate can be changed in the Atlas settings.
+## Overview
+
+<image src="../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
+
+Pinpoint presents you with an interactive 3D scene where you can plan and test different probe insertion trajectories. The scene view shows the mouse brain **(1)** composed of 3D models built from the Allen Common Coordinate Framework annotations and **(2)** the probe 3D model, showing in white the active recording region. The scene view and probe can be rotated and moved by clicking and dragging with your mouse, see the section titled *Controls*, below. **(3)** The rotation gizmo helps you understand the orientation of the brain, with Yellow representing the Dorsal-Ventral axis, Red the Anterior-Posterior axis, and blue the Left-Right (or Medial-Lateral) axis. Double-clicking the gizmo will snap the camera view to the corresponding planar view (i.e. Axial, Coronal, and Sagittal).
+
+Pinpoint interpolates the recording region on the probe in two viewports to help you understand where your electrodes are placed in the brain. The probe UI **(4)** shows you a linear interpolation through the recording region. The in-plane slice **(5)** shows you a view of not only the probe but also the surrounding regions. You can click regions in the in-plane slice to highlight them in the 3D scene. You can also highlight regions of interest by searching for them in the search panel **(6)**. Click a region turns it on and off and pressing the *Clear* button removes all highlighted regions. The *snap-to-area* button (downward arrrow) moves the probe tip to the center of that region.
+
+To set up a new probe, select the corresponding button the new probe panel **(7)**. By default, probes are spawned at Bregma. You can change the reference coordinate in the *Atlas* settings. When you have multiple probes in the scene you can click on the probe objects to switch the *active* probe, or you can click on the probe panels on the left side of the screen.
+
+The coordinates of a probe are shown in the last panel **(8)** and can be copied to the clipboard using the download icon at the top right. When the probe is outside of the brain we display the tip coordinate and angles. When the probe is inside the brain Pinpoint computes for you the *brain surface coordinate* and *depth* of the probe, which are the coordinates you would need to re-create an insertion. See the 
 
 A probe **insertion** is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the **brain surface coordinate** and **depth** of the probe, which you will need to actually perform your experiment. 
 
@@ -10,7 +20,9 @@ A probe **insertion** is defined by a target coordinate in the brain and a set o
 
 ### Click + Drag
 
-To control your probe left-click on the probe object. While holding the left mouse button press one of the axis keys (e.g. [W] for the AP axis) and drag the probe in space to move the probe along that axis.
+To control your probe left-click on the probe object. While holding the left mouse button press one of the axis keys and drag the probe in space to move the probe along that axis. The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
+
+<image src="../_static/images/tutorial/controls.png" alt="overview image" position="left" style="width:100%">
 
 ### Keyboard
 
@@ -28,19 +40,31 @@ Use [1/3] to spin the probe along the axis of the probe shank. Note that NP2.4 p
 
 Probes can be deleted with [Backspace]. To recover a probe you didn't mean to delete press [CTRL + Backspace].
 
-## Recording region
+### Recording region
 
 Once the probe is at the position and angles you want, you can adjust the recording region size (in the settings) and position (using [T/G]) to match what you plan to do in your recording and adjust the insertion depth accordingly.
 
-## Export coordinates
+## Help and settings
 
-Click the export button to copy the probe's coordinates to your clipboard. You can paste them into another file for use during your surgery.
+<image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-## Changing the active probe
+The help and settings menu is accessed by pressing **H**. Press H again to close the window. The tabs **(1)** on the left side switch between the different sub-menus.
 
-When setting up multi-probe insertions you can click the probe panel or the probe model to switch which probe is active. 
+### Probes
 
-## Using coordinates for surgery
+### Rig
+
+### Areas
+
+### Atlas
+
+### Graphic
+
+### Ephys Link
+
+### Account
+
+## Surgery
 
 To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle (phi) and set the probe elevation angle (theta). Then move your probe tip to Bregma and zero your manipulator.
 
