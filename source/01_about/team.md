@@ -19,9 +19,9 @@
 
 ## Collaborators
 
-<!-- <image src="../_static/people/mayo.jpg" alt="Mayo Faulkner" position="left" style="border-radius: 8px;width:20vh">
+<image src="../_static/people/mayo.jpg" alt="Mayo Faulkner" position="left" style="border-radius: 8px;width:20vh">
 
-**[Mayo Faulkner, PhD](https://uk.linkedin.com/in/mayo-faulkner-592a8387)** - International Brain Laboratory -->
+**[Mayo Faulkner, PhD](https://uk.linkedin.com/in/mayo-faulkner-592a8387)** - International Brain Laboratory
 
 <image src="../_static/people/yoni.jpg" alt="Yoni Browning" position="left" style="border-radius: 8px;width:20vh">
 
