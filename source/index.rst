@@ -36,7 +36,6 @@ Please see the individual projects for installation instructions and documentati
    02_traj_planner/02_tp_tutorial
    02_traj_planner/03_tp_alignment
    02_traj_planner/04_tp_ephys_link
-   02_traj_planner/05_tp_development
 
 .. toctree::
    :hidden:
@@ -44,7 +43,6 @@ Please see the individual projects for installation instructions and documentati
    :caption: Urchin
 
    03_unity_neuro/01_urn_intro
-   03_unity_neuro/02_urn_development
 
 .. toctree::
    :hidden:
@@ -56,13 +54,21 @@ Please see the individual projects for installation instructions and documentati
 
 .. toctree::
    :hidden:
+   :maxdepth: 3
+   :caption: Development
+
+   05_misc/04_general_dev
+   02_traj_planner/05_tp_development
+   03_unity_neuro/02_urn_development
+
+.. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Misc
 
    05_misc/01_vbl_core
    05_misc/02_addressables_storage
    05_misc/03_ephys_link
-   05_misc/04_general_dev
    05_misc/05_unity_tutorials
 
 .. toctree::

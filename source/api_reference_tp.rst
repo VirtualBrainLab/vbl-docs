@@ -1,5 +1,5 @@
 
-Trajectory Planner
+Pinpoint
 ===============================================
 
 .. .. autosummary::

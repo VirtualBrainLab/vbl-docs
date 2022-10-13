@@ -1,4 +1,4 @@
-# Electrophysiology Manipulator Link Support
+# Ephys Manipulator Link
 
 Pinpoint can be connected to Sensapex manipulators enabling experimenters to automate the placement of manipulators as well as observe live where probes are placed inside the mouse brain.
 

@@ -1,4 +1,4 @@
-# Pinpoint tutorial
+# Tutorial
 
 Press [H] at any time to open the help and settings menu.
 

@@ -1,4 +1,4 @@
-# Allen CCF to In Vivo Alignment
+# In Vivo Alignment
 
 The Allen Common Coordinate Framework was defined using perfused brains, which are warped compared to the *in vivo* mouse brain inside the skull. To improve the accuracy of targeting we attempt to un-warp the CCF by using an *in vivo* transform. There are currently three transforms available by default in Pinpoint. You can enable the different Atlas options by navigating to the Atlas menu and selecting the option from the dropdown list.
 
