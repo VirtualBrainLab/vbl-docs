@@ -1,5 +1,5 @@
 
-Unity Renderer for Neuroscience
+Urchin
 ===============================================
 
 .. autosummary::
