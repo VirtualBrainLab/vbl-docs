@@ -32,11 +32,11 @@ Please report issues on the [issues page](https://github.com/dbirman/NPTrajector
 
 ## References
 
-Inspired by Andy Peters' trajectory explorer https://github.com/petersaj/neuropixels_trajectory_explorer. 
+Inspired by Andy Peters' [trajectory explorer](https://github.com/petersaj/neuropixels_trajectory_explorer). 
 
-CCF Atlas downloaded from http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/ 
+CCF Atlas downloaded from the [Allen data portal](http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/)
 
-Mouse brain artwork from https://scidraw.io/drawing/286
+Mouse brain artwork from [Scidraw](https://scidraw.io/drawing/286)
 
 ## Citing
 
