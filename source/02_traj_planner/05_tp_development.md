@@ -1,4 +1,4 @@
-# Development
+# Pinpoint
 
 Pinpoint is under active development, there is no requirement to maintain backwards compatibility with version changes. We are aiming for a 1.0.0 release timed with SfN 2022.
 

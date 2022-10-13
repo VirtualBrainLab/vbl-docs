@@ -1,10 +1,10 @@
-# General Programming Advice
+# General Advice
 
 Some general philosophy about coding is stored here. A good more in-depth dive into modern practices in science can be found [here](https://goodresearch.dev). 
 
 In general my approach is to split projects into **pipelines** which process data, **pilot notebooks** which are for testing, **summary notebooks** which generate figures used in a public release or publication, and **packages** which perform a specialized function for users. A pipeline should run entirely on its own given access to raw data and may require tests and assertions to maintain. Pilot notebooks are where you do all your debugging and testing and the general expectation is that they will never be run by other users. Summary notebooks are the final output of a project and often tied closely with a publication. Packages are standalone products where all the necessary data are bundled into the product, which is released as an app or even better as a website.
 
-I build pipelines in Python and use Jupyter to create notebooks. For applications I build in Unity or in straight HTML/Javascript for simple apps. 
+I build pipelines in Python and use VSCode to create notebooks. For applications I build in Unity or in straight HTML/Javascript for simple apps. 
 
 ## Getting started
 
