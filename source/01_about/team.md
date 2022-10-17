@@ -36,7 +36,7 @@ Scientist - Allen Institute
 
 ## Past members
 
-<!-- <image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:20vh"> -->
+<image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:12.5vh">
 
 **[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)**
 Undergraduate Researcher (UW 2023)
