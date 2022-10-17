@@ -3,7 +3,7 @@
 
 Are you motivated by the idea of building software for scientists? If you have some experience creating an independent software program (e.g. a hackathon or side project) and you are comfortable in either Python or Java/C# you may be a good fit for our projects!
 
-Academia has systematically excluded Black, Indigenous, and people of color and the fields of systems and computational neuroscience further exclude women and intersectional identities. Embedded in the Virtual Brain Lab project is the idea that neuroscience should be more accessible and we are committed to empowering a diverse group of neuroscientists. We welcome applications from non-traditional backgrounds and underrepresented groups. If you are excited about our projects, please reach out!
+Academia has systematically excluded Black, Indigenous, and people of color and the fields of systems and computational neuroscience further exclude women and intersectional identities. Embedded in the Virtual Brain Lab project is the idea that neuroscience should be more accessible and we are committed to empowering a diverse group of neuroscientists. We strongly encourage applications from researchers hailing from underrepresented groups or backgrounds. All applicants with innovative ideas are encouraged to apply.
 
 Contact Dan Birman with inquiries/questions (dbirman@uw.edu).
 
