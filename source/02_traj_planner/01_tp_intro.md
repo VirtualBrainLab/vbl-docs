@@ -26,6 +26,8 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 
 ## Instructions for use
 
+Please see the [tutorials](https://virtualbrainlab.org/02_traj_planner/02_tp_tutorial.html) pages for instructions.
+
 ## Bugs
 
 Please report issues on the [issues page](https://github.com/dbirman/NPTrajectoryPlanner/issues).
