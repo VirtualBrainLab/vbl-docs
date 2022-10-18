@@ -34,8 +34,7 @@ extensions = [
     'sphinx_rtd_theme',
     'myst_parser',
     'sphinx.ext.autosummary',
-    'sphinx.ext.viewcode',
-    'sphinxcontrib.youtube'
+    'sphinx.ext.viewcode'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
