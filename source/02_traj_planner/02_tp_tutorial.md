@@ -21,10 +21,17 @@ The coordinates of a probe are shown in the last panel **(8)** and can be copied
 
 A probe **insertion** is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the **brain surface coordinate** and **depth** of the probe, which you will need to actually perform your experiment. 
 
-## Controls
+## Camera controls
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube-nocookie.com/embed/Lj7YQGq4NWE?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
+</div>
+<br>
+
+## Probe controls
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/-W7r9d5SKzM?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
 </div>
 <br>
 
@@ -59,13 +66,6 @@ Once the probe is at the position and angles you want, you can adjust the record
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
 The help and settings menu is accessed by pressing **H**. Press H again to close the window. The tabs **(1)** on the left side switch between the different sub-menus.
-
-### Probes
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube-nocookie.com/embed/-W7r9d5SKzM?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
-</div>
-<br>
 
 ### Designing a trajectory and probe coordinates
 
