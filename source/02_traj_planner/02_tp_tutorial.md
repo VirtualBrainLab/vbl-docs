@@ -17,9 +17,7 @@ Pinpoint interpolates the recording region on the probe in two viewports to help
 
 To set up a new probe, select the corresponding button the new probe panel **(7)**. By default, probes are spawned at Bregma. You can change the reference coordinate in the *Atlas* settings. When you have multiple probes in the scene you can click on the probe objects to switch the *active* probe, or you can click on the probe panels on the left side of the screen.
 
-The coordinates of a probe are shown in the last panel **(8)** and can be copied to the clipboard using the download icon at the top right. When the probe is outside of the brain we display the tip coordinate and angles. When the probe is inside the brain Pinpoint computes for you the *brain surface coordinate* and *depth* of the probe, which are the coordinates you would need to re-create an insertion. See the 
-
-A probe **insertion** is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the **brain surface coordinate** and **depth** of the probe, which you will need to actually perform your experiment. 
+The coordinates of a probe are shown in the last panel **(8)** and can be copied to the clipboard using the download icon at the top right. When the probe is outside of the brain we display the tip coordinate and angles. When the probe is inside the brain Pinpoint computes for you the *brain surface coordinate* and *depth* of the probe, which are the coordinates you would need to re-create an insertion. See the surgery section for a few important details.
 
 ## Camera controls
 
@@ -61,18 +59,25 @@ Probes can be deleted with [Backspace]. To recover a probe you didn't mean to de
 
 Once the probe is at the position and angles you want, you can adjust the recording region size (in the settings) and position (using [T/G]) to match what you plan to do in your recording and adjust the insertion depth accordingly.
 
+## Designing a trajectory and probe coordinates
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/T1ZVcbwLCVw?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
+</div>
+<br>
+
+### Probe coordinates
+
+A probe **insertion** is defined by a target coordinate in the brain and a set of angles to reach that point. When you export a planned insertion Pinpoint will compute the **brain surface coordinate** and **depth** of the probe, which you will need to actually perform your experiment. 
+
+Note that insertions are defined in a Coordinate **Space** with a particular **Transform**. The space defines the rotation of the axes relative to the reference point (i.e. which way do AP/ML/DV go relative to Bregma). By default all insertions in Pinpoint are defined in the common coordinate framework space, using the IBL axis conventions, these can be changed in the settings. The standard transform is the *Toronto MRI* transform, which was based on the average of 12 adult C57 mice. You can read more about the transform options on the [in vivo alignment](https://virtualbrainlab.org/02_traj_planner/03_tp_alignment.html) page.
+
 ## Help and settings
 
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
 The help and settings menu is accessed by pressing **H**. Press H again to close the window. The tabs **(1)** on the left side switch between the different sub-menus.
 
-### Designing a trajectory and probe coordinates
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube-nocookie.com/embed/T1ZVcbwLCVw?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
-</div>
-<br>
  
 ### Rig components
 
@@ -130,6 +135,8 @@ Quick settings for the active probe are found at the bottom of the right-hand pa
 - Use the home button to reset the probe's position to the current probe position.
 
 ## Account
+
+Coming soon...
 
 ## Surgery
 
