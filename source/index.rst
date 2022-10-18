@@ -35,7 +35,6 @@ Please see the individual projects for installation instructions and documentati
    02_traj_planner/01_tp_intro
    02_traj_planner/02_tp_tutorial
    02_traj_planner/03_tp_alignment
-   02_traj_planner/04_tp_ephys_link
 
 .. toctree::
    :hidden:
