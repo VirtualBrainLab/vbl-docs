@@ -98,7 +98,12 @@ The help and settings menu is accessed by pressing **H**. Press H again to close
 
 Pinpoint can be connected to Sensapex manipulators enabling experimenters to automate the placement of manipulators as well as observe live where probes are placed inside the mouse brain.
 
-To enable this feature, an instance of an Ephys Link server must be running on the local network. Please see the instructions [here](https://virtualbrainlab.org/05_misc/03_ephys_link.html#installation) on how to install and run a server. 
+To enable this feature, an instance of an Ephys Link server must be running on the local network. Please see the instructions [here](https://virtualbrainlab.org/05_misc/03_ephys_link.html#installation) on how to install and run a server.  
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/MxotxcZ0f4U?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
+</div>
+<br>
 
 ### Connecting to a server
 
