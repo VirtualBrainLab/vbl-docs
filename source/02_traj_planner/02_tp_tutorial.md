@@ -2,6 +2,9 @@
 
 Press [H] at any time to open the help and settings menu.
 
+..  youtube:: uzKulUziWFI
+   :width: 100%
+
 ## Overview
 
 <image src="../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
