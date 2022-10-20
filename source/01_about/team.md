@@ -21,6 +21,12 @@ Undergraduate Researcher (UW 2025)
 
 Undergraduate Researcher (UW 2023)
 
+<image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
+
+**Jasmine Schoch**
+
+Undergraduate Researcher (UW 2025)
+
 *** 
 
 ## Collaborators
