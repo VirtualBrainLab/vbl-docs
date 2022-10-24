@@ -65,7 +65,6 @@ Please see the individual projects for installation instructions and documentati
    :caption: Misc
 
    05_misc/03_ephys_link
-   05_misc/01_vbl_core
    05_misc/02_addressables_storage
 
 .. toctree::
