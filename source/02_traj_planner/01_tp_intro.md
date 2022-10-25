@@ -28,6 +28,10 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 
 Please see the [tutorials](https://virtualbrainlab.org/02_traj_planner/02_tp_tutorial.html) pages for instructions.
 
+## Troubleshooting
+
+The most common cause of Pinpoint not loading is that your browser is blocking the data from downloading. Disabling plugins that interfere with javascript often resolves these issues (e.g. ad blocking plugins)
+
 ## Bugs
 
 Please report issues on the [issues page](https://github.com/dbirman/NPTrajectoryPlanner/issues).
