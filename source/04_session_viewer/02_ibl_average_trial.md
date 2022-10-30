@@ -1,7 +1,17 @@
 
 # IBL Average Trial
 
-## Installation
+The IBL Average Trial is a pair of tools used to explore the International Brain Laboratory's *Brain Wide Map* dataset. You can find more information at the [IBL website](https://www.internationalbrainlab.com/).
+
+## Virtual Reality Demo
+
+
+
+## Standalone Tool
+
+## Development
+
+### Installation
 
 `cd source_dir` <br>
 `git clone https://github.com/int-brain-lab/ibl-avg-trial-viz.git`
@@ -12,7 +22,7 @@ The cloned directory contains usage examples and the main event_avgs.py file tha
 
 Must be used with the IBL's [iblenv](https://github.com/int-brain-lab/iblenv)
 
-## Usage
+### Usage
 
 See the API reference for more detailed function documentation and examples.
 
@@ -30,7 +40,7 @@ examples/**event_avgs_testing.ipynb** contains visualizations of output data inc
   <img src="https://raw.githubusercontent.com/int-brain-lab/ibl-avg-trial-viz/main/examples/img/cluster_mlapdv.png?token=GHSAT0AAAAAABTCBECUBBEVTC2QODXWH4O2YX5GCSA" width="49%"/>
 </p>
 
-## TODOs
+### TODOs
 
 - [ ] Import `load_trials_df` from **brainbox.io.one** instead of **updated_one.py** once ([#492](https://github.com/int-brain-lab/ibllib/pull/493)) is fixed. Delete **updated_one.py**
 - [ ] Replace **filter_eids.py** system with Mayo's updated one.alyx.rest query in `get_bwm_sessions` that only pulls insertions with the needed files. This will mean we won't have to download everything when searching for good eids/pids. 
