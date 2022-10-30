@@ -46,7 +46,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Trial Viewer
+   :caption: IBL Tools
 
    04_session_viewer/01_tv_overview
    04_session_viewer/02_ibl_average_trial

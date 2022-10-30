@@ -9,11 +9,15 @@
 
 Washington Research Foundation Postdoctoral Fellow
 
+Dan maintains the core tools in the VBL including Pinpoint, Urchin, and the IBL Average Trial.
+
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
 Undergraduate Researcher (UW 2025)
+
+Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoipnt.
 
 <image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:20vh">
 
@@ -21,11 +25,15 @@ Undergraduate Researcher (UW 2025)
 
 Undergraduate Researcher (UW 2023)
 
+Qiqi is developing visualizations for the IBL, you can see Qiqi's work on the IBL public data website. 
+
 <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
 
 **Jasmine Schoch**
 
 Undergraduate Researcher (UW 2025)
+
+Jasmine is piloting new educational tools, which we are hoping to roll out in 2023!
 
 *** 
 
@@ -52,3 +60,5 @@ Scientist - Allen Institute
 **[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)**
 
 Undergraduate Researcher (UW 2023)
+
+Kai built the [codebase](github.com/int-brain-lab/ibl-avg-trial-viz) for the IBL Average Trial visualizations, now being used in virtual reality demos and in IBL talks.

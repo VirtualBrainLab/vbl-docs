@@ -1,5 +1,5 @@
 
-# Trial Viewer
+# IBL Website
 
 As part of the International Brain Laboratory's [public data website](https://viz.internationalbrainlab.org) we created two interactive 3D tools. You can see them in action on the site!
 
