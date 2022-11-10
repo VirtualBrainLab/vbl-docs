@@ -1,5 +1,5 @@
 ephys-link==0.0.8
-myst-parser==0.18.0
+myst-parser==0.18.1
 sphinx==5.2.1
 sphinx-rtd-theme==1.0.0
 unityneuro==0.4.4
