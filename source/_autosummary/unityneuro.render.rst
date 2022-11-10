@@ -19,12 +19,19 @@
       clear_areas
       clear_neurons
       clear_probes
+      clear_texts
       clear_volumes
       close
       connect
+      connected
       create_neurons
       create_probes
+      create_text
       create_volume
+      delete_neurons
+      delete_probes
+      delete_text
+      delete_volume
       disconnect
       load_beryl_areas
       load_cosmos_areas
@@ -38,6 +45,7 @@
       set_area_intensity
       set_area_material
       set_area_visibility
+      set_camera_pan
       set_camera_position
       set_camera_rotation
       set_camera_target
@@ -52,6 +60,10 @@
       set_probe_colors
       set_probe_positions
       set_probe_size
+      set_text
+      set_text_colors
+      set_text_positions
+      set_text_sizes
       set_volume_colormap
       set_volume_data
       set_volume_slice_data

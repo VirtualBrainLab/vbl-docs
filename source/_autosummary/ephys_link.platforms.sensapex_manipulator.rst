@@ -1,7 +1,7 @@
-﻿ephys\_link.sensapex\_manipulator
-=================================
+﻿ephys\_link.platforms.sensapex\_manipulator
+===========================================
 
-.. automodule:: ephys_link.sensapex_manipulator
+.. automodule:: ephys_link.platforms.sensapex_manipulator
 
    
    

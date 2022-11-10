@@ -25,6 +25,7 @@
       get_pos
       goto_pos
       launch
+      poll_serial
       register_manipulator
       set_can_write
       set_inside_brain

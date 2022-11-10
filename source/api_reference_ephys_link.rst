@@ -1,4 +1,3 @@
-
 Ephys Link
 ===============================================
 API reference for the Electrophysiology Manipulator Link (Ephys Link) server.
@@ -31,6 +30,8 @@ This reference is intended for users who want to directly use the internal serve
    :recursive:
 
    ephys_link.common
-   ephys_link.sensapex_handler
-   ephys_link.sensapex_manipulator
+   ephys_link.platform_handler
    ephys_link.server
+   ephys_link.platforms.sensapex_handler
+   ephys_link.platforms.sensapex_manipulator
+   ephys_link.platforms.new_scale_handler
