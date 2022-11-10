@@ -130,7 +130,7 @@ callback will return a list of the available manipulators (up to 50 of them).
 **Callback Responses Format:** `(manipulators: list[int], error: string)`
 
 | Error message (`error: string`) | Description                                                                |
-| ------------------------------- | -------------------------------------------------------------------------- |
+|---------------------------------|----------------------------------------------------------------------------|
 | `''`                            | No errors, the list of all discoverable/available manipulators is returned |
 | `Error getting manipulators`    | An unknown error has occurred getting discoverable/available manipulators  |
 
@@ -160,7 +160,7 @@ being used.
 **Callback Responses Format:** `(error: string)`
 
 | Error message (`error: string`)  | Description                                                                       |
-| -------------------------------- | --------------------------------------------------------------------------------- |
+|----------------------------------|-----------------------------------------------------------------------------------|
 | `''`                             | No errors, registered manipulator with ID `manipulator_id`                        |
 | `Manipulator already registered` | Manipulator is already registered, no action taken                                |
 | `Manipulator not found`          | The manipulator is not discoverable by the API and may be disconnected or offline |
@@ -189,7 +189,7 @@ unregistering it.
 **Callback Responses Format:** `(error: string)`
 
 | Error message (`error: string`)   | Description                                                            |
-| --------------------------------- | ---------------------------------------------------------------------- |
+|-----------------------------------|------------------------------------------------------------------------|
 | `''`                              | No errors, unregistered manipulator with ID `manipulator_id`           |
 | `Manipulator not registered`      | The manipulator is not registered and therefore cannot be unregistered |
 | `Error unregistering manipulator` | An unknown error has occurred while unregistering                      |
@@ -219,7 +219,7 @@ invoking the calibrate functionality.
 **Callback Responses Format:** `(error: string)`
 
 | Error message (`error: string`) | Description                                                |
-| ------------------------------- | ---------------------------------------------------------- |
+|---------------------------------|------------------------------------------------------------|
 | `''`                            | No errors, calibrated manipulator with ID `manipulator_id` |
 | `Manipulator not registered`    | Manipulator is not registered yet                          |
 | `Error calling calibrate`       | A Sensapex SDK error has occurred while calibrating        |
@@ -249,7 +249,7 @@ The calibration requirement may be bypassed by sending this event.
 **Callback Responses Format:** `(error: string)`:
 
 | Error message (`error: string`) | Description                                                              |
-| ------------------------------- | ------------------------------------------------------------------------ |
+|---------------------------------|--------------------------------------------------------------------------|
 | `''`                            | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
 | `Manipulator not registered`    | Manipulator is not registered yet                                        |
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                                        |
@@ -283,7 +283,7 @@ the manipulator which can no longer write as the payload.
 **Callback Responses Format:** `(state: bool, error: string)`
 
 | Error message (`error: string`) | Description                                            |
-| ------------------------------- | ------------------------------------------------------ |
+|---------------------------------|--------------------------------------------------------|
 | `''`                            | No errors, set state is returned                       |
 | `Invalid data format`           | Invalid/unexpected argument format                     |
 | `Error in set_can_write`        | An unknown error occurred while starting this function |
@@ -325,7 +325,7 @@ the origin.
 **Callback Responses Format:** `(position: array, error: string)`
 
 | Error message (`error: string`) | Description                                          |
-| ------------------------------- | ---------------------------------------------------- |
+|---------------------------------|------------------------------------------------------|
 | `''`                            | No errors, position is returned                      |
 | `Manipulator not registered`    | Manipulator is not registered yet                    |
 | `Manipulator not calibrated`    | Manipulator is not calibrated yet                    |
@@ -366,7 +366,7 @@ using [`drive_to_depth`](drive-to-depth)
 **Callback Responses Format:** `(position: array, error: string)`
 
 | Error message (`error: string`) | Description                                                          |
-| ------------------------------- | -------------------------------------------------------------------- |
+|---------------------------------|----------------------------------------------------------------------|
 | `''`                            | No errors, position is returned                                      |
 | `Invalid data format`           | Invalid/unexpected argument format                                   |
 | `Error in goto_pos`             | An unknown error occurred while starting this function               |
@@ -448,7 +448,7 @@ accidental lateral movement while inside brain tissue.
 **Callback Responses `(state: bool, error: string)`**
 
 | Error message (`error: string`) | Description                                              |
-| ------------------------------- | -------------------------------------------------------- |
+|---------------------------------|----------------------------------------------------------|
 | `''`                            | No errors, position is returned                          |
 | `Invalid data format`           | Invalid/unexpected argument format                       |
 | `Error in set_inside_brain`     | An unknown error occurred while starting this function   |
