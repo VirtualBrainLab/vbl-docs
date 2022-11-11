@@ -76,8 +76,3 @@ Please see the individual projects for installation instructions and documentati
    api_reference_tp.rst
    api_reference_urn.rst
    api_reference_ephys_link.rst
-
-.. raw:: html
-   <embed>
-   <a rel="me" href="https://fediscience.org/@danbirman"></a>
-   </embed>
