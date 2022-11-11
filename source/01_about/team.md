@@ -19,14 +19,6 @@ Undergraduate Researcher (UW 2025)
 
 Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoipnt.
 
-<image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:20vh">
-
-**Qiqi Liang**
-
-Undergraduate Researcher (UW 2023)
-
-Qiqi is developing visualizations for the IBL, you can see Qiqi's work on the IBL public data website. 
-
 <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
 
 **Jasmine Schoch**
@@ -62,3 +54,11 @@ Scientist - Allen Institute
 Undergraduate Researcher (UW 2023)
 
 Kai built the [codebase](github.com/int-brain-lab/ibl-avg-trial-viz) for the IBL Average Trial visualizations, now being used in virtual reality demos and in IBL talks.
+
+<image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:12.5vh">
+
+**Qiqi Liang**
+
+Undergraduate Researcher (UW 2023)
+
+Qiqi developed visualizations for the IBL, you can see these on the IBL [public data website](viz.internationalbrainlab.org).

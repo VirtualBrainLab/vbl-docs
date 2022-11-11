@@ -58,6 +58,7 @@ Please see the individual projects for installation instructions and documentati
 
    02_traj_planner/05_tp_development
    03_unity_neuro/02_urn_development
+   04_session_viewer/03_ibl_avg_trial_dev
 
 .. toctree::
    :hidden:
