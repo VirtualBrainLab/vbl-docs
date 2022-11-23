@@ -7,6 +7,18 @@ Press [H] at any time to open the help and settings menu.
 </div>
 <br>
 
+## Plan an insertion in six minutes
+
+If you want the quick introduction to Pinpoint, this video will get you all the critical
+information for planning your first recording. The rest of the tutorial sections go deeper
+into each topic and explain some of the hidden settings that you can tweak to make Pinpoint work for your
+specific use case.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/htTz5tUpCwo?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
+</div>
+<br>
+
 ## Overview
 
 <image src="../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
