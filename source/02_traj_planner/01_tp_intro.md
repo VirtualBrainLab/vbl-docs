@@ -15,7 +15,7 @@ Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanne
 
 ## Install
 
-The easiest way to use the trajectory planner is through our [web app](http://data.virtualbrainlab.org/Pinpoint/).
+The easiest way to use the trajectory planner is through our [web app](https://data.virtualbrainlab.org/Pinpoint/).
 
 If you encounter issues please try refreshing the page (sometimes the 3D mesh files don't download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).
 
