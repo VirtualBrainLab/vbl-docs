@@ -30,6 +30,10 @@ Addressable assets are an excellent way to reduce memory overhead in builds, but
 
 **Warning:** Addressables rely on the Unity version matching in the Addressables build and the Unity build, if you make any changes you must update the builds and change them on the asset server.
 
+### Rotations
+
+https://eater.net/quaternions
+
 ### Networking (Unity Netcode for Gameobjects)
 
 The currently not-in-development education tools used a Server/Client architecture to stream information about the neural datasets. We set this up using Unity's Netcode for Gameobjects architecture. It's possible that in the future a better solution would be to use Addressables for this purpose.
