@@ -10,7 +10,7 @@
  <img src="https://github.com/dbirman/UMRenderer/raw/main/Examples/gallery/brain_rotate_cropped.gif" width="45%"> 
 </p>
 
-Unity Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
+The Universal Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
 
 ## Install
 

@@ -6,11 +6,11 @@ Pinpoint is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2
 
 Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanner/).
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+<!-- <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
 <p>Pinpoint will be at SfN 2022!</p>
 <p><b>Saturday Nov 12th 1pm-5pm</b> we'll be at poster 088.07</p>
 <p><b>Sunday Nov 13th 6:30pm-9pm</b> we'll be at the <i>Tools, Tech and Theory: BRAIN Initiative Alliance Social</i> at the Bayfront hotel with the full rig demo set up.</p>
-</div>
+</div> -->
 
 
 ## Install
