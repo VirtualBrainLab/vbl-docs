@@ -39,6 +39,8 @@ Please see the [tutorials](https://virtualbrainlab.org/02_traj_planner/02_tp_tut
 
 The most common cause of Pinpoint not loading is that your browser is blocking the data from downloading. Disabling plugins that interfere with javascript often resolves these issues (e.g. ad blocking plugins)
 
+The second common issue is not using **https** to access the site, this is required for the data to download properly.
+
 ## Bugs
 
 Please report issues on the [issues page](https://github.com/dbirman/NPTrajectoryPlanner/issues).
