@@ -93,7 +93,7 @@ A [CoordinateTransform](https://github.com/VirtualBrainLab/vbl-core/blob/main/Sc
 
 The most important thing to keep in mind is that objects in the scene are positioned according to their transformed coordinates. What the heck does that mean!?! This means that the `Transform.position` of a 3D model in the scene is computed by calculating: `CoordinateSpace.Space2World(CoordinateTransform.Transform2SpaceAxisChange(coordinate))`. Note that we **do not un-transform the cooordinate** by using `CoordinateTransform.Transform2Space`, it's only correct to do this when you need to know where a Transformed coordinate is in a *different* CoordinateTransform. 
 
-The reason that we represent objects in their Transformed coordinates is that this means that objects in the Unity scene obey euclidian geometry, i.e. the distance between two points in the Unity scene can be calculated with `Vector3.Distance` and the angle between two points a third reference coordinate can be calculated using `Vector3.Angle`, these distances are angles are the correct distances and angles in the Transformed Coordinate Space. If it's not obvious why this is important ask Dan to explain it.
+The reason that we represent objects in their Transformed coordinates is that this means that objects in the Unity scene obey euclidian geometry, i.e. the distance between two points in the Unity scene (and therefore in the Transformed space) can be calculated with `Vector3.Distance` and the angle between two vectors in the scene (and therefore in the Transformed space) can be calculated using `Vector3.Angle`, these distances are angles are the correct distances and angles in the Transformed Coordinate Space. If it's not obvious why this is important ask Dan to explain it.
 
 **Moving between spaces and transforms**
 
@@ -111,12 +111,6 @@ Lets work through some examples.
 *How do I move vectors between tranforms and spaces?* Vectors are a special case, since we don't want to scale them and they have no origin, but we still want to make sure they get rotated correctly. Both `CoordinateSpace` and `CoordinateTransform` have special `AxisChange` functions that apply all rotations but skip scaling and origin changes, for use with vectors. If you pass a unit vector to these functions, they should return a unit vector. 
 
 *How do I know the coordinates of a probe insertion in a different CoordinateTransform*: This happens when you change the active CoordinateTransform in the scene and all the probes need to be updated. This is as simple as going back into un-transformed space and then transforming into the new one. Hopefully it's clear how you do that by now!
-
-### Inplane Slice
-
-Each probe has a [TP_ProbeInsertion](todo) that defines the tip position in CCF AP/ML/DV and the probe angles in Phi/Theta/Spin. The ProbeController component handles interpolating the brain surface position that a probe is going through as well as the depth required to reach the target insertion coordinate.
-
-When a [CoordinateTransform] is active in Pinpoint the ProbeController class modifies the tip and brain surface coordinates accordingly. Rotations are more complex -- (and not currently functional), but to deal with rotations the ProbeController will eventually interpolate the tip and surface coordinates and then back out the corresponding angles needed to reach these points. 
 
 ### In-Plane Slice
 
