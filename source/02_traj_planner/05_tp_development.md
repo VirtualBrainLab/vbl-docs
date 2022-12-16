@@ -83,7 +83,7 @@ Each Atlas space (e.g. mouse CCF, or rat Waxholm) has its own set of axes and co
 
 Unity "World" space is the ground truth space inside of Unity. It has an X, Y, and Z axis and units are measured in millimeters. The (0,0,0) coordinate is at the center of the space. All of the objects in the Unity scene are placed in Unity World coordinates. This is the *only real coordinate system in the Unity Editor*. What this means is that when you reference a Transform on a GameObject the `Transform.position` value is returning the object's coordinates in Unity World space. If you want to know where this coordinate is in a particular Coordinate Space, you would need to use the `World2Space` function. If you want to know what direction a unit vector points in a CoordinateSpace, you would use the `World2SpaceAxisRotation` function. 
 
-<image src="../_static/images/pinpoint/coordinate_space.png" alt="overview image" position="left" style="width:100%">
+<image src="../_static/images/pinpoint/coordinate_spaces.png" alt="overview image" position="left" style="width:100%">
 
 A [CoordinateSpace](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/CoordinateSpace.cs) defines an axis rotation and a relative offset for the (0,0,0) coordinate. For example, the CCF space defines a (13.2 $$\times$$ 11.4 $$\times$$ 8 mm) rectangle with the (0,0,0) coordinate in the "front, left, top" corner. The axes are rotated so that the +Z axis becomes +AP, the +X axis becomes -ML, and the +Y axis becomes -DV. In Pinpoint, we then override the relative offset by moving it to Bregma at (+5.4, +5.7, +0.33) in CCF Space.
 
