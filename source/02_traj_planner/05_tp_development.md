@@ -69,29 +69,48 @@ The 3D models are controlled via the [CCFModelControl](https://github.com/dbirma
 
 ### Probes
 
-Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a [ProbeManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/ProbeManager.cs) component which also handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the [TP_ProbePanel](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ProbePanel.cs) and [ProbeUIManager](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/ProbeUIManager.cs) components. The probe panels are interpolated using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph) which is a variant of the Inplane Slice shader. 
+Probe models are stored as prefabs and instantiated by the tpmanager. Each probe is controlled by a [ProbeManager](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/TrajectoryPlanner/ProbeManager.cs) component which also handles probe movement. When a probe is moved it updates its associated probe panel prefabs, which are run by the [TP_ProbePanel](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/TrajectoryPlanner/TP_ProbePanel.cs) and [ProbeUIManager](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/TrajectoryPlanner/ProbeUIManager.cs) components. The probe panels are interpolated using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/ProbePanelSliceShader.shadergraph) which is a variant of the in-plane slice shader. 
 
-#### Probe Coordinates
+#### Probe Insertion Coordinates
 
-The `TP_ProbeController` component handles movement and positioning of probes. At the lowest level a probe is represented by it's AP (anterior-posterior), ML (medial-lateral), and DV (depth) coordinates and the azimuth (phi), elevation (theta), and spin of the probe. This data is stored inside of a [ProbeInsertion](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/blob/main/Assets/Scripts/Insertion/ProbeInsertion.cs) object. 
+The [ProbeInsertion](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/Insertion/ProbeInsertion.cs) class represents a target coordinate in space. At the lowest level a probe has a tip coordinate (Vector3: ap, ml, dv) space and a set of probe angles (Vector3: azimuth, elevation, spin). Note that a ProbeInsertion must be defined with both a CoordinateSpace and CoordinateTransform, which define the relationship between the insertion's coordinates/angles and Unity world space. 
 
-Internally we represent positions in the CCF space starting from the front/left/top corner of the CCF space box (anterior, left, dorsal). The CCF box is 13.2 mm long on AP, 11.4 mm wide, and 8 mm deep. Probe coordinates are defined so that +AP goes posterior, +ML goes right, and +DV goes down. 
+Using an [AnnotationDataset](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/VolumeData/CCFAnnotationDataset.cs) it's possible to recover the entry/surface coordinate of an insertion. 
 
-Probes also have a rotation. `phi` defines the probe's azimuth and we define 0 as forward (AP axis), -90 as facing left, and +90 as facing right. `theta` defines the probe's pitch with 0 being vertical and -90 horizontal, this is the only variable that we restrict to a specific range. `spin` controls the rotation of the probe on its own axis.
+#### Coordinate Spaces and Transforms
 
-**Dealing with coordinate transforms**
+Each Atlas space (e.g. mouse CCF, or rat Waxholm) has its own set of axes and coordinates. Even within a single species different researchers may have used different conventions to refer to directions in space. To deal with this, we introduce three concepts: Unity World Space, Coordinate Spaces, and Coordinate Transforms.
 
-There are two kinds of coordinate transforms we have to consider. First are conventions around presenting angles. The IBL defined angles differently with `phi=0` indicating left, -90 forward, and 90 backward. They also defined `theta=0` as vertical and `theta=90` as horizontal. There is a flag in the settings that changes how angles are displayed so that they match the IBL conventions. This does not have any effect under the hood.
+Unity "World" space is the ground truth space inside of Unity. It has an X, Y, and Z axis and units are measured in millimeters. The (0,0,0) coordinate is at the center of the space. All of the objects in the Unity scene are placed in Unity World coordinates. This is the *only real coordinate system in the Unity Editor*. What this means is that when you reference a Transform on a GameObject the `Transform.position` value is returning the object's coordinates in Unity World space. If you want to know where this coordinate is in a particular Coordinate Space, you would need to use the `World2Space` function. If you want to know what direction a unit vector points in a CoordinateSpace, you would use the `World2SpaceAxisRotation` function. 
 
-The second kind of transforms we have to deal with are transformations of the CCF space itself, both linear affine and nonlinear warping. The raw CCF coordinates are not useful to most users, since almost all recordings are performed relative to bregma and in a live animal. The live mouse brain is quite different from the CCF brain (stretch on AP, squashed on DV, and tilted) and if you have individual MRIs for your mice you can do even better with your targeting.
+<image src="../_static/images/pinpoint/coordinate_space.png" alt="overview image" position="left" style="width:100%">
 
-**CoordinateTransforms**
+A [CoordinateSpace](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/CoordinateSpace.cs) defines an axis rotation and a relative offset for the (0,0,0) coordinate. For example, the CCF space defines a (13.2 $$\times$$ 11.4 $$\times$$ 8 mm) rectangle with the (0,0,0) coordinate in the "front, left, top" corner. The axes are rotated so that the +Z axis becomes +AP, the +X axis becomes -ML, and the +Y axis becomes -DV. In Pinpoint, we then override the relative offset by moving it to Bregma at (+5.4, +5.7, +0.33) in CCF Space.
 
-We use a class `CoordinateTransform` to handle moving back and forth between spaces. Classes that implement this interface are required to have two functions `FromCCF` and `ToCCF` that let you go back and forth. These are used throughout the planner when displaying coordinates. The `CoordinateTransform` object is also required to have a `prefix` string, which we use to differentiate between which coordinate system a user is working in. Raw coordinates in the trajectory planner are therefore in `ccfAP` space (etc), while, for example, IBL NeedlesTransform coordinates are reffered to as `neAP` (etc).
+A [CoordinateTransform](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/CoordinateTransform.cs) is necessary to represent situations where a CoordinateSpace has been further rotated or warped. For example, you might want to know your coordinates in Paxinos space but visually see the Allen CCF annotations. To go back and forth between these spaces we use a CoordinateTransform. The simplest transform is an AffineTransform which can stretch or shrink each axes and/or reverse them and can apply rotations. For example, the MRITransform flips the directions in CCFSpace, applies a scaling to each axis, and pitches the brain up by five degrees. More complex non-linear transforms are also possible. 
 
-Note again, these transforms are performed on the output coordinates (and reversed on input coordinates). Under the hood, everything is in CCF. Because of this it can sometimes be confusing to be moving the probe in what appears to be CCF space while seeing the target coordinates in a transformed space. If you want to *move* the probe in warped space you can enable an additional feature to **Warp 3D Meshes** which, when turned on, will warp all of the 3D mesh files into the current Transform space. On the back-end dealing with this is quite difficult -- we do this in two steps:
- 1. We transform all the mesh vertices into the warped space.
- 2. We transform the visible location of the probe into the warped space, while keeping the true position under the hood in CCF. 
+**Unity World Space is Transformed**
+
+The most important thing to keep in mind is that objects in the scene are positioned according to their transformed coordinates. What the heck does that mean!?! This means that the `Transform.position` of a 3D model in the scene is computed by calculating: `CoordinateSpace.Space2World(CoordinateTransform.Transform2SpaceAxisChange(coordinate))`. Note that we **do not un-transform the cooordinate** by using `CoordinateTransform.Transform2Space`, it's only correct to do this when you need to know where a Transformed coordinate is in a *different* CoordinateTransform. 
+
+The reason that we represent objects in their Transformed coordinates is that this means that objects in the Unity scene obey euclidian geometry, i.e. the distance between two points in the Unity scene can be calculated with `Vector3.Distance` and the angle between two points a third reference coordinate can be calculated using `Vector3.Angle`, these distances are angles are the correct distances and angles in the Transformed Coordinate Space. If it's not obvious why this is important ask Dan to explain it.
+
+**Moving between spaces and transforms**
+
+Lets work through some examples.
+
+*Where should I place the tip of a probe in Unity World space*: Because coordinates in the Unity scene represent the transformed coordinates we need to first take the coordinate and find it's position in its CoordinateSpace by calculating: `CoordinateTransform.Transform2SpaceAxisChange`, then to find the corresponding point in the scene we use `CoordinateSpace.Space2World`.
+
+*How do I interpolate annotations along a probe insertion*: Here we are going to need to translate between two CoordinateSpaces: from the Space the insertion is defined in and to the space where the annotations are defined. In addition, we need two points a *start* and an *end* coordinate, so that we can keep track of directions as we do our transforms. In general, to translate between CoordinateSpaces you need to use Unity World space as an intermediate. So the full set of steps here would be:
+
+ 1. Un-transform the start/end coordinates: `CoordinateTransform.Transform2Space`
+ 2. Move into World Space: `CoordinateSpace.Space2World`
+ 3. Move into the new coordinate space: `CoordinateSpace.World2Space`
+ 4. Transform into the space's transform (if there is one): `CoordinateTransform.Space2Transform`
+
+*How do I move vectors between tranforms and spaces?* Vectors are a special case, since we don't want to scale them and they have no origin, but we still want to make sure they get rotated correctly. Both `CoordinateSpace` and `CoordinateTransform` have special `AxisChange` functions that apply all rotations but skip scaling and origin changes, for use with vectors. If you pass a unit vector to these functions, they should return a unit vector. 
+
+*How do I know the coordinates of a probe insertion in a different CoordinateTransform*: This happens when you change the active CoordinateTransform in the scene and all the probes need to be updated. This is as simple as going back into un-transformed space and then transforming into the new one. Hopefully it's clear how you do that by now!
 
 ### Inplane Slice
 
