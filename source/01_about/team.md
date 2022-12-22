@@ -17,7 +17,7 @@ Dan maintains the core tools in the VBL including Pinpoint, Urchin, and the IBL 
 
 Undergraduate Researcher (UW 2025)
 
-Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoipnt.
+Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoint.
 
 <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
 
@@ -25,7 +25,7 @@ Kenneth is building the Electrophysiology Manipulator Link software, allowing yo
 
 Undergraduate Researcher (UW 2025)
 
-Jasmine is piloting new educational tools, which we are hoping to roll out in 2023!
+Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
 
 *** 
 
@@ -57,7 +57,7 @@ Kai built the [codebase](github.com/int-brain-lab/ibl-avg-trial-viz) for the IBL
 
 <image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:12.5vh">
 
-**Qiqi Liang**
+**[Qiqi Liang](https://www.linkedin.com/in/qiqi-liang-117358146)**
 
 Undergraduate Researcher (UW 2023)
 

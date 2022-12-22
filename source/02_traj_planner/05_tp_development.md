@@ -1,19 +1,19 @@
 # Pinpoint
 
-Pinpoint is under active development, there is no requirement to maintain backwards compatibility with version changes. We are aiming for a 1.0.0 release timed with SfN 2022.
+Pinpoint is under active development, there is no requirement to maintain backwards compatibility with version changes.
 
 ## Organization
 
 ### Unity 
 
-The Trajectory Planner is built out of a single [main repository](https://github.com/dbirman/NPTrajectoryPlanner/) which holds the Unity codebase. Code that is shared across multiple VBL projects is stored in the [vbl-core repository](https://github.com/dbirman/vbl-core) which you should add to the main repo as a git submodule. The full pull sequence for the entire repository is:
+The Trajectory Planner is built out of a single [main repository](https://github.com/VirtualBrainLab/Pinpoint/) which holds the Unity codebase. Code that is shared across multiple VBL projects is stored in the [vbl-core repository](https://github.com/VirtualBrainLab/vbl-core) which you should add to the main repo as a git submodule. The full pull sequence for the entire repository is:
 
 ```
-git clone https://github.com/dbirman/NPTrajectoryPlanner
+git clone https://github.com/VirtualBrainLab/Pinpoint
 git submodule add https://github.com/dbirman/vbl-core Assets/vbl-core
 ```
 
-If you use Github Desktop the `vbl-core` repository will automatically be pulled. If you are working on multiple VBL projects you should add the repository as a separate repo in Desktop and give it an alias, e.g. `NPTrajectoryPlanner-vbl-core`.
+If you use Github Desktop the `vbl-core` repository will automatically be pulled. If you are working on multiple VBL projects you should add the repository as a separate repo in Desktop and give it an alias, e.g. `Pinpoint-vbl-core`.
 
 #### Branch structure
 
@@ -39,11 +39,11 @@ Once you confirm that the new version works you can re-name the folders appropri
 
 #### IL2CPP
 
-You may have to install optional visual studios features specifically the Windows 10 SDK and MSVC, see: https://forum.unity.com/threads/unable-to-build-il2cpp-in-2021-2.1189441/
+You may have to install optional visual studios features, specifically the Windows 10 SDK and MSVC, see: https://forum.unity.com/threads/unable-to-build-il2cpp-in-2021-2.1189441/
 
 ### Assets
 
-Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/dbirman/AddressablesStorage/) repository. Shared assets are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/dbirman/vbl-core/tree/75889b1dc2d8de3b95c7864d8008b0fe01ae44ae/Scripts/Addressables).
+Most of the VBL assets are shared across projects, these are accessed from a shared [Addressables Storage](https://github.com/VirtualBrainLab/AddressablesStorage/) repository. Shared assets are accessed via the `AddressablesRemoteLoader` class in `vbl-core`, see [here](https://github.com/VirtualBrainLab/vbl-core/tree/main/Scripts/Addressables).
 
 ### Scenes
 
@@ -51,7 +51,36 @@ When contributing to a VBL project you should avoid modifying the main scenes, e
 
 ## Core components
 
-The trajectory planner runs out of a central class `TP_TrajectoryPlannerManager` which coordinates loading the main functionality of the planner. Most of the code uses a hub-and-spoke model where other components will communicate with the manager but not with each other, to reduce the likelihood of creating deadlocks. 
+### Code
+
+The trajectory planner runs out of a central class `TrajectoryPlannerManager` or `tpmanager` which coordinates loading the main functionality of the planner.
+
+#### Managers
+
+Manager classes handle the high-level coordination of functionality in Pinpoint. In general, creating and using Manager classes that share an AssemblyDefinition with TrajectoryPlannerManager should be avoided as much as possible.
+
+#### Function code
+
+Function classes handle the isolated functionality of specific features in Pinpoint. For example, the code allowing control of the Camera is an isolated functionality. Other examples include the Accounts system, Ephys Link, the Rig code, etc.
+
+#### Modules
+
+Modules contain code that needs to be re-used across Functions. For example, the CoordinateSpace/CoordinateTransform classes, or the ProbeInsertion class.
+
+#### Assembly definitions
+
+We have a three level assembly definition hierarchy. The top level is `trajectoryplanner` which contains `*Manager` classes. The second level is `trajectoryplanner.function` where `function` refers to a specific functionality in Pinpoint. The bottom level is `trajectoryplanner.function.module` where module is a set of scripts that may be re-used across functions. For example, `trajectoryplanner.core.utils` holds a set of convenience functions for parsing data files. The folder structure in the `Scripts/` folder should reflect the assembly definition hierarchy.
+
+Because of this hierarchy, Managers can see *all* Functions, but Functions cannot see Managers or other Functions. All code can access modules.
+
+#### UnityEvent callbacks
+
+There are four ways that Manager and Function classes might need to communicate.
+
+ 1. A Manager needs to send data to a Function. Because Manager classes can be linked directly to Functions, you can define a function that takes a variable as input in your Function class.
+ 2. A Manager needs to request data from a Function. Because Manager classes can be linked directly to Functions, you define a function with a return type in your Function class.
+ 3. A Function needs to send data to a Manager or another Function. Functions *cannot see* Manager or other Function classes. Instead, to send data to a Manager you should expose a [UnityEvent](https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html) that the Manager/Function can subscribe to. 
+ 4. A Function needs to request data from a Manager or another Function. Again, Functions *cannot see* Manager or other Function classes. Instead, to request data you need to create a UnityEvent that the other code subscribes to. In the case of a Manager, the UnityEvent can trigger a callback that pushes data to the Function. In the case of another Function, the Unityevent should trigger a second UnityEvent that the original Function can be subscribed to.
 
 ### Datasets
 
@@ -111,18 +140,6 @@ Lets work through some examples.
 *How do I move vectors between tranforms and spaces?* Vectors are a special case, since we don't want to scale them and they have no origin, but we still want to make sure they get rotated correctly. Both `CoordinateSpace` and `CoordinateTransform` have special `AxisChange` functions that apply all rotations but skip scaling and origin changes, for use with vectors. If you pass a unit vector to these functions, they should return a unit vector. 
 
 *How do I know the coordinates of a probe insertion in a different CoordinateTransform*: This happens when you change the active CoordinateTransform in the scene and all the probes need to be updated. This is as simple as going back into un-transformed space and then transforming into the new one. Hopefully it's clear how you do that by now!
-
-### In-Plane Slice
-
-The in-plane slice is rendered using a [custom shader](https://github.com/dbirman/vbl-core/blob/main/Shaders/VolumeShaders/InPlaneSliceShader.shadergraph) whose settings are controlled by the [TP_InPlaneSlice](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_InPlaneSlice.cs) component.
-
-### Collisions
-
-Collisions are handled by checking the overlap between all of the Probe `Collider` componenets against all of the Colliders in the scene. 
-
-### Rigs
-
-Rigs are a collection of 3D models stored as a prefab and marked as an addressable asset. These are loaded by the [TP_ToggleRigs](https://github.com/dbirman/NPTrajectoryPlanner/blob/main/Assets/Scripts/TP_ToggleRigs.cs) component, which also handles adding their corresponding colliders to the collision checks.  
 
 ## Building new features and fixing bugs
 

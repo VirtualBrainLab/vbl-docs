@@ -4,7 +4,7 @@ Pinpoint is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2
 
 <image src="../_static/images/center.png" alt="overview image" position="left" style="width:100%">
 
-Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanner/).
+Code is on our [Github repository](https://github.com/VirtualBrainLab/Pinpoint/).
 
 <!-- <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
 <p>Pinpoint will be at SfN 2022!</p>
@@ -15,13 +15,15 @@ Code is on our [Github repository](https://github.com/dbirman/NPTrajectoryPlanne
 
 ## Install
 
-The easiest way to use the trajectory planner is through our [web app](https://data.virtualbrainlab.org/Pinpoint/).
+The easiest way to use Pinpoint is through our [web app](https://data.virtualbrainlab.org/Pinpoint/).
 
 If you encounter issues please try refreshing the page (sometimes the 3D mesh files don't download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).
 
 ### Standalone builds
 
 Windows desktop builds are available on the ![releases page](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/releases).
+
+Linux and Mac builds available on request.
 
 <!-- ### Additional linux instructions
 
@@ -31,19 +33,19 @@ To run the linux executable you need to go to the unzipped folder and run `chmod
 
 The mac executable currently only runs on MacOS **Mojave** and earlier. You will probably have a security issue because the app is unsigned. Go to Systems Preferences > Security & Privacy > General and allow the file to "run anyway".  -->
 
-## Instructions for use
+## Instructions
 
 Please see the [tutorials](https://virtualbrainlab.org/02_traj_planner/02_tp_tutorial.html) pages for instructions.
 
 ## Troubleshooting
 
-The most common cause of Pinpoint not loading is that your browser is blocking the data from downloading. Disabling plugins that interfere with javascript often resolves these issues (e.g. ad blocking plugins)
+The most common cause of Pinpoint not loading is that your browser is blocking the data from downloading. Disabling plugins that interfere with javascript often resolves these issues (e.g. ad blocking plugins).
 
 The second common issue is not using **https** to access the site, this is required for the data to download properly.
 
 ## Bugs
 
-Please report issues on the [issues page](https://github.com/dbirman/NPTrajectoryPlanner/issues).
+Please report issues on the [issues page](https://github.com/VirtualBrainLab/Pinpoint/issues).
 
 ## References
 
@@ -55,4 +57,6 @@ Mouse brain artwork from [Scidraw](https://scidraw.io/drawing/286)
 
 ## Citing
 
-If this project is used as part of a research project you should cite this repository. Please email Dan (dbirman@uw.edu) and we can set up a DOI for the version you are using.
+<a href="https://doi.org/10.5281/zenodo.7312786"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7312786.svg" alt="DOI"></a>
+
+Your citations are critical for making it possible to get grant funding for Pinpoint in the future.

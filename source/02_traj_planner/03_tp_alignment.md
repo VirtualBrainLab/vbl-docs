@@ -12,6 +12,10 @@ The linear transforms implement linear scaling and rotation.
 
 If you prefer to plan your trajectories in the CCF space without a transformation choose the "CCF Atlas" option. Note that the CCF has a known pitch of at least 5 degrees relative to a skull where bregma and lambda have been leveled.
 
+### Paxinos Atlas
+
+Coming soon...
+
 ### Toronto MRI transform
 
 The Toronto MRI transform is based on an average MRI image from 12 p65 C57BL/6j mice that were alive at the time of scanning. The MRI volume was aligned to the CCF to estimate the warping function. The result was:
