@@ -2,6 +2,16 @@
 
 ## Organization
 
+### Virtual environment
+
+To setup the venv go into the API folder and run:
+
+```
+python -m venv urchin-venv
+urchin-venv/Scripts/activate
+pip install -e .
+```
+
 ### Adding new functionality
 
 To add a new render function you need three pieces:
