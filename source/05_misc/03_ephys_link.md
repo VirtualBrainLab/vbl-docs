@@ -3,7 +3,7 @@
 The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link) (
 or Ephys Link for short) is a Python
 WebSocket server that allows any WebSocket-compliant application (such
-as [Pinpoint (electrophysiology planning tool)][Pinpoint])
+as [Pinpoint (electrophysiology planning tool)](https://github.com/VirtualBrainLab/Pinpoint))
 to communicate with manipulators used in electrophysiology experiments.
 
 Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However,
@@ -37,10 +37,13 @@ the [package's API reference](https://virtualbrainlab.org/api_reference_ephys_li
    the [StopSignal][StopSignal] sketch is connected to the computer. Follow
    the instructions on that repo for how to set up the Arduino.
 
-### Installation
+**NOTE:** Ephys Link is an HTTP server without cross-origin support. The server is currently designed to interface with local/desktop instances of Pinpoint. It will not work with the web browser versions of Pinpoint at this time.
+
+## Installation
 
 1. Ensure Python 3.8+ and pip are installed
-2. `pip install ephys-link`
+2. `pip install ephys-link --use-pep517`
+    1. PEP 517 is needed to allow the Sensapex Manipulator API to be installed
 3. Run `python -m ephys_link` to start the server
     1. To view available command-line arguments,
        run `python -m ephys_link --help`
