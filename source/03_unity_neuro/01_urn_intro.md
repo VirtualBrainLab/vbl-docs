@@ -15,7 +15,7 @@ The Universal Renderer for Neuroscience (Urchin) allows you to connect your Pyth
 ## Install
 
 ```
-pip install unityneuro
+pip install oursin
 ```
 
 No additional installation is required if you plan to run Urchin in a browser. A standalone desktop application is also available from the [releases page](https://github.com/dbirman/UnityNeuroscience/releases). Linux standalone available on request.
@@ -23,8 +23,8 @@ No additional installation is required if you plan to run Urchin in a browser. A
 ## Instructions
 
 ```
-import unityneuro.render as urn
-urn.setup()
+import oursin as urchin
+urchin.setup()
 ```
 
 Calling `setup()` opens a web browser and links it to your Python client. Set the parameter `standalone = True` to connect to a standalone Desktop application. 
@@ -71,7 +71,7 @@ Press [S] to hide the settings menus
 
 <!-- In the application settings (which are open by default) you can "explode" the brain using the slider option. You can explode all areas, or just the cortex and hippocampus "vertically" sort of like a nested doll. You can also switch from exploding all areas to just the left side, as well as set the colors to the defaults on the right side of the brain.  -->
 
-When individual brain areas are loaded, e.g. by using `urn.load_beryl_areas()`, you can "explode" the brain using the slider option. Options allow you to explode just one side as well as set the default colors on one side of the brain. Additional "explode" axes can be added on request.
+When individual brain areas are loaded, e.g. by using `urchin.ccf.load_beryl()`, you can "explode" the brain using the slider option. Options allow you to explode just one side as well as set the default colors on one side of the brain. Additional "explode" axes can be added on request.
 
 The camera rotation button continuously increments the spin angle to rotate the camera around the current camera target. The speed is controlled by the slider. You can then capture videos using the windows screen capture features [WINDOWS + G].
 

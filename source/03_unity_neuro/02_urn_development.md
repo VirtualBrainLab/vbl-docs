@@ -20,9 +20,9 @@ pip install -e .
 
 To add a new render function you need three pieces:
 
- 1. Update `unitymouse/render.py` to include the new function and add documentation
+ 1. Update `API/urchin/renderer.py` to include the new function and add documentation
  2. Add the `socket.io` call to the set of calls in `Server/server.js`
- 3. Add the new functionality to the UnityClient in `UM_Client.cs` and in your manager class
+ 3. Add the new functionality to the UnityClient in `Client.cs` and in your manager class
 
 Before deploying you should add a new test script in `Examples/basic` which runs your new functionality and makes sure that it works.
 
@@ -36,9 +36,9 @@ Make sure to add documentation to all of your new renderer functions so it's cle
 
 The server calls just echo the data from the sender (API) to the receiver (Unity). Copy any of the existing calls and replace the message headers. Please keep the server organized.
 
-#### Unity (UM_Client.cs and your manager code)
+#### Unity (Client.cs and your manager code)
 
-Your code in Unity should be separated into two layers. All socket messages should be received in the `UM_Client.cs` class and then passed on to a `XXManager.cs`. The `Client` handles all socket communication, while the `Manager` handles all of the Unity local content. Keep managers separated by functionality (e.g. `ProbeManager`, `NeuronManager`, `LineRendererManager`, etc).
+Your code in Unity should be separated into two layers. All socket messages should be received in the `Client.cs` class and then passed on to a `XXManager.cs`. The `Client` handles all socket communication, while the `Manager` handles all of the Unity local content. Keep managers separated by functionality (e.g. `ProbeManager`, `NeuronManager`, `LineRendererManager`, etc).
 
 ## Testing your code
 
@@ -50,7 +50,7 @@ urn.setup(localhost=True, standalone=True)
 
 You should see the client connect with your username as ID on the server window.
 
-Finally, run the Unity renderer app in the editor. You may need to manually set your username as the ID in the app if it doesn't detect it automatically (either via code in `UM_Client.cs` or by pressing `I` and opening the ID input window).
+Finally, run the Unity renderer app in the editor. You may need to manually set your username as the ID in the app if it doesn't detect it automatically (either via code in `Client.cs` or by pressing `I` and opening the ID input window).
 
 ## Deployment
 
