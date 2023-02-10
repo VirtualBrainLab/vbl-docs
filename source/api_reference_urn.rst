@@ -7,7 +7,7 @@ Urchin
    :template: custom-module-template.rst
    :recursive:
 
-   unityneuro.render
+   oursin
 
 .. toctree::
    :hidden:

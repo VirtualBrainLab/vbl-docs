@@ -1,7 +1,7 @@
 ﻿unityneuro
 ==========
 
-.. automodule:: unityneuro
+.. automodule:: oursin
 
    
    
@@ -26,5 +26,5 @@
    :template: custom-module-template.rst
    :recursive:
 
-   unityneuro.render
+   oursin
 
