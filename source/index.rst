@@ -74,6 +74,5 @@ Please see the individual projects for installation instructions and documentati
    :caption: API Reference
    :maxdepth: 1
 
-   api_reference_tp.rst
    api_reference_urn.rst
    api_reference_ephys_link.rst
