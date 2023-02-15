@@ -23,51 +23,51 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: About the VBL
 
-   01_about/overview
-   01_about/team
-   01_about/joinus
+   about/overview
+   about/team
+   about/joinus
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Pinpoint
 
-   02_traj_planner/01_tp_intro
-   02_traj_planner/02_tp_tutorial
-   02_traj_planner/03_tp_alignment
+   pinpoint/installation_and_use
+   pinpoint/tutorial
+   pinpoint/in_vivo_alignment
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Urchin
 
-   03_unity_neuro/01_urn_intro
+   urchin/installation_and_use
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: IBL Tools
 
-   04_session_viewer/01_tv_overview
-   04_session_viewer/02_ibl_average_trial
+   ibl/website
+   ibl/average_trial
 
 .. toctree::
    :hidden:
    :maxdepth: 3
    :caption: Development
 
-   02_traj_planner/05_tp_development
-   03_unity_neuro/02_urn_development
-   04_session_viewer/03_ibl_avg_trial_dev
-   05_misc/00_code_style
+   pinpoint/development
+   urchin/development
+   ibl/development
+   misc/contributing
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Misc
 
-   05_misc/03_ephys_link
-   05_misc/02_addressables_storage
+   05_misc/ephys_link
+   05_misc/brain_atlas
 
 .. toctree::
    :hidden:
