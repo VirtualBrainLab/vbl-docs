@@ -24,8 +24,8 @@ Please see the individual projects for installation instructions and documentati
    :caption: About the VBL
 
    about/overview
-   about/team
-   about/joinus
+   about/join_us
+   about/vbl_manual
 
 .. toctree::
    :hidden:
@@ -58,8 +58,6 @@ Please see the individual projects for installation instructions and documentati
 
    pinpoint/development
    urchin/development
-   ibl/development
-   misc/contributing
 
 .. toctree::
    :hidden:
