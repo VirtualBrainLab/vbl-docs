@@ -4,7 +4,7 @@ The funding that supports the VBL allows us to support the development of Pinpoi
 
 The first ten hours of requests that your lab makes will be added to our regular development queue at no cost. 
 
-After using those hours, we can either develop features for you as collaborators on your projects or through a contract model. We are also enthusiastic to apply for joint grants as contractors, collaborators, or co-PIs.
+After using those hours, we can either develop features for you as collaborators on your projects or through a contract model. We are also happy to apply for joint grants as contractors, collaborators, or co-PIs.
 
 ## Contract model
 
