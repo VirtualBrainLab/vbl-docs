@@ -77,8 +77,8 @@ Documentation does not replace good coding style. Your classes, variables, and f
 | C# | PascalCase | PascalCase | _camelCase | PascalCase | camelCase |
 | Python | PascalCase | snake_case | snake_case | snake_case | snake_case |
 
-**Static variables**: should start with the prefix `s_` 
-**Constants**: SCREAMING_SNAKE_CASE
+ * **Static variables**: should start with the prefix `s_` 
+ * **Constants**: SCREAMING_SNAKE_CASE
 
 #### Best practices
 

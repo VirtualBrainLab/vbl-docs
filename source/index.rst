@@ -24,6 +24,7 @@ Please see the individual projects for installation instructions and documentati
    :caption: About the VBL
 
    about/overview
+   about/contract_us
    about/join_us
    about/vbl_manual
 
