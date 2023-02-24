@@ -15,6 +15,10 @@ git submodule add https://github.com/dbirman/vbl-core Assets/vbl-core
 
 If you use Github Desktop the `vbl-core` repository will automatically be pulled. If you are working on multiple VBL projects you should add the repository as a separate repo in Desktop and give it an alias, e.g. `Pinpoint-vbl-core`.
 
+#### Additional assets
+
+Some of the asset folders are too large to push to Github. We store these separately in a [Google Drive folder](https://drive.google.com/drive/folders/1aGtR8W7rTRgMShMX2Gn-8vXFp29jiwQT?usp=sharing). Download these and unzip them into the `/Assets/` folder in Pinpoint.
+
 #### Branch structure
 
 The latest minor release version (e.g. X.Y.**Z**) is kept on the **main** branch and released to the [/Pinpoint/](https://data.virtualbrainlab.org/Pinpoint/) folder.
