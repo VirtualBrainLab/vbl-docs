@@ -166,7 +166,7 @@ placed inside the mouse brain.
 
 To enable this feature, an instance of an Ephys Link server must be running on
 the local network. Please see the
-instructions [here](https://virtualbrainlab.org/05_misc/03_ephys_link.html#installation)
+instructions [here](https://virtualbrainlab.org/misc/ephys_link.html#installation)
 on how to install and run a server.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
