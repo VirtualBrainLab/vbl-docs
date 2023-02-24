@@ -100,10 +100,11 @@ To keep our momentum and excitement about projects, we have to be intentional ab
 
 ## Funding
 
-Dan is happy to discuss the details of any of these grant applications with you at any time! You can access the final versions of any of these in the [lab drive](https://drive.google.com/drive/folders/1vhVtWFO8eRpVMmR5u4isGsgOycdBCEiK?usp=share_link). 
+Dan is happy to discuss the details of any of these grant applications with you at any time! Information about lab member grant applications is shared here with permission. You can access the final versions of any of these grants in the [lab drive](https://drive.google.com/drive/folders/1vhVtWFO8eRpVMmR5u4isGsgOycdBCEiK?usp=share_link). 
 
 | Source    | Date applied  | Outcome   | Funding   |
 | ---       | ---           | ---       | ---       |
+| UW Mary Gates Scholarship Resubmission (KY)  | 2023 | Pending |  |
 | NIH K99 Transition to Independence (DB) | 2023 | Pending |  |
 | UW Mary Gates Scholarship (KY)  | 2022 | Not funded |  |
 | WRF Galas Award (DB) | 2022 | Not funded |  |
