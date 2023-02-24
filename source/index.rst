@@ -65,8 +65,8 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: Misc
 
-   05_misc/ephys_link
-   05_misc/brain_atlas
+   misc/ephys_link
+   misc/brain_atlas
 
 .. toctree::
    :hidden:
