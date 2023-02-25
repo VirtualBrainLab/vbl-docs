@@ -104,6 +104,7 @@ Dan is happy to discuss the details of any of these grant applications with you 
 
 | Source    | Date applied  | Outcome   | Funding   |
 | ---       | ---           | ---       | ---       |
+| UW Mary Gates Scholarship (KY)  | 2023 | Pending |  |
 | NIH K99 Transition to Independence (DB) | 2023 | Pending |  |
 | UW Mary Gates Scholarship (KY)  | 2022 | Not funded |  |
 | WRF Galas Award (DB) | 2022 | Not funded |  |

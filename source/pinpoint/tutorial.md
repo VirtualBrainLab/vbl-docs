@@ -226,7 +226,16 @@ offset from the brain can be set.
 
 ## Account
 
-Coming soon...
+The Accounts tab in the settings allows you to save insertions across computers. Insertions are stored in experiments. One insertion can be shared across multiple experiments. 
+
+![Connect a probe to a manipulator](../_static/images/tutorial/accounts.png)
+
+1. Register a new account, we kindly ask that you use an email address so that we can keep in touch about major updates to Pinpoint in the future. We won't give away your email or send a message more than once or twice a year.
+2. Log in to your account by providing the username and password. Leave the "stay logged in" toggle checked if you are on a private computer.
+3. Open the experiment edit panel to add and remove experiments and re-name them. Experiments are just buckets, you can use them in any way you want: to represent mice, to actually represent different experiments, to represent differents sets of insertions targeting particular brain regions, etc.
+4. Select the current active experiment from the dropdown. This will change the visible list of insertions below.
+5. The insertion list shows the insertions in the active experiment. You can rename insertions, delete them from the experiment, and enable/disable them in the 3D scene. Coming soon: we will add options to mark insertions as "recorded" so that we can calculate coverage maps for experiments.
+6. Any time your local data is out-of-sync with the data stored on the server the "unsaved changes" message will appear. If you are using Pinpoint in a browser **please note that unsaved changes do not get saved if you exit the browser**, the program auto-saves changes about once a minute. If you are using Pinpoint in a desktop app, exiting will automatically save all changes.
 
 ## Surgery
 
