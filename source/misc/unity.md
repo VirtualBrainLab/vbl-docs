@@ -41,3 +41,7 @@ The currently not-in-development education tools used a Server/Client architectu
 ## WebGL limitations
 
 When developing new Unity tools you should be very careful about introducing new memory requirements or heavy GPU usage. WebGL has a frame rate limitation of about 60hz on most computers and a memory limitation of 2GB.
+
+## Troubleshooting
+
+If you see **null reference exceptions** when referring to editor-linked objects (either serialized or public) it's possible that you linked the *asset* and not the object in the scene.

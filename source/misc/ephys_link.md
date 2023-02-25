@@ -50,6 +50,8 @@ the [package's API reference](https://virtualbrainlab.org/api_reference_ephys_li
     2. Note: all arguments are optional and none are needed to use the server
        normally
 
+The server defaults to connecting to Sensapex manipulators. To run for New Scale, use `python -m ephys_link --type sensapex`
+
 ### For usage like a library
 
 1. Ensure Python 3.8+ and pip are installed
