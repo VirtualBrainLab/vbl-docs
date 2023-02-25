@@ -58,6 +58,18 @@ inside the brain Pinpoint computes for you the *brain surface coordinate* and *
 depth* of the probe, which are the coordinates you would need to re-create an
 insertion. See the surgery section for a few important details.
 
+### Quick settings
+
+<image src="../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
+
+The quick settings panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
+
+The three buttons on the top right **lock** the probe (preventing accidental keyboard or mouse movements), **duplicate** the probe in the scene, and **download** the probe data to the clipboard. You can paste the copied data into any text editor.
+
+The bottom row has the **Accounts dropdown** where you can choose which experiments this probe is saved in, as well as the **snap to dura** button and **home** button.
+
+The home button moves the probe back to the current reference coordinate (defined in the Atlas settings). The snap to dura button snaps the probe back to the surface of the brain, moving only along the depth axis. 
+
 ## Camera controls
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -188,10 +200,9 @@ on how to install and run a server.
     1. Handedness determines the orientation of the manipulator and which
        direction it moves. Handedness is determined by which side of the
        manipulator the probe will be mounted on.
-    2. Example of a left-handed
-       manipulator: ![Left Handed Manipulator](../_static/images/Sensapex-uMp4-LEFT.jpg)
-    3. Example of a right-handed
-       manipulator: ![Right Handed Manipulator](../_static/images/Sensapex-uMp4-RIGHT.jpg)
+
+<img src="../_static/images/tutorial/sensapex_manipulators.png" alt="drawing" width="60%"/>
+
 7. Press \[H\] again to close the settings menu
 
 ### Linking a probe in the planner to a manipulator in real life
@@ -214,15 +225,7 @@ on how to install and run a server.
 
 ### Quick settings
 
-Quick settings for the active probe are found at the bottom of the right-hand
-panel stack. There, a manipulator's position, angles, zero coordinate, and
-offset from the brain can be set.
-
-- Use the text boxes to edit and position and angles of the probe.
-- Use the down arrow button to set the offset from the brain surface and drop
-  the probe to the brain surface.
-- Use the home button to reset the probe's position to the current probe
-  position.
+The quick settings panel 
 
 ## Account
 
@@ -239,16 +242,9 @@ The Accounts tab in the settings allows you to save insertions across computers.
 
 ## Surgery
 
-To use your coordinates for a surgery, rotate the manipulator to match the
-azimuth angle (phi) and set the probe elevation angle (theta). Then move your
-probe tip to Bregma and zero your manipulator.
+To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle (phi) and set the probe elevation angle (theta). Then move your probe tip to Bregma and zero your manipulator.
 
-Translate your probe using the manipulator to match the AP/ML/DV brain surface
-coordinate provided by Pinpoint. If your probe is rotated off-axis use the *
-convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV
-position instead. Use caution! You may reach the brain surface before you reach
-the DV value specified by Pinpoint, don't break your probe!
+Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the * convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV position instead. Use caution! You may reach the brain surface before you reach the DV value specified by Pinpoint, don't break your probe!
 
-Once the probe is touching the dura, zero the depth axis and insert until you
-reach the specified depth.
+Once the probe is touching the dura, zero the depth axis and insert until you reach the specified depth.
 
