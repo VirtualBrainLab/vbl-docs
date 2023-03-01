@@ -2,6 +2,8 @@
 
 ## Code Organization
 
+
+
 ## Developing a client application
 
 ### Importing Ephys Link as a Python library

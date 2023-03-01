@@ -19,9 +19,9 @@ the [package's API reference](https://virtualbrainlab.org/api_reference_ephys_li
 ### Prerequisites
 
 1. Python 3.10+ and pip.
-2. An **x86 Windows PC is recommended** to run this server.
+2. An **x86 Windows PC is required** to run the server.
     1. The server has been verified to work well with Sensapex devices on
-       Windows. This is unverified for Linux and
+       Windows. It has not been bundled with libraries for Linux and
        macOS. However, developing the server is possible on other OS's.
 3. For Sensapex devices, the controller unit must be connected to a Windows PC
    via an ethernet cable. A USB-to-ethernet adapter is acceptable.
