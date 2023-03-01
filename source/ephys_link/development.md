@@ -4,7 +4,39 @@
 
 ## Developing a client application
 
+### Importing Ephys Link as a Python library
+
+1. Follow
+   the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
+2. Use `from ephys_link import server` and call `server.launch()` to start the
+   server
+    1. Alternatively, use `import ephys_link` and
+       call `ephys_link.server.launch()`
+
 ## Adding features to Ephys Link
+
+### Installing Ephys Link for development
+
+1. Ensure Python 3.10+ and pip are installed
+2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+3. `cd ephys-link` and run `pip install -r requirements.txt --use-pep517`
+4. `python ephys_link/server.py` launches the server
+5. Unit tests are available to run under the `tests/` directory
+
+#### Docker can also be used for development
+
+1. [Install Docker](https://www.docker.com/get-started/) in any way you like
+2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+3. `cd ephys-link`
+4. `docker-compose up` to build the container and run the server
+5. `docker attach <container-id>` to view the server logs
+6. You can edit the `command` line in `docker-compose.yml` to configure the
+   server's parameters
+7. `docker exec -it <container_id> /bin/bash` if you need to enter the container
+8. The package is located in the root directory as `ephys_link`
+9. Unit tests are available to run under the `tests/` directory
+10. `docker-compose stop` to stop the container or `docker-compose down` to stop
+    and remove the container
 
 ## Deployment
 
