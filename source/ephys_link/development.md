@@ -17,11 +17,10 @@
 
 ### Installing Ephys Link for development
 
-1. Ensure Python 3.10+ and pip are installed
-2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
-3. `cd ephys-link` and run `pip install -r requirements.txt --use-pep517`
-4. `python ephys_link/server.py` launches the server
-5. Unit tests are available to run under the `tests/` directory
+1. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+2. `cd ephys-link` and run `pip install -r requirements.txt --use-pep517`
+3. `python ephys_link/server.py` launches the server
+4. Unit tests are available to run under the `tests/` directory
 
 #### Docker can also be used for development
 
