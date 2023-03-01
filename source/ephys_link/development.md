@@ -2,7 +2,10 @@
 
 ## Code Organization
 
-
+Ephys Link is split into 3 main components:
+1. The server
+2. The manipulator platforms
+3. Specific manipulator 
 
 ## Developing a client application
 
