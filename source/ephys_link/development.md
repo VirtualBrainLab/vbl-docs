@@ -1,8 +1,11 @@
 # Ephys Link
 
+(code-org)=
+
 ## Code Organization
 
-Ephys Link is split into 3 main components:
+Ephys Link is a modular application structured in 3 layers to enable future
+extensibility:
 
 1. The Server
 2. The Manipulator Platforms
@@ -27,7 +30,7 @@ server. Manipulator platforms are responsible for managing connected manipulator
 instances and API calls that affect all instances simultaneously (such as
 calibration and emergency stops).
 
-In code, a platform is represented as a class that implements the abstract
+In code, a platform is represented as a class that inherits the abstract
 class `PlatformHandler`. The `PlatformHandler` class defines the implementation
 of events and pre-implements standard error checking for input and output.
 Platform classes typically start with some call to initialize the platform's
@@ -42,18 +45,12 @@ manipulator such as its ID, location, and movement chain. Certain API's such as
 the Sensapex uMp API return a manipulator object which can be stored in the
 manipulator instance class.
 
-## Developing a client application
+## Developing and Adding Manipulator Platforms to Ephys Link
 
-### Importing Ephys Link as a Python library
-
-1. Follow
-   the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
-2. Use `from ephys_link import server` and call `server.launch()` to start the
-   server
-    1. Alternatively, use `import ephys_link` and
-       call `ephys_link.server.launch()`
-
-## Adding features to Ephys Link
+Ephys Link primarily support Sensapex uMp Micromanipulators and New Scale
+Manipulators. However, with the modular design defined in
+the [Code Organization](code-org) section, it is very easy to add custom
+platforms to Ephys Link.
 
 ### Installing Ephys Link for development
 
@@ -77,11 +74,66 @@ manipulator instance class.
 10. `docker-compose stop` to stop the container or `docker-compose down` to stop
     and remove the container
 
-## Deployment
+### Adding a new platform
 
-How to push to PyPI
+Before beginning to write a platform handler, ensure the target platform has
+some windows-compatible API and (ideally) some python library to interface with.
+Once an API connection can be established, the platform handler can be
+implemented in the following steps:
 
-## Usage
+1. Create a new file in `ephys_link/platforms/` with the name of the platform
+   (e.g. `my_platform.py`)
+2. Create a new class that inherits from `PlatformHandler` and implement the
+   abstract methods
+    1. Follow `ephys_link/sensapex_handler.py` as an example. Error checking is
+       handled within the `PlatformHandler` class so only implement the
+       necessary API calls to the platform.
+3. Optionally, add a platform manipulator class in `ephys_link/platforms`. As
+   described in the code organization section, a platform manipulator class
+   definition can be used to help abstract code specific to instances of
+   manipulators away from general platform management code.
+4. Add the new platform to the launch command in `ephys_link/server.py`
+    1. Add a new case for the platform in the match statement in
+       the `launch_server` function. The case pattern will be the input string
+       used in the CLI to select this platform with the `-t/--type` argument.
+    2. Set the `platform` variable to the imported platform. Use `importlib` to
+       do so (use the `sensapex` and `new_scale` cases as examples).
+
+### General code practices
+
+- Type hinting is implemented where possible
+- All functions and classes must have a Sphinx/reStructuredText formatted
+  docstring
+- Only one client can be connected to the server at a time
+
+### Deployment
+
+Ephys Link is published to the Python Package Index (PyPI). To publish a new
+version:
+
+1. Be a collaborator to the Ephys Link PyPI project
+2. Update the `version` number in `pyproject.toml`
+3. (Optional) Locally test the package by running `pip install -e .` in the
+   root directory
+4. Ensure build tools are installed: `pip install build twine`
+5. Build the package: `python -m build`
+6. Check the build integrity: `twine check dist/*`
+7. Test upload to the test PyPI
+   server: `twine upload --repository testpypi dist/*`
+8. Upload to the PyPI server: `twine upload dist/*`
+
+## Developing a client application
+
+### Importing Ephys Link as a Python library
+
+1. Follow
+   the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
+2. Use `from ephys_link import server` and call `server.launch()` to start the
+   server
+    1. Alternatively, use `import ephys_link` and
+       call `ephys_link.server.launch()`
+
+## WebSocket Events and API
 
 This is a list of available WebSocket events. The code shown is pseudo-WebSocket
 code that can be used to interact with the server. The exact implementation will
@@ -501,12 +553,3 @@ continuing.
 # Stop all movement
 ws.emit('stop')
 ```
-
-(code-practices)=
-
-## General code practices (for developers looking to contribute)
-
-- Type hinting is implemented where possible
-- All functions and classes must have a Sphinx/reStructuredText formated
-  docstring
-- Only one client can be connected to the server at a time
