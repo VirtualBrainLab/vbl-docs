@@ -3,9 +3,44 @@
 ## Code Organization
 
 Ephys Link is split into 3 main components:
-1. The server
-2. The manipulator platforms
-3. Specific manipulator 
+
+1. The Server
+2. The Manipulator Platforms
+3. Specific Manipulator Instances
+
+### 1. The Server
+
+At its core, Ephys Link is a WebSocket server that is used to communicate
+between client applications and manipulator platforms. The server declares a
+standardized set of websocket events that clients can call and passes along the
+appropriate API calls to the specific manipulator platform. All events, their
+inputs, and return values are error checked on the server.
+
+In code, the server is an asynchronous HTTP server with events declared
+as `@sio.event`. It is also responsible for handling CLI arguments, starting the
+serial connection to the emergency stop button, and launching the GUI.
+
+### 2. The Manipulator Platforms
+
+Each manipulator platform implements the set of events declared by the WebSocket
+server. Manipulator platforms are responsible for managing connected manipulator
+instances and API calls that affect all instances simultaneously (such as
+calibration and emergency stops).
+
+In code, a platform is represented as a class that implements the abstract
+class `PlatformHandler`. The `PlatformHandler` class defines the implementation
+of events and pre-implements standard error checking for input and output.
+Platform classes typically start with some call to initialize the platform's
+specific API and manage the available/visible manipulators.
+
+### 3. Specific Manipulator Instances
+
+To help with manipulator management, each _in vivo_ manipulator can be
+instantiated as a manipulator class specific to the platform. This class
+encapsulates details and implementations specific to an instance of a
+manipulator such as its ID, location, and movement chain. Certain API's such as
+the Sensapex uMp API return a manipulator object which can be stored in the
+manipulator instance class.
 
 ## Developing a client application
 
