@@ -124,7 +124,13 @@ version:
 
 ## Developing a client application
 
+Ephys Link can be interfaced with any WebSocket client or used directly as a
+python library. The following is information that can be helpful for developers
+looking to build client applications that utilize Ephys Link.
+
 ### Importing Ephys Link as a Python library
+
+For Python applications, Ephys Link can be imported as a library. To do so:
 
 1. Follow
    the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
@@ -132,6 +138,15 @@ version:
    server
     1. Alternatively, use `import ephys_link` and
        call `ephys_link.server.launch()`
+
+### WebSocket application
+
+As a WebSocket server, Ephys Link defines a standardized set of WebSocket events
+that can be used to interact with manipulator platforms.
+The [following section](websocket-events) describes the available events and how
+to use them.
+
+(websocket-events)=
 
 ## WebSocket Events and API
 
