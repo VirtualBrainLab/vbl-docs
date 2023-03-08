@@ -21,7 +21,7 @@ If you encounter issues please try refreshing the page (sometimes the 3D mesh fi
 
 ### Standalone builds
 
-Windows desktop builds are available on the ![releases page](https://github.com/VirtualBrainLab/NPTrajectoryPlanner/releases).
+Windows desktop builds are available on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases).
 
 Linux and Mac builds available on request.
 
