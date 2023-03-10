@@ -42,14 +42,7 @@ Please see the individual projects for installation instructions and documentati
    :caption: Urchin
 
    urchin/installation_and_use
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: IBL Tools
-
-   ibl/website
-   ibl/average_trial
+   ibl/ibl_tools
 
 .. toctree::
    :hidden:
