@@ -1,6 +1,6 @@
-# Addressables Storage
+# BrainAtlas
 
-The Addressables Storage repository holds binary files and assets that are re-used across multiple projects. Loading these files is done through the `AddressablesRemoteLoader` component which can be attached to any empty GameObject.
+The [BrainAtlas repository](https://github.com/VirtualBrainLab/BrainAtlas/) holds binary files and assets that are re-used across multiple projects. Loading these files is done through the `AddressablesRemoteLoader` component which can be attached to any empty GameObject.
 
 ## Adding a new file
 
