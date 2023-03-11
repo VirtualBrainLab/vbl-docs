@@ -21,15 +21,6 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: About the VBL
-
-   about/overview
-   about/vbl_manual
-   about/contract_us
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
    :caption: Pinpoint
 
    pinpoint/installation_and_use
@@ -59,6 +50,16 @@ Please see the individual projects for installation instructions and documentati
 
    misc/ephys_link
    misc/brain_atlas
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: About the VBL
+
+   about/overview
+   about/vbl_manual
+   about/contract_us
+
 
 .. toctree::
    :hidden:
