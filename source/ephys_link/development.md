@@ -15,13 +15,14 @@ extensibility:
 
 At its core, Ephys Link is a WebSocket server that is used to communicate
 between client applications and manipulator platforms. The server declares a
-standardized set of websocket events that clients can call and passes along the
-appropriate API calls to the specific manipulator platform. All events, their
-inputs, and return values are error checked on the server.
+standardized set of websocket events that clients can call to enact platform
+specific manipulator API calls. All events, their inputs, and return values are
+error checked on the server.
 
 In code, the server is an asynchronous HTTP server with events declared
-as `@sio.event`. It is also responsible for handling CLI arguments, starting the
-serial connection to the emergency stop button, and launching the GUI.
+with the `@sio.event` annotation. It is also responsible for handling CLI
+arguments, starting the serial connection to the emergency stop button, and
+launching the GUI.
 
 ### 2. The Manipulator Platforms
 
@@ -41,14 +42,14 @@ specific API and manage the available/visible manipulators.
 To help with manipulator management, each _in vivo_ manipulator can be
 instantiated as a manipulator class specific to the platform. This class
 encapsulates details and implementations specific to an instance of a
-manipulator such as its ID, location, and movement chain. Certain API's such as
+manipulator such as its ID, position, and movement queue. Certain API's such as
 the Sensapex uMp API return a manipulator object which can be stored in the
 manipulator instance class.
 
 ## Developing and Adding Manipulator Platforms to Ephys Link
 
 Ephys Link primarily support Sensapex uMp Micromanipulators and New Scale
-Manipulators. However, with the modular design defined in
+manipulators. However, with the modular design defined in
 the [Code Organization](code-org) section, it is very easy to add custom
 platforms to Ephys Link.
 
@@ -85,13 +86,14 @@ implemented in the following steps:
    (e.g. `my_platform.py`)
 2. Create a new class that inherits from `PlatformHandler` and implement the
    abstract methods
-    1. Follow `ephys_link/sensapex_handler.py` as an example. Error checking is
-       handled within the `PlatformHandler` class so only implement the
-       necessary API calls to the platform.
+    1. Follow `ephys_link/platforms/sensapex_handler.py` as an example. Error
+       checking is handled within the `PlatformHandler` class so only implement
+       the necessary API calls to the platform.
 3. Optionally, add a platform manipulator class in `ephys_link/platforms`. As
    described in the code organization section, a platform manipulator class
    definition can be used to help abstract code specific to instances of
    manipulators away from general platform management code.
+    1. Follow `ephys_link/platforms/sensapex_manipulator.py` as an example.
 4. Add the new platform to the launch command in `ephys_link/server.py`
     1. Add a new case for the platform in the match statement in
        the `launch_server` function. The case pattern will be the input string
@@ -105,6 +107,8 @@ implemented in the following steps:
 - All functions and classes must have a Sphinx/reStructuredText formatted
   docstring
 - Only one client can be connected to the server at a time
+- For safety, ensure the `stop` function is implemented for all manipulators
+  and that it is called when the server is stopped.
 
 ### Deployment
 
@@ -188,7 +192,7 @@ In general:
 
 Many implementations may want to first find out what manipulators are available.
 This can be done by simply sending this event which takes no arguments. A
-callback will return a list of the available manipulators (up to 50 of them).
+callback will return a list of the available manipulators.
 
 **Event:** `get_manipulators`
 
@@ -207,7 +211,7 @@ callback will return a list of the available manipulators (up to 50 of them).
 #### Example
 
 ```python
-# Register manipulator with ID 1
+# Get available manipulators
 ws.emit('get_manipulators', callback=my_callback_func)
 ```
 
@@ -215,8 +219,8 @@ ws.emit('get_manipulators', callback=my_callback_func)
 
 ### Registering a manipulator
 
-Every manipulator in a Sensapex setup must be registered to the server before
-being used.
+Some platforms require manipulators to be "registered" before use. Sensapex is
+one such platform.
 
 **Event:** `register_manipulator`
 
@@ -224,9 +228,9 @@ being used.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`)  | Description                                                                       |
+| Error message (`string`)         | Description                                                                       |
 |----------------------------------|-----------------------------------------------------------------------------------|
 | `''`                             | No errors, registered manipulator with ID `manipulator_id`                        |
 | `Manipulator already registered` | Manipulator is already registered, no action taken                                |
@@ -253,9 +257,9 @@ unregistering it.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`)   | Description                                                            |
+| Error message (`string`)          | Description                                                            |
 |-----------------------------------|------------------------------------------------------------------------|
 | `''`                              | No errors, unregistered manipulator with ID `manipulator_id`           |
 | `Manipulator not registered`      | The manipulator is not registered and therefore cannot be unregistered |
@@ -274,8 +278,9 @@ ws.emit('unregister_manipulator', 1, callback=my_callback_func)
 
 To ensure all manipulators are working properly before applying autonomous
 control, all manipulators must have their movement checked and calibrated. This
-is done by moving all *four* axes through their full range of motion while also
-invoking the calibrate functionality.
+is done by invoking the `calibrate` API call on the manipulator. If the platform
+does not support a calibration call, use
+the [bypass calibration](bypassing-calibration) event.
 
 **Event:** `calibrate`
 
@@ -283,14 +288,14 @@ invoking the calibrate functionality.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`) | Description                                                |
-|---------------------------------|------------------------------------------------------------|
-| `''`                            | No errors, calibrated manipulator with ID `manipulator_id` |
-| `Manipulator not registered`    | Manipulator is not registered yet                          |
-| `Error calling calibrate`       | A Sensapex SDK error has occurred while calibrating        |
-| `Error calibrating manipulator` | An unknown error has occurred while calibrating            |
+| Error message (`string`)        | Description                                                                                          |
+|---------------------------------|------------------------------------------------------------------------------------------------------|
+| `''`                            | No errors, calibrated manipulator with ID `manipulator_id`                                           |
+| `Manipulator not registered`    | Manipulator is not registered yet                                                                    |
+| `Error calibrating manipulator` | An unknown error has occurred while calibrating                                                      |
+| `Cannot write to manipulator`   | The manipulator does not have write/movement privileges or it needs to be [enabled](enable-movement) |
 
 #### Example
 
@@ -303,8 +308,6 @@ ws.emit('calibrate', 1, callback=my_callback_func)
 
 ### Bypassing calibration
 
-***FOR TESTING PURPOSES ONLY!! Do not use it in production code.***
-
 The calibration requirement may be bypassed by sending this event.
 
 **Event:** `bypass_calibration`
@@ -313,14 +316,13 @@ The calibration requirement may be bypassed by sending this event.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`:
+**Callback Responses Format:** `string`:
 
-| Error message (`error: string`) | Description                                                              |
-|---------------------------------|--------------------------------------------------------------------------|
-| `''`                            | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
-| `Manipulator not registered`    | Manipulator is not registered yet                                        |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                        |
-| `Error bypassing calibration`   | An unknown error has occurred while bypassing calibration                |
+| Error message (`string`)      | Description                                                              |
+|-------------------------------|--------------------------------------------------------------------------|
+| `''`                          | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
+| `Manipulator not registered`  | Manipulator is not registered yet                                        |
+| `Error bypassing calibration` | An unknown error has occurred while bypassing calibration                |
 
 #### Example
 
@@ -355,7 +357,6 @@ the manipulator which can no longer write as the payload.
 | `Invalid data format`           | Invalid/unexpected argument format                     |
 | `Error in set_can_write`        | An unknown error occurred while starting this function |
 | `Manipulator not registered`    | Manipulator is not registered yet                      |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                      |
 | `Error setting can_write`       | An unknown error has occurred enabling movement        |
 
 - `state`: Will be `False` if one was not provided properly in the request or if
@@ -410,7 +411,7 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 
 ### Set the position of a manipulator
 
-Instructs a manipulator to go to a position relative to the origin in µm.
+Instructs a manipulator to go to a position relative to the origin in mm.
 
 Manipulators move asynchronously from each other. This means large batches of
 movement events can be sent to the server for several manipulators and each
@@ -427,7 +428,7 @@ using [`drive_to_depth`](drive-to-depth)
 **Expected Arguments (dictionary/object with the following format):**
 
 - `manipulator_id`: `int`
-- `pos`: `float[4]` (in x, y, z, w as µm from the origin)
+- `pos`: `float[4]` (in x, y, z, w as mm from the origin)
 - `speed`: `int` (in µm/s)
 
 **Callback Responses Format:** `(position: array, error: string)`
@@ -458,7 +459,7 @@ ws.emit('goto_pos', {
 
 ### Drive to depth
 
-Instructs a manipulator to go to a specific depth in µm. This is equivalent to
+Instructs a manipulator to go to a specific depth in mm. This is equivalent to
 setting the position of the manipulator to the same position but with a
 different depth. This function helps to explicitly make sure no other axis
 except the depth axis is moving during a movement call.
@@ -468,7 +469,7 @@ except the depth axis is moving during a movement call.
 **Expected Arguments (dictionary/object with the following format):**
 
 - `manipulator_id`: `int`
-- `depth`: `float` (in µm from the origin)
+- `depth`: `float` (in mm from the origin)
 - `speed`: `int` (in µm/s)
 
 **Callback Responses `(depth: float, error: string)`**
@@ -557,7 +558,7 @@ continuing.
 
 - None
 
-**Callback Responses Format:** `state: bool`
+**Callback Responses Format:** `bool`
 
 - `true`: No errors, all movement stopped
 - `false`: An unknown error has occurred while stopping all movement
