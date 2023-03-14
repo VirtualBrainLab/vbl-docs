@@ -60,7 +60,6 @@ Please see the individual projects for installation instructions and documentati
    about/vbl_manual
    about/contract_us
 
-
 .. toctree::
    :hidden:
    :caption: API Reference
