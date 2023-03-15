@@ -1,5 +1,5 @@
 ephys-link==0.0.10
-myst-parser==0.19.1
+myst-parser==1.0.0
 sphinx==5.3.0
 sphinx-rtd-theme==1.2.0
 oursin==0.4.4
