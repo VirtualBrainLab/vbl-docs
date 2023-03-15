@@ -7,10 +7,6 @@ on:
   workflow_call:
   merge_group:
 
-concurrency:
-  group: "build"
-  cancel-in-progress: true
-
 jobs:
 
   build:
