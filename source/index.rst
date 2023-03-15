@@ -1,7 +1,7 @@
 .. Virtual Brain Lab documentation master file, created by
-   sphinx-quickstart on Wed Jun  8 16:18:12 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+sphinx-quickstart on Wed Jun  8 16:18:12 2022.
+You can adapt this file completely to your liking, but it should at least
+contain the root `toctree` directive.
 
 .. image:: https://github.com/VirtualBrainLab/.github/raw/main/images/brain_text-01.png
   :width: 650
@@ -37,18 +37,25 @@ Please see the individual projects for installation instructions and documentati
 
 .. toctree::
    :hidden:
+   :maxdepth: 2
+   :caption: Ephys Link
+
+   ephys_link/installation_and_use
+
+.. toctree::
+   :hidden:
    :maxdepth: 3
    :caption: Development
 
    pinpoint/development
    urchin/development
+   ephys_link/development
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Misc
 
-   misc/ephys_link
    misc/brain_atlas
 
 .. toctree::

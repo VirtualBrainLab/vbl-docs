@@ -1,75 +1,66 @@
-# Electrophysiology Manipulator Link Server
+# Ephys Link
 
-The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link) (
-or Ephys Link for short) is a Python
-WebSocket server that allows any WebSocket-compliant application (such
-as [Pinpoint (electrophysiology planning tool)](https://github.com/VirtualBrainLab/Pinpoint))
-to communicate with manipulators used in electrophysiology experiments.
+(code-org)=
 
-Currently, Ephys Link only supports Sensapex uMp Micromanipulators. However,
-this platform is designed to be extensible to other manipulators and more may be
-added in the future.
+## Code Organization
 
-**Table of Contents**
+Ephys Link is a modular application structured in 3 layers to enable future
+extensibility:
 
-- [Installation](installation)
-- [Usage](usage)
-- [General code practices](code-practices)
+1. The Server
+2. The Manipulator Platforms
+3. Specific Manipulator Instances
 
-For more information regarding the server's implementation and how the code is
-organized, see
-the [package's API reference](https://virtualbrainlab.org/api_reference_ephys_link.html)
+### 1. The Server
 
-(installation)=
+At its core, Ephys Link is a Python-based WebSocket server that is used to communicate
+between client applications and manipulator platforms. The server declares a
+standardized set of websocket events that clients can call to enact platform
+specific manipulator API calls. All events, their inputs, and return values are
+error checked on the server.
 
-## Installation
+In code, the server is an asynchronous HTTP server with events declared
+with the `@sio.event` annotation. It is also responsible for handling CLI
+arguments, starting the serial connection to the emergency stop button, and
+launching the GUI.
 
-### Prerequisites
+### 2. The Manipulator Platforms
 
-1. An **x86 Windows PC is recommended** to run this server.
-    1. The server has been verified to work well with Sensapex devices on
-       Windows. This is unverified for Linux and
-       macOS. However, developing the server is possible on a Linux operating
-       system (macOS users should virtualize Linux).
-2. For Sensapex devices, the controller unit must be connected to the PC via an
-   ethernet cable. A USB-to-ethernet adapter is acceptable as well.
-3. To use the emergency stop feature, ensure an Arduino with
-   the [StopSignal][StopSignal] sketch is connected to the computer. Follow
-   the instructions on that repo for how to set up the Arduino.
+Each manipulator platform implements the set of events declared by the WebSocket
+server. Manipulator platforms are responsible for managing connected manipulator
+instances and API calls that affect all instances simultaneously (such as
+calibration and emergency stops).
 
-**NOTE:** Ephys Link is an HTTP server without cross-origin support. The server is currently designed to interface with local/desktop instances of Pinpoint. It will not work with the web browser versions of Pinpoint at this time.
+In code, a platform is represented as a class that inherits the abstract
+class `PlatformHandler`. The `PlatformHandler` class defines the implementation
+of events and pre-implements standard error checking for input and output.
+Platform classes typically start with some call to initialize the platform's
+specific API and manage the available/visible manipulators.
 
-## Installation
+### 3. Specific Manipulator Instances
 
-1. Ensure Python 3.8+ and pip are installed
-2. `pip install ephys-link --use-pep517`
-    1. PEP 517 is needed to allow the Sensapex Manipulator API to be installed
-3. Run `python -m ephys_link` to start the server
-    1. To view available command-line arguments,
-       run `python -m ephys_link --help`
-    2. Note: all arguments are optional and none are needed to use the server
-       normally
+To help with manipulator management, each _in vivo_ manipulator can be
+instantiated as a manipulator class specific to the platform. This class
+encapsulates details and implementations specific to an instance of a
+manipulator such as its ID, position, and movement queue. Certain API's such as
+the Sensapex uMp API return a manipulator object which can be stored in the
+manipulator instance class.
 
-The server defaults to connecting to Sensapex manipulators. To run for New Scale, use `python -m ephys_link --type sensapex`
+## Developing and Adding Manipulator Platforms to Ephys Link
 
-### For usage like a library
+Ephys Link primarily support Sensapex uMp Micromanipulators and New Scale
+manipulators. However, with the modular design defined in
+the [Code Organization](code-org) section, it is very easy to add custom
+platforms to Ephys Link.
 
-1. Ensure Python 3.8+ and pip are installed
-2. `pip install ephys-link`
-3. Use `from ephys_link import server` and call `server.launch()` to start the
-   server
-    1. Alternatively, use `import ephys_link` and
-       call `ephys_link.server.launch()`
+### Installing Ephys Link for development
 
-### To develop this package with a local install
+1. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
+2. `cd ephys-link` and run `pip install -r requirements.txt --use-pep517`
+3. `python ephys_link/server.py` launches the server
+4. Unit tests are available to run under the `tests/` directory
 
-1. Ensure Python 3.8+ and pip are installed
-2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
-3. `cd ephys-link` and run `pip install -r requirements.txt`
-4. `python ephys_link/server.py` launches the server
-5. Unit tests are available to run under the `tests/` directory
-
-### To develop this package with Docker
+#### Docker can also be used for development
 
 1. [Install Docker](https://www.docker.com/get-started/) in any way you like
 2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
@@ -84,9 +75,84 @@ The server defaults to connecting to Sensapex manipulators. To run for New Scale
 10. `docker-compose stop` to stop the container or `docker-compose down` to stop
     and remove the container
 
-(usage)=
+### Adding a new platform
 
-## Usage
+Before beginning to write a platform handler, ensure the target platform has
+some windows-compatible API and (ideally) some python library to interface with.
+Once an API connection can be established, the platform handler can be
+implemented in the following steps:
+
+1. Create a new file in `ephys_link/platforms/` with the name of the platform
+   (e.g. `my_platform.py`)
+2. Create a new class that inherits from `PlatformHandler` and implement the
+   abstract methods
+    1. Follow `ephys_link/platforms/sensapex_handler.py` as an example. Error
+       checking is handled within the `PlatformHandler` class so only implement
+       the necessary API calls to the platform.
+3. Optionally, add a platform manipulator class in `ephys_link/platforms`. As
+   described in the code organization section, a platform manipulator class
+   definition can be used to help abstract code specific to instances of
+   manipulators away from general platform management code.
+    1. Follow `ephys_link/platforms/sensapex_manipulator.py` as an example.
+4. Add the new platform to the launch command in `ephys_link/server.py`
+    1. Add a new case for the platform in the match statement in
+       the `launch_server` function. The case pattern will be the input string
+       used in the CLI to select this platform with the `-t/--type` argument.
+    2. Set the `platform` variable to the imported platform. Use `importlib` to
+       do so (use the `sensapex` and `new_scale` cases as examples).
+
+### General code practices
+
+- Type hinting is implemented where possible
+- All functions and classes must have a Sphinx/reStructuredText formatted
+  docstring
+- Only one client can be connected to the server at a time
+- For safety, ensure the `stop` function is implemented for all manipulators
+  and that it is called when the server is stopped.
+
+### Deployment
+
+Ephys Link is published to the Python Package Index (PyPI). To publish a new
+version:
+
+1. Be a collaborator to the Ephys Link PyPI project
+2. Update the `version` number in `pyproject.toml`
+3. (Optional) Locally test the package by running `pip install -e .` in the
+   root directory
+4. Ensure build tools are installed: `pip install build twine`
+5. Build the package: `python -m build`
+6. Check the build integrity: `twine check dist/*`
+7. Test upload to the test PyPI
+   server: `twine upload --repository testpypi dist/*`
+8. Upload to the PyPI server: `twine upload dist/*`
+
+## Developing a client application
+
+Ephys Link can be interfaced with any WebSocket client or used directly as a
+python library. The following is information that can be helpful for developers
+looking to build client applications that utilize Ephys Link.
+
+### Importing Ephys Link as a Python library
+
+For Python applications, Ephys Link can be imported as a library. To do so:
+
+1. Follow
+   the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
+2. Use `from ephys_link import server` and call `server.launch()` to start the
+   server
+    1. Alternatively, use `import ephys_link` and
+       call `ephys_link.server.launch()`
+
+### WebSocket application
+
+As a WebSocket server, Ephys Link defines a standardized set of WebSocket events
+that can be used to interact with manipulator platforms.
+The [following section](websocket-events) describes the available events and how
+to use them.
+
+(websocket-events)=
+
+## WebSocket Events and API
 
 This is a list of available WebSocket events. The code shown is pseudo-WebSocket
 code that can be used to interact with the server. The exact implementation will
@@ -126,7 +192,7 @@ In general:
 
 Many implementations may want to first find out what manipulators are available.
 This can be done by simply sending this event which takes no arguments. A
-callback will return a list of the available manipulators (up to 50 of them).
+callback will return a list of the available manipulators.
 
 **Event:** `get_manipulators`
 
@@ -145,7 +211,7 @@ callback will return a list of the available manipulators (up to 50 of them).
 #### Example
 
 ```python
-# Register manipulator with ID 1
+# Get available manipulators
 ws.emit('get_manipulators', callback=my_callback_func)
 ```
 
@@ -153,8 +219,8 @@ ws.emit('get_manipulators', callback=my_callback_func)
 
 ### Registering a manipulator
 
-Every manipulator in a Sensapex setup must be registered to the server before
-being used.
+Some platforms require manipulators to be "registered" before use. Sensapex is
+one such platform.
 
 **Event:** `register_manipulator`
 
@@ -162,9 +228,9 @@ being used.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`)  | Description                                                                       |
+| Error message (`string`)         | Description                                                                       |
 |----------------------------------|-----------------------------------------------------------------------------------|
 | `''`                             | No errors, registered manipulator with ID `manipulator_id`                        |
 | `Manipulator already registered` | Manipulator is already registered, no action taken                                |
@@ -191,9 +257,9 @@ unregistering it.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`)   | Description                                                            |
+| Error message (`string`)          | Description                                                            |
 |-----------------------------------|------------------------------------------------------------------------|
 | `''`                              | No errors, unregistered manipulator with ID `manipulator_id`           |
 | `Manipulator not registered`      | The manipulator is not registered and therefore cannot be unregistered |
@@ -212,8 +278,9 @@ ws.emit('unregister_manipulator', 1, callback=my_callback_func)
 
 To ensure all manipulators are working properly before applying autonomous
 control, all manipulators must have their movement checked and calibrated. This
-is done by moving all *four* axes through their full range of motion while also
-invoking the calibrate functionality.
+is done by invoking the `calibrate` API call on the manipulator. If the platform
+does not support a calibration call, use
+the [bypass calibration](bypassing-calibration) event.
 
 **Event:** `calibrate`
 
@@ -221,14 +288,14 @@ invoking the calibrate functionality.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`
+**Callback Responses Format:** `string`
 
-| Error message (`error: string`) | Description                                                |
-|---------------------------------|------------------------------------------------------------|
-| `''`                            | No errors, calibrated manipulator with ID `manipulator_id` |
-| `Manipulator not registered`    | Manipulator is not registered yet                          |
-| `Error calling calibrate`       | A Sensapex SDK error has occurred while calibrating        |
-| `Error calibrating manipulator` | An unknown error has occurred while calibrating            |
+| Error message (`string`)        | Description                                                                                          |
+|---------------------------------|------------------------------------------------------------------------------------------------------|
+| `''`                            | No errors, calibrated manipulator with ID `manipulator_id`                                           |
+| `Manipulator not registered`    | Manipulator is not registered yet                                                                    |
+| `Error calibrating manipulator` | An unknown error has occurred while calibrating                                                      |
+| `Cannot write to manipulator`   | The manipulator does not have write/movement privileges or it needs to be [enabled](enable-movement) |
 
 #### Example
 
@@ -241,8 +308,6 @@ ws.emit('calibrate', 1, callback=my_callback_func)
 
 ### Bypassing calibration
 
-***FOR TESTING PURPOSES ONLY!! Do not use it in production code.***
-
 The calibration requirement may be bypassed by sending this event.
 
 **Event:** `bypass_calibration`
@@ -251,14 +316,13 @@ The calibration requirement may be bypassed by sending this event.
 
 - Manipulator ID: `int`
 
-**Callback Responses Format:** `(error: string)`:
+**Callback Responses Format:** `string`:
 
-| Error message (`error: string`) | Description                                                              |
-|---------------------------------|--------------------------------------------------------------------------|
-| `''`                            | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
-| `Manipulator not registered`    | Manipulator is not registered yet                                        |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                        |
-| `Error bypassing calibration`   | An unknown error has occurred while bypassing calibration                |
+| Error message (`string`)      | Description                                                              |
+|-------------------------------|--------------------------------------------------------------------------|
+| `''`                          | No errors, bypassed calibration for manipulator with ID `manipulator_id` |
+| `Manipulator not registered`  | Manipulator is not registered yet                                        |
+| `Error bypassing calibration` | An unknown error has occurred while bypassing calibration                |
 
 #### Example
 
@@ -293,7 +357,6 @@ the manipulator which can no longer write as the payload.
 | `Invalid data format`           | Invalid/unexpected argument format                     |
 | `Error in set_can_write`        | An unknown error occurred while starting this function |
 | `Manipulator not registered`    | Manipulator is not registered yet                      |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet                      |
 | `Error setting can_write`       | An unknown error has occurred enabling movement        |
 
 - `state`: Will be `False` if one was not provided properly in the request or if
@@ -348,7 +411,7 @@ ws.emit('get_pos', 1, callback=my_callback_func)
 
 ### Set the position of a manipulator
 
-Instructs a manipulator to go to a position relative to the origin in µm.
+Instructs a manipulator to go to a position relative to the origin in mm.
 
 Manipulators move asynchronously from each other. This means large batches of
 movement events can be sent to the server for several manipulators and each
@@ -365,7 +428,7 @@ using [`drive_to_depth`](drive-to-depth)
 **Expected Arguments (dictionary/object with the following format):**
 
 - `manipulator_id`: `int`
-- `pos`: `float[4]` (in x, y, z, w as µm from the origin)
+- `pos`: `float[4]` (in x, y, z, w as mm from the origin)
 - `speed`: `int` (in µm/s)
 
 **Callback Responses Format:** `(position: array, error: string)`
@@ -396,7 +459,7 @@ ws.emit('goto_pos', {
 
 ### Drive to depth
 
-Instructs a manipulator to go to a specific depth in µm. This is equivalent to
+Instructs a manipulator to go to a specific depth in mm. This is equivalent to
 setting the position of the manipulator to the same position but with a
 different depth. This function helps to explicitly make sure no other axis
 except the depth axis is moving during a movement call.
@@ -406,23 +469,20 @@ except the depth axis is moving during a movement call.
 **Expected Arguments (dictionary/object with the following format):**
 
 - `manipulator_id`: `int`
-- `depth`: `float` (in µm from the origin)
+- `depth`: `float` (in mm from the origin)
 - `speed`: `int` (in µm/s)
 
 **Callback Responses `(depth: float, error: string)`**
-| Error message (`error: string`) | Description |
-| ------------------------------- |
--------------------------------------------------------------------- |
-| `''`                            | No errors, position is returned |
-| `Invalid data format`           | Invalid/unexpected argument format |
-| `Error in drive_to_depth`       | An unknown error occurred while starting
-this function |
-| `Manipulator movement canceled` | Emergency stop was used and manipulator
-movements have been canceled |
-| `Manipulator not registered`    | Manipulator is not registered yet |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet |
-| `Error moving manipulator`      | An unknown error has occurred while driving
-to depth |
+
+| Error message (`error: string`) | Description                                                               |
+|---------------------------------|---------------------------------------------------------------------------|
+| `''`                            | No errors, position is returned                                           |
+| `Invalid data format`           | Invalid/unexpected argument format                                        |
+| `Error in drive_to_depth`       | An unknown error occurred while starting     this function                |
+| `Manipulator movement canceled` | Emergency stop was used and manipulator      movements have been canceled |
+| `Manipulator not registered`    | Manipulator is not registered yet                                         |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                         |
+| `Error moving manipulator`      | An unknown error has occurred while driving  to depth                     |
 
 #### Example
 
@@ -495,7 +555,7 @@ continuing.
 
 - None
 
-**Callback Responses Format:** `state: bool`
+**Callback Responses Format:** `bool`
 
 - `true`: No errors, all movement stopped
 - `false`: An unknown error has occurred while stopping all movement
@@ -506,12 +566,3 @@ continuing.
 # Stop all movement
 ws.emit('stop')
 ```
-
-(code-practices)=
-
-## General code practices (for developers looking to contribute)
-
-- Type hinting is implemented where possible
-- All functions and classes must have a Sphinx/reStructuredText formated
-  docstring
-- Only one client can be connected to the server at a time
