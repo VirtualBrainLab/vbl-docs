@@ -46,7 +46,7 @@ will not work with the web browser versions of Pinpoint at this time.
 Run the following command to install the server:
 
 ```bash
-pip install ephys-link --use-pep517
+pip install ephys-link
 ```
 
 ## Usage
