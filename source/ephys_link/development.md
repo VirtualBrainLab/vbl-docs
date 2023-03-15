@@ -13,7 +13,7 @@ extensibility:
 
 ### 1. The Server
 
-At its core, Ephys Link is a WebSocket server that is used to communicate
+At its core, Ephys Link is a Python-based WebSocket server that is used to communicate
 between client applications and manipulator platforms. The server declares a
 standardized set of websocket events that clients can call to enact platform
 specific manipulator API calls. All events, their inputs, and return values are
