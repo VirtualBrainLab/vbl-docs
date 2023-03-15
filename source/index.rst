@@ -21,15 +21,6 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: About the VBL
-
-   about/overview
-   about/vbl_manual
-   about/contract_us
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
    :caption: Pinpoint
 
    pinpoint/installation_and_use
@@ -42,6 +33,7 @@ Please see the individual projects for installation instructions and documentati
    :caption: Urchin
 
    urchin/installation_and_use
+   ibl/ibl_tools
 
 .. toctree::
    :hidden:
@@ -49,14 +41,6 @@ Please see the individual projects for installation instructions and documentati
    :caption: Ephys Link
 
    ephys_link/installation_and_use
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: IBL Tools
-
-   ibl/website
-   ibl/average_trial
 
 .. toctree::
    :hidden:
@@ -73,6 +57,15 @@ Please see the individual projects for installation instructions and documentati
    :caption: Misc
 
    misc/brain_atlas
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: About the VBL
+
+   about/overview
+   about/vbl_manual
+   about/contract_us
 
 .. toctree::
    :hidden:

@@ -1,6 +1,6 @@
-# Lab Manual
+# Lab
 
-This is the public lab manual for the Virtual Brain Lab. We are part of the Steinmetz Lab at University of Washington. As a member of the VBL you can modify this document by making commits or pull requests directly to the [vbl-docs](https://github.com/VirtualBrainLab/vbl-docs) repository. Discussions about content can be done in the [issues](https://github.com/VirtualBrainLab/vbl-docs/issues).
+This is the public lab book for the Virtual Brain Lab. We are part of the Steinmetz Lab at University of Washington. As a member of the VBL you can modify this document by making commits or pull requests directly to the [vbl-docs](https://github.com/VirtualBrainLab/vbl-docs) repository. Discussions about content can be done in the [issues](https://github.com/VirtualBrainLab/vbl-docs/issues).
 
 ## Values
 
@@ -30,7 +30,7 @@ It is our responsibility to ensure that the tools we build can be reused and bui
  7. **If you're overwhelmed, that's okay**. Everybody's priorities shift over time. If you realize you're doing too much and need to cut back in one area, communicate that. 
  8. **Work at home, but don't bring your work home**. Dan's goal is to work 3 days a week in the lab, because in-person meetings are generally more effective and efficient than remote meetings. It's recommended you use a similar structure, but be careful when working remotely not to let your work encroach on your life. 
 
-## Join the lab
+## Join the VBL
 
 Are you motivated by the idea of building software for scientists? We are making interactive 3D visualization possible for research. In practice, that means working with large-scale datasets and doing data wrangling as well as building user-facing tools, often with the Unity game engine. 
 
@@ -116,13 +116,13 @@ Dan is happy to discuss the details of any of these grant applications with you 
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
-| UW Mary Gates Scholarship Resubmission | KY  | 2023 | Pending |  |
+| UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
 | NIH K99 Transition to Independence | DB | 2023 | Pending |  |
 | Neurohub fellowship | DB | 2023 | Pending |  |
 | UW Mary Gates Scholarship | KY  | 2022 | Not funded |  |
 | WRF Galas Award | DB | 2022 | Not funded |  |
 | NIH UE5-METER | DB | 2021 | Not funded |  |
-| UW Mary Gates Scholarship | DB  | 2021 | Funded | $5,000 |
+| UW Mary Gates Scholarship | KN  | 2021 | Funded | $5,000 |
 | UW CLIME Grant | DB | 2021 | Not funded |  |
 | WRF Postdoctoral Fellowship | DB | 2019 | Funded | $280,000 |
 
