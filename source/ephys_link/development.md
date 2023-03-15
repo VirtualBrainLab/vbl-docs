@@ -473,19 +473,16 @@ except the depth axis is moving during a movement call.
 - `speed`: `int` (in µm/s)
 
 **Callback Responses `(depth: float, error: string)`**
-| Error message (`error: string`) | Description |
-| ------------------------------- |
--------------------------------------------------------------------- |
-| `''`                            | No errors, position is returned |
-| `Invalid data format`           | Invalid/unexpected argument format |
-| `Error in drive_to_depth`       | An unknown error occurred while starting
-this function |
-| `Manipulator movement canceled` | Emergency stop was used and manipulator
-movements have been canceled |
-| `Manipulator not registered`    | Manipulator is not registered yet |
-| `Manipulator not calibrated`    | Manipulator is not calibrated yet |
-| `Error moving manipulator`      | An unknown error has occurred while driving
-to depth |
+
+| Error message (`error: string`) | Description                                                               |
+|---------------------------------|---------------------------------------------------------------------------|
+| `''`                            | No errors, position is returned                                           |
+| `Invalid data format`           | Invalid/unexpected argument format                                        |
+| `Error in drive_to_depth`       | An unknown error occurred while starting     this function                |
+| `Manipulator movement canceled` | Emergency stop was used and manipulator      movements have been canceled |
+| `Manipulator not registered`    | Manipulator is not registered yet                                         |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                                         |
+| `Error moving manipulator`      | An unknown error has occurred while driving  to depth                     |
 
 #### Example
 
