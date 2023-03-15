@@ -56,7 +56,7 @@ platforms to Ephys Link.
 ### Installing Ephys Link for development
 
 1. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
-2. `cd ephys-link` and run `pip install -r requirements.txt --use-pep517`
+2. `cd ephys-link` and run `pip install -r requirements.txt`
 3. `python ephys_link/server.py` launches the server
 4. Unit tests are available to run under the `tests/` directory
 

@@ -25,9 +25,6 @@ jobs:
         python-version: '3.11'
         cache: 'pip'
 
-    - name: 🎛️ Sensapex install workaround
-      run: pip install --use-pep517 sensapex==1.22.7
-
     - name: 📦 Install dependencies
       run: pip install -r requirements.txt
 
