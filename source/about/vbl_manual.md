@@ -116,7 +116,7 @@ Dan is happy to discuss the details of any of these grant applications with you 
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
-| UW Mary Gates Scholarship Resubmission | KY  | 2023 | Pending |  |
+| UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
 | NIH K99 Transition to Independence | DB | 2023 | Pending |  |
 | Neurohub fellowship | DB | 2023 | Pending |  |
 | UW Mary Gates Scholarship | KY  | 2022 | Not funded |  |
