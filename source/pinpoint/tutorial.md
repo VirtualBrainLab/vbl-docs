@@ -86,10 +86,13 @@ The home button moves the probe back to the current reference coordinate (define
 
 ### Click + Drag
 
-To control your probe left-click on the probe object. While holding the left
-mouse button press one of the axis keys and drag the probe in space to move the
-probe along that axis. The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for
-DV, and [Z/X] for depth.
+To control your probe with mouse clicks and dragging:
+
+1. Left-click and hold on the probe object
+2. Press and release any of the axis keys on your keyboard, the axis should become visible in the 3D scene
+3. Continue holding the mouse and drag the probe along that axis.
+
+The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth. Note that in some views it may be hard to drag along a particular axis (e.g. in the default axial view you can't drag a probe along the DV axis, because the axis is not visible).
 
 <image src="../_static/images/tutorial/controls.png" alt="overview image" position="left" style="width:100%">
 
