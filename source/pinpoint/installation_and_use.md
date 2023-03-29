@@ -35,7 +35,7 @@ The mac executable currently only runs on MacOS **Mojave** and earlier. You will
 
 ## Instructions
 
-Please see the [tutorials](https://virtualbrainlab.org/02_traj_planner/02_tp_tutorial.html) pages for instructions.
+Please see the [tutorials](https://virtualbrainlab.org/pinpoint/tutorial.html) pages for instructions.
 
 ## Troubleshooting
 
