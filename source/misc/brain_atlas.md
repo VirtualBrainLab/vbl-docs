@@ -20,7 +20,7 @@ To ensure backward-compatibility you should modify the remote URL to include the
 
 ### Pushing to the server
 
-Build the addressable assets and copy the entire new `ServerData/` folder folder to the `ServerData/X.Y.Z/` folder on the local server. Make sure to build for Windows standalone, WebGL, MacOS, and Linux.
+Build the addressable assets and copy the entire new `ServerData/` folder to the `ServerData/X.Y.Z/` folder on the local server. Make sure to build for Windows standalone, WebGL, MacOS, and Linux.
 
 ### Update projects
 
