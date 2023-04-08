@@ -17,8 +17,6 @@ Code is on our [Github repository](https://github.com/VirtualBrainLab/Pinpoint/)
 
 The easiest way to use Pinpoint is through our [web app](https://data.virtualbrainlab.org/Pinpoint/).
 
-If you encounter issues please try refreshing the page (sometimes the 3D mesh files don't download on the first load). If that fails, disable any plugins that might be interfering with javascript (e.g. ad blockers).
-
 ### Standalone builds
 
 Windows desktop builds are available on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases).
@@ -41,7 +39,7 @@ Please see the [tutorials](https://virtualbrainlab.org/pinpoint/tutorial.html) p
 
 The most common cause of Pinpoint not loading is that your browser is blocking the data from downloading. Disabling plugins that interfere with javascript often resolves these issues (e.g. ad blocking plugins).
 
-The second common issue is not using **https** to access the site, this is required for the data to download properly.
+If you encounter issues after an update, you may need to clear your browser's cache or download the latest release.
 
 ## Bugs
 
