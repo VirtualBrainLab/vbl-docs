@@ -55,6 +55,8 @@ Right click + drag to pan
 
 Hold [SHIFT] or [CTRL] while moving on any axis to increase or decrease the speed, respectively.
 
+You can use `urchin.camera.capture_image(filename)` to take screenshots.
+
 ### Grids and Axes
 
 In orthographic camera mode these will look a bit weird, use the perspective camera.
