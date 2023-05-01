@@ -48,7 +48,7 @@ The VBL does not have independent funding to pay researchers (graduate students,
 
 All members of the VBL are responsible for ensuring the lab is a healthy environment for building cool things, challenging ourselves, and growing as researchers and developers.
 
-Every member of the lab is expected to complete an individual development plan twice a year (every quarter for undergraduates). We have two versions of the IDP, a private form that you complete with your direct mentor (short form for undergrads, long form for everybody else), and a public report that you share with the lab. The IDP is a structured feedback process, designed to help identify both the achievements and challenges of the last year/quarter. The process has four steps: first, a self-reflection where you look back on your past goals and achievements and plan for the next period, second, a mentor-reflection where you receive external perspective as written comments, third, a one-on-one conversation about the whole document, and finally, a brief summary that you make to the lab.
+Every member of the lab is expected to complete an individual development plan twice a year (every quarter for undergraduates). The IDP is a structured feedback process, designed to help identify both the achievements and challenges of the last year/quarter. The process has four steps: first, a self-reflection where you look back on your past goals and achievements and plan for the next period, second, a mentor-reflection where you receive external perspective as written comments, third, a one-on-one conversation about the whole document, and finally, a brief summary that you make to the lab. Both private and public IDP files are stored in Github repositories on the lab account. 
 
 ## Group Meeting
 
