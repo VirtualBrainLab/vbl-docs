@@ -16,6 +16,23 @@ The VBL builds intuitive and interactive 3D visualizations for neuroscience.
 
 We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
+.. |image1| image:: static/images/steinmetz_lab.jpg
+   :width: 30%
+
+.. |image2| image:: static/images/ibl_lab.png
+   :width: 30%
+
+.. raw:: html
+
+   <div style="display:flex;">
+   <div style="flex:1;margin-right:5px;">
+   |image1|
+   </div>
+   <div style="flex:1;margin-left:5px;">
+   |image2|
+   </div>
+   </div>
+
 Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`_.
 
 .. toctree::
