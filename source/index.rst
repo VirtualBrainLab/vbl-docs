@@ -20,10 +20,10 @@ We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the Univ
 
    <div style="display:flex;">
    <div style="flex:1;margin-right:5px;">
-   <img style="width:30%" src="./_static/images/steinmetz_logo.jpg">
+   <img style="width:100%" src="./_static/images/steinmetz_logo.jpg">
    </div>
    <div style="flex:1;margin-left:5px;">
-   <img style="width:30%" src="./_static/images/ibl_logo.jpg">
+   <img style="width:100%" src="./_static/images/ibl_logo.png">
    </div>
    </div>
 
