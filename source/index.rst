@@ -16,10 +16,10 @@ The VBL builds intuitive and interactive 3D visualizations for neuroscience.
 
 We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
-.. |image1| image:: static/images/steinmetz_lab.jpg
+.. |image1| image:: ./_static/images/steinmetz_lab.jpg
    :width: 30%
 
-.. |image2| image:: static/images/ibl_lab.png
+.. |image2| image:: ./_static/images/ibl_lab.png
    :width: 30%
 
 .. raw:: html
