@@ -1,5 +1,5 @@
 
-# Overview
+# About
 
 The VBL builds intuitive and interactive 3D visualizations for neuroscience.
 
@@ -35,7 +35,7 @@ Undergraduate Researcher (UW 2025)
 
 Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
 
-<image src="../_static/android-chrome-192x192.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
+<image src="../_static/people/selina.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
 
 **Selina Li**
 
