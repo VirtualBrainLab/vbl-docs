@@ -9,7 +9,7 @@ Please see the individual projects for installation instructions and documentati
 
 ## Team
 
-### University of Washington
+### Core Developers
 
 <image src="../_static/people/dan.jpg" alt="Dan" position="left" style="border-radius: 8px;width:20vh">
 
@@ -35,6 +35,14 @@ Undergraduate Researcher (UW 2025)
 
 Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
 
+<image src="../_static/android-chrome-192x192.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
+
+**Selina Li**
+
+Undergraduate Researcher (UM 2024)
+
+Selina is piloting new 2-photon integrations in Urchin.
+
 *** 
 
 ### Collaborators
@@ -53,7 +61,7 @@ Scientist - Allen Institute
 
 *** 
 
-### Past members
+### Past Developers
 
 <image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:12.5vh">
 
