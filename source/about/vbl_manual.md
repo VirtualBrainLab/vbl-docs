@@ -116,6 +116,7 @@ Dan is happy to discuss the details of any of these grant applications with you 
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
+| Heroku Open Source Credit Program | DB  | 2023 | Funded | $480 |
 | UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
 | NIH K99 Transition to Independence | DB | 2023 | Pending |  |
 | Neurohub fellowship | DB | 2023 | Pending |  |
