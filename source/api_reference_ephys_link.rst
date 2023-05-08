@@ -1,4 +1,4 @@
-Ephys Link
+Ephys Link API
 ===============================================
 API reference for the Electrophysiology Manipulator Link (Ephys Link) server.
 

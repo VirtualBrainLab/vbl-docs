@@ -68,6 +68,8 @@ Please see the individual projects for installation instructions and documentati
    :caption: Misc
 
    misc/brain_atlas
+   api_reference_urn.rst
+   api_reference_ephys_link.rst
 
 .. toctree::
    :hidden:
@@ -77,11 +79,3 @@ Please see the individual projects for installation instructions and documentati
    about/overview
    about/vbl_manual
    about/contract_us
-
-.. toctree::
-   :hidden:
-   :caption: API Reference
-   :maxdepth: 1
-
-   api_reference_urn.rst
-   api_reference_ephys_link.rst
