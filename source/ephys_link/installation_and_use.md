@@ -1,4 +1,4 @@
-# Installation and Use
+# Ephys Link
 
 The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link)
 (or Ephys Link for short) is a Python WebSocket server that allows any

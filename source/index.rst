@@ -37,6 +37,7 @@ Please see the individual projects for installation instructions and documentati
    pinpoint/installation_and_use
    pinpoint/tutorial
    pinpoint/in_vivo_alignment
+   ephys_link/installation_and_use
 
 .. toctree::
    :hidden:
@@ -46,12 +47,6 @@ Please see the individual projects for installation instructions and documentati
    urchin/installation_and_use
    ibl/ibl_tools
 
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Ephys Link
-
-   ephys_link/installation_and_use
 
 .. toctree::
    :hidden:
@@ -67,6 +62,7 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 2
    :caption: Misc
 
+   misc/other.md
    misc/brain_atlas
    api_reference_urn.rst
    api_reference_ephys_link.rst
