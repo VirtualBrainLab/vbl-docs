@@ -53,19 +53,11 @@ Please see the individual projects for installation instructions and documentati
    :maxdepth: 3
    :caption: Development
 
+   misc/general
+   misc/brain_atlas
    pinpoint/development
    urchin/development
    ephys_link/development
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-   :caption: Misc
-
-   misc/other.md
-   misc/brain_atlas
-   api_reference_urn.rst
-   api_reference_ephys_link.rst
 
 .. toctree::
    :hidden:
@@ -75,3 +67,12 @@ Please see the individual projects for installation instructions and documentati
    about/overview
    about/vbl_manual
    about/contract_us
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: API Reference
+
+   api_reference_urn.rst
+   api_reference_ephys_link.rst
+

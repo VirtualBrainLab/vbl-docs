@@ -1,6 +1,16 @@
-# Unity
+# General
 
-## General tips
+## How to renew certificates
+
+Run `certbot renew --cert-name data.virtualbrainlab.org` on the data server.
+
+Copy the certificate and privkey files from `C:\Certbot\live\data.virtualbrainlab.org` to `C:\Apache24\conf\ssl`. The certificate should be named `server` and the private key `server.key`.
+
+Restart `Services > Apache2 > Restart`
+
+Confirm that the key propagated correctly.
+
+## Unity tips
 
 **Tutorials**
 
@@ -34,14 +44,10 @@ Addressable assets are an excellent way to reduce memory overhead in builds, but
 
 https://eater.net/quaternions
 
-### Networking (Unity Netcode for Gameobjects)
-
-The currently not-in-development education tools used a Server/Client architecture to stream information about the neural datasets. We set this up using Unity's Netcode for Gameobjects architecture. It's possible that in the future a better solution would be to use Addressables for this purpose.
-
-## WebGL limitations
+### WebGL limitations
 
 When developing new Unity tools you should be very careful about introducing new memory requirements or heavy GPU usage. WebGL has a frame rate limitation of about 60hz on most computers and a memory limitation of 2GB.
 
-## Troubleshooting
+### Troubleshooting
 
 If you see **null reference exceptions** when referring to editor-linked objects (either serialized or public) it's possible that you linked the *asset* and not the object in the scene.
