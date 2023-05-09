@@ -53,6 +53,12 @@ Selina is piloting new 2-photon integrations in Urchin.
 
 User Experience Engineer - International Brain Laboratory
 
+<image src="../_static/people/cyrille.jpg" alt="Cyrille Rossant" position="left" style="border-radius: 8px;width:20vh">
+
+**[Cyrille Rossant, PhD](https://cyrille.rossant.net/about/)**
+
+Scientific Programmer - International Brain Laboratory
+
 <image src="../_static/people/yoni.jpg" alt="Yoni Browning" position="left" style="border-radius: 8px;width:20vh">
 
 **[Yoni Browning, PhD](https://www.representations.space/)**
