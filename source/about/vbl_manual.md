@@ -38,15 +38,15 @@ Contact Dan Birman with inquiries/questions (dbirman@uw.edu).
 
 ### Undergraduate research at UW
 
-Joining the VBL as a student is an opportunity to build applied technology while developing your skills as a programmer. As a member of a cutting-edge neuroscience laboratory at UW you will also learn a lot of neuroscience along the way. We pay all undergraduate researchers who join the VBL. Beacuse of this, there are limited spaces available.
+Joining the VBL as a student is an opportunity to build applied technology while developing your skills as a programmer. As a member of a cutting-edge neuroscience laboratory at UW you will also learn a lot of neuroscience along the way. We pay all undergraduate researchers who join the VBL at UW. Beacuse of this, there are limited spaces available.
 
 ### Software devs / Researchers
 
-The VBL does not have independent funding to pay researchers (graduate students, postdocs, or software engineers). If you have your own funding or you are interested in working together to apply for funding please get in touch.
+The VBL does not have independent funding to pay researchers (graduate students, postdocs, or software engineers). If you are interested in volunteering, have your own funding, or you are interested in working together to apply for funding, please get in touch!
 
 ## Mentoring
 
-All members of the VBL are responsible for ensuring the lab is a healthy environment for building cool things, challenging ourselves, and growing as researchers and developers.
+All members of the VBL are responsible for ensuring the lab is a healthy environment for building powerful tools, challenging ourselves, and growing as researchers and developers.
 
 Every member of the lab is expected to complete an individual development plan twice a year (every quarter for undergraduates). The IDP is a structured feedback process, designed to help identify both the achievements and challenges of the last year/quarter. The process has four steps: first, a self-reflection where you look back on your past goals and achievements and plan for the next period, second, a mentor-reflection where you receive external perspective as written comments, third, a one-on-one conversation about the whole document, and finally, a brief summary that you make to the lab. Both private and public IDP files are stored in Github repositories on the lab account. 
 
@@ -62,7 +62,7 @@ If you are working on a single project, expect to spend about 75% of your time w
 
 ### Software
 
-Our main job is to develop software. Usually, these will be interactive 3D experiences for neuroscience data exploration. We primarily build in Unity, because it handles 3D interactions for us and simplifies the deployment process. We also often write code in Python and Javascript. All our code is shared open-source on [the lab github page](https://github.com/VirtualBrainLab/). 
+Our main job is to develop software. Usually, these will be interactive 3D experiences for neuroscience data exploration. We primarily build in Unity, because it handles 3D interactions for us and simplifies the deployment process. We also often write code in Python and Javascript. All our code is shared open-source on [the lab github page](https://github.com/VirtualBrainLab/).
 
 ### Collaboration
 
@@ -70,13 +70,13 @@ Each week you should expect to meet with your colleagues on your project to prov
 
 In addition to these in-person meetings, we use these documentation pages, email, Slack, and Github to communicate. In rough order from best to least preferred:
 
- * **Documentation**: public-facing explanations of features, including instructions for developers
- * **In-person/zoom**: for short private meetings and pair coding
- * **Github issues**: for to-do items. Use Projects to create filtered personal to-do lists
- * **Email**: for long-form private discussions where people need more time to think through their plans
- * **Slack**: use with caution, make sure to set your away hours and keep most channels muted. Always make replies in threads
+* **Documentation**: public-facing explanations of features, including instructions for developers
+* **In-person/zoom**: for short private meetings and pair coding
+* **Github issues**: for to-do items. Use Projects to create filtered personal to-do lists
+* **Email**: for long-form private discussions where people need more time to think through their plans
+* **Slack**: use with caution, make sure to set your away hours and keep most channels muted. Always make replies in threads
 
-It's easiest to always reach for Slack, but it's rarely the right way to communicate about something. Slack is hard to search and most conversations are private; once a thread gets dropped you may struggle to find it again later. 
+It's easiest to always reach for Slack, but it's rarely the right way to communicate about something. Slack is hard to search and most conversations are private; once a thread gets dropped you may struggle to find it again later.
 
 ### Documentation
 
@@ -91,16 +91,18 @@ Documentation does not replace good coding style. Your classes, variables, and f
 | C# | PascalCase | PascalCase | _camelCase | PascalCase | camelCase |
 | Python | PascalCase | snake_case | snake_case | snake_case | snake_case |
 
- * **Static variables**: should start with the prefix `s_` 
- * **Constants**: SCREAMING_SNAKE_CASE
+* **Static variables**: should start with the prefix `s_` 
+* **Constants**: SCREAMING_SNAKE_CASE
 
 #### Best practices
 
-To make our code easily understandable we follow a few best practices in Unity development. We use **static instances**, **UnityEvents**, and a three-level **code hierarchy**. Best to get an in-person tutorial on these concepts. 
+To make our code easily understandable we follow a few best practices in Unity development. We use **static instances**, **UnityEvents**, and a three-level **code hierarchy**. Best to get an in-person tutorial on these concepts.
 
 ### Deployment
 
-We deploy all of our tools to Windows desktop and WebGL, at a minimum. It's not hard to deploy to linux as well, MacOS is more complicated. Use [semantic versioning](https://semver.org/) to track releases. Releases are permanent. In addition, keep in mind that we have a responsibility to maintain released code. Once you release a v1.0.0 release, you are expected to maintain backward compatibility in future releases until you move to the next major version. 
+We deploy all of our tools to Windows desktop and WebGL, at a minimum. It's not hard to deploy to Linux as well, MacOS is more complicated. Use [semantic versioning](https://semver.org/) to track releases.
+
+Releases are permanent. In addition, keep in mind that we have a responsibility to maintain released code. Once you release a v1.0.0 release, you are expected to maintain backward compatibility in future releases until you move to the next major version.
 
 ### Papers
 
