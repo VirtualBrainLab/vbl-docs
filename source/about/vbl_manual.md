@@ -4,13 +4,17 @@ This is the public lab book for the Virtual Brain Lab. We are part of the Steinm
 
 ## Values
 
-The Virtual Brain Lab's goal is to make neuroscience *more accessible*, by developing *open-source* research tools that *benefit researchers and the public*.
+The Virtual Brain Lab's goal is to develop powerful *open-source* visualization tools that make neuroscience *more accessible* and that *benefit researchers and the public*.
 
-#### Accessibility
+### Visualization tools
 
-Medical and biological science has historically benefited a small group of people. Science *continues* to marginalize women and people of color, as well as the public. One of the ways in which this happens is by making experimental tools and knowledge inaccessible to people who haven't had the right experiences or training. Our goal is to develop tools that make neuroscience available to all.  
+We develop interactive 2D and 3D visualization tools that help neuroscientists plan, perform, and analyze complex electrophysiology and neuroimaging experiments.
 
-#### Open-source & public benefit
+### Accessibility
+
+Medical and biological science has historically benefited a small group of people. Science *continues* to marginalize women and people of color, as well as the public. Our goal is to develop tools that help make neuroscience available to all.
+
+### Open-source & public benefit
 
 It is our responsibility to ensure that the tools we build can be reused and built upon by future researchers. This is more than just a responsibility to share our code -- it's the responsibility to make sure we are building tools that are robust.
 
@@ -22,7 +26,7 @@ It is our responsibility to ensure that the tools we build can be reused and bui
 ### Guidelines
 
  1. **Work together**. Our group has diverse expertise and we are a collaborative environment, be intentional about relying on each other as resources.
- 2. **Plan ahead**. Draw pictures, make diagrams on a whiteboard, talk about your plans. Don't write code until you have a vision for your infrastructure!
+ 2. **Plan ahead**. Create to-do lists and roadmaps and use them.
  3. **Take breaks**. Often, the solution to a problem will come to you when you step away from your work. Take time to nap, go on walks, and eat lunch with your coworkers.
  4. **Resolve conflicts when they start**. Part of working together is resolving conflicts. Try starting with: "I noticed X, it's effect on me is Y, how can we work on that?".
  5. **Take your ideas seriously**. Nobody knows your project as well as you do, any advice or feedback you get from colleagues is just that. You choose what to do with it.  
@@ -82,7 +86,7 @@ It's easiest to always reach for Slack, but it's rarely the right way to communi
 
 If our tools aren't understandable, they aren't useful. If they can't be developed in the future, they aren't useful. Although we write papers to make our work citable and easily shareable, the documentation is the primary way we expect users to learn about and interact with our tools. For any public API, you are expected to document the code and add it to the API references. For any public tool, you are expected to make both written and video tutorials for any tool that you deploy. There is an art to building good tutorials, expect to iterate many times! For videos, you can use [OBS](https://obsproject.com/) to record your screen as you narrate.
 
-#### Code style 
+#### Code style
 
 Documentation does not replace good coding style. Your classes, variables, and functions should be named so that they are easily understandable and they should be written so that they do what they say they do. If a line of code can't be understood even in context, it should have a comment explaining its purpose.
 
@@ -91,7 +95,7 @@ Documentation does not replace good coding style. Your classes, variables, and f
 | C# | PascalCase | PascalCase | _camelCase | PascalCase | camelCase |
 | Python | PascalCase | snake_case | snake_case | snake_case | snake_case |
 
-* **Static variables**: should start with the prefix `s_` 
+* **Static variables**: should start with the prefix `s_`
 * **Constants**: SCREAMING_SNAKE_CASE
 
 #### Best practices
@@ -114,15 +118,17 @@ To keep our momentum and excitement about projects, we have to be intentional ab
 
 ## Funding
 
-Dan is happy to discuss the details of any of these grant applications with you at any time! Information about lab member grant applications is shared here with permission. You can access the final versions of any of these grants in the [lab drive](https://drive.google.com/drive/folders/1vhVtWFO8eRpVMmR5u4isGsgOycdBCEiK?usp=share_link). 
+Dan is happy to discuss the details of any of these grant applications with you at any time!
+
+Information about lab member grant applications is shared here with permission. You can access the final versions of these grants in the [lab drive](https://drive.google.com/drive/folders/1vhVtWFO8eRpVMmR5u4isGsgOycdBCEiK?usp=share_link).
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
 | SURFiN | JS  | 2023 | Pending | |
 | Heroku Open Source Credit Program | DB  | 2023 | Funded | $880 |
 | UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
-| NIH K99 Transition to Independence | DB | 2023 | Pending |  |
-| Neurohub fellowship | DB | 2023 | Pending |  |
+| NIH K99 Transition to Independence | DB | 2023 | Not funded |  |
+| Neurohub fellowship | DB | 2023 | Not funded (maybe? never heard back) |  |
 | UW Mary Gates Scholarship | KY  | 2022 | Not funded |  |
 | WRF Galas Award | DB | 2022 | Not funded |  |
 | NIH UE5-METER | DB | 2021 | Not funded |  |
