@@ -104,17 +104,14 @@ units. Pressing and holding a key moves continuously.
 
 ![probe controls](https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/ProbeControls.png)
 
-Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Z/X] to move the
-probe along the DV axis.
-
-USe [Q/E] to rotate the probe azimuth, which corresponds to the angle of the
-probe manipulator relative to the brain.
-
-Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
-0-90 deg range).
+Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
+probe along the DV axis and [Z/X] to move the probe along the depth axis.
 
 Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
 probes spin around shank 0 (the leftmost probe shank when looking from the front).
+
+Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
+0-90 deg range).
 
 Use [,/.] to roll the probe along its own axis.
 
