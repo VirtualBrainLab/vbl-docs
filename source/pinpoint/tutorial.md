@@ -110,11 +110,13 @@ probe along the DV axis.
 USe [Q/E] to rotate the probe azimuth, which corresponds to the angle of the
 probe manipulator relative to the brain.
 
-Use [R/F] to change the angle of the probe on the manipulator (restricted to
+Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
 0-90 deg range).
 
-Use [1/3] to spin the probe along the axis of the probe shank. Note that NP2.4
-probes spin around the leftmost probe shank when looking from the back.
+Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
+probes spin around shank 0 (the leftmost probe shank when looking from the front).
+
+Use [,/.] to roll the probe along its own axis.
 
 Probes can be deleted with [Backspace]. To recover a probe you didn't mean to
 delete press [CTRL + Backspace].
