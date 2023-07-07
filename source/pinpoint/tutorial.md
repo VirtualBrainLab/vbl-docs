@@ -102,7 +102,7 @@ You can also press the keyboard keys to move the probe along that axis in 10um
 units. Hold **SHIFT** to move in 100um units. Hold **CTRL** to move in 1um
 units. Pressing and holding a key moves continuously.
 
-![probe controls](https://github.com/dbirman/NPTrajectoryPlanner/raw/main/Images/ProbeControls.png)
+![probe controls](https://github.com/VirtualBrainLab/Pinpoint/raw/main/Images/ProbeControls.png)
 
 Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
 probe along the DV axis and [Z/X] to move the probe along the depth axis.
