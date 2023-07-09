@@ -99,8 +99,8 @@ The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
 ### Keyboard
 
 You can also press the keyboard keys to move the probe along that axis in 10um
-units. Hold **SHIFT** to move in 100um units. Hold **CTRL** to move in 1um
-units. Pressing and holding a key moves continuously.
+increments. Hold **SHIFT** to move in 100um units. Hold **SPACE** to move in 1000um increments. Hold **CTRL** to move in 1um
+increments. Pressing and holding a key moves continuously.
 
 ![probe controls](https://github.com/VirtualBrainLab/Pinpoint/raw/main/Images/ProbeControls.png)
 
