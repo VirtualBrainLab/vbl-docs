@@ -1,16 +1,61 @@
 # BrainAtlas
 
-The [BrainAtlas repository](https://github.com/VirtualBrainLab/BrainAtlas/) holds binary files and assets that are re-used across multiple projects. Loading these files is done through the `AddressablesRemoteLoader` component which can be attached to any empty GameObject.
+The [BrainAtlas repository](https://github.com/VirtualBrainLab/BrainAtlas/) is a package which wraps the BrainGlobe Atlas API into a package for easy use in Unity.
 
-## Adding a new file
+## Data pipeline
 
-### Setting up the asset
+BrainAtlas implements a Python pipeline which converts the bg-atlas API files into a convenient format for ingesting into Unity. The pipeline downloads and organizes the raw data into the /Pipelines/data/ folder for each available atlas.
 
-You can add a new file by importing it into the project and marking it as Addressable in the inspector. The file will be assigned a string for access, which you will need to use when loading the file in the remote loader. Set the group settings appropriately so that the file loads as part of an existing or new bundle.
+Note that the data pipeline can take a long time to run, as it downloads each atlas locally.
 
-Make sure to set the "load separately" flag if your bundle contains multiple assets that need to be separated.
+### Raw data
 
-In the remote loader you will then need to add a function so that other projects can access the file. Use the existing examples as a template.
+- Reference image: .npy file with the flattened data from the reference image, in uint16 format
+- Annotation image: .npy file with the flattened data from the annotation image, in uint32 format
+- Brain region: .csv file with information about each brain region, its mesh file
+
+### Mesh splitting
+
+A Blender script `convert_to_one_sided.blend` exists to load each individual mesh file and split it in half to expose just the left hemisphere. 
+
+### Processed files
+
+In the Unity project, an editor script Convert2Unity implements a conversion pipeline to import the raw data into Unity and convert them to prefabs. There are two separate pipelines that get run, first converting the reference and annotation images and then converting the brain region metadata and mesh files.
+
+The final output of this process are the prefab files that can be loaded via the BrainAtlasRemoteLoader component.
+
+- Reference image: Texture3D RGB24
+- Annotation image: Texture3D R16?, note that R=0 is reserved for regions with no annotation
+- BrainAtlas prefab: Prefab that represents the CoordinateSpace and Transform
+
+## BrainAtlasRemoteLoader
+
+After installing the Unity package into a new project, you'll need to import the BrainAtlas prefab to be able to use the available features. Note that all of the loading functions are asynchronous
+
+### Load an Atlas
+
+Call the `BrainAtlas.LoadAtlas` function to load a single atlas. This loads the prefab for the atlas Space and any available Transforms into the scene and loads the ontology.
+
+### Load an Annotation or Reference texture
+
+Call the `BrainAtlas.LoadTexture` functions to obtain the Texture3D objects for this atlas.
+
+### Load a Region
+
+Call the `BrainAtlas.LoadRegion` to bring a single region into the scene. Note that there are three copies of every region, Full (both hemispheres), Left, and Right. 
+
+## Development
+
+### Adding new atlases
+
+The pipeline should run for all existing bg-atlas atlases. 
+
+### Under-the-hood for Pipelines
+
+Pipeline steps:
+
+1. ?
+2. ?
 
 ### Building new bundles
 
