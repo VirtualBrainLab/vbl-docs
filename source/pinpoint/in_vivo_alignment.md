@@ -16,9 +16,9 @@ If you prefer to plan your trajectories in the CCF space without a transformatio
 
 Coming soon...
 
-### Toronto MRI transform
+### Qiu 2018 transform
 
-The Toronto MRI transform is based on an average MRI image from 12 p65 C57BL/6j mice that were alive at the time of scanning. The MRI volume was aligned to the CCF to estimate the warping function. The result was:
+The Qiu 2018 transform is based on an average MRI image from 12 p65 C57BL/6j mice that were alive at the time of scanning. The MRI volume was aligned to the CCF to estimate the warping function. The result was:
 
 `in vivo = (1.031 * ap, 0.952 * ml, 0.885* dv)`
 
@@ -26,21 +26,21 @@ We also know from the IBL reproducible ephys paper that the CCF atlas is pitched
 
 `in vivo (yaw,pitch,spin) = (+0, -5, +0)`
 
-Please see [the MRI paper](https://www.nature.com/articles/s41467-018-04921-2) and the [reproducible ephys paper](https://www.biorxiv.org/content/10.1101/2022.05.09.491042v3) for additional details.
+Please see [Qiu 2018](https://www.nature.com/articles/s41467-018-04921-2) and the [reproducible ephys paper](https://www.biorxiv.org/content/10.1101/2022.05.09.491042v3) for additional details.
 
-### Needles transform
+### Dorr 2008 transform
 
-The Needles atlas transform is based on average MRI image from 40 p84 mice taken post-mortem but still in the skull. The result was:
+The Door 2008 atlas transform is based on average MRI image from 40 p84 mice taken post-mortem but still in the skull. The result was:
 
 `in vivo = (1.087 * ap, 1.000 * ml, 0.952 * dv)`
 
 `in vivo (yaw,pitch,spin) = (+0, -5, +0)`
 
-Please see [the MRI paper](https://pubmed.ncbi.nlm.nih.gov/18502665/) for details.
+Please see [Dorr 2008](https://pubmed.ncbi.nlm.nih.gov/18502665/) for details.
 
-### IBL Needles transform
+### IBL Dorr transform
 
-The IBL Needles atlas is the same transform without the pitch rotation. It is only included for legacy purposes and is not recommended.
+The IBL Dorr 2008 is the same transform without the pitch rotation. It is only included for legacy purposes and is not recommended.
 
 ## Non-Linear Transforms
 
