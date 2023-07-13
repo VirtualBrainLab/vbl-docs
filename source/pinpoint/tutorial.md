@@ -211,7 +211,6 @@ on how to install and run a server.
 
 ### Connecting to a server
 
-<!-- TODO: Update to latest version of ephys link -->
 ![Connecting to Ephys Link](../_static/images/Ephys-Link-connection.png)
 
 1. Press \[H\] to open the settings menu
@@ -225,7 +224,6 @@ on how to install and run a server.
 
 ### Linking a probe in the planner to a manipulator _in vivo_
 
-<!-- TODO: Update to latest version of ephys link -->
 ![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
@@ -252,6 +250,12 @@ on how to install and run a server.
    probes in the planner around.
     1. Manipulators can also be driven back to their zero coordinate.
 10. Press \[H\] again to close the settings menu.
+
+### Enabling experiment automation (Ephys Copilot)
+
+Automation is currently a beta feature that is still in development.
+Please [contact](https://virtualbrainlab.org/about/overview.html) Dan or Kenneth
+if you would like to try it out.
 
 ## Account
 
