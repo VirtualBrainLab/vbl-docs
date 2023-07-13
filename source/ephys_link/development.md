@@ -13,7 +13,8 @@ extensibility:
 
 ### 1. The Server
 
-At its core, Ephys Link is a Python-based WebSocket server that is used to communicate
+At its core, Ephys Link is a Python-based WebSocket server that is used to
+communicate
 between client applications and manipulator platforms. The server declares a
 standardized set of websocket events that clients can call to enact platform
 specific manipulator API calls. All events, their inputs, and return values are
@@ -198,7 +199,7 @@ callback will return a list of the available manipulators.
 
 **Expected Arguments:** None
 
-**Callback Responses Format:** `(manipulators: list[int], error: string)`
+**Callback Responses Format:** `(manipulators: list[str], error: string)`
 
 | Error message (`error: string`) | Description                                                                |
 |---------------------------------|----------------------------------------------------------------------------|
@@ -226,7 +227,7 @@ one such platform.
 
 **Expected Arguments:**
 
-- Manipulator ID: `int`
+- Manipulator ID: `str`
 
 **Callback Responses Format:** `string`
 
@@ -240,8 +241,8 @@ one such platform.
 #### Example
 
 ```python
-# Register manipulator with ID 1
-ws.emit('register_manipulator', 1, callback=my_callback_func)
+# Register manipulator with ID "1"
+ws.emit('register_manipulator', "1", callback=my_callback_func)
 ```
 
 (unregistering-a-manipulator)=
@@ -255,7 +256,7 @@ unregistering it.
 
 **Expected Arguments:**
 
-- Manipulator ID: `int`
+- Manipulator ID: `str`
 
 **Callback Responses Format:** `string`
 
@@ -268,8 +269,8 @@ unregistering it.
 #### Example
 
 ```python
-# Unregister manipulator with ID 1
-ws.emit('unregister_manipulator', 1, callback=my_callback_func)
+# Unregister manipulator with ID "1"
+ws.emit('unregister_manipulator', "1", callback=my_callback_func)
 ```
 
 (calibrating-a-manipulator)=
@@ -286,7 +287,7 @@ the [bypass calibration](bypassing-calibration) event.
 
 **Expected Arguments:**
 
-- Manipulator ID: `int`
+- Manipulator ID: `str`
 
 **Callback Responses Format:** `string`
 
@@ -300,8 +301,8 @@ the [bypass calibration](bypassing-calibration) event.
 #### Example
 
 ```python
-# Calibrate manipulator 1
-ws.emit('calibrate', 1, callback=my_callback_func)
+# Calibrate manipulator "1"
+ws.emit('calibrate', "1", callback=my_callback_func)
 ```
 
 (bypassing-calibration)=
@@ -314,7 +315,7 @@ The calibration requirement may be bypassed by sending this event.
 
 **Expected Arguments:**
 
-- Manipulator ID: `int`
+- Manipulator ID: `str`
 
 **Callback Responses Format:** `string`:
 
@@ -327,8 +328,8 @@ The calibration requirement may be bypassed by sending this event.
 #### Example
 
 ```python
-# Bypass calibration for manipulator 1
-ws.emit('bypass_calibration', 1, callback=my_callback_func)
+# Bypass calibration for manipulator "1"
+ws.emit('bypass_calibration', "1", callback=my_callback_func)
 ```
 
 (enable-movement)=
@@ -345,7 +346,7 @@ the manipulator which can no longer write as the payload.
 
 **Expected Arguments (dictionary/object with the following format):**
 
-- `manipulator_id`: `int`
+- `manipulator_id`: `str`
 - `can_write`: `bool`
 - `hours`: `float`
 
@@ -364,14 +365,14 @@ the manipulator which can no longer write as the payload.
 
 **Response Event:** `write_disabled` (sent when the write lease has expired)
 
-**Payload:** `manipulator_id`: `int`
+**Payload:** `manipulator_id`: `str`
 
 #### Example
 
 ```python
 # Enable movement for manipulator 1 indefinitely (0 = indefinite hours)
 ws.emit('set_can_write', {
-    'manipulator_id': 1,
+    'manipulator_id': "1",
     'can_write': True,
     'hours': 0
 })
@@ -388,7 +389,7 @@ the origin.
 
 **Expected Arguments:**
 
-- Manipulator ID: `int`
+- Manipulator ID: `str`
 
 **Callback Responses Format:** `(position: array, error: string)`
 
@@ -403,8 +404,8 @@ the origin.
   request or if an error occurred
 
 ```python
-# Gets the position of manipulator 1
-ws.emit('get_pos', 1, callback=my_callback_func)
+# Gets the position of manipulator "1"
+ws.emit('get_pos', "1", callback=my_callback_func)
 ```
 
 (set-position-of-a-manipulator)=
@@ -427,7 +428,7 @@ using [`drive_to_depth`](drive-to-depth)
 
 **Expected Arguments (dictionary/object with the following format):**
 
-- `manipulator_id`: `int`
+- `manipulator_id`: `str`
 - `pos`: `float[4]` (in x, y, z, w as mm from the origin)
 - `speed`: `int` (in µm/s)
 
@@ -447,9 +448,9 @@ using [`drive_to_depth`](drive-to-depth)
   request or if an error occurred
 
 ```python
-# Set manipulator 1 to position 0, 0, 0, 0 at 2000 µm/s
+# Set manipulator "1" to position 0, 0, 0, 0 at 2000 µm/s
 ws.emit('goto_pos', {
-    'manipulator_id': 1,
+    'manipulator_id': "1",
     'pos': [0, 0, 0, 0],
     'speed': 2000
 })
@@ -468,7 +469,7 @@ except the depth axis is moving during a movement call.
 
 **Expected Arguments (dictionary/object with the following format):**
 
-- `manipulator_id`: `int`
+- `manipulator_id`: `str`
 - `depth`: `float` (in mm from the origin)
 - `speed`: `int` (in µm/s)
 
@@ -487,9 +488,9 @@ except the depth axis is moving during a movement call.
 #### Example
 
 ```python
-# Drive manipulator 1 to a depth of 1000 µm at 2000 µm/s
+# Drive manipulator "1" to a depth of 1000 µm at 2000 µm/s
 ws.emit('drive_to_depth', {
-    'manipulator_id': 1,
+    'manipulator_id': "1",
     'depth': 1000,
     'speed': 2000
 })
@@ -507,7 +508,7 @@ accidental lateral movement while inside brain tissue.
 
 **Expected Arguments (dictionary/object with the following format):**
 
-- `manipulator_id`: `int`
+- `manipulator_id`: `str`
 - `inside`: `bool`
 
 **Callback Responses `(state: bool, error: string)`**
@@ -524,9 +525,9 @@ accidental lateral movement while inside brain tissue.
 #### Example
 
 ```python
-# Set manipulator 1 to be inside the brain
+# Set manipulator "1" to be inside the brain
 ws.emit('inside_brain', {
-    'manipulator_id': 1,
+    'manipulator_id': "1",
     'inside': True
 })
 ```

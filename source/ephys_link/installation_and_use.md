@@ -46,7 +46,7 @@ will not work with the web browser versions of Pinpoint at this time.
 Run the following command to install the server:
 
 ```bash
-pip install --use-pep517 ephys-link
+pip install ephys-link
 ```
 
 ## Usage
@@ -65,13 +65,12 @@ Default settings:
 
 All options can be viewed with `python -m ephys_link --help`.
 
-| Option                            | Input                                   | Default     | Description                                                    |
-|-----------------------------------|-----------------------------------------|-------------|----------------------------------------------------------------|
-| `-h, --help`                      |                                         |             | Show help message and options                                  |
-| `-t TYPE, --type TYPE`            | `sensapex` or `new_scale`               | `sensapex`  | Select manipulator type                                        |
-| `-p PORT, --port PORT`            | Valid HTTP port number                  | `8081`      | HTTP port to serve on                                          |
-| `--new-scale-port NEW_SCALE_PORT` | Valid HTTP port number                  | `8080`      | New Scale HTTP server port (deprecating soon)                  |
-| `-s [SERIAL], --serial [SERIAL]`  | Serial port name (i.e. `COM3`) or empty | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
-| `-d, --debug`                     |                                         |             | Enable verbose logging for debugging                           |
-| `-g, --gui`                       |                                         |             | Experimental GUI for server                                    |
-| `--version`                       |                                         |             | Version number of server                                       |
+| Option                           | Input                                   | Default     | Description                                                    |
+|----------------------------------|-----------------------------------------|-------------|----------------------------------------------------------------|
+| `-h, --help`                     |                                         |             | Show help message and options                                  |
+| `-t TYPE, --type TYPE`           | `sensapex` or `new_scale`               | `sensapex`  | Select manipulator type                                        |
+| `-p PORT, --port PORT`           | Valid HTTP port number                  | `8081`      | HTTP port to serve on                                          |
+| `-s [SERIAL], --serial [SERIAL]` | Serial port name (i.e. `COM3`) or empty | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
+| `-d, --debug`                    |                                         |             | Enable verbose logging for debugging                           |
+| `-g, --gui`                      |                                         |             | Experimental GUI for server                                    |
+| `--version`                      |                                         |             | Version number of server                                       |
