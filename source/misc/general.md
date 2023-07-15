@@ -20,7 +20,7 @@ Brackeys has a great high quality introductory sequence: [start here](https://ww
 
 ### Version and packages
 
-The majority of our code relies only on the base Unity environment. We are currently (2022-08) on Unity Editor version 2021.3 LTS.
+The majority of our code relies only on the base Unity environment. We are currently (2023-07) on Unity Editor version 2022.3.4f1 LTS.
 
 Below are a list of all the major packages we use with a short explanation for their use.
 
