@@ -55,6 +55,4 @@ Mouse brain artwork from [Scidraw](https://scidraw.io/drawing/286)
 
 ## Citing
 
-<a href="https://doi.org/10.5281/zenodo.7312786"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7312786.svg" alt="DOI"></a>
-
-Your citations are critical for making it possible to get grant funding for Pinpoint in the future.
+A preprint describing Pinpoint has been [published on bioRxiv](https://www.biorxiv.org/content/10.1101/2023.07.14.548952). The paper provides an introduction to the key features and it can be used as a citation if Pinpoint proves integral to a scientific publication.
