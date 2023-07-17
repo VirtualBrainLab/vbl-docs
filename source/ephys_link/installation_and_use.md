@@ -53,9 +53,10 @@ pip install ephys-link
 
 To start the server with the default settings, run `python -m ephys_link`.
 
-Default settings:
+Default configuration:
 
-- Configured for Sensapex manipulators
+- Configured for Sensapex manipulators (add `-t new_scale` to use New Scale
+  Manipulators; MPM software is _not_ required)
 - Broadcasts on port 8081
 - No emergency stop button
 - No GUI
