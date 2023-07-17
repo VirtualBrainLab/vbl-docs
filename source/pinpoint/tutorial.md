@@ -246,8 +246,9 @@ on how to install and run a server.
    tip to the brain surface. This offset can be determined as the distance from
    the tip to the brain surface along the DV axis or the probe's depth axis.
 9. Manual control of the manipulators can be enabled here. This allows
-   manipulators to be controlled with the same keyboard shortcuts used to move
-   probes in the planner around.
+   manipulators to be controlled with
+   the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
+   used to move probes in the planner around.
     1. Manipulators can also be driven back to their zero coordinate.
 10. Press \[H\] again to close the settings menu.
 
