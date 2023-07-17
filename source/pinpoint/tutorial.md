@@ -235,8 +235,9 @@ on how to install and run a server.
 5. Use the dropdown to configure the manipulator's handedness.
     1. Handedness determines the orientation of the manipulator and which
        direction it moves. Handedness is determined by which side of the
-       manipulator the probe will be mounted on. Currently, **only the 4-axis
-       Sensapex manipulators (uMp-4) need to be disambiguated**.
+       manipulator the probe will be mounted on. Ephys Link will attempt to
+       automatically detect and configure manipulators. Currently, **only the
+       4-axis Sensapex manipulators (uMp-4) need to be disambiguated.**.
     2. ![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
 6. Use the dropdown to select a probe to link to this manipulator. Probes are
    identified by their unique ID (UUID) and their color in the scene.
