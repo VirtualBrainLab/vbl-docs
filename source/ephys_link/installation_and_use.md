@@ -37,7 +37,7 @@ will not work with the web browser versions of Pinpoint at this time.
 ### Install
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
-<b>Using a python virtual environment is encouraged.</b>
+<b>Using a Python virtual environment is encouraged.</b>
 <p>Create a virtual environment by running <code>python -m venv ephys_link</code></p>
 <p>Activate the environment by running <code>.\ephys_link\scripts\activate</code></p>
 <p>A virtual environment helps to isolate installed packages from other packages on your computer and ensures a clean installation of Ephys Link</p>
@@ -56,7 +56,7 @@ pip install ephys-link
 | Sensapex             | `python -m ephys_link`              |
 | New Scale            | `python -m ephys_link -t new_scale` |
 
-By default the server will broadcast with its local IP address on port 8081.
+By default, the server will broadcast with its local IP address on port 8081.
 **Copy this information into Pinpoint to connect**.
 
 For example, if the server is running on the same computer that Pinpoint is, use
