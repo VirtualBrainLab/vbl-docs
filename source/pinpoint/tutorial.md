@@ -237,13 +237,10 @@ on how to install and run a server.
 2. Press \[H\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
-5. Use the dropdown to configure the manipulator's handedness.
-    1. Handedness determines the orientation of the manipulator and which
-       direction it moves. Handedness is determined by which side of the
-       manipulator the probe will be mounted on. Ephys Link will attempt to
-       automatically detect and configure manipulators. Currently, **only the
-       4-axis Sensapex manipulators (uMp-4) need to be disambiguated.**.
-    2. ![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
+5. Use the dropdown to configure the manipulator's handedness. Currently (July
+   2023), configuration is necessary for Sensapex uMp manipulators only.
+   Configuration is hidden for New Scale manipulators. See the section below for
+   more information.
 6. Use the dropdown to select a probe to link to this manipulator. Probes are
    identified by their unique ID (UUID) and their color in the scene.
 7. Upon connection, the probe's stereotaxic position will be used as the zero
@@ -257,9 +254,21 @@ on how to install and run a server.
 9. Manual control of the manipulators can be enabled here. This allows
    manipulators to be controlled with
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
-   used to move probes in the planner around.
-    1. Manipulators can also be driven back to their zero coordinate.
+   used to move probes in the planner around. Manipulators can also be driven
+   back to their zero coordinate.
 10. Press \[H\] again to close the settings menu.
+
+#### Sensapex Handedness
+
+Handedness determines the orientation of the manipulator and which
+direction it moves. Handedness is classified by which side of the
+manipulator the probe will be mounted on. Ephys Link will use this to correctly
+orient the manipulator's direction.
+
+Below is a diagram of the handedness of Sensapex manipulators. Use this to
+determine the handedness of your manipulator.
+
+![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
 
 ### Enabling experiment automation (Ephys Copilot)
 
@@ -269,7 +278,9 @@ if you would like to try it out.
 
 ## Account
 
-The Accounts tab in the settings allows you to save insertions across computers. Insertions are stored in experiments. One insertion can be shared across multiple experiments. 
+The Accounts tab in the settings allows you to save insertions across computers.
+Insertions are stored in experiments. One insertion can be shared across
+multiple experiments.
 
 ![Connect a probe to a manipulator](../_static/images/tutorial/accounts.png)
 
