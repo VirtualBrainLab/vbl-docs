@@ -190,6 +190,31 @@ sub-menus.
 </div>
 <br>
 
+## API
+
+Pinpoint can send anatomical data about probes in the scene to the Open Ephys GUI and SpikeGLX during experiments. This is an independent feature from the electrophysiology link features (below) and they can be used together, or separately. The API sends updated anatomy data only every 10 seconds.
+
+To stream the channel data to Open Ephys, follow these instructions:
+
+1. Launch Open Ephys and connect to or simulate a probe.
+2. Enable the server features in Open Ephys (in the File menu), note the server IP and port
+3. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+4. Make sure the IP address and port match the server information in Open Ephys
+5. Toggle the API on
+6. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
+7. Within 10 seconds, you should see an update to the anatomy data in Open Ephys
+
+For SpikeGLX, follow these instructions:
+
+1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
+2. Launch SpikeGLX and start a new acquisition, using existing data or a live probe
+3. Enable the SpikeGLX API
+4. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+5. Make sure the location of the HelloSGLX file is accurate
+6. Toggle the API on
+7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
+8. Within 10 seconds, you should see an update to the anatomy data in SpikeGLX
+
 ## Ephys Link
 
 Pinpoint can be connected to electrophysiology manipulators
