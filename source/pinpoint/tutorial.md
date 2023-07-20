@@ -27,9 +27,7 @@ specific use case.
 <image src="../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
 
 Pinpoint presents you with an interactive 3D scene where you can plan and test
-different probe insertion trajectories. The scene view shows the mouse brain **(
-1)** composed of 3D models built from the Allen Common Coordinate Framework
-annotations and **(2)** the probe 3D model, showing in white the active
+different probe insertion trajectories. The scene view shows the mouse brain **(1)** composed of 3D models built from the Allen Common Coordinate Framework annotations and **(2)** the probe 3D model, showing in white the active
 recording region. The scene view and probe can be rotated and moved by clicking
 and dragging with your mouse, see the section titled *Controls*, below. **(3)**
 The rotation gizmo helps you understand the orientation of the brain, with
