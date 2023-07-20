@@ -17,13 +17,13 @@ Please see the individual projects for installation instructions and documentati
 
 Washington Research Foundation Postdoctoral Fellow
 
-Dan maintains the core tools in the VBL including Pinpoint, Urchin, and the IBL Average Trial.
+Dan maintains the core tools in the VBL.
 
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
-Undergraduate Researcher (UW 2025)
+Undergraduate Researcher (Mary Gates Scholar, UW 2025)
 
 Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoint.
 
@@ -31,7 +31,7 @@ Kenneth is building the Electrophysiology Manipulator Link software, allowing yo
 
 **Jasmine Schoch**
 
-Undergraduate Researcher (UW 2025)
+Undergraduate Researcher (SURFiN Fellow, UW 2025)
 
 Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
 
@@ -83,7 +83,7 @@ Kai built the [codebase](github.com/int-brain-lab/ibl-avg-trial-viz) for the IBL
 
 Undergraduate Researcher (UW 2023)
 
-Qiqi developed visualizations for the IBL, you can see these on the IBL [public data website](viz.internationalbrainlab.org).
+Qiqi developed visualizations for the IBL.
 
 ## Funding
 
