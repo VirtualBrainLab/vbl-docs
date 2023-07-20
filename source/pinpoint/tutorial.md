@@ -9,12 +9,9 @@ Press [H] at any time to open the help and settings menu.
 
 ## Plan an insertion in six minutes
 
-If you want the quick introduction to Pinpoint, this video will get you all the
-critical
-information for planning your first recording. The rest of the tutorial sections
-go deeper
-into each topic and explain some of the hidden settings that you can tweak to
-make Pinpoint work for your
+If you want the quick introduction to Pinpoint, this video will get you all the critical
+information for planning your first recording. The rest of the tutorial sections go deeper
+into each topic and explain some of the hidden settings that you can tweak to make Pinpoint work for your
 specific use case.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -63,23 +60,13 @@ insertion. See the surgery section for a few important details.
 
 <image src="../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
 
-The quick settings panel provides easy access to the information about the
-active probe in the scene. Using the panel you can tweak the entry coordinate by
-changing the AP/ML/DV position data or change the insertion depth. You can also
-adjust the insertion angles.
+The quick settings panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
 
-The three buttons on the top right **lock** the probe (preventing accidental
-keyboard or mouse movements), **duplicate** the probe in the scene, and *
-*download** the probe data to the clipboard. You can paste the copied data into
-any text editor.
+The three buttons on the top right **lock** the probe (preventing accidental keyboard or mouse movements), **duplicate** the probe in the scene, and **download** the probe data to the clipboard. You can paste the copied data into any text editor.
 
-The bottom row has the **Accounts dropdown** where you can choose which
-experiments this probe is saved in, as well as the **snap to dura** button and *
-*home** button.
+The bottom row has the **Accounts dropdown** where you can choose which experiments this probe is saved in, as well as the **snap to dura** button and **home** button.
 
-The home button moves the probe back to the current reference coordinate (
-defined in the Atlas settings). The snap to dura button snaps the probe back to
-the surface of the brain, moving only along the depth axis.
+The home button moves the probe back to the current reference coordinate (defined in the Atlas settings). The snap to dura button snaps the probe back to the surface of the brain, moving only along the depth axis. 
 
 ## Camera controls
 
@@ -100,22 +87,17 @@ the surface of the brain, moving only along the depth axis.
 To control your probe with mouse clicks and dragging:
 
 1. Left-click and hold on the probe object
-2. Press and release any of the axis keys on your keyboard, the axis should
-   become visible in the 3D scene
+2. Press and release any of the axis keys on your keyboard, the axis should become visible in the 3D scene
 3. Continue holding the mouse and drag the probe along that axis.
 
-The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
-Note that in some views it may be hard to drag along a particular axis (e.g. in
-the default axial view you can't drag a probe along the DV axis, because the
-axis is not visible).
+The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth. Note that in some views it may be hard to drag along a particular axis (e.g. in the default axial view you can't drag a probe along the DV axis, because the axis is not visible).
 
 <image src="../_static/images/tutorial/controls.png" alt="overview image" position="left" style="width:100%">
 
 ### Keyboard
 
 You can also press the keyboard keys to move the probe along that axis in 10um
-increments. Hold **SHIFT** to move in 100um units. Hold **SPACE** to move in
-1000um increments. Hold **CTRL** to move in 1um
+increments. Hold **SHIFT** to move in 100um units. Hold **SPACE** to move in 1000um increments. Hold **CTRL** to move in 1um
 increments. Pressing and holding a key moves continuously.
 
 ![probe controls](https://github.com/VirtualBrainLab/Pinpoint/raw/main/Images/ProbeControls.png)
@@ -124,11 +106,9 @@ Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
 probe along the DV axis and [Z/X] to move the probe along the depth axis.
 
 Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
-probes spin around shank 0 (the leftmost probe shank when looking from the
-front).
+probes spin around shank 0 (the leftmost probe shank when looking from the front).
 
-Use [R/F] to change the pitch angle of the probe on the manipulator (restricted
-to
+Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
 0-90 deg range).
 
 Use [,/.] to roll the probe along its own axis.
@@ -255,13 +235,10 @@ on how to install and run a server.
 2. Press \[H\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
-5. Use the dropdown to configure the manipulator's handedness.
-    1. Handedness determines the orientation of the manipulator and which
-       direction it moves. Handedness is determined by which side of the
-       manipulator the probe will be mounted on. Ephys Link will attempt to
-       automatically detect and configure manipulators. Currently, **only the
-       4-axis Sensapex manipulators (uMp-4) need to be disambiguated.**.
-    2. ![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
+5. Use the dropdown to configure the manipulator's handedness. Currently (July
+   2023), configuration is necessary for Sensapex uMp manipulators only.
+   Configuration is hidden for New Scale manipulators. See the section below for
+   more information.
 6. Use the dropdown to select a probe to link to this manipulator. Probes are
    identified by their unique ID (UUID) and their color in the scene.
 7. Upon connection, the probe's stereotaxic position will be used as the zero
@@ -275,9 +252,21 @@ on how to install and run a server.
 9. Manual control of the manipulators can be enabled here. This allows
    manipulators to be controlled with
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
-   used to move probes in the planner around.
-    1. Manipulators can also be driven back to their zero coordinate.
+   used to move probes in the planner around. Manipulators can also be driven
+   back to their zero coordinate.
 10. Press \[H\] again to close the settings menu.
+
+#### Sensapex Handedness
+
+Handedness determines the orientation of the manipulator and which
+direction it moves. Handedness is classified by which side of the
+manipulator the probe will be mounted on. Ephys Link will use this to correctly
+orient the manipulator's direction.
+
+Below is a diagram of the handedness of Sensapex manipulators. Use this to
+determine the handedness of your manipulator.
+
+![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
 
 ### Enabling experiment automation (Ephys Copilot)
 
@@ -293,39 +282,18 @@ multiple experiments.
 
 ![Connect a probe to a manipulator](../_static/images/tutorial/accounts.png)
 
-1. Register a new account, we kindly ask that you use an email address so that
-   we can keep in touch about major updates to Pinpoint in the future. We won't
-   give away your email or send a message more than once or twice a year.
-2. Log in to your account by providing the username and password. Leave the "
-   stay logged in" toggle checked if you are on a private computer.
-3. Open the experiment edit panel to add and remove experiments and re-name
-   them. Experiments are just buckets, you can use them in any way you want: to
-   represent mice, to actually represent different experiments, to represent
-   differents sets of insertions targeting particular brain regions, etc.
-4. Select the current active experiment from the dropdown. This will change the
-   visible list of insertions below.
-5. The insertion list shows the insertions in the active experiment. You can
-   rename insertions, delete them from the experiment, and enable/disable them
-   in the 3D scene. Coming soon: we will add options to mark insertions as "
-   recorded" so that we can calculate coverage maps for experiments.
-6. Any time your local data is out-of-sync with the data stored on the server
-   the "unsaved changes" message will appear. If you are using Pinpoint in a
-   browser **please note that unsaved changes do not get saved if you exit the
-   browser**, the program auto-saves changes about once a minute. If you are
-   using Pinpoint in a desktop app, exiting will automatically save all changes.
+1. Register a new account, we kindly ask that you use an email address so that we can keep in touch about major updates to Pinpoint in the future. We won't give away your email or send a message more than once or twice a year.
+2. Log in to your account by providing the username and password. Leave the "stay logged in" toggle checked if you are on a private computer.
+3. Open the experiment edit panel to add and remove experiments and re-name them. Experiments are just buckets, you can use them in any way you want: to represent mice, to actually represent different experiments, to represent differents sets of insertions targeting particular brain regions, etc.
+4. Select the current active experiment from the dropdown. This will change the visible list of insertions below.
+5. The insertion list shows the insertions in the active experiment. You can rename insertions, delete them from the experiment, and enable/disable them in the 3D scene. Coming soon: we will add options to mark insertions as "recorded" so that we can calculate coverage maps for experiments.
+6. Any time your local data is out-of-sync with the data stored on the server the "unsaved changes" message will appear. If you are using Pinpoint in a browser **please note that unsaved changes do not get saved if you exit the browser**, the program auto-saves changes about once a minute. If you are using Pinpoint in a desktop app, exiting will automatically save all changes.
 
 ## Surgery
 
-To use your coordinates for a surgery, rotate the manipulator to match the
-azimuth angle (phi) and set the probe elevation angle (theta). Then move your
-probe tip to Bregma and zero your manipulator.
+To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle (phi) and set the probe elevation angle (theta). Then move your probe tip to Bregma and zero your manipulator.
 
-Translate your probe using the manipulator to match the AP/ML/DV brain surface
-coordinate provided by Pinpoint. If your probe is rotated off-axis use the *
-convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV
-position instead. Use caution! You may reach the brain surface before you reach
-the DV value specified by Pinpoint, don't break your probe!
+Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the * convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV position instead. Use caution! You may reach the brain surface before you reach the DV value specified by Pinpoint, don't break your probe!
 
-Once the probe is touching the dura, zero the depth axis and insert until you
-reach the specified depth.
+Once the probe is touching the dura, zero the depth axis and insert until you reach the specified depth.
 

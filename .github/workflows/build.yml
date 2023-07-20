@@ -26,7 +26,7 @@ jobs:
         cache: 'pip'
 
     - name: 📦 Install dependencies
-      run: pip install --use-pep517 -r requirements.txt
+      run: pip install -r requirements.txt
 
     - name: 🔨 Build
       run: make html
