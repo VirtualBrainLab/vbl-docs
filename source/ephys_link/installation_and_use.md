@@ -73,6 +73,9 @@ software (`-t new_scale_pathway`). The latter method is only available if Pathwa
 Ephys Link. New Scale manipulators should be connected to the Pathway software first and the HTTP server should be
 running.
 
+**Note:** Currently (July 2023), Ephys Copilot automation and manual control within Pinpoint is not supported when
+connected to New Scale via Pathway HTTP server Pinpoint is not supported. Only positional data can be queried.
+
 ### Options
 
 All options can be viewed with `python -m ephys_link --help`.
