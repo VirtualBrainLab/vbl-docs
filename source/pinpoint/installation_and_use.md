@@ -19,9 +19,9 @@ The easiest way to use Pinpoint is through our [web app](https://data.virtualbra
 
 ### Standalone builds
 
-Windows desktop builds are available on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases).
+Our recommended source for the latest Windows and Linux Desktop builds is through [Pinpoint on Steam](https://store.steampowered.com/app/2434260/Pinpoint/), downloading via Steam ensures your client will always stay up to date.
 
-Linux and Mac builds available on request.
+You can also find minor releases on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases)
 
 <!-- ### Additional linux instructions
 
@@ -44,14 +44,6 @@ If you encounter issues after an update, you may need to clear your browser's ca
 ## Bugs
 
 Please report issues on the [issues page](https://github.com/VirtualBrainLab/Pinpoint/issues).
-
-## References
-
-Inspired by Andy Peters' [trajectory explorer](https://github.com/petersaj/neuropixels_trajectory_explorer). 
-
-CCF Atlas downloaded from the [Allen data portal](http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/annotation/)
-
-Mouse brain artwork from [Scidraw](https://scidraw.io/drawing/286)
 
 ## Citing
 
