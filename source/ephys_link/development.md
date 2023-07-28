@@ -175,6 +175,7 @@ In general:
 
 **Table of Contents**
 
+- [Getting the server's version number](getting-version-number)
 - [Getting available manipulators](getting-manipulators)
 - [Registering a manipulator](registering-a-manipulator)
 - [Unregistering a manipulator](unregistering-a-manipulator)
@@ -186,6 +187,26 @@ In general:
 - [Set "inside brain" state of a manipulator](set-inside-brain)
 - [Enable movement](enable-movement)
 - [Emergency Stop](emergency-stop)
+
+(getting-version-number)=
+
+### Getting the server's version number
+
+It may be useful for the client to know the version number of the server. This can be used to make a quick compatibility
+check for features and platform availability.
+
+**Event:** `get_version`
+
+**Expected Arguments:** None
+
+**Callback Responses Format:** `version: string` (e.g. `'x.y.z'`)
+
+#### Example
+
+```python
+# Get server version number
+ws.emit('get_version', callback=my_callback_func)
+```
 
 (getting-manipulators)=
 
