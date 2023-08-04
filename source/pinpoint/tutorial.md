@@ -96,20 +96,23 @@ The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
 
 ### Keyboard
 
-You can also press the keyboard keys to move the probe along that axis in 10um
-increments. Hold **SHIFT** to move in 100um units. Hold **SPACE** to move in 1000um increments. Hold **CTRL** to move in 1um
+You can also press the keyboard keys to move the probe along that axis in 1/10/100/1000um
 increments. Pressing and holding a key moves continuously.
+
+Press **SHIFT** to increase the speed of each movement. Press **CTRL** to reduce the speed. 
 
 ![probe controls](https://github.com/VirtualBrainLab/Pinpoint/raw/main/Images/ProbeControls.png)
 
 Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
 probe along the DV axis and [Z/X] to move the probe along the depth axis.
 
+You can also rotate the probe with keyboard clicks.
+
 Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
 probes spin around shank 0 (the leftmost probe shank when looking from the front).
 
 Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
-0-90 deg range).
+the vertical to horizontal range).
 
 Use [,/.] to roll the probe along its own axis.
 

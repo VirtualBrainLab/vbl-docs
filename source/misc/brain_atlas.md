@@ -8,15 +8,29 @@ BrainAtlas implements a Python pipeline which converts the bg-atlas API files in
 
 Note that the data pipeline can take a long time to run, as it downloads each atlas locally.
 
-### Raw data
+### bg-atlas files
 
-- Reference image: .npy file with the flattened data from the reference image, in uint16 format
-- Annotation image: .npy file with the flattened data from the annotation image, in uint32 format
-- Brain region: .csv file with information about each brain region, its mesh file
+- annotation.tiff: annotation IDs
+- metadata.json: name, citation + link, species, symmetric, resolution, orientation, version, shape, 4x4 transform matrix
+- README.txt: 
+- reference.tiff: reference image RGB
+- structures.json: acronym, id, full name, hierarchy path, rgb color
+
+### Intermediate data files
+
+- Reference image: .bytes file with the flattened data from the reference image, in uint16 format (2 bytes per voxel)
+- Annotation image: .bytes file with the flattened data from the annotation image, in uint32 format (4 bytes per voxel)
+- structures.json
+- Mesh files: .obj file for each region
+- One-sided mesh files: .obj file for each region
+
+### Unity files
+
+### Pipeline steps
 
 ### Mesh splitting
 
-A Blender script `convert_to_one_sided.blend` exists to load each individual mesh file and split it in half to expose just the left hemisphere. 
+A Blender script `convert_to_one_sided.blend` exists to load each individual mesh file and split it in half to expose just the left hemisphere.
 
 ### Processed files
 
