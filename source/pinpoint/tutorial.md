@@ -1,6 +1,6 @@
 # Tutorial
 
-Press [H] at any time to open the help and settings menu.
+Press [ESC] at any time to open the help and settings menu.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube-nocookie.com/embed/uzKulUziWFI?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
@@ -119,11 +119,11 @@ Use [,/.] to roll the probe along its own axis.
 Probes can be deleted with [Backspace]. To recover a probe you didn't mean to
 delete press [CTRL + Backspace].
 
-### Recording region
+You can also quickly switch between probes in the scene by pressing the [N] and [M] keys.
 
-Once the probe is at the position and angles you want, you can adjust the
-recording region size (in the settings) and position (using [T/G]) to match what
-you plan to do in your recording and adjust the insertion depth accordingly.
+### Channel map
+
+Once the probe is at the position and angles you want you can change the active set of channels in the Probe menu. The default option is the first bank of electrodes (first 384 channels for Neuropixels 1.0, or the bottom 96 channels on each shank for Neuropixels 2.4). Use the "all" option to see the entire probe at once.
 
 ## Designing a trajectory and probe coordinates
 
@@ -139,21 +139,13 @@ of angles to reach that point. When you export a planned insertion Pinpoint will
 compute the **brain surface coordinate** and **depth** of the probe, which you
 will need to actually perform your experiment.
 
-Note that insertions are defined in a Coordinate **Space** with a particular **
-Transform**. The space defines the rotation of the axes relative to the
-reference point (i.e. which way do AP/ML/DV go relative to Bregma). By default
-all insertions in Pinpoint are defined in the common coordinate framework space,
-using the IBL axis conventions, these can be changed in the settings. The
-standard transform is the *Toronto MRI* transform, which was based on the
-average of 12 adult C57 mice. You can read more about the transform options on
-the [in vivo alignment](https://virtualbrainlab.org/02_traj_planner/03_tp_alignment.html)
-page.
+Note that insertions are defined in a Coordinate **Space** with a particular **Transform**. The space defines the rotation of the axes relative to the reference point (i.e. which way do AP/ML/DV go relative to Bregma). By default all insertions in Pinpoint are defined in the common coordinate framework space, using the IBL axis conventions, these can be changed in the settings. The standard transform is the *Qiu 2018* transform, which was based on the average of 12 adult C57 mice. You can read more about the transform options on the [in vivo alignment](https://virtualbrainlab.org/02_traj_planner/03_tp_alignment.html) page.
 
 ## Help and settings
 
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-The help and settings menu is accessed by pressing **H**. Press H again to close
+The help and settings menu is accessed by pressing **ESC**. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
 sub-menus.
 

@@ -21,7 +21,7 @@ It is our responsibility to ensure that the tools we build can be reused and bui
 ### Rules
 
  1. **Health and happiness, then work**. If you are unwell or exhausted, please don't work!
- 2. **Build for the future**. Document your code, for your future self and your colleagues. 
+ 2. **Build for the future**. Document your code, for your future self and your colleagues.
 
 ### Guidelines
 
@@ -32,7 +32,7 @@ It is our responsibility to ensure that the tools we build can be reused and bui
  5. **Take your ideas seriously**. Nobody knows your project as well as you do, any advice or feedback you get from colleagues is just that. You choose what to do with it.  
  6. **Be on time**. Meetings are expensive, both in time and money, and because they disrupt the ability to focus without interruptions. We minimize them to reduce that impact, but they can only be efficient if everybody works together to start and end them on time. 
  7. **If you're overwhelmed, that's okay**. Everybody's priorities shift over time. If you realize you're doing too much and need to cut back in one area, communicate that. 
- 8. **Work at home, but don't bring your work home**. Dan's goal is to work 3 days a week in the lab, because in-person meetings are generally more effective and efficient than remote meetings. It's recommended you use a similar structure, but be careful when working remotely not to let your work encroach on your life. 
+ 8. **Work at home, but don't bring your work home**. Dan's goal is to work 3 days a week in the lab, because in-person meetings are generally more effective and efficient than remote meetings. It's recommended you use a similar structure, but be careful when working remotely not to let your work encroach on your life.
 
 ## Join the VBL
 
@@ -52,17 +52,19 @@ The VBL does not have independent funding to pay researchers (graduate students,
 
 All members of the VBL are responsible for ensuring the lab is a healthy environment for building powerful tools, challenging ourselves, and growing as researchers and developers.
 
-Every member of the lab is expected to complete an individual development plan twice a year (every quarter for undergraduates). The IDP is a structured feedback process, designed to help identify both the achievements and challenges of the last year/quarter. The process has four steps: first, a self-reflection where you look back on your past goals and achievements and plan for the next period, second, a mentor-reflection where you receive external perspective as written comments, third, a one-on-one conversation about the whole document, and finally, a brief summary that you make to the lab. Both private and public IDP files are stored in Github repositories on the lab account. 
+Every member of the lab is expected to complete an individual development plan twice a year (every quarter for undergraduates). The IDP is a structured feedback process, designed to help identify both the achievements and challenges of the last year/quarter. The process has four steps: first, a self-reflection where you look back on your past goals and achievements and plan for the next period, second, a mentor-reflection where you receive external perspective as written comments, third, a one-on-one conversation about the whole document, and finally, a brief summary that you make to the lab. Both private and public IDP files are stored in Github repositories on the lab account.
 
 ## Group Meeting
 
-We attend the Steinmetz Lab meeting, see the wiki for details. Everybody is encouraged to attend, schedule permitting.
+We attend the Steinmetz Lab meeting, see the wiki for details. Everybody is strongly encouraged to attend.
 
 ## Project organization
 
-As a member of the VBL you will have at least one project that you are responsible for. Your project may be independent or a component in a much larger project.
+As a member of the VBL you will have at least one project that you are responsible for. Your project may be independent or a component in a much larger project. You are responsible for creating quality, documented code, that acts as a foundation for future work.
 
-If you are working on a single project, expect to spend about 75% of your time working independently and pair coding. 20% of your time will go to hackathons. Try to keep meetings to less than 10% and ideally less than 5% of your time. If you have a mentee, expect to shift 10% of your project time into the meeting category for each person you work with. Nobody in the lab should have more than five people who meet with them each week. 
+Expect to spend about 75% of your time working independently and pair coding. Up to 20% of your time will go to hackathons. Try to keep meetings to less than 10% and ideally less than 5% of your time. If you have a mentee, expect to shift 10% of your project time into the meeting category for each person you work with. Nobody in the lab should have more than five people who meet with them each week.
+
+There is no explicit requirement to spend some number of hours working on your project. In my experience, if you are spending less than 6-10a hours a week (on average) on your project, you will not make efficient progress. It's better to pause your project and come back to it later than to push through if you don't have the time for it.
 
 ### Software
 
@@ -90,7 +92,7 @@ If our tools aren't understandable, they aren't useful. If they can't be develop
 
 Documentation does not replace good coding style. Your classes, variables, and functions should be named so that they are easily understandable and they should be written so that they do what they say they do. If a line of code can't be understood even in context, it should have a comment explaining its purpose.
 
-| Language | Classes | Public vars | Private vars | Functions | Function params / vars |
+| Language | Classes | Public properties | Private vars | Functions | Function params / vars |
 | --- | --- | --- | --- | --- | --- |
 | C# | PascalCase | PascalCase | _camelCase | PascalCase | camelCase |
 | Python | PascalCase | snake_case | snake_case | snake_case | snake_case |
@@ -100,7 +102,9 @@ Documentation does not replace good coding style. Your classes, variables, and f
 
 #### Best practices
 
-To make our code easily understandable we follow a few best practices in Unity development. We use **static instances**, **UnityEvents**, and a three-level **code hierarchy**. Best to get an in-person tutorial on these concepts.
+To make our code easily understandable we follow a few best practices in Unity development. We use **static instances**, **UnityEvents**, and a three-level **code hierarchy**. Our code hierarchy consists of *communication* classes, *manager* classes, and *behavior* classes.
+
+We write code in a mixture of functional and object-oriented. In general, user interfaces should be written in a functional style, while data structures should be written in an objected-oriented style. Whenever possible, abstract the data representation from the functional code to allow for serialization.
 
 ### Deployment
 
