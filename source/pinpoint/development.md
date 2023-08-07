@@ -69,7 +69,7 @@ Function classes handle the isolated functionality of specific features in Pinpo
 
 #### Modules
 
-Modules contain code that needs to be re-used across Functions. For example, the CoordinateSpace/CoordinateTransform classes, or the ProbeInsertion class.
+Modules contain code that needs to be re-used across Functions. For example, the ReferenceAtlas/AtlasTransform classes, or the ProbeInsertion class.
 
 #### Assembly definitions
 
@@ -106,7 +106,7 @@ Probe models are stored as prefabs and instantiated by the tpmanager. Each probe
 
 #### Probe Insertion Coordinates
 
-The [ProbeInsertion](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/Insertion/ProbeInsertion.cs) class represents a target coordinate in space. At the lowest level a probe has a tip coordinate (Vector3: ap, ml, dv) space and a set of probe angles (Vector3: azimuth, elevation, spin). Note that a ProbeInsertion must be defined with both a CoordinateSpace and CoordinateTransform, which define the relationship between the insertion's coordinates/angles and Unity world space. 
+The [ProbeInsertion](https://github.com/VirtualBrainLab/Pinpoint/blob/main/Assets/Scripts/Insertion/ProbeInsertion.cs) class represents a target coordinate in space. At the lowest level a probe has a tip coordinate (Vector3: ap, ml, dv) space and a set of probe angles (Vector3: azimuth, elevation, spin). Note that a ProbeInsertion must be defined with both a ReferenceAtlas and AtlasTransform, which define the relationship between the insertion's coordinates/angles and Unity world space. 
 
 Using an [AnnotationDataset](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/VolumeData/CCFAnnotationDataset.cs) it's possible to recover the entry/surface coordinate of an insertion. 
 
@@ -114,36 +114,44 @@ Using an [AnnotationDataset](https://github.com/VirtualBrainLab/vbl-core/blob/ma
 
 Each Atlas space (e.g. mouse CCF, or rat Waxholm) has its own set of axes and coordinates. Even within a single species different researchers may have used different conventions to refer to directions in space. To deal with this, we introduce three concepts: Unity World Space, Coordinate Spaces, and Coordinate Transforms.
 
-Unity "World" space is the ground truth space inside of Unity. It has an X, Y, and Z axis and units are measured in millimeters. The (0,0,0) coordinate is at the center of the space. All of the objects in the Unity scene are placed in Unity World coordinates. This is the *only real coordinate system in the Unity Editor*. What this means is that when you reference a Transform on a GameObject the `Transform.position` value is returning the object's coordinates in Unity World space. If you want to know where this coordinate is in a particular Coordinate Space, you would need to use the `World2Space` function. If you want to know what direction a unit vector points in a CoordinateSpace, you would use the `World2SpaceAxisRotation` function. 
+Unity "World" space is the ground truth space inside of Unity. It has an X, Y, and Z axis and units are measured in millimeters. The (0,0,0) coordinate is at the center of the space. All of the objects in the Unity scene are placed in Unity World coordinates. This is the *only real coordinate system in the Unity Editor*. What this means is that when you reference a Transform on a GameObject the `Transform.position` value is returning the object's coordinates in Unity World space. If you want to know where this coordinate is in a particular Coordinate Space, you would need to use the `World2Atlas` function. If you want to know what direction a unit vector points in a ReferenceAtlas, you would use the `World2AtlasAxisRotation` function. 
 
 <image src="../_static/images/pinpoint/coordinate_spaces.png" alt="overview image" position="left" style="width:100%">
 
-A [CoordinateSpace](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/CoordinateSpace.cs) defines an axis rotation and a relative offset for the (0,0,0) coordinate. For example, the CCF space defines a (13.2 x 11.4 x 8 mm) rectangle with the (0,0,0) coordinate in the "front, left, top" corner. The axes are rotated so that the +Z axis becomes +AP, the +X axis becomes -ML, and the +Y axis becomes -DV. In Pinpoint, we then override the relative offset by moving it to Bregma at (+5.4, +5.7, +0.33) in CCF Space.
+A [ReferenceAtlas](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/ReferenceAtlas.cs) defines an axis rotation and a relative offset for the (0,0,0) coordinate. For example, the CCF space defines a (13.2 x 11.4 x 8 mm) rectangle with the (0,0,0) coordinate in the "front, left, top" corner. The axes are rotated so that the +Z axis becomes +AP, the +X axis becomes -ML, and the +Y axis becomes -DV. In Pinpoint, we then override the relative offset by moving it to Bregma at (+5.4, +5.7, +0.33) in CCF Space.
 
-A [CoordinateTransform](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/CoordinateTransform.cs) is necessary to represent situations where a CoordinateSpace has been further rotated or warped. For example, you might want to know your coordinates in Paxinos space but visually see the Allen CCF annotations. To go back and forth between these spaces we use a CoordinateTransform. The simplest transform is an AffineTransform which can stretch or shrink each axes and/or reverse them and can apply rotations. For example, the MRITransform flips the directions in CCFSpace, applies a scaling to each axis, and pitches the brain up by five degrees. More complex non-linear transforms are also possible. 
+A [AtlasTransform](https://github.com/VirtualBrainLab/vbl-core/blob/main/Scripts/CoordinateSystems/AtlasTransform.cs) is necessary to represent situations where a ReferenceAtlas has been further rotated or warped. For example, you might want to know your coordinates in Paxinos space but visually see the Allen CCF annotations. To go back and forth between these spaces we use a AtlasTransform. The simplest transform is an AffineTransform which can stretch or shrink each axes and/or reverse them and can apply rotations. For example, the MRITransform flips the directions in CCFSpace, applies a scaling to each axis, and pitches the brain up by five degrees. More complex non-linear transforms are also possible. 
 
-**Unity World Space is Transformed**
+**World Space is Transformed**
 
-The most important thing to keep in mind is that objects in the scene are positioned according to their transformed coordinates. What the heck does that mean!?! This means that the `Transform.position` of a 3D model in the scene is computed by calculating: `CoordinateSpace.Space2World(CoordinateTransform.Transform2SpaceAxisChange(coordinate))`. Note that we **do not un-transform the cooordinate** by using `CoordinateTransform.Transform2Space`, it's only correct to do this when you need to know where a Transformed coordinate is in a *different* CoordinateTransform. 
+The most important thing to keep in mind is that objects in the scene are positioned according to their transformed coordinates. What the heck does that mean!?! This means that the `Transform.position` of a 3D model in the scene is computed by calculating: `RefrenceAtlas.Atlas2World(AtlasTransform.Transform2AtlasAxisChange(coordinate))`. Note that we **do not un-transform the cooordinate** by using `AtlasTransform.Transform2Atlas`, it's only correct to do this when you need to know where a Transformed coordinate is in a *different* AtlasTransform. 
 
 The reason that we represent objects in their Transformed coordinates is that this means that objects in the Unity scene obey euclidian geometry, i.e. the distance between two points in the Unity scene (and therefore in the Transformed space) can be calculated with `Vector3.Distance` and the angle between two vectors in the scene (and therefore in the Transformed space) can be calculated using `Vector3.Angle`, these distances are angles are the correct distances and angles in the Transformed Coordinate Space. If it's not obvious why this is important ask Dan to explain it.
+
+The next question you should ask yourself now is: if points in the Unity scene are *transformed*, then 
 
 **Moving between spaces and transforms**
 
 Lets work through some examples.
 
-*Where should I place the tip of a probe in Unity World space*: Because coordinates in the Unity scene represent the transformed coordinates we need to first take the coordinate and find it's position in its CoordinateSpace by calculating: `CoordinateTransform.Transform2SpaceAxisChange`, then to find the corresponding point in the scene we use `CoordinateSpace.Space2World`.
+*Where should I place the tip of a probe in Unity World space*: Because coordinates in the Unity scene represent the transformed coordinates we need to first take the coordinate and find it's position in its ReferenceAtlas by calculating: `AtlasTransform.Transform2AtlasAxisChange`, then to find the corresponding point in the scene we use `ReferenceAtlas.Atlas2World`.
 
-*How do I interpolate annotations along a probe insertion*: Here we are going to need to translate between two CoordinateSpaces: from the Space the insertion is defined in and to the space where the annotations are defined. In addition, we need two points a *start* and an *end* coordinate, so that we can keep track of directions as we do our transforms. In general, to translate between CoordinateSpaces you need to use Unity World space as an intermediate. So the full set of steps here would be:
+*How do I interpolate annotations along a probe insertion*: Here we are going to need to translate between two ReferenceAtlass: from the Space the insertion is defined in and to the space where the annotations are defined. In addition, we need two points a *start* and an *end* coordinate, so that we can keep track of directions as we do our transforms. In general, to translate between ReferenceAtlass you need to use Unity World space as an intermediate. So the full set of steps here would be:
 
- 1. Un-transform the start/end coordinates: `CoordinateTransform.Transform2Space`
- 2. Move into World Space: `CoordinateSpace.Space2World`
- 3. Move into the new coordinate space: `CoordinateSpace.World2Space`
- 4. Transform into the space's transform (if there is one): `CoordinateTransform.Space2Transform`
+ 1. Un-transform the start/end coordinates: `AtlasTransform.Transform2Atlas`
+ 2. Move into World Space: `ReferenceAtlas.Atlas2World`
+ 3. Move into the new coordinate space: `ReferenceAtlas.World2Atlas`
+ 4. Transform into the space's transform (if there is one): `AtlasTransform.Atlas2Transform`
 
-*How do I move vectors between tranforms and spaces?* Vectors are a special case, since we don't want to scale them and they have no origin, but we still want to make sure they get rotated correctly. Both `CoordinateSpace` and `CoordinateTransform` have special `AxisChange` functions that apply all rotations but skip scaling and origin changes, for use with vectors. If you pass a unit vector to these functions, they should return a unit vector. 
+*How do I move vectors between tranforms and spaces?* Vectors are a special case, since we don't want to scale them and they have no origin, but we still want to make sure they get rotated correctly. Both `ReferenceAtlas` and `AtlasTransform` have special `AxisChange` functions that apply all rotations but skip scaling and origin changes, for use with vectors. If you pass a unit vector to these functions, they should return a unit vector. 
 
-*How do I know the coordinates of a probe insertion in a different CoordinateTransform*: This happens when you change the active CoordinateTransform in the scene and all the probes need to be updated. This is as simple as going back into un-transformed space and then transforming into the new one. Hopefully it's clear how you do that by now!
+*How do I know the coordinates of a probe insertion in a different AtlasTransform*: This happens when you change the active AtlasTransform in the scene and all the probes need to be updated. This is as simple as going back into un-transformed space and then transforming into the new one. Hopefully it's clear how you do that by now!
+
+#### Coordinate naming conventions
+
+Because we can't attach metadata to every Vector3 we pass around representing an (AP, ML, DV) coordinate, we need a way to remind ourselves about whether the coordinate is in World or Reference Atlas space, and then whether the coordinate is transformed or not. Note that being *transformed* is independent of what space you are in!
+
+When you name position variables use a sensible name like `position` as a prefix. Then, append `World` or `Atlas` according to what space the data is in and then append `U` or `T` according to whether the coordinate is in an un- or transformed space. 
 
 ## Building new features and fixing bugs
 
@@ -155,7 +163,7 @@ When a **bug/feature** is closed it should be added to the incremental update li
 
 ## Builds
 
-The Trajectory Planner can build to WebGL (primary), Windows, and Linux. Building to Mac is more complex than we can handle right now.
+Pinpoint can build to WebGL (primary), Windows, and Linux. Building to Mac is more complex than we can handle right now.
 
 ### Addressables
 
@@ -165,7 +173,9 @@ If you modified the Addressables assets you need to re-build these and deploy th
 
 #### Remote Build and Load Paths
 
-Addressables should be built to the remote build and load paths, which should point to `ServerData` and `http://data.virtualbrainlab.org/NPTraj/[BuildTarget]` respectively. These can be modified in the Addressables Profiles window.
+Addressables should be built to the remote build and load paths, which should point to `ServerData` and `http://data.virtualbrainlab.org/NPTraj/version/[BuildTarget]` respectively. These can be modified in the Addressables Profiles window.
+
+We use a versioning system for Addressable builds to avoid over-writing guid values by accident. Each new Addressables build should target a new version number.
 
 ### WebGL
 
