@@ -132,7 +132,7 @@ Information about lab member grant applications is shared here with permission. 
 | Heroku Open Source Credit Program | DB  | 2023 | Funded | $880 |
 | UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
 | NIH K99 Transition to Independence | DB | 2023 | Not funded |  |
-| Neurohub fellowship | DB | 2023 | Pending |  |
+| Neurohub fellowship | DB | 2023 | Not funded |  |
 | UW Mary Gates Scholarship | KY  | 2022 | Not funded |  |
 | WRF Galas Award | DB | 2022 | Not funded |  |
 | NIH UE5-METER | DB | 2021 | Not funded |  |
