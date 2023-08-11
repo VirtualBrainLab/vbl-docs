@@ -2,11 +2,11 @@
 
 ## Organization
 
-Urchin is organized into three parts. A client, server, and renderer. The only client right now is the Python API, but in the future we may build other APIs (MATLAB, R). The Server is a Node.js server that echoes messages between clients and renderers. The Renderer is a Unity app that can run either as a standalone desktop build or in the browser. 
+Urchin is organized into three parts. A client, server, and renderer. The only client right now is the Python API, but in the future we may build other APIs (MATLAB, R). The Server is a Node.js server that echoes messages between clients and renderers. The Renderer is a Unity app that can run either as a standalone desktop build or in the browser.
 
 ### Virtual environment
 
-To develop for Urchin you will need to run a local copy of the client, server, and Unity builds. For the Python API you will need a new virtual environment with `unityneuro` installed in **editable** mode. 
+To develop for Urchin you will need to run a local copy of the client, server, and Unity builds. For the Python API you will need a new virtual environment with `unityneuro` installed in **editable** mode.
 
 To setup the venv go into the API folder and run:
 
@@ -28,9 +28,41 @@ Before deploying you should add a new test script in `Examples/basic` which runs
 
 #### Urchin (API/unityneuro/render.py)
 
-The Urchin calls are mostly very simple, they just take input data from the user, sanitize it (or not, most of them don't do this yet) and send it off with a message header to the server.
+The Urchin API has two patterns for inputs, a single object (singular) pattern and a multi-object (plural) pattern. They should in general look like this:
 
-Make sure to add documentation to all of your new renderer functions so it's clear what they take as input.
+**Singular pattern**
+
+```
+object = urchin.object_type.create()
+object.set_variable(variable)
+```
+
+**Plural pattern**
+
+```
+N = 5
+object_list = urchin.object_type.create(N)
+urchin.object_type.set_variables(object_list, variable_list)
+```
+
+Please make sure that inputs are sanitized whenever possible (see `API/utils.py`).
+
+Make sure to add documentation to all of your new renderer functions. Or default Python docstring looks like:
+
+```
+def function(parameters):
+"""Description.
+
+Parameters
+----------
+param_name : type
+    param description
+
+Examples
+--------
+>>> urchin...
+"""
+```
 
 #### Server (Server/server.js)
 
@@ -64,11 +96,12 @@ The client is accessed by users in two ways: either through the [web server](htt
 
 #### Uploading to the server
 
-The server runs Apache, the htdocs file is at `C:/Apache24/htdocs`. Ask Dan for the login details. You can copy files locally onto the data server or copy them through google drive or slack. 
+The server runs Apache, the htdocs file is at `C:/Apache24/htdocs`. Ask Dan for the login details. You can copy files locally onto the data server or copy them through google drive or slack.
 
 ### Pushing the Pypi package
 
 Push to the real server
+
 ```
 py -m build
 py -m twine upload dist/*
@@ -78,4 +111,4 @@ py -m twine upload dist/*
 
 #### On Heroku
 
-Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku. 
+Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
