@@ -52,11 +52,11 @@ pip install ephys-link
 
 ## Usage
 
-| Manipulator Platform              | Command                                     |
-|-----------------------------------|---------------------------------------------|
-| Sensapex                          | `python -m ephys_link`                      |
-| New Scale                         | `python -m ephys_link -t new_scale`         |
-| New Scale via Pathway HTTP server | `python -m ephys_link -t new_scale_pathway` |
+| Manipulator Platform                 | Command                                        |
+|--------------------------------------|------------------------------------------------|
+| Sensapex                             | `python -m ephys_link`                         |
+| New Scale                            | `python -m ephys_link -t new_scale`            |
+| New Scale via Pathfinder HTTP server | `python -m ephys_link -t new_scale_pathfinder` |
 
 By default, the server will broadcast with its local IP address on port 8081.
 **Copy this information into Pinpoint to connect**.
@@ -66,27 +66,27 @@ For example, if the server is running on the same computer that Pinpoint is, use
 - Server: `localhost`
 - Port: `8081`
 
-### "New Scale" vs "New Scale via Pathway HTTP server"
+### "New Scale" vs "New Scale via Pathfinder HTTP server"
 
 New Scale manipulators have two methods of connection. The first method is through a direct hardware
-connection (`-t new_scale`). The second is via the HTTP server broadcast by the Pathway
-software (`-t new_scale_pathway`). The latter method is only available if Pathway is running on the same computer as
-Ephys Link. New Scale manipulators should be connected to the Pathway software first and the HTTP server should be
+connection (`-t new_scale`). The second is via the HTTP server broadcast by the Pathfinder
+software (`-t new_scale_pathfinder`). The latter method is only available if Pathfinder is running on the same computer
+as Ephys Link. New Scale manipulators should be connected to the Pathfinder software first and the HTTP server should be
 running.
 
 **Note:** Currently (July 2023), Ephys Copilot automation and manual control within Pinpoint is not supported when
-connected to New Scale via Pathway HTTP server Pinpoint is not supported. Only positional data can be queried.
+connected to New Scale via Pathfinder HTTP server Pinpoint is not supported. Only positional data can be queried.
 
 ### Options
 
 All options can be viewed with `python -m ephys_link --help`.
 
-| Option                           | Input                                   | Default     | Description                                                    |
-|----------------------------------|-----------------------------------------|-------------|----------------------------------------------------------------|
-| `-h, --help`                     |                                         |             | Show help message and options                                  |
-| `-t TYPE, --type TYPE`           | `sensapex` or `new_scale`               | `sensapex`  | Select manipulator type                                        |
-| `-p PORT, --port PORT`           | Valid HTTP port number                  | `8081`      | HTTP port to serve on                                          |
-| `--pathway_port`                 | Valid HTTP port number                  | `8080`      | HTTP port Pathway's server is running on                       |
-| `-s [SERIAL], --serial [SERIAL]` | Serial port name (i.e. `COM3`) or empty | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
-| `-d, --debug`                    |                                         |             | Enable verbose logging for debugging                           |
-| `--version`                      |                                         |             | Version number of server                                       |
+| Option                           | Input                                               | Default     | Description                                                    |
+|----------------------------------|-----------------------------------------------------|-------------|----------------------------------------------------------------|
+| `-h, --help`                     |                                                     |             | Show help message and options                                  |
+| `-t TYPE, --type TYPE`           | `sensapex` or `new_scale` or `new_scale_pathfinder` | `sensapex`  | Select manipulator type                                        |
+| `-p PORT, --port PORT`           | Valid HTTP port number                              | `8081`      | HTTP port to serve on                                          |
+| `--pathfinder_port`              | Valid HTTP port number                              | `8080`      | HTTP port Pathfinder's server is running on                    |
+| `-s [SERIAL], --serial [SERIAL]` | Serial port name (i.e. `COM3`) or empty             | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
+| `-d, --debug`                    |                                                     |             | Enable verbose logging for debugging                           |
+| `--version`                      |                                                     |             | Version number of server                                       |

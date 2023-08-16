@@ -286,7 +286,7 @@ multiple experiments.
 
 ## Surgery
 
-To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle (phi) and set the probe elevation angle (theta). Then move your probe tip to Bregma and zero your manipulator.
+To use your coordinates for a surgery, rotate the manipulator to match the azimuth angle (phi) and set the probe elevation angle (theta). Then move your probe tip to Bregma and zero your manipulator. (Optional: move your probe tip to Lambda and record the distance from Bregma to Lambda, then enter that into the Atlas settings in Pinpoint). We recommend using the technique shown in ![this reference](https://www.researchgate.net/figure/Schematic-diagram-of-stereotactic-surgery-and-variations-of-bregma-and-lambda-A-Dorsal_fig1_362675943) when estimating the position of Bremga and Lambda on the skull (i.e. align the "curve" between the sutures, not the exact point where they attach).
 
 Translate your probe using the manipulator to match the AP/ML/DV brain surface coordinate provided by Pinpoint. If your probe is rotated off-axis use the * convert AP/ML to probe axis* setting so that you can match the Forward/Side/DV position instead. Use caution! You may reach the brain surface before you reach the DV value specified by Pinpoint, don't break your probe!
 
