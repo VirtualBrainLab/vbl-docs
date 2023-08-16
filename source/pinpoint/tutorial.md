@@ -121,6 +121,12 @@ delete press [CTRL + Backspace].
 
 You can also quickly switch between probes in the scene by pressing the [N] and [M] keys.
 
+### Controller
+
+You can also use a USB controller to move probes.
+
+![probe controls](https://virtualbrainlab.org/_static/images/pinpoint/ps4_controller_mapping.png)
+
 ### Channel map
 
 Once the probe is at the position and angles you want you can change the active set of channels in the Probe menu. The default option is the first bank of electrodes (first 384 channels for Neuropixels 1.0, or the bottom 96 channels on each shank for Neuropixels 2.4). Use the "all" option to see the entire probe at once.
