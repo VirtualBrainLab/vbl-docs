@@ -101,7 +101,7 @@ increments. Pressing and holding a key moves continuously.
 
 Press **SHIFT** to increase the speed of each movement. Press **CTRL** to reduce the speed. 
 
-![probe controls](https://github.com/VirtualBrainLab/Pinpoint/raw/main/Images/ProbeControls.png)
+![probe controls](https://virtualbrainlab.org/_static/images/pinpoint/ProbeControls.png)
 
 Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
 probe along the DV axis and [Z/X] to move the probe along the depth axis.
