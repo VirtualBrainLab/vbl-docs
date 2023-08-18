@@ -99,27 +99,27 @@ The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
 You can also press the keyboard keys to move the probe along that axis in 1/10/100/1000um
 increments. Pressing and holding a key moves continuously.
 
-Press **SHIFT** to increase the speed of each movement. Press **CTRL** to reduce the speed. 
+Press \[SHIFT\] to increase the speed of each movement. Press \[CTRL\] to reduce the speed. 
 
 ![probe controls](https://virtualbrainlab.org/_static/images/pinpoint/ProbeControls.png)
 
-Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
-probe along the DV axis and [Z/X] to move the probe along the depth axis.
+Use \[W/A/S/D\] to move the probe along the AP or ML axis. Use \[Q/E\] to move the
+probe along the DV axis and \[Z/X\] to move the probe along the depth axis.
 
 You can also rotate the probe with keyboard clicks.
 
-Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
+Use \[1/3\] to yaw the probe around the vertical axis. Note that NP2.4
 probes spin around shank 0 (the leftmost probe shank when looking from the front).
 
-Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
+Use \[R/F\] to change the pitch angle of the probe on the manipulator (restricted to
 the vertical to horizontal range).
 
-Use [,/.] to roll the probe along its own axis.
+Use \[,/.\] to roll the probe along its own axis.
 
-Probes can be deleted with [Backspace]. To recover a probe you didn't mean to
-delete press [CTRL + Backspace].
+Probes can be deleted with \[Backspace\]. To recover a probe you didn't mean to
+delete press \[CTRL + Backspace\].
 
-You can also quickly switch between probes in the scene by pressing the [N] and [M] keys.
+You can also quickly switch between probes in the scene by pressing the \[N\] and \[M\] keys.
 
 ### Controller
 
@@ -151,7 +151,7 @@ Note that insertions are defined in a Coordinate **Space** with a particular **T
 
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-The Settings menu is accessed by pressing **ESC**. Press ESC again to close
+The Settings menu is accessed by pressing \[ESC\]. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
 sub-menus.
 
@@ -219,21 +219,21 @@ on how to install and run a server.
 
 ![Connecting to Ephys Link](../_static/images/Ephys-Link-connection.png)
 
-1. Press \[H\] to open the settings menu
+1. Press \[ESC\] to open the settings menu
 2. Switch to the "Ephys Link" tab
 3. Fill in the server's IP address
 4. And the port number
 5. Click "Connect". Upon success, the connect button will read "Disconnect"
 6. Panels for each manipulator will appear here. These panels allow for the
    configuration of manipulators and linking them to probes in the scene.
-7. Press \[H\] again to close the settings menu
+7. Press \[ESC\] again to close the settings menu
 
 ### Linking a probe in the planner to a manipulator _in vivo_
 
 ![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
-2. Press \[H\] to open the settings menu.
+2. Press \[ESC\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
 5. Use the dropdown to configure the manipulator's handedness. Currently (July
@@ -255,7 +255,7 @@ on how to install and run a server.
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
    used to move probes in the planner around. Manipulators can also be driven
    back to their zero coordinate.
-10. Press \[H\] again to close the settings menu.
+10. Press \[ESC\] again to close the settings menu.
 
 #### Sensapex Handedness
 
