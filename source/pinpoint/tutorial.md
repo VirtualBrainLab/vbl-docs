@@ -177,7 +177,7 @@ To stream the channel data to Open Ephys, follow these instructions:
 
 1. Launch Open Ephys and connect to or simulate a probe.
 2. Enable the server features in Open Ephys (in the File menu), note the server IP and port
-3. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+3. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
 4. Make sure the IP address and port match the server information in Open Ephys
 5. Toggle the API on
 6. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
@@ -188,7 +188,7 @@ For SpikeGLX, follow these instructions:
 1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
 2. Launch SpikeGLX and start a new acquisition, using existing data or a live probe
 3. Enable the SpikeGLX API
-4. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
 5. Make sure the location of the HelloSGLX file is accurate
 6. Toggle the API on
 7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
