@@ -182,6 +182,7 @@ In general:
 - [Calibrating a manipulator](calibrating-a-manipulator)
     - [Bypassing calibration](bypassing-calibration)
 - [Get a manipulator's position](get-a-manipulators-position)
+- [Get a manipulator's angles](get-a-manipulators-angles)
 - [Set position of a manipulator](set-position-of-a-manipulator)
 - [Drive manipulator to depth](drive-to-depth)
 - [Set "inside brain" state of a manipulator](set-inside-brain)
@@ -427,6 +428,39 @@ the origin.
 ```python
 # Gets the position of manipulator "1"
 ws.emit('get_pos', "1", callback=my_callback_func)
+```
+
+(get-a-manipulators-angles)=
+
+### Get a manipulator's angles
+
+Receive the angles of a specified manipulator as Yaw, Pitch, Roll in degrees.
+
+Yaw is 0° at the posterior and increases clockwise. Pitch is 0° when the probe is vertical (pointed straight down) and
+increases as the probe is tilted backward (towards posterior when Yaw is also 0°). The probe faces anterior when all 3
+values are 0°. Roll increases clockwise.
+
+**Event:** `get_angles`
+
+**Expected Arguments:**
+
+- Manipulator ID: `str`
+
+**Callback Responses Format:** `(angles: array, error: string)`
+
+| Error message (`error: string`) | Description                                          |
+|---------------------------------|------------------------------------------------------|
+| `''`                            | No errors, position is returned                      |
+| `Manipulator not registered`    | Manipulator is not registered yet                    |
+| `Manipulator not calibrated`    | Manipulator is not calibrated yet                    |
+| `Error getting angles`          | An unknown error has occurred while getting position |
+
+- `angles`: Will be an empty array if one was not provided properly in the
+  request or if an error occurred
+
+```python
+# Gets the angles of manipulator "1"
+ws.emit('get_angles', "1", callback=my_callback_func)
 ```
 
 (set-position-of-a-manipulator)=
