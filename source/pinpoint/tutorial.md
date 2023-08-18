@@ -200,7 +200,7 @@ Pinpoint can be connected to electrophysiology manipulators
 enabling experimenters to automate the placement of manipulators as well as
 observe live where probes are placed inside the mouse brain.
 
-We currently (July 2023) support Sensapex uMp-4 and New Scale manipulators.
+We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis manipulators.
 
 **These features are only available on the Windows Desktop build of Pinpoint**
 they will not run in the web browser.
@@ -219,21 +219,24 @@ on how to install and run a server.
 
 ![Connecting to Ephys Link](../_static/images/Ephys-Link-connection.png)
 
-1. Press \[H\] to open the settings menu
+1. Press \[Esc\] to open the settings menu
 2. Switch to the "Ephys Link" tab
 3. Fill in the server's IP address
 4. And the port number
 5. Click "Connect". Upon success, the connect button will read "Disconnect"
 6. Panels for each manipulator will appear here. These panels allow for the
    configuration of manipulators and linking them to probes in the scene.
-7. Press \[H\] again to close the settings menu
+7. Press \[Esc\] again to close the settings menu
 
 ### Linking a probe in the planner to a manipulator _in vivo_
+
+This step is not required for New Scale Pathfinder connections. See below
+for details.
 
 ![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
-2. Press \[H\] to open the settings menu.
+2. Press \[Esc\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
 5. Use the dropdown to configure the manipulator's handedness. Currently (July
@@ -255,7 +258,7 @@ on how to install and run a server.
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
    used to move probes in the planner around. Manipulators can also be driven
    back to their zero coordinate.
-10. Press \[H\] again to close the settings menu.
+10. Press \[Esc\] again to close the settings menu.
 
 #### Sensapex Handedness
 
@@ -268,6 +271,16 @@ Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
 ![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
+
+#### New Scale Pathfinder connections do not require configuration
+
+Launching Ephys Link requires specifying the type of manipulator that is being
+used. Configuration in Pinpoint will differ depending on the type of 
+manipulator. **New Scale Pathfinder connections do not require any
+configuration** in Pinpoint as all manipulators are configured in Pathfinder.
+Pinpoint will automatically create probes (colored in magenta) for
+each manipulator from Pathfinder and automatically echo their positions and
+angles.
 
 ### Enabling experiment automation (Ephys Copilot)
 
