@@ -147,11 +147,11 @@ will need to actually perform your experiment.
 
 Note that insertions are defined in a Coordinate **Space** with a particular **Transform**. The space defines the rotation of the axes relative to the reference point (i.e. which way do AP/ML/DV go relative to Bregma). By default all insertions in Pinpoint are defined in the common coordinate framework space, using the IBL axis conventions, these can be changed in the settings. The standard transform is the *Qiu 2018* transform, which was based on the average of 12 adult C57 mice. You can read more about the transform options on the [in vivo alignment](https://virtualbrainlab.org/02_traj_planner/03_tp_alignment.html) page.
 
-## Help and settings
+## Settings
 
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-The help and settings menu is accessed by pressing **ESC**. Press ESC again to close
+The Settings menu is accessed by pressing **ESC**. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
 sub-menus.
 
