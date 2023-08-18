@@ -200,7 +200,7 @@ Pinpoint can be connected to electrophysiology manipulators
 enabling experimenters to automate the placement of manipulators as well as
 observe live where probes are placed inside the mouse brain.
 
-We currently (July 2023) support Sensapex uMp-4 and New Scale manipulators.
+We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis manipulators.
 
 **These features are only available on the Windows Desktop build of Pinpoint**
 they will not run in the web browser.
@@ -229,6 +229,9 @@ on how to install and run a server.
 7. Press \[ESC\] again to close the settings menu
 
 ### Linking a probe in the planner to a manipulator _in vivo_
+
+This step is not required for New Scale Pathfinder connections. See below
+for details.
 
 ![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
 
@@ -268,6 +271,16 @@ Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
 ![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
+
+#### New Scale Pathfinder connections do not require configuration
+
+Launching Ephys Link requires specifying the type of manipulator that is being
+used. Configuration in Pinpoint will differ depending on the type of 
+manipulator. **New Scale Pathfinder connections do not require any
+configuration** in Pinpoint as all manipulators are configured in Pathfinder.
+Pinpoint will automatically create probes (colored in magenta) for
+each manipulator from Pathfinder and automatically echo their positions and
+angles.
 
 ### Enabling experiment automation (Ephys Copilot)
 
