@@ -56,11 +56,11 @@ inside the brain Pinpoint computes for you the *brain surface coordinate* and *
 depth* of the probe, which are the coordinates you would need to re-create an
 insertion. See the surgery section for a few important details.
 
-### Quick settings
+### Probe panel
 
 <image src="../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
 
-The quick settings panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
+The Probe panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
 
 The three buttons on the top right **lock** the probe (preventing accidental keyboard or mouse movements), **duplicate** the probe in the scene, and **download** the probe data to the clipboard. You can paste the copied data into any text editor.
 
