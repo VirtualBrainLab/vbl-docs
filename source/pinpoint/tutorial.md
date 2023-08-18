@@ -56,11 +56,11 @@ inside the brain Pinpoint computes for you the *brain surface coordinate* and *
 depth* of the probe, which are the coordinates you would need to re-create an
 insertion. See the surgery section for a few important details.
 
-### Quick settings
+### Probe panel
 
 <image src="../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
 
-The quick settings panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
+The Probe panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
 
 The three buttons on the top right **lock** the probe (preventing accidental keyboard or mouse movements), **duplicate** the probe in the scene, and **download** the probe data to the clipboard. You can paste the copied data into any text editor.
 
@@ -99,27 +99,27 @@ The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
 You can also press the keyboard keys to move the probe along that axis in 1/10/100/1000um
 increments. Pressing and holding a key moves continuously.
 
-Press **SHIFT** to increase the speed of each movement. Press **CTRL** to reduce the speed. 
+Press \[SHIFT\] to increase the speed of each movement. Press \[CTRL\] to reduce the speed. 
 
 ![probe controls](https://virtualbrainlab.org/_static/images/pinpoint/ProbeControls.png)
 
-Use [W/A/S/D] to move the probe along the AP or ML axis. Use [Q/E] to move the
-probe along the DV axis and [Z/X] to move the probe along the depth axis.
+Use \[W/A/S/D\] to move the probe along the AP or ML axis. Use \[Q/E\] to move the
+probe along the DV axis and \[Z/X\] to move the probe along the depth axis.
 
 You can also rotate the probe with keyboard clicks.
 
-Use [1/3] to yaw the probe around the vertical axis. Note that NP2.4
+Use \[1/3\] to yaw the probe around the vertical axis. Note that NP2.4
 probes spin around shank 0 (the leftmost probe shank when looking from the front).
 
-Use [R/F] to change the pitch angle of the probe on the manipulator (restricted to
+Use \[R/F\] to change the pitch angle of the probe on the manipulator (restricted to
 the vertical to horizontal range).
 
-Use [,/.] to roll the probe along its own axis.
+Use \[,/.\] to roll the probe along its own axis.
 
-Probes can be deleted with [Backspace]. To recover a probe you didn't mean to
-delete press [CTRL + Backspace].
+Probes can be deleted with \[Backspace\]. To recover a probe you didn't mean to
+delete press \[CTRL + Backspace\].
 
-You can also quickly switch between probes in the scene by pressing the [N] and [M] keys.
+You can also quickly switch between probes in the scene by pressing the \[N\] and \[M\] keys.
 
 ### Controller
 
@@ -147,11 +147,11 @@ will need to actually perform your experiment.
 
 Note that insertions are defined in a Coordinate **Space** with a particular **Transform**. The space defines the rotation of the axes relative to the reference point (i.e. which way do AP/ML/DV go relative to Bregma). By default all insertions in Pinpoint are defined in the common coordinate framework space, using the IBL axis conventions, these can be changed in the settings. The standard transform is the *Qiu 2018* transform, which was based on the average of 12 adult C57 mice. You can read more about the transform options on the [in vivo alignment](https://virtualbrainlab.org/02_traj_planner/03_tp_alignment.html) page.
 
-## Help and settings
+## Settings
 
 <image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-The help and settings menu is accessed by pressing **ESC**. Press ESC again to close
+The Settings menu is accessed by pressing \[ESC\]. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
 sub-menus.
 
@@ -177,7 +177,7 @@ To stream the channel data to Open Ephys, follow these instructions:
 
 1. Launch Open Ephys and connect to or simulate a probe.
 2. Enable the server features in Open Ephys (in the File menu), note the server IP and port
-3. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+3. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
 4. Make sure the IP address and port match the server information in Open Ephys
 5. Toggle the API on
 6. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
@@ -188,7 +188,7 @@ For SpikeGLX, follow these instructions:
 1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
 2. Launch SpikeGLX and start a new acquisition, using existing data or a live probe
 3. Enable the SpikeGLX API
-4. In Pinpoint, press \[H\] to open the settings menu and navigate to the "API" tab
+4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
 5. Make sure the location of the HelloSGLX file is accurate
 6. Toggle the API on
 7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
@@ -219,14 +219,14 @@ on how to install and run a server.
 
 ![Connecting to Ephys Link](../_static/images/Ephys-Link-connection.png)
 
-1. Press \[Esc\] to open the settings menu
+1. Press \[ESC\] to open the settings menu
 2. Switch to the "Ephys Link" tab
 3. Fill in the server's IP address
 4. And the port number
 5. Click "Connect". Upon success, the connect button will read "Disconnect"
 6. Panels for each manipulator will appear here. These panels allow for the
    configuration of manipulators and linking them to probes in the scene.
-7. Press \[Esc\] again to close the settings menu
+7. Press \[ESC\] again to close the settings menu
 
 ### Linking a probe in the planner to a manipulator _in vivo_
 
@@ -236,7 +236,7 @@ for details.
 ![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
-2. Press \[Esc\] to open the settings menu.
+2. Press \[ESC\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
 5. Use the dropdown to configure the manipulator's handedness. Currently (July
@@ -258,7 +258,7 @@ for details.
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
    used to move probes in the planner around. Manipulators can also be driven
    back to their zero coordinate.
-10. Press \[Esc\] again to close the settings menu.
+10. Press \[ESC\] again to close the settings menu.
 
 #### Sensapex Handedness
 
