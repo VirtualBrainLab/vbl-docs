@@ -557,7 +557,8 @@ ws.emit('drive_to_depth', {
 
 Sets the "inside brain" state of a manipulator. When a manipulator is inside the
 brain, it will have all axes except the depth axis locked. This is to prevent
-accidental lateral movement while inside brain tissue.
+accidental lateral movement while inside brain tissue. For Sensapex manipulators, the rotary controller will also be
+locked to prevent accidental movement.
 
 **Event:** `set_inside_brain`
 
