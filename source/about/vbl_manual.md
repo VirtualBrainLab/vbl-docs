@@ -124,7 +124,7 @@ To keep our momentum and excitement about projects, we have to be intentional ab
 
 Dan is happy to discuss the details of any of these grant applications with you at any time!
 
-Information about lab member grant applications is shared here with permission. You can access the final versions of these grants in the [lab drive](https://drive.google.com/drive/folders/1vhVtWFO8eRpVMmR5u4isGsgOycdBCEiK?usp=share_link).
+Information about lab member grant applications is shared here with permission. You can access the final versions of these grants in the [lab drive](https://drive.google.com/drive/folders/1jIPjr-n3jbYwL9S_U7ayjZJNtifjXczZ?usp=drive_link).
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
