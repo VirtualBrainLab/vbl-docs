@@ -179,7 +179,7 @@ they will not run in the web browser.
 To stream the channel data to Open Ephys, follow these instructions:
 
 1. Launch Open Ephys and connect to or simulate a probe.
-2. Make sure the "Probe Viewer" node is included in your processing stream
+2. Make sure at least one [Probe Viewer](https://open-ephys.github.io/gui-docs/User-Manual/Plugins/Probe-Viewer.html#probe-viewer) plugin is in your signal chain. If you don't see the Probe Viewer in your processor list, you can add it via the Plugin Installer (Probe Viewer version ≥0.3.1 is needed to interface with Pinpoint).
 3. Enable the server features in Open Ephys (in the File menu), note the server IP and port
 4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
 5. Make sure the IP address and port match the server information in Open Ephys
