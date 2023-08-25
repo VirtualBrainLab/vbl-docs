@@ -173,6 +173,9 @@ sub-menus.
 
 Pinpoint can send anatomical data about probes in the scene to the Open Ephys GUI and SpikeGLX during experiments. This is an independent feature from the electrophysiology link features (below) and they can be used together, or separately. The API sends updated anatomy data only every 10 seconds.
 
+**These features are only available on the Windows Desktop build of Pinpoint**
+they will not run in the web browser.
+
 To stream the channel data to Open Ephys, follow these instructions:
 
 1. Launch Open Ephys and connect to or simulate a probe.
