@@ -179,12 +179,13 @@ they will not run in the web browser.
 To stream the channel data to Open Ephys, follow these instructions:
 
 1. Launch Open Ephys and connect to or simulate a probe.
-2. Enable the server features in Open Ephys (in the File menu), note the server IP and port
-3. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
-4. Make sure the IP address and port match the server information in Open Ephys
-5. Toggle the API on
-6. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
-7. Within 10 seconds, you should see an update to the anatomy data in Open Ephys
+2. Make sure the "Probe Viewer" node is included in your processing stream
+3. Enable the server features in Open Ephys (in the File menu), note the server IP and port
+4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
+5. Make sure the IP address and port match the server information in Open Ephys
+6. Toggle the API on
+7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
+8. You should immediately see should see an update to the anatomy data in Open Ephys
 
 For SpikeGLX, follow these instructions:
 
@@ -195,7 +196,7 @@ For SpikeGLX, follow these instructions:
 5. Make sure the location of the HelloSGLX file is accurate
 6. Toggle the API on
 7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
-8. Within 10 seconds, you should see an update to the anatomy data in SpikeGLX
+8. You should immediately see should see an update to the anatomy data in SpikeGLX (make sure to open the probe shank view to see this)
 
 ## Ephys Link
 
