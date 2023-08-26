@@ -178,13 +178,13 @@ they will not run in the web browser.
 
 To stream the channel data to Open Ephys, follow these instructions:
 
-1. Launch Open Ephys and connect to or simulate a probe.
+1. Launch Open Ephys and connect to or simulate one or more probes using the Neuropix-PXI plugin.
 2. Make sure at least one [Probe Viewer](https://open-ephys.github.io/gui-docs/User-Manual/Plugins/Probe-Viewer.html#probe-viewer) plugin is in your signal chain. If you don't see the Probe Viewer in your processor list, you can add it via the Plugin Installer (Probe Viewer version ≥0.3.1 is needed to interface with Pinpoint).
-3. Enable the server features in Open Ephys (in the File menu), note the server IP and port
+3. Make sure the HTTP Server is enabled in Open Ephys ("File > Enable HTTP Server" should have a checkmark next to it).
 4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
-5. Make sure the IP address and port match the server information in Open Ephys
+5. In the "OpenEphys API" section, make sure the IP address matches that of the machine running Open Ephys. If Pinpoint is running on the same computer, this will be "localhost". The port number will always be 37497.
 6. Toggle the API on
-7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which Open Ephys recording each probe should be linked to
+7. In the probe matching list on the right, you should see each of your Pinpoint probes. Use the dropdown menus to link each probe to its corresponding name in Open Ephys.
 8. You should immediately see should see an update to the anatomy data in Open Ephys
 
 For SpikeGLX, follow these instructions:
