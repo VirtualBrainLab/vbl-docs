@@ -1,6 +1,6 @@
 # Installation and Use
 
-Pinpoint is a tool for planning Neuropixels recordings with up to sixteen 1.0, 2.0, or up to four 4-shank 2.0 probes.
+Pinpoint is a tool for planning electrophysiology recordings and other *in vivo* insertions, as well as tracking the position of probes in real-time instead the brain.
 
 <image src="../_static/images/center.png" alt="overview image" position="left" style="width:100%">
 
