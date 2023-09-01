@@ -192,3 +192,29 @@ Linux builds function but you need to load the build on a Linux machine and mark
 ### Mac builds
 
 Mac builds require extra steps to certify the build, we don't have the capacity right now to deal with these.
+
+## Release information
+
+As of 2023/08/31 Pinpoint has been accessed by:
+
+79 unique users on Steam
+170 unique downloads from Github Releases
+Unknown users via WebGL: estimate of 200 active users from survey
+
+### Github releases
+
+Run this command:
+
+```
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <token>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/VirtualBrainLab/Pinpoint/releases
+```
+
+Using a token with VBL access, which can be created from: https://github.com/settings/tokens?type=beta
+
+### Steam download information
+
+Accessed from the Steam financials page
