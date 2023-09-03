@@ -7,4 +7,4 @@ Urchin API
    :template: custom-module-template.rst
    :recursive:
 
-   oursin
+   oursin.oursin
