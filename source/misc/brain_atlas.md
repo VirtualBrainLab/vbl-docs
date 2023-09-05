@@ -23,6 +23,7 @@ Note that the data pipeline can take a long time to run, as it downloads each at
 - structures.json
 - Mesh files: .obj file for each region
 - One-sided mesh files: .obj file for each region
+- Region centers: .csv file with the ap/ml/dv coordinate for the center of each area
 
 ### Unity files
 
