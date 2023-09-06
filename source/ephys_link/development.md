@@ -8,15 +8,15 @@ Ephys Link is a modular application structured in 3 layers to enable future
 extensibility:
 
 1. The Server
-2. The Manipulator Platforms
-3. Specific Manipulator Instances
+2. Manipulator Platforms
+3. Manipulator Instances
 
 ### 1. The Server
 
-At its core, Ephys Link is a Python-based WebSocket server that is used to
+At its core, Ephys Link is a Python-based Socket.IO server that is used to
 communicate
 between client applications and manipulator platforms. The server declares a
-standardized set of websocket events that clients can call to enact platform
+standardized set of Socket.IO events that clients can call to enact platform
 specific manipulator API calls. All events, their inputs, and return values are
 error checked on the server.
 
@@ -25,9 +25,9 @@ with the `@sio.event` annotation. It is also responsible for handling CLI
 arguments, starting the serial connection to the emergency stop button, and
 launching the GUI.
 
-### 2. The Manipulator Platforms
+### 2. Manipulator Platforms
 
-Each manipulator platform implements the set of events declared by the WebSocket
+Each manipulator platform implements the set of events declared by the Socket.IO
 server. Manipulator platforms are responsible for managing connected manipulator
 instances and API calls that affect all instances simultaneously (such as
 calibration and emergency stops).
@@ -38,7 +38,7 @@ of events and pre-implements standard error checking for input and output.
 Platform classes typically start with some call to initialize the platform's
 specific API and manage the available/visible manipulators.
 
-### 3. Specific Manipulator Instances
+### 3. Manipulator Instances
 
 To help with manipulator management, each _in vivo_ manipulator can be
 instantiated as a manipulator class specific to the platform. This class
@@ -57,24 +57,10 @@ platforms to Ephys Link.
 ### Installing Ephys Link for development
 
 1. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
-2. `cd ephys-link` and run `pip install -r requirements.txt`
-3. `python ephys_link/server.py` launches the server
-4. Unit tests are available to run under the `tests/` directory
-
-#### Docker can also be used for development
-
-1. [Install Docker](https://www.docker.com/get-started/) in any way you like
-2. Clone the [repo](https://github.com/VirtualBrainLab/ephys-link)
-3. `cd ephys-link`
-4. `docker-compose up` to build the container and run the server
-5. `docker attach <container-id>` to view the server logs
-6. You can edit the `command` line in `docker-compose.yml` to configure the
-   server's parameters
-7. `docker exec -it <container_id> /bin/bash` if you need to enter the container
-8. The package is located in the root directory as `ephys_link`
-9. Unit tests are available to run under the `tests/` directory
-10. `docker-compose stop` to stop the container or `docker-compose down` to stop
-    and remove the container
+2. `cd ephys-link`
+3. `pip install .[dev]` to install the package and its development dependencies
+4. `ephys-link` launches the server
+5. Unit tests are available to run under the `tests/` directory
 
 ### Adding a new platform
 
@@ -83,19 +69,19 @@ some windows-compatible API and (ideally) some python library to interface with.
 Once an API connection can be established, the platform handler can be
 implemented in the following steps:
 
-1. Create a new file in `ephys_link/platforms/` with the name of the platform
-   (e.g. `my_platform.py`)
+1. Create a new module in `src/ephys_link/platforms/` with the name of the platform
+   (e.g. `my_platform.py`).
 2. Create a new class that inherits from `PlatformHandler` and implement the
-   abstract methods
-    1. Follow `ephys_link/platforms/sensapex_handler.py` as an example. Error
+   abstract methods.
+    1. Follow `src/ephys_link/platforms/sensapex_handler.py` as an example. Error
        checking is handled within the `PlatformHandler` class so only implement
        the necessary API calls to the platform.
-3. Optionally, add a platform manipulator class in `ephys_link/platforms`. As
+3. Optionally, add a platform manipulator class that inherits `PlatformManipulator` in `src/ephys_link/platforms`. As
    described in the code organization section, a platform manipulator class
    definition can be used to help abstract code specific to instances of
    manipulators away from general platform management code.
-    1. Follow `ephys_link/platforms/sensapex_manipulator.py` as an example.
-4. Add the new platform to the launch command in `ephys_link/server.py`
+    1. Follow `src/ephys_link/platforms/sensapex_manipulator.py` as an example.
+4. Add the new platform to the launch command in `src/ephys_link/server.py`
     1. Add a new case for the platform in the match statement in
        the `launch_server` function. The case pattern will be the input string
        used in the CLI to select this platform with the `-t/--type` argument.
@@ -104,10 +90,12 @@ implemented in the following steps:
 
 ### General code practices
 
-- Type hinting is implemented where possible
+- Type hinting is implemented where possible.
 - All functions and classes must have a Sphinx/reStructuredText formatted
-  docstring
-- Only one client can be connected to the server at a time
+  docstring.
+- Only one client can be connected to the server at a time.
+- Leave unimplemented functions as `raise NotImplementedError` instead of
+  `pass`.
 - For safety, ensure the `stop` function is implemented for all manipulators
   and that it is called when the server is stopped.
 
@@ -118,18 +106,16 @@ version:
 
 1. Be a collaborator to the Ephys Link PyPI project
 2. Update the `version` number in `pyproject.toml`
-3. (Optional) Locally test the package by running `pip install -e .` in the
-   root directory
-4. Ensure build tools are installed: `pip install build twine`
-5. Build the package: `python -m build`
-6. Check the build integrity: `twine check dist/*`
-7. Test upload to the test PyPI
+3. Install development dependencies: `pip install .[dev]`
+4. Build the package: `python -m build`
+5. Check the build integrity: `twine check dist/*`
+6. Test upload to the test PyPI
    server: `twine upload --repository testpypi dist/*`
-8. Upload to the PyPI server: `twine upload dist/*`
+7. Upload to the PyPI server: `twine upload dist/*`
 
 ## Developing a client application
 
-Ephys Link can be interfaced with any WebSocket client or used directly as a
+Ephys Link can be interfaced with any Socket.IO client or used directly as a
 python library. The following is information that can be helpful for developers
 looking to build client applications that utilize Ephys Link.
 
@@ -139,25 +125,26 @@ For Python applications, Ephys Link can be imported as a library. To do so:
 
 1. Follow
    the [installation instructions](https://virtualbrainlab.org/ephys_link/installation_and_use.html)
-2. Use `from ephys_link import server` and call `server.launch()` to start the
+2. Use `from ephys_link import server` and call `server.launch_server("sensapex", 8081, 8080)` to start the
    server
-    1. Alternatively, use `import ephys_link` and
-       call `ephys_link.server.launch()`
+    1. The first argument is the platform type (e.g. `"sensapex"` or `"new_scale"`).
+    2. The second argument is the port to listen for Socket.IO connections on.
+    3. The third argument is the port to listen for Pathfinder HTTP connections on.
 
-### WebSocket application
+### Socket.IO application
 
-As a WebSocket server, Ephys Link defines a standardized set of WebSocket events
+As a Socket.IO server, Ephys Link defines a standardized set of Socket.IO events
 that can be used to interact with manipulator platforms.
-The [following section](websocket-events) describes the available events and how
+The [following section](socketio-events) describes the available events and how
 to use them.
 
-(websocket-events)=
+(socketio-events)=
 
-## WebSocket Events and API
+## Socket.IO Events and API
 
-This is a list of available WebSocket events. The code shown is pseudo-WebSocket
+This is a list of available Socket.IO events. The code shown is pseudo-Socket.IO
 code that can be used to interact with the server. The exact implementation will
-depend on the platform and WebSocket interface used.
+depend on the platform and Socket.IO interface used.
 
 In general:
 
@@ -206,7 +193,7 @@ check for features and platform availability.
 
 ```python
 # Get server version number
-ws.emit('get_version', callback=my_callback_func)
+sio.emit('get_version', callback=my_callback_func)
 ```
 
 (getting-manipulators)=
@@ -235,7 +222,7 @@ callback will return a list of the available manipulators.
 
 ```python
 # Get available manipulators
-ws.emit('get_manipulators', callback=my_callback_func)
+sio.emit('get_manipulators', callback=my_callback_func)
 ```
 
 (registering-a-manipulator)=
@@ -264,7 +251,7 @@ one such platform.
 
 ```python
 # Register manipulator with ID "1"
-ws.emit('register_manipulator', "1", callback=my_callback_func)
+sio.emit('register_manipulator', "1", callback=my_callback_func)
 ```
 
 (unregistering-a-manipulator)=
@@ -292,7 +279,7 @@ unregistering it.
 
 ```python
 # Unregister manipulator with ID "1"
-ws.emit('unregister_manipulator', "1", callback=my_callback_func)
+sio.emit('unregister_manipulator', "1", callback=my_callback_func)
 ```
 
 (calibrating-a-manipulator)=
@@ -324,7 +311,7 @@ the [bypass calibration](bypassing-calibration) event.
 
 ```python
 # Calibrate manipulator "1"
-ws.emit('calibrate', "1", callback=my_callback_func)
+sio.emit('calibrate', "1", callback=my_callback_func)
 ```
 
 (bypassing-calibration)=
@@ -351,7 +338,7 @@ The calibration requirement may be bypassed by sending this event.
 
 ```python
 # Bypass calibration for manipulator "1"
-ws.emit('bypass_calibration', "1", callback=my_callback_func)
+sio.emit('bypass_calibration', "1", callback=my_callback_func)
 ```
 
 (enable-movement)=
@@ -393,7 +380,7 @@ the manipulator which can no longer write as the payload.
 
 ```python
 # Enable movement for manipulator 1 indefinitely (0 = indefinite hours)
-ws.emit('set_can_write', {
+sio.emit('set_can_write', {
     'manipulator_id': "1",
     'can_write': True,
     'hours': 0
@@ -426,8 +413,8 @@ the origin.
   request or if an error occurred
 
 ```python
-# Gets the position of manipulator "1"
-ws.emit('get_pos', "1", callback=my_callback_func)
+# Get the position of manipulator "1"
+sio.emit('get_pos', "1", callback=my_callback_func)
 ```
 
 (get-a-manipulators-angles)=
@@ -460,7 +447,7 @@ values are 0°. Roll increases clockwise.
 
 ```python
 # Gets the angles of manipulator "1"
-ws.emit('get_angles', "1", callback=my_callback_func)
+sio.emit('get_angles', "1", callback=my_callback_func)
 ```
 
 (set-position-of-a-manipulator)=
@@ -485,7 +472,7 @@ using [`drive_to_depth`](drive-to-depth)
 
 - `manipulator_id`: `str`
 - `pos`: `float[4]` (in x, y, z, w as mm from the origin)
-- `speed`: `int` (in µm/s)
+- `speed`: `int` (in mm/s)
 
 **Callback Responses Format:** `(position: array, error: string)`
 
@@ -504,10 +491,10 @@ using [`drive_to_depth`](drive-to-depth)
 
 ```python
 # Set manipulator "1" to position 0, 0, 0, 0 at 2000 µm/s
-ws.emit('goto_pos', {
+sio.emit('goto_pos', {
     'manipulator_id': "1",
     'pos': [0, 0, 0, 0],
-    'speed': 2000
+    'speed': 2
 })
 ```
 
@@ -526,7 +513,7 @@ except the depth axis is moving during a movement call.
 
 - `manipulator_id`: `str`
 - `depth`: `float` (in mm from the origin)
-- `speed`: `int` (in µm/s)
+- `speed`: `int` (in mm/s)
 
 **Callback Responses `(depth: float, error: string)`**
 
@@ -544,10 +531,10 @@ except the depth axis is moving during a movement call.
 
 ```python
 # Drive manipulator "1" to a depth of 1000 µm at 2000 µm/s
-ws.emit('drive_to_depth', {
+sio.emit('drive_to_depth', {
     'manipulator_id': "1",
-    'depth': 1000,
-    'speed': 2000
+    'depth': 1,
+    'speed': 2
 })
 ```
 
@@ -582,7 +569,7 @@ locked to prevent accidental movement.
 
 ```python
 # Set manipulator "1" to be inside the brain
-ws.emit('inside_brain', {
+sio.emit('inside_brain', {
     'manipulator_id': "1",
     'inside': True
 })
@@ -601,8 +588,8 @@ Arduino is running [this sketch](https://github.com/VirtualBrainLab/StopSignal)
 which will continuously send `1` (followed by a new line symbol) through serial
 whenever the stop button is pressed.
 
-Both the WebSocket event and the serial method will stop all movement, remove
-all movement in the queue, ***and set all manipulators to be unwritable.***
+Both the Socket.IO event and the serial method will stop all movement, remove
+all movement in the queue, ***and set all manipulators to be non-writable.***
 Therefore, one must re-enable movement on the manipulators again before
 continuing.
 
@@ -621,5 +608,5 @@ continuing.
 
 ```python
 # Stop all movement
-ws.emit('stop')
+sio.emit('stop')
 ```
