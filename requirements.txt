@@ -1,4 +1,4 @@
-ephys-link==0.9.7
+ephys-link==0.9.11
 myst-parser==2.0.0
 sphinx==6.2.1
 sphinx-rtd-theme==1.2.2
