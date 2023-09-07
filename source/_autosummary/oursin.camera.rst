@@ -1,4 +1,4 @@
-oursin.camera
+﻿oursin.camera
 =============
 
 .. automodule:: oursin.camera
@@ -14,16 +14,21 @@ oursin.camera
    .. autosummary::
       :nosignatures:
    
-      set_pan
-      set_position
-      set_rotation
-      set_target
-      set_target_area
-      set_zoom
+      receive_camera_img
+      receive_camera_img_meta
+      set_light_camera
+      set_light_rotation
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Camera
    
    
 

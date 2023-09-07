@@ -1,4 +1,4 @@
-oursin.neurons
+﻿oursin.neurons
 ==============
 
 .. automodule:: oursin.neurons
@@ -16,15 +16,22 @@ oursin.neurons
    
       create
       delete
-      set_color
-      set_material
-      set_position
-      set_shape
-      set_size
+      set_colors
+      set_materials
+      set_positions
+      set_shapes
+      set_sizes
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Neuron
    
    
 

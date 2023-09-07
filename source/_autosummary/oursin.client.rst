@@ -1,4 +1,4 @@
-oursin.client
+﻿oursin.client
 =============
 
 .. automodule:: oursin.client
@@ -20,6 +20,8 @@ oursin.client
       connected
       disconnect
       message
+      receive_camera_img
+      receive_camera_img_meta
    
    
 

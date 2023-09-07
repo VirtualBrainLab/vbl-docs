@@ -1,4 +1,4 @@
-oursin.text
+﻿oursin.text
 ===========
 
 .. automodule:: oursin.text
@@ -9,21 +9,16 @@ oursin.text
 
    
    
-   .. rubric:: Functions
+   
+
+   
+   
+   .. rubric:: Classes
 
    .. autosummary::
       :nosignatures:
    
-      create
-      delete
-      set_color
-      set_position
-      set_size
-      set_text
-   
-   
-
-   
+      Text
    
    
 

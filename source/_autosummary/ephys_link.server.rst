@@ -22,9 +22,10 @@
       connect
       disconnect
       drive_to_depth
-      end
+      get_angles
       get_manipulators
       get_pos
+      get_version
       goto_pos
       launch_server
       poll_serial

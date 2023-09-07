@@ -1,4 +1,4 @@
-oursin.lines
+﻿oursin.lines
 ============
 
 .. automodule:: oursin.lines
@@ -16,12 +16,17 @@ oursin.lines
    
       create
       delete
-      set_color
-      set_position
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Line
    
    
 

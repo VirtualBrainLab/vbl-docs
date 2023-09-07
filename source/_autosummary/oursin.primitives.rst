@@ -1,4 +1,4 @@
-oursin.primitives
+﻿oursin.primitives
 =================
 
 .. automodule:: oursin.primitives
@@ -16,13 +16,21 @@ oursin.primitives
    
       create
       delete
-      set_color
-      set_position
-      set_scale
+      set_colors
+      set_materials
+      set_positions
+      set_scales
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Primitive
    
    
 

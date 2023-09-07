@@ -26,6 +26,7 @@
    .. autosummary::
       :nosignatures:
    
+      AngularOutputData
       CanWriteInputDataFormat
       DriveToDepthInputDataFormat
       DriveToDepthOutputData

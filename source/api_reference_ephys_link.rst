@@ -29,9 +29,12 @@ This reference is intended for users who want to directly use the internal serve
    :template: custom-module-template.rst
    :recursive:
 
-   ephys_link.common
-   ephys_link.platform_handler
    ephys_link.server
+   ephys_link.platform_handler
+   ephys_link.platform_manipulator
    ephys_link.platforms.sensapex_handler
    ephys_link.platforms.sensapex_manipulator
    ephys_link.platforms.new_scale_handler
+   ephys_link.platforms.new_scale_manipulator
+   ephys_link.platforms.new_scale_pathfinder_handler
+   ephys_link.common
