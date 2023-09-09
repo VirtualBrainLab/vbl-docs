@@ -1,13 +1,13 @@
 # Installation and Use
 
 <p float="left">
- <img src="https://github.com/dbirman/UMRenderer/raw/main/gallery/flatmap_layout.png" width="25%"> 
- <img src="https://github.com/dbirman/UMRenderer/raw/main/gallery/data_onesided.png" width="25%"> 
- <img src="https://github.com/dbirman/UMRenderer/raw/main/gallery/RS_fig1.png " width="35%">
+ <img src="https://github.com/dbirman/UMRenderer/raw/develop/gallery/flatmap_layout.png" width="25%"> 
+ <img src="https://github.com/dbirman/UMRenderer/raw/develop/gallery/data_onesided.png" width="25%"> 
+ <img src="https://github.com/dbirman/UMRenderer/raw/develop/gallery/RS_fig1.png " width="35%">
 </p>
 
 <p float="center">
- <img src="https://github.com/dbirman/UMRenderer/raw/main/gallery/brain_rotate_cropped.gif" width="45%"> 
+ <img src="https://github.com/dbirman/UMRenderer/raw/develop/gallery/brain_rotate_cropped.gif" width="45%"> 
 </p>
 
 The Universal Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
