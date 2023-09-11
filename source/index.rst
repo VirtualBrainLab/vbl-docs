@@ -45,6 +45,7 @@ Please see the individual projects for installation instructions and documentati
    :caption: Urchin
 
    urchin/installation_and_use
+   urchin/tutorial
    ibl/ibl_tools
 
 
