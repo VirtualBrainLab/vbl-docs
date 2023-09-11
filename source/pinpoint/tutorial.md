@@ -190,13 +190,14 @@ To stream the channel data to Open Ephys, follow these instructions:
 For SpikeGLX, follow these instructions:
 
 1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
-2. Launch SpikeGLX and start a new acquisition, using existing data or a live probe
-3. Enable the SpikeGLX API
-4. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
-5. Make sure the location of the HelloSGLX file is accurate
-6. Toggle the API on
-7. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
-8. You should immediately see should see an update to the anatomy data in SpikeGLX (make sure to open the probe shank view to see this)
+2. Launch SpikeGLX 
+3. In the Options > Command server Settings menu, make sure that *Enable Remote Command Server* option is checked.
+4. Start a new acquisition, using existing data or a live probe
+5. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
+6. Make sure the location of the HelloSGLX file is accurate.
+7. Toggle the API on. If you see an API Status error, it probably means you didn't turn the command server on, see step 3.
+8. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
+9. You should immediately see an update to the anatomy data in SpikeGLX (make sure to open the probe shank view to see this)
 
 ## Ephys Link
 
