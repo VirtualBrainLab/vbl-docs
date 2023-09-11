@@ -27,19 +27,9 @@ import oursin as urchin
 urchin.setup()
 ```
 
-Calling `setup()` opens a web browser and links it to your Python client. Set the parameter `standalone = True` to connect to a standalone Desktop application. 
+Calling `setup()` opens a web browser and links it to your Python client.
 
-### Troubleshooting ID
-
-When opening the renderer your ID should be set automatically. If this fails or you need to change your ID press `I` and enter your account username. If you aren't sure what that is, try running:
-
-```
-python
-import os
-os.getlogin()
-```
-
-You can press `C` to open the console in the renderer to confirm your ID was set correctly.
+Set the parameter `standalone = True` to connect to a standalone Desktop application. You'll need to manually copy the ID that Urchin displays to the Desktop renderer.
 
 ## Camera control
 
