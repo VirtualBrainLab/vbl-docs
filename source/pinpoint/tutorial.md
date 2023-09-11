@@ -171,7 +171,7 @@ sub-menus.
 
 ## API
 
-Pinpoint can send anatomical data about probes in the scene to the Open Ephys GUI and SpikeGLX during experiments. This is an independent feature from the electrophysiology link features (below) and they can be used together, or separately. The API sends updated anatomy data only every 10 seconds.
+Pinpoint can send anatomical data about probes in the scene to the Open Ephys GUI and SpikeGLX during experiments. This is an independent feature from the electrophysiology link features (below) and they can be used together, or separately.
 
 **These features are only available on the Windows Desktop build of Pinpoint**
 they will not run in the web browser.
