@@ -2,11 +2,23 @@
 
 ## Organization
 
-Urchin is organized into three parts. A client, server, and renderer. The only client right now is the Python API, but in the future we may build other APIs (MATLAB, R). The Server is a Node.js server that echoes messages between clients and renderers. The Renderer is a Unity app that can run either as a standalone desktop build or in the browser.
+Urchin is organized into three parts. An API, server, and renderer.
 
-### Virtual environment
+### API
 
-To develop for Urchin you will need to run a local copy of the client, server, and Unity builds. For the Python API you will need a new virtual environment with `unityneuro` installed in **editable** mode.
+The Python API allows users to push and get data to the serverer and to a renderer instance.
+
+### Server
+
+The server runs both an HTTP REST endpoint and a Node.js Socket.IO server. The REST endpoints allow users to push new datasets to the server and retrieve them from data buckets, see below. The Socket.IO server acts as a proxy between a client API and the renderer itself, this can be used for testing visualizations without saving the data or for grabbing screenshot or video data back from the renderer.
+
+### Renderer
+
+The renderer is a standalone WebGL or Desktop client that displays data alongside anatomical reference atlases.
+
+## Virtual environment
+
+To develop for Urchin you will need to run a local copy of the client, server, and Unity builds. For the Python API you will need a new virtual environment with `oursin` installed in **editable** mode.
 
 To setup the venv go into the API folder and run:
 
@@ -16,17 +28,27 @@ urchin-venv/Scripts/activate
 pip install -e .
 ```
 
-### Adding new functionality
+Updates you make to the code will then be accessible by restarting your Python kernel.
+
+## Adding new functionality
 
 To add a new render function you need three pieces:
 
- 1. Update `API/urchin/renderer.py` to include the new function and add documentation
+ 1. Add the new API documentation
  2. Add the `socket.io` call to the set of calls in `Server/server.js`
  3. Add the new functionality to the UnityClient in `Client.cs` and in your manager class
 
-Before deploying you should add a new test script in `Examples/basic` which runs your new functionality and makes sure that it works.
+Before deploying you should add a new test script in the [urchin-examples](https://github.com/VirtualBrainLab/urchin-examples) repository which runs your new functionality and makes sure that it works.
 
-#### Urchin (API/unityneuro/render.py)
+### Schema
+
+Schemas are stored in the `Schema/` folder. They have the following pattern:
+
+```
+?
+```
+
+### Python (oursin package)
 
 The Urchin API has two patterns for inputs, a single object (singular) pattern and a multi-object (plural) pattern. They should in general look like this:
 
@@ -64,11 +86,17 @@ Examples
 """
 ```
 
-#### Server (Server/server.js)
+#### Testing
+
+Unit tests should test that the functions generate valid JSON and that the sanitizing functions perform their job correctly for a variety of inputs.
+
+### HTTP REST Server (HTTPServer/?)
+
+### Socket.IO Server (Server/server.js)
 
 The server calls just echo the data from the sender (API) to the receiver (Unity). Copy any of the existing calls and replace the message headers. Please keep the server organized.
 
-#### Unity (Client.cs and your manager code)
+### Unity (Client.cs and your manager code)
 
 Your code in Unity should be separated into two layers. All socket messages should be received in the `Client.cs` class and then passed on to a `XXManager.cs`. The `Client` handles all socket communication, while the `Manager` handles all of the Unity local content. Keep managers separated by functionality (e.g. `ProbeManager`, `NeuronManager`, `LineRendererManager`, etc).
 
@@ -77,10 +105,9 @@ Your code in Unity should be separated into two layers. All socket messages shou
 To test your code locally, run the server on your local machine by navigating to the `Server/` folder and running `node server.js`. Then, run client in standalone localhost mode:
 
 ```
-urn.setup(localhost=True, standalone=True)
+import oursin as urchin
+urchin.setup(localhost=True, standalone=True)
 ```
-
-You should see the client connect with your username as ID on the server window.
 
 Finally, run the Unity renderer app in the editor. You may need to manually set your username as the ID in the app if it doesn't detect it automatically (either via code in `Client.cs` or by pressing `I` and opening the ID input window).
 
@@ -88,7 +115,7 @@ Finally, run the Unity renderer app in the editor. You may need to manually set 
 
 ### Deploying the client
 
-The client is accessed by users in two ways: either through the [web server](http://data.virtualbrainlab.org/UMRenderer/) or through a standalone desktop app which we include in each minor version release. To deploy a new client you need to take a few steps.
+The client is accessed by users in two ways: either through the [web server](http://data.virtualbrainlab.org/Urchin/) or through a standalone desktop app which is deployed on Steam. To deploy a new client you need to take a few steps.
 
  1. If you changed the Addressable assets or updated to a new version of Unity you need to re-build the assets. Do this for each build target separately. Then copy the `UnityClient/ServerData` folder to the `htdocs/UMData` subfolder on the server.
  2. Build the WebGL target build, then copy this to the `htdocs/UMRenderer` subfolder on the server.
