@@ -55,7 +55,7 @@ Please see the individual projects for installation instructions and documentati
 
    about/overview
    about/vbl_manual
-   about/development
+   development
    about/contract_us
 
 .. toctree::
