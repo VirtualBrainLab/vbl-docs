@@ -1,0 +1,21 @@
+.collaborator-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 20px; /* Adjust the gap between items as needed */
+}
+
+.collaborator {
+    text-align: center;
+}
+
+.collaborator img {
+    max-width: 100%; /* Adjust the image width as needed */
+}
+
+.collaborator-name {
+    font-weight: bold;
+}
+
+.collaborator-position {
+    font-style: italic;
+}
