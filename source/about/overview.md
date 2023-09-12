@@ -47,23 +47,40 @@ Selina is piloting new 2-photon integrations in Urchin.
 
 ### Collaborators
 
-<image src="../_static/people/mayo.jpg" alt="Mayo Faulkner" position="left" style="border-radius: 8px;width:20vh">
-
-**[Mayo Faulkner, PhD](https://uk.linkedin.com/in/mayo-faulkner-592a8387)**
-
-User Experience Engineer - International Brain Laboratory
-
-<image src="../_static/people/cyrille.jpg" alt="Cyrille Rossant" position="left" style="border-radius: 8px;width:20vh">
-
-**[Cyrille Rossant, PhD](https://cyrille.rossant.net/about/)**
-
-Scientific Programmer - International Brain Laboratory
-
-<image src="../_static/people/yoni.jpg" alt="Yoni Browning" position="left" style="border-radius: 8px;width:20vh">
-
-**[Yoni Browning, PhD](https://www.representations.space/)**
-
-Scientist - Allen Institute
+<div class="collaborator-grid">
+    <!-- first row-->
+    <div class="collaborator">
+        <img src="../_static/people/mayo.jpg" alt="Mayo Faulkner">
+        <p class="collaborator-name">Mayo Faulkner, PhD</p>
+        <p class="collaborator-position">UX Engineer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/cyrille.jpg" alt="Cyrille Rossant">
+        <p class="collaborator-name">Cyrille Rossant, PhD</p>
+        <p class="collaborator-position">Scientific Programmer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/yoni.jpg" alt="Yoni Browning">
+        <p class="collaborator-name">Yoni Browning, PhD</p>
+        <p class="collaborator-position">Scientist - Allen Institute</p>
+    </div>
+    <!-- second row-->
+    <!-- <div class="collaborator">
+        <img src="../_static/people/mayo.jpg" alt="Mayo Faulkner">
+        <p class="collaborator-name">Mayo Faulkner, PhD</p>
+        <p class="collaborator-position">UX Engineer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/cyrille.jpg" alt="Cyrille Rossant">
+        <p class="collaborator-name">Cyrille Rossant, PhD</p>
+        <p class="collaborator-position">Scientific Programmer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/yoni.jpg" alt="Collaborator 3">
+        <p class="collaborator-name">Alice Johnson</p>
+        <p class="collaborator-position">Position: Engineer</p>
+    </div> -->
+</div>
 
 *** 
 

@@ -1,0 +1,24 @@
+/* Center-align text */
+.collaborator {
+    text-align: center;
+}
+
+/* Style the collaborator images */
+.collaborator img {
+    max-width: 148px; /* Adjust the image width as needed */
+}
+
+/* Add some spacing between collaborators */
+.collaborator + .collaborator {
+    margin-top: 20px; /* Adjust the spacing as needed */
+}
+
+/* Style collaborator names */
+.collaborator-name {
+    font-weight: bold;
+}
+
+/* Style collaborator positions */
+.collaborator-position {
+    font-style: italic;
+}
