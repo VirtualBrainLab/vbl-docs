@@ -48,18 +48,6 @@ Please see the individual projects for installation instructions and documentati
    urchin/tutorial
    ibl/ibl_tools
 
-
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-   :caption: Development
-
-   misc/general
-   misc/brain_atlas
-   pinpoint/development
-   urchin/development
-   ephys_link/development
-
 .. toctree::
    :hidden:
    :maxdepth: 2
@@ -67,6 +55,7 @@ Please see the individual projects for installation instructions and documentati
 
    about/overview
    about/vbl_manual
+   development
    about/contract_us
 
 .. toctree::
