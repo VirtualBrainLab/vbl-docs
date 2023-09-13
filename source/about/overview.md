@@ -86,21 +86,40 @@ Selina is piloting new 2-photon integrations in Urchin.
 
 ### Past Developers
 
-<image src="../_static/people/kai.jpg" alt="Kai" position="left" style="border-radius: 8px;width:12.5vh">
-
-**[Kai Nylund](https://www.linkedin.com/in/kai-nylund-806443174/)**
-
-Undergraduate Researcher (UW 2023)
-
-Kai built the [codebase](github.com/int-brain-lab/ibl-avg-trial-viz) for the IBL Average Trial visualizations, now being used in virtual reality demos and in IBL talks.
-
-<image src="../_static/people/qiqi.jpg" alt="Qiqi" position="left" style="border-radius: 8px;width:12.5vh">
-
-**[Qiqi Liang](https://www.linkedin.com/in/qiqi-liang-117358146)**
-
-Undergraduate Researcher (UW 2023)
-
-Qiqi developed visualizations for the IBL.
+<div class="collaborator-grid">
+    <!-- first row-->
+    <div class="collaborator">
+        <img src="../_static/people/kai.jpg" alt="Kai Nylund">
+        <p class="collaborator-name">Kai Nylund</p>
+        <p class="collaborator-position">Undergraduate Researcher</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/qiqi.jpg" alt="Qiqi Liang">
+        <p class="collaborator-name">Qiqi Liang</p>
+        <p class="collaborator-position">Undergraduate Researcher</p>
+    </div>
+    <!-- <div class="collaborator">
+        <img src="../_static/people/yoni.jpg" alt="Yoni Browning">
+        <p class="collaborator-name">Yoni Browning, PhD</p>
+        <p class="collaborator-position">Scientist - Allen Institute</p>
+    </div> -->
+    <!-- second row-->
+    <!-- <div class="collaborator">
+        <img src="../_static/people/mayo.jpg" alt="Mayo Faulkner">
+        <p class="collaborator-name">Mayo Faulkner, PhD</p>
+        <p class="collaborator-position">UX Engineer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/cyrille.jpg" alt="Cyrille Rossant">
+        <p class="collaborator-name">Cyrille Rossant, PhD</p>
+        <p class="collaborator-position">Scientific Programmer - IBL</p>
+    </div>
+    <div class="collaborator">
+        <img src="../_static/people/yoni.jpg" alt="Collaborator 3">
+        <p class="collaborator-name">Alice Johnson</p>
+        <p class="collaborator-position">Position: Engineer</p>
+    </div> -->
+</div>
 
 ## Funding
 
