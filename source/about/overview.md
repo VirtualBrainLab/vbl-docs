@@ -43,7 +43,7 @@ Undergraduate Researcher (UM 2024)
 
 Selina is piloting new 2-photon integrations in Urchin.
 
-*** 
+***
 
 ### Collaborators
 
@@ -82,7 +82,7 @@ Selina is piloting new 2-photon integrations in Urchin.
     </div> -->
 </div>
 
-*** 
+***
 
 ### Past Developers
 
@@ -120,6 +120,8 @@ Selina is piloting new 2-photon integrations in Urchin.
         <p class="collaborator-position">Position: Engineer</p>
     </div> -->
 </div>
+
+ ***
 
 ## Funding
 
