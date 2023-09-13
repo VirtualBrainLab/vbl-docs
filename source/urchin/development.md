@@ -6,7 +6,7 @@ Urchin is organized into three parts. An API, server, and renderer.
 
 ### API
 
-The Python API allows users to push and get data to the serverer and to a renderer instance.
+The Python API allows users to push and get data to the serverer and to a renderer instance. This allows users to run Urchin online through Google Colab.
 
 ### Server
 
@@ -139,3 +139,10 @@ py -m twine upload dist/*
 #### On Heroku
 
 Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
+
+
+### Running code on Colab
+
+Colab is a good solution for hosting and running notebooks off of gitub. All the code has to be built in the notebook, as additions within colab will not be saved. Once a Jupyter Notebook is uploaded to GitHub, an open in github button can be made by pasting the github link into https://openincolab.com/. The resulting html can be inserted into a markdown in the top of the notebook, for users to directly run the code in colab.
+
+When creating a notebook to run in colab, make sure to add !pip install oursin -U at the top of every notebook for users to run their first time running the notebook in colab. Any data can be accessed within the notebook once uploaded to Google Drive, and accessed with the help of the gspread library.
