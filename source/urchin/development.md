@@ -141,7 +141,7 @@ py -m twine upload dist/*
 Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
 
 
-### Running code on Colab
+#### Running code on Colab
 
 Colab is a good solution for hosting and running notebooks off of gitub. All the code has to be built in the notebook, as additions within colab will not be saved. Once a Jupyter Notebook is uploaded to GitHub, an open in github button can be made by pasting the github link into https://openincolab.com/. The resulting html can be inserted into a markdown in the top of the notebook, for users to directly run the code in colab.
 
