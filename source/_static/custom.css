@@ -9,13 +9,16 @@
 }
 
 .collaborator img {
-    max-width: 100%; /* Adjust the image width as needed */
+    max-height: 18vh; /* Adjust the image width as needed */
+    border-radius: 8px;
 }
 
 .collaborator-name {
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .collaborator-position {
     font-style: italic;
+    margin-bottom: 10px;
 }
