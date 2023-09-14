@@ -141,8 +141,45 @@ py -m twine upload dist/*
 Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
 
 
-## Running code on Colab
+## Adding Google Colab Functionality to Urchin Examples
 
-Colab is a good solution for hosting and running notebooks off of gitub. All the code has to be built in the notebook, as additions within colab will not be saved. Once a Jupyter Notebook is uploaded to GitHub, an open in github button can be made by pasting the github link into https://openincolab.com/. The resulting html can be inserted into a markdown in the top of the notebook, for users to directly run the code in colab.
+Google Colab provides a convenient way to host and execute Jupyter Notebooks in the cloud, making it easy for users to interact with your code without the need for local installations.
 
-When creating a notebook to run in colab, make sure to add !pip install oursin -U at the top of every notebook for users to run their first time running the notebook in colab. Any data can be accessed within the notebook once uploaded to Google Drive, and accessed with the help of the gspread library.
+## Running Uchin Examples on Colab
+ #### Prepare notebook on GithHb
+ Create Jupyter Notebook with all necessary code and explanations, and upload it to the correct GitHub repository. Keep in mind that any edits made within Colab will not be saved to the GitHub repository when building the notebook.
+
+ #### Generate "Open in Colab" Button
+ To allow users to directly run notebook in Google Colab, generate the "Open in Colab" button using https://openincolab.com/. Insert the generated HTML snippet at the top of the notebook within a markdown cell, or anywhere else that is easily accessible to direct users to the notebook on Colab.
+
+ #### Ensure Dependancies are installed
+ Include the following code to ensure that users have the necessary dependencies, including the most up to date version of Urchin installed within their Colab environment:
+ ```
+  !pip install urchin -U
+  ```
+  Include a reminder for users to ensure that popups are enabled, and import the Urchin package.
+  ```
+  #Ensure that popups are enabled.
+
+  #Importing necessary libraries:
+import oursin as urchin
+urchin.setup()
+  ```
+#### Data Access
+Data files can't be sotred in the urchin-examples repository, so any data used within the example script must first be uploaded publicly to the shared Google Drive in the [ExampleData folder](https://drive.google.com/drive/folders/12RyHx3bh4ChwfN95NLhvJL5BshhM8M7v)(VBL shared drive/1_Urchin/1_SharedFiles/ExampleData/). Ensure that sharing permissions are set so that anyone with link can edit. This allows people to run code off Colab using the data without having to sign into Google first. 
+
+If accessing data within notebook be sure to include the following import code and get data function:
+```
+import pandas as pd
+
+#Function for easily pulling in data:
+#url = link to google sheet (on editing mode) as a string
+def get_data(url):
+    data = url.replace("/edit#gid=", "/export?format=csv&gid=")
+    df = pd.read_csv(data)
+    return df
+```
+The data can then be directly pulled in as a data frame directly from the edit link as a string. For example:
+```
+data_frame = get_data('https://docs.google.com/spreadsheets/d/1F9NBt-qqcA-IyxowXl82S4NI0gYyczUOEb8MEaW7qm0/edit#gid=1956783922')
+```
