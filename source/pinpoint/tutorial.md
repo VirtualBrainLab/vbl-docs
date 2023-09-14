@@ -189,6 +189,8 @@ To stream the channel data to Open Ephys, follow these instructions:
 
 For SpikeGLX, follow these instructions:
 
+Make sure that your SpikeGLX version is updated, you'll need a 202306 or later version number. You can update to the latest SpikeGLX [here](https://billkarsh.github.io/SpikeGLX/).
+
 1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
 2. Launch SpikeGLX 
 3. In the Options > Command server Settings menu, make sure that *Enable Remote Command Server* option is checked.
