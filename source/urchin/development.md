@@ -6,7 +6,7 @@ Urchin is organized into three parts. An API, server, and renderer.
 
 ### API
 
-The Python API allows users to push and get data to the serverer and to a renderer instance.
+The Python API allows users to push and get data to the serverer and to a renderer instance. This allows users to run Urchin online through Google Colab.
 
 ### Server
 
@@ -139,3 +139,47 @@ py -m twine upload dist/*
 #### On Heroku
 
 Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
+
+
+## Adding Google Colab Functionality to Urchin Examples
+
+Google Colab provides a convenient way to host and execute Jupyter Notebooks in the cloud, making it easy for users to interact with your code without the need for local installations.
+
+## Running Uchin Examples on Colab
+ #### Prepare notebook on GithHb
+ Create Jupyter Notebook with all necessary code and explanations, and upload it to the correct GitHub repository. Keep in mind that any edits made within Colab will not be saved to the GitHub repository when building the notebook.
+
+ #### Generate "Open in Colab" Button
+ To allow users to directly run notebook in Google Colab, generate the "Open in Colab" button using https://openincolab.com/. Insert the generated HTML snippet at the top of the notebook within a markdown cell, or anywhere else that is easily accessible to direct users to the notebook on Colab.
+
+ #### Ensure Dependancies are installed
+ Include the following code to ensure that users have the necessary dependencies, including the most up to date version of Urchin installed within their Colab environment:
+ ```
+  !pip install urchin -U
+  ```
+  Include a reminder for users to ensure that popups are enabled, and import the Urchin package.
+  ```
+  #Ensure that popups are enabled.
+
+  #Importing necessary libraries:
+import oursin as urchin
+urchin.setup()
+  ```
+#### Data Access
+Data files can't be sotred in the urchin-examples repository, so any data used within the example script must first be uploaded publicly to the shared Google Drive in the [ExampleData folder](https://drive.google.com/drive/folders/12RyHx3bh4ChwfN95NLhvJL5BshhM8M7v)(VBL shared drive/1_Urchin/1_SharedFiles/ExampleData/). Ensure that sharing permissions are set so that anyone with link can edit. This allows people to run code off Colab using the data without having to sign into Google first. 
+
+If accessing data within notebook be sure to include the following import code and get data function:
+```
+import pandas as pd
+
+#Function for easily pulling in data:
+#url = link to google sheet (on editing mode) as a string
+def get_data(url):
+    data = url.replace("/edit#gid=", "/export?format=csv&gid=")
+    df = pd.read_csv(data)
+    return df
+```
+The data can then be directly pulled in as a data frame directly from the edit link as a string. For example:
+```
+data_frame = get_data('https://docs.google.com/spreadsheets/d/1F9NBt-qqcA-IyxowXl82S4NI0gYyczUOEb8MEaW7qm0/edit#gid=1956783922')
+```
