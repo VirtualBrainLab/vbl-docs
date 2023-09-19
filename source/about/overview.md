@@ -1,7 +1,7 @@
 
 # About
 
-The VBL builds intuitive and interactive 3D visualizations for neuroscience.
+The VBL develops tools for [experimenting](../pinpoint/installation_and_use.md), [exploring](../urchin/installation_and_use.md), and simulating nervous systems.
 
 We are located within the [Steinmetz Lab](http://steinmetzlab.net) at the University of Washington and many of our projects are collaborations with the [International Brain Laboratory](https://www.internationalbrainlab.com).
 
