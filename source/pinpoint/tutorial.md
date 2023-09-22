@@ -185,7 +185,8 @@ To stream the channel data to Open Ephys, follow these instructions:
 5. In the "OpenEphys API" section, make sure the IP address matches that of the machine running Open Ephys. If Pinpoint is running on the same computer, this will be "localhost". The port number will always be 37497.
 6. Toggle the API on
 7. In the probe matching list on the right, you should see each of your Pinpoint probes. Use the dropdown menus to link each probe to its corresponding name in Open Ephys.
-8. You should immediately see should see an update to the anatomy data in Open Ephys
+8. You should immediately see should see an update to the anatomy data in Open Ephys.
+9. You can update the Probes and the links to Open Ephys from within Pinpoint, but if you make a change to the signal chain in Open Ephys you'll need to toggle the API off and then back on to refresh the connection. 
 
 For SpikeGLX, follow these instructions:
 
@@ -194,12 +195,13 @@ Make sure that your SpikeGLX version is updated, you'll need a 202306 or later v
 1. Download [HelloSGLX](https://github.com/billkarsh/HelloSGLX) and place the folder in a convenient location, e.g. C:/HelloSGLX
 2. Launch SpikeGLX 
 3. In the Options > Command server Settings menu, make sure that *Enable Remote Command Server* option is checked.
-4. Start a new acquisition, using existing data or a live probe
+4. Start a **New Acquisition**, using existing data in simulation or a live probe. Note that the *Open File Viewer* option does not work with the API.
 5. In Pinpoint, press \[ESC\] to open the settings menu and navigate to the "API" tab
-6. Make sure the location of the HelloSGLX file is accurate.
+6. Make sure the location of the HelloSGLX file is accurate. Use the file navigator to locate the file if it's wrong.
 7. Toggle the API on. If you see an API Status error, it probably means you didn't turn the command server on, see step 3.
 8. In the probe matching list on the right, you should see each of your Pinpoint probes. Using the dropdown menus, select which SpikeGLX probe ID each probe should be linked to
 9. You should immediately see an update to the anatomy data in SpikeGLX (make sure to open the probe shank view to see this)
+10. You can update the Probes and the links to SpikeGLX from within Pinpoint, but if you make a change to the acquisition in SpikeGLX you'll need to toggle the API off and then back on to refresh the connection. 
 
 ## Ephys Link
 
