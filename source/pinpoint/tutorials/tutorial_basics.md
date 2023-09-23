@@ -1,4 +1,4 @@
-# Tutorial
+# Trajectory Planning
 
 Press [ESC] at any time to open the help and settings menu.
 
