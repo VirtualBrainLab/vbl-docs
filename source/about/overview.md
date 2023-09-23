@@ -1,7 +1,7 @@
 
 # About
 
-The VBL develops tools for [experimenting](../pinpoint/installation_and_use.md), [exploring](../urchin/installation_and_use.md), and simulating nervous systems.
+The VBL develops tools for [experimenting](../pinpoint/installation_and_use.md) with, [exploring](../urchin/installation_and_use.md), and simulating brains.
 
 We are located within the [Steinmetz Lab](http://steinmetzlab.net) at the University of Washington and many of our projects are collaborations with the [International Brain Laboratory](https://www.internationalbrainlab.com).
 
