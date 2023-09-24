@@ -51,7 +51,7 @@ Please see the individual projects for installation instructions and documentati
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: About the VBL
+   :caption: VBL
 
    about/overview
    about/vbl_manual

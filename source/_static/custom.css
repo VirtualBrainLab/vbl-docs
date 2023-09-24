@@ -22,11 +22,15 @@
     font-style: italic;
     margin-bottom: 10px;
 }
-/* 
-.wy-nav-side {
+
+.wy-side-nav-search {
     background-color: #0fbbbb;
 }
 
-.wy-menu-vertical {
+/* .wy-menu-vertical {
     color: #0fbbbb;
 } */
+
+body .wy-nav-side p.caption {
+    color: #0fbbbb;
+}
