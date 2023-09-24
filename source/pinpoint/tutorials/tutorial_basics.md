@@ -175,7 +175,7 @@ The Accounts tab in the settings allows you to save insertions across computers.
 Insertions are stored in experiments. One insertion can be shared across
 multiple experiments.
 
-![Connect a probe to a manipulator](../_static/images/tutorial/accounts.png)
+![Connect a probe to a manipulator](../../_static/images/tutorial/accounts.png)
 
 1. Register a new account, we kindly ask that you use an email address so that we can keep in touch about major updates to Pinpoint in the future. We won't give away your email or send a message more than once or twice a year.
 2. Log in to your account by providing the username and password. Leave the "stay logged in" toggle checked if you are on a private computer.

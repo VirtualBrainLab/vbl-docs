@@ -21,7 +21,7 @@ on how to install and run a server.
 
 ## Connecting to a server
 
-![Connecting to Ephys Link](../_static/images/Ephys-Link-connection.png)
+![Connecting to Ephys Link](../../_static/images/Ephys-Link-connection.png)
 
 1. Press \[ESC\] to open the settings menu
 2. Switch to the "Ephys Link" tab
@@ -37,7 +37,7 @@ on how to install and run a server.
 This step is not required for New Scale Pathfinder connections. See below
 for details.
 
-![Connect a probe to a manipulator](../_static/images/Ephys-Link-connect-probe.png)
+![Connect a probe to a manipulator](../../_static/images/Ephys-Link-connect-probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
 2. Press \[ESC\] to open the settings menu.
@@ -74,7 +74,7 @@ orient the manipulator's direction.
 Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
-![Sensapex handedness](../_static/images/tutorial/sensapex_manipulators.png)
+![Sensapex handedness](../../_static/images/tutorial/sensapex_manipulators.png)
 
 ### New Scale Pathfinder connections do not require configuration
 
