@@ -360,3 +360,6 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,python,pycharm
 
 .python-version
+
+sphinx-venv/*
+build/*
