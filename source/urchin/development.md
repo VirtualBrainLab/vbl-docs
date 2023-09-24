@@ -86,17 +86,17 @@ Examples
 """
 ```
 
-#### Testing
+## Testing
 
 Unit tests should test that the functions generate valid JSON and that the sanitizing functions perform their job correctly for a variety of inputs.
 
-### HTTP REST Server (HTTPServer/?)
+## HTTP REST Server (HTTPServer/?)
 
-### Socket.IO Server (Server/server.js)
+## Socket.IO Server (Server/server.js)
 
 The server calls just echo the data from the sender (API) to the receiver (Unity). Copy any of the existing calls and replace the message headers. Please keep the server organized.
 
-### Unity (Client.cs and your manager code)
+## Unity (Client.cs and your manager code)
 
 Your code in Unity should be separated into two layers. All socket messages should be received in the `Client.cs` class and then passed on to a `XXManager.cs`. The `Client` handles all socket communication, while the `Manager` handles all of the Unity local content. Keep managers separated by functionality (e.g. `ProbeManager`, `NeuronManager`, `LineRendererManager`, etc).
 
@@ -140,36 +140,45 @@ py -m twine upload dist/*
 
 Every time the github repository is pushed the Heroku server will re-build. You will get back a 503 server response if there are errors in the code running on Heroku.
 
-
 ## Adding Google Colab Functionality to Urchin Examples
 
 Google Colab provides a convenient way to host and execute Jupyter Notebooks in the cloud, making it easy for users to interact with your code without the need for local installations.
 
-## Running Uchin Examples on Colab
- #### Prepare notebook on GithHb
- Create Jupyter Notebook with all necessary code and explanations, and upload it to the correct GitHub repository. Keep in mind that any edits made within Colab will not be saved to the GitHub repository when building the notebook.
+### Running Uchin Examples on Colab
 
- #### Generate "Open in Colab" Button
- To allow users to directly run notebook in Google Colab, generate the "Open in Colab" button using https://openincolab.com/. Insert the generated HTML snippet at the top of the notebook within a markdown cell, or anywhere else that is easily accessible to direct users to the notebook on Colab.
+#### Prepare notebook on Github
 
- #### Ensure Dependancies are installed
- Include the following code to ensure that users have the necessary dependencies, including the most up to date version of Urchin installed within their Colab environment:
- ```
-  !pip install urchin -U
-  ```
-  Include a reminder for users to ensure that popups are enabled, and import the Urchin package.
-  ```
-  #Ensure that popups are enabled.
+Create Jupyter Notebook with all necessary code and explanations, and upload it to the correct GitHub repository. Keep in mind that any edits made within Colab will not be saved to the GitHub repository when building the notebook.
 
-  #Importing necessary libraries:
+#### Generate "Open in Colab" Button
+
+To allow users to directly run notebook in Google Colab, generate the "Open in Colab" button using https://openincolab.com/. Insert the generated HTML snippet at the top of the notebook within a markdown cell, or anywhere else that is easily accessible to direct users to the notebook on Colab.
+
+#### Ensure Dependancies are installed
+
+Include the following code to ensure that users have the necessary dependencies, including the most up to date version of Urchin installed within their Colab environment:
+
+```
+!pip install urchin -U
+```
+
+Include a reminder for users to ensure that popups are enabled, and import the Urchin package.
+
+```{python}
+#Ensure that popups are enabled.
+
+#Importing necessary libraries:
 import oursin as urchin
 urchin.setup()
-  ```
+```
+
 #### Data Access
+
 Data files can't be sotred in the urchin-examples repository, so any data used within the example script must first be uploaded publicly to the shared Google Drive in the [ExampleData folder](https://drive.google.com/drive/folders/12RyHx3bh4ChwfN95NLhvJL5BshhM8M7v)(VBL shared drive/1_Urchin/1_SharedFiles/ExampleData/). Ensure that sharing permissions are set so that anyone with link can edit. This allows people to run code off Colab using the data without having to sign into Google first. 
 
 If accessing data within notebook be sure to include the following import code and get data function:
-```
+
+```{python}
 import pandas as pd
 
 #Function for easily pulling in data:
@@ -179,7 +188,9 @@ def get_data(url):
     df = pd.read_csv(data)
     return df
 ```
+
 The data can then be directly pulled in as a data frame directly from the edit link as a string. For example:
+
 ```
 data_frame = get_data('https://docs.google.com/spreadsheets/d/1F9NBt-qqcA-IyxowXl82S4NI0gYyczUOEb8MEaW7qm0/edit#gid=1956783922')
 ```
