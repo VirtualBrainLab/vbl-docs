@@ -164,7 +164,7 @@ Include the following code to ensure that users have the necessary dependencies,
 
 Include a reminder for users to ensure that popups are enabled, and import the Urchin package.
 
-```{python}
+```python
 #Ensure that popups are enabled.
 
 #Importing necessary libraries:
@@ -178,7 +178,7 @@ Data files can't be sotred in the urchin-examples repository, so any data used w
 
 If accessing data within notebook be sure to include the following import code and get data function:
 
-```{python}
+```python
 import pandas as pd
 
 #Function for easily pulling in data:
@@ -191,6 +191,6 @@ def get_data(url):
 
 The data can then be directly pulled in as a data frame directly from the edit link as a string. For example:
 
-```
+```python
 data_frame = get_data('https://docs.google.com/spreadsheets/d/1F9NBt-qqcA-IyxowXl82S4NI0gYyczUOEb8MEaW7qm0/edit#gid=1956783922')
 ```
