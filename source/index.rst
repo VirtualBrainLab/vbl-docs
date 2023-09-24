@@ -3,7 +3,7 @@
 .. You can adapt this file completely to your liking, but it should at least
 .. contain the root `toctree` directive.
 
-.. image:: https://github.com/VirtualBrainLab/.github/raw/main/images/brain_text-01.png
+.. image:: _static/vbl-header.png
   :width: 650
   :alt: logo
 
