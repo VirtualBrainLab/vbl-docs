@@ -33,8 +33,8 @@ instances and API calls that affect all instances simultaneously (such as
 calibration and emergency stops).
 
 Manipulator platforms are also responsible for taking inputs in "Unified Space" and converting them into each platform's
-particular coordinate system. Unified Space is defined as the right-hand coordinate system rotated 180° around the
-Y-axis. This means +X is to the left, +Y is forward, +Z is downward, and +Depth is also downward.
+particular coordinate system. Unified Space is defined as the positive left-hand coordinate system. This means that +X
+is to the right, +Y is upward, and +Z is forward.
 
 In code, a platform is represented as a class that inherits the abstract
 class `PlatformHandler`. The `PlatformHandler` class defines the implementation
