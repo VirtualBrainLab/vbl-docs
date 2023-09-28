@@ -1,4 +1,4 @@
-# Lab
+# Manual
 
 This is the public lab book for the Virtual Brain Lab. We are part of the Steinmetz Lab at University of Washington. As a member of the VBL you can modify this document by making commits or pull requests directly to the [vbl-docs](https://github.com/VirtualBrainLab/vbl-docs) repository. Discussions about content can be done in the [issues](https://github.com/VirtualBrainLab/vbl-docs/issues).
 
