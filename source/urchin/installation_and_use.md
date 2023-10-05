@@ -1,13 +1,13 @@
 # Installation and Use
 
 <p float="left">
- <img src="../static/images/urchin/exploded.png" width="25%"> 
- <img src="../static/images/urchin/exploded_onesided.png" width="25%"> 
- <img src="../static/images/urchin/repro_ephys.png " width="35%">
+ <img src="../_static/images/urchin/exploded.png" width="25%"> 
+ <img src="../_static/images/urchin/exploded_onesided.png" width="25%"> 
+ <img src="../_static/images/urchin/repro_ephys.png " width="35%">
 </p>
 
 <p float="center">
- <img src="../static/images/urchin/brain_rotate_cropped.gif" width="45%"> 
+ <img src="../_static/images/urchin/brain_rotate_cropped.gif" width="45%"> 
 </p>
 
 The Universal Renderer for Neuroscience (Urchin) allows you to connect your Python scripts to a standalone rendering program, to create graphics like the ones above.
