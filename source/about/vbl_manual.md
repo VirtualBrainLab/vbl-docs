@@ -126,7 +126,7 @@ Information about lab member grant applications is shared here with permission. 
 | ---       | ---     | ---           | ---       | ---       |
 | CZI Open Source Software | DB  | 2023 | Pending |  |
 | SURFiN | JS  | 2023 | Funded | $9,500 |
-| Heroku Open Source Credit Program | DB  | 2023 | Funded | $880 |
+| Heroku Open Source Credit Program | DB  | 2023 | Funded | $1000 |
 | UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
 | NIH K99 Transition to Independence | DB | 2023 | Not funded |  |
 | Neurohub fellowship | DB | 2023 | Not funded |  |
