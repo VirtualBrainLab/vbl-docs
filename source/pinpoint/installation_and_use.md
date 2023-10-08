@@ -6,11 +6,12 @@ Pinpoint is a tool for planning electrophysiology recordings and other *in vivo*
 
 Code is on our [Github repository](https://github.com/VirtualBrainLab/Pinpoint/).
 
-<!-- <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
-<p>Pinpoint will be at SfN 2022!</p>
-<p><b>Saturday Nov 12th 1pm-5pm</b> we'll be at poster 088.07</p>
-<p><b>Sunday Nov 13th 6:30pm-9pm</b> we'll be at the <i>Tools, Tech and Theory: BRAIN Initiative Alliance Social</i> at the Bayfront hotel with the full rig demo set up.</p>
-</div> -->
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+<p>Pinpoint and Urchin will be at SfN 2023!</p>
+<p><b>Wednesday Oct 25th 9AM PST</b> we'll be hosting a pre-SfN webinar with Sensapex. Sign up <a href="https://www.sensapex.com/webinar/">here</a></p>
+<p><b>Sunday Nov 12th 6:30pm-9pm</b> we'll be at the <i>Tools, Tech and Theory: BRAIN Initiative Alliance Social</i> Renaissance Washington, DC Downtown Hotel, Potomac Ballroom Salon 2.</p>
+<p><b>Tuesday Nov 14th 1pm-5pm</b> we'll be at poster 446.21 and 446.22</p>
+</div>
 
 
 ## Install
