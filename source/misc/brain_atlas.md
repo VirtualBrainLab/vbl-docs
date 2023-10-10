@@ -2,6 +2,8 @@
 
 [BrainAtlas for Unity](https://github.com/VirtualBrainLab/BrainAtlas/) is a package which wraps the BrainGlobe Atlas API into a package for easy use in Unity.
 
+There is currently no citation for BrainAtlas for Unity. Please cite the BrainGlobe Atlas paper when using this package: Claudi, F., Petrucco, L., Tyson, A., Branco, T., Margrie, T., & Portugues, R. (2020). BrainGlobe Atlas API: a common interface for neuroanatomical atlases. Journal of Open Source Software, 5(54), 2668-2668.
+
 ## Data pipeline
 
 BrainAtlas implements a Python pipeline which converts the bg-atlas API files into a convenient format for ingesting into Unity. The pipeline downloads and organizes the raw data into the /Pipelines/data/ folder for each available atlas.
