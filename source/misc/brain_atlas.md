@@ -1,6 +1,6 @@
 # BrainAtlas
 
-The [BrainAtlas repository](https://github.com/VirtualBrainLab/BrainAtlas/) is a package which wraps the BrainGlobe Atlas API into a package for easy use in Unity.
+[BrainAtlas for Unity](https://github.com/VirtualBrainLab/BrainAtlas/) is a package which wraps the BrainGlobe Atlas API into a package for easy use in Unity.
 
 ## Data pipeline
 
@@ -21,45 +21,30 @@ Note that the data pipeline can take a long time to run, as it downloads each at
 - Reference image: .bytes file with the flattened data from the reference image, in uint16 format (2 bytes per voxel)
 - Annotation image: .bytes file with the flattened data from the annotation image, in uint32 format (4 bytes per voxel)
 - structures.json
-- Mesh files: .obj file for each region
-- One-sided mesh files: .obj file for each region
+- Mesh files: *.obj file for each region, *L.obj file for each left hemisphere region
 - Region centers: .csv file with the ap/ml/dv coordinate for the center of each area
 
 ### Unity files
 
-### Pipeline steps
+When the pipeline runs it converts the intermediate files into a set of ScriptableObjects, Prefabs, and Textures:
 
-### Mesh splitting
+- atlas metadata ScriptableObject: holds the name, dimensions, resolution, and other metadata
+- parent Prefab: prefab that has the translation/rotation necessary to align the mesh files to the annotation data volume
+- annotations.bytes: raw annotation values (uncompressed)
+- annotation Texture3D: rgba annotation colors
+- reference Texture3D: greyscale reference texture colors
 
-A Blender script `convert_to_one_sided.blend` exists to load each individual mesh file and split it in half to expose just the left hemisphere.
+## Using BrainAtlas
 
-### Processed files
+To use the package, simply import it from https://github.com/VirtualBrainLab/BrainAtlas.git?path=/Packages/vbl.brainatlas and then drag the BrainAtlas prefab into your scene. Then, link a callback to the `MetaLoadedEvent` that calls `BrainAtlasManager.LoadAtlas('atlas_name')`. That's it!
 
-In the Unity project, an editor script Convert2Unity implements a conversion pipeline to import the raw data into Unity and convert them to prefabs. There are two separate pipelines that get run, first converting the reference and annotation images and then converting the brain region metadata and mesh files.
+You can then access the active `ReferenceAtlas` object through `BrainAtlasManager.ReferenceAtlas` and the Ontology as a child of that.
 
-The final output of this process are the prefab files that can be loaded via the BrainAtlasRemoteLoader component.
-
-- Reference image: Texture3D RGB24
-- Annotation image: Texture3D R16?, note that R=0 is reserved for regions with no annotation
-- BrainAtlas prefab: Prefab that represents the CoordinateSpace and Transform
-
-## BrainAtlasRemoteLoader
-
-After installing the Unity package into a new project, you'll need to import the BrainAtlas prefab to be able to use the available features. Note that all of the loading functions are asynchronous
-
-### Load an Atlas
-
-Call the `BrainAtlas.LoadAtlas` function to load a single atlas. This loads the prefab for the atlas Space and any available Transforms into the scene and loads the ontology.
-
-### Load an Annotation or Reference texture
-
-Call the `BrainAtlas.LoadTexture` functions to obtain the Texture3D objects for this atlas.
-
-### Load a Region
-
-Call the `BrainAtlas.LoadRegion` to bring a single region into the scene. Note that there are three copies of every region, Full (both hemispheres), Left, and Right. 
+Note that the Textures and annotations are not automatically loaded, you have to further load them by calling the loaders through the ReferenceAtlas object.
 
 ## Development
+
+[TODO]
 
 ### Adding new atlases
 
@@ -81,7 +66,3 @@ To ensure backward-compatibility you should modify the remote URL to include the
 ### Pushing to the server
 
 Build the addressable assets and copy the entire new `ServerData/` folder to the `ServerData/X.Y.Z/` folder on the local server. Make sure to build for Windows standalone, WebGL, MacOS, and Linux.
-
-### Update projects
-
-Existing projects should then be migrated to target the new storage version, by modifying the field in the `AddressablesRemoteLoader` component.
