@@ -15,7 +15,7 @@ The Universal Renderer for Neuroscience (Urchin) allows you to connect your Pyth
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
 <p>Pinpoint and Urchin will be at SfN 2023!</p>
 <p><b>Sunday Nov 12th 6:30pm-9pm</b> we'll be at the <i>Tools, Tech and Theory: BRAIN Initiative Alliance Social</i> Renaissance Washington, DC Downtown Hotel, Potomac Ballroom Salon 2.</p>
-<p><b>Tuesday Nov 14th 1pm-5pm</b> we'll be at poster XX60 and XX70</p>
+<p><b>Tuesday Nov 14th 1pm-5pm</b> we'll be at poster XX60 and XX70</p> 
 </div>
 
 ## Install
