@@ -10,7 +10,7 @@ Code is on our [Github repository](https://github.com/VirtualBrainLab/Pinpoint/)
 <p>Pinpoint and Urchin will be at SfN 2023!</p>
 <p><b>Wednesday Oct 25th 9AM PST</b> we'll be hosting a pre-SfN webinar with Sensapex. Sign up <a href="https://www.sensapex.com/webinar/">here</a></p>
 <p><b>Sunday Nov 12th 6:30pm-9pm</b> we'll be at the <i>Tools, Tech and Theory: BRAIN Initiative Alliance Social</i> Renaissance Washington, DC Downtown Hotel, Potomac Ballroom Salon 2.</p>
-<p><b>Tuesday Nov 14th 1pm-5pm</b> we'll be at poster 446.21 and 446.22</p>
+<p><b>Tuesday Nov 14th 1pm-5pm</b> we'll be at poster XX60 and XX70</p>
 </div>
 
 
