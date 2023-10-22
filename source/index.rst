@@ -9,7 +9,10 @@
 
 =================
 
-The VBL develops 3D visualization tools for experimenting with, exploring, and simulating brains.
+VBL
+=================
+
+We 3D visualization tools for experimenting with, exploring, and simulating brains.
 
 We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
 
