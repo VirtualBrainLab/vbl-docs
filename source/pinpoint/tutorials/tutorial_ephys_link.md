@@ -4,10 +4,14 @@ Pinpoint can be connected to electrophysiology manipulators
 enabling experimenters to automate the placement of manipulators as well as
 observe live where probes are placed inside the mouse brain.
 
-We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis manipulators.
+We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis
+manipulators.
 
 **These features are only available on the Windows Desktop build of Pinpoint**
-they will not run in the web browser.
+they will not run in the web browser. **If you would like to use beta version of
+Ephys Link with Pinpoint, please use Steam to install Pinpoint and [switch to
+the `ephys-link-beta`branch](https://partner.steamgames.com/doc/store/application/branches#:~:text=To%20switch%20to%20a%20custom,be%20the%20%22BETAS%22%20tab)
+.**
 
 To enable this feature, an instance of an Ephys Link server must be running on
 the local network. Please see the
@@ -79,7 +83,7 @@ determine the handedness of your manipulator.
 ### New Scale Pathfinder connections do not require configuration
 
 Launching Ephys Link requires specifying the type of manipulator that is being
-used. Configuration in Pinpoint will differ depending on the type of 
+used. Configuration in Pinpoint will differ depending on the type of
 manipulator. **New Scale Pathfinder connections do not require any
 configuration** in Pinpoint as all manipulators are configured in Pathfinder.
 Pinpoint will automatically create probes (colored in magenta) for
