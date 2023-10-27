@@ -24,6 +24,8 @@ Our recommended source for the latest Windows and Linux Desktop builds is throug
 
 You can also find minor releases on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases)
 
+Please note that the standalone Pinpoint builds require an internet connection to download and cache the reference atlas data.
+
 <!-- ### Additional linux instructions
 
 To run the linux executable you need to go to the unzipped folder and run `chmod +x` on the .x86_64 file. Some users may run into permissions issues, in which case running ` chown -R yourusername .` from within the folder should repair those. -->
