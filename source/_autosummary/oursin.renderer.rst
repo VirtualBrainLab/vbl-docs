@@ -15,9 +15,7 @@
       :nosignatures:
    
       clear
-      clear_areas
-      clear_neurons
-      clear_primitives
+      clear_meshes
       clear_probes
       clear_texts
       clear_volumes

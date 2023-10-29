@@ -2,7 +2,5 @@
 Tutorials
 ==================
 
-.. toctree::
-   :maxdepth: 2
-
+.. nbgallery::
    tutorials/tutorial_basics

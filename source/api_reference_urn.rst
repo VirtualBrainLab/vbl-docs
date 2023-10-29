@@ -14,9 +14,8 @@ Urchin API
    oursin.client
    oursin.colors
    oursin.lines
-   oursin.neurons
-   oursin.primitives
+   oursin.particles
+   oursin.meshes
    oursin.probes
-   oursin.renderer
    oursin.text
    oursin.volumes

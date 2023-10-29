@@ -8,7 +8,7 @@ I build pipelines in Python and use VSCode to create notebooks. For applications
 
 ## Getting started
 
-To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python and then using virtual environments to isolate your work is the standard. You will also need the [Unity 2021.3 LTS](unityhub://2021.3.8f1/b30333d56e81) installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. Rider is probably the best IDE right now, but since Unity builds through VS anyways you may as well use it to code. 
+To work in the VBL ecosystem you will need to install Python 3.9+. Installing Python and then using virtual environments to isolate your work is the standard. You will also need the Unity 2022.3 LTS installed and the build tools for Windows and WebGL. I recommend you install and link [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) to Unity and use [VSCode](https://code.visualstudio.com/) or Spyder for Python. Rider is probably the best IDE right now, but since Unity builds through VS anyways you may as well use it to code. 
 
 For version control I use [Github Desktop](https://desktop.github.com/) rather than mess around with the command line, but this is because I have dozens of repositories some of which have submodules. If this is your first time using git and you are only handling a single repository learning the command line can be to your advantage. 
 

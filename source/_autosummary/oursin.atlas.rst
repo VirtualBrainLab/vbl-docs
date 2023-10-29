@@ -1,4 +1,4 @@
-oursin.atlas
+﻿oursin.atlas
 ============
 
 .. automodule:: oursin.atlas
@@ -26,5 +26,5 @@ oursin.atlas
    :template: custom-module-template.rst
    :recursive:
 
-   oursin.atlas.ccf
+   oursin.atlas.ontology
 
