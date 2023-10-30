@@ -14,8 +14,8 @@
    .. autosummary::
       :nosignatures:
    
-      receive_camera_img
-      receive_camera_img_meta
+      on_camera_img
+      on_camera_img_meta
       set_light_camera
       set_light_rotation
    

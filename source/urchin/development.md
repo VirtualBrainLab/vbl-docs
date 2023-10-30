@@ -25,7 +25,8 @@ To setup the venv go into the API folder and run:
 ```
 python -m venv urchin-venv
 urchin-venv/Scripts/activate
-pip install -e .
+pip install poetry
+poetry install
 ```
 
 Updates you make to the code will then be accessible by restarting your Python kernel.

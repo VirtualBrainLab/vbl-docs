@@ -39,6 +39,10 @@ extensions = [
     "sphinx_gallery.load_style"
 ]
 
+# nbsphinx settings
+nbsphinx_execute = 'never'  # Set to 'never' to avoid notebook execution
+nbsphinx_allow_errors = True  # Allow notebooks with errors to be included
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -46,7 +50,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 # -- Options for HTML output -------------------------------------------------
 
