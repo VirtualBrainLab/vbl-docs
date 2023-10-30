@@ -1,0 +1,3 @@
+[submodule "source/urchin/tutorials/urchin-examples"]
+	path = source/urchin/tutorials/urchin-examples
+	url = https://github.com/VirtualBrainLab/urchin-examples

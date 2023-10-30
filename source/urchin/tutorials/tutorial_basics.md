@@ -1,4 +1,4 @@
-# Tutorials
+# Renderer controls
 
 ## Camera control
 

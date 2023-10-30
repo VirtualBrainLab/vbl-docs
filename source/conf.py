@@ -49,7 +49,16 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['urchin/tutorials/urchin-examples/allen_institute/*',
+    'urchin/tutorials/urchin-examples/bwm_coverage/*',
+    'urchin/tutorials/urchin-examples/gallery/*',
+    'urchin/tutorials/urchin-examples/histology/*',
+    'urchin/tutorials/urchin-examples/ottenheimer_hjor_bowen_2022/*',
+    'urchin/tutorials/urchin-examples/repro_ephys/*',
+    'urchin/tutorials/urchin-examples/samuel/*',
+    'urchin/tutorials/urchin-examples/shaker_2023/*',
+    'urchin/tutorials/urchin-examples/steinmetz_2019/*',
+    'urchin/tutorials/urchin-examples/yu_2023/*']
 
 # -- Options for HTML output -------------------------------------------------
 
