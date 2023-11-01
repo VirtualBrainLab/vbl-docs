@@ -22,8 +22,7 @@ jobs:
 
     - name: Update Submodule
       run: |
-        git submodule update --init --recursive
-        git submodule update --remote --recursive
+        git submodule update --remote --merge
       working-directory: source/urchin/tutorials/urchin-examples
 
     - name: Install Pandoc
