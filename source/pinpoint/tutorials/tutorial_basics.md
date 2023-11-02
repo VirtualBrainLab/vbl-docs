@@ -21,7 +21,7 @@ specific use case.
 
 ## Overview
 
-<image src="../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
+<image src="../../_static/images/tutorial/overview.png" alt="overview image" position="left" style="width:100%">
 
 Pinpoint presents you with an interactive 3D scene where you can plan and test
 different probe insertion trajectories. The scene view shows the mouse brain **(1)** composed of 3D models built from the Allen Common Coordinate Framework annotations and **(2)** the probe 3D model, showing in white the active
@@ -58,7 +58,7 @@ insertion. See the surgery section for a few important details.
 
 ### Probe panel
 
-<image src="../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
+<image src="../../_static/images/tutorial/quick_settings.png" alt="overview image" position="left" style="width:50%">
 
 The Probe panel provides easy access to the information about the active probe in the scene. Using the panel you can tweak the entry coordinate by changing the AP/ML/DV position data or change the insertion depth. You can also adjust the insertion angles. 
 
@@ -75,7 +75,7 @@ The home button moves the probe back to the current reference coordinate (define
 </div>
 <br>
 
-<image src="../_static/images/urchin/basic_controls.png" alt="overview image" position="left" style="width:50%">
+<image src="../../_static/images/urchin/basic_controls.png" alt="overview image" position="left" style="width:50%">
 
 ## Probe controls
 
@@ -94,7 +94,7 @@ To control your probe with mouse clicks and dragging:
 
 The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth. Note that in some views it may be hard to drag along a particular axis (e.g. in the default axial view you can't drag a probe along the DV axis, because the axis is not visible).
 
-<image src="../_static/images/tutorial/controls.png" alt="overview image" position="left" style="width:100%">
+<image src="../../_static/images/tutorial/controls.png" alt="overview image" position="left" style="width:100%">
 
 ### Keyboard
 
@@ -151,7 +151,7 @@ Note that insertions are defined in a Coordinate **Space** with a particular **T
 
 ## Settings
 
-<image src="../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
+<image src="../../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
 The Settings menu is accessed by pressing \[ESC\]. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
