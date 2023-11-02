@@ -75,7 +75,7 @@ The home button moves the probe back to the current reference coordinate (define
 </div>
 <br>
 
-<image src="../../_static/images/urchin/basic_controls.png" alt="overview image" position="left" style="width:50%">
+<image src="../../_static/images/urchin/basic_controls.png" alt="overview image" position="left" style="width:100%">
 
 ## Probe controls
 
