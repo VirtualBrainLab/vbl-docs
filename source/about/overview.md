@@ -35,13 +35,13 @@ Undergraduate Researcher (SURFiN Fellow, UW 2025)
 
 Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
 
-<image src="../_static/people/selina.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
+<!-- <image src="../_static/people/selina.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
 
 **Selina Li**
 
 Undergraduate Researcher (UM 2024)
 
-Selina is piloting new 2-photon integrations in Urchin.
+Selina is piloting new 2-photon integrations in Urchin. -->
 
 ***
 
@@ -98,11 +98,11 @@ Selina is piloting new 2-photon integrations in Urchin.
         <p class="collaborator-name">Qiqi Liang</p>
         <p class="collaborator-position">Undergraduate Researcher</p>
     </div>
-    <!-- <div class="collaborator">
-        <img src="../_static/people/yoni.jpg" alt="Yoni Browning">
-        <p class="collaborator-name">Yoni Browning, PhD</p>
-        <p class="collaborator-position">Scientist - Allen Institute</p>
-    </div> -->
+    <div class="collaborator">
+        <img src="../_static/people/selina.png" alt="Selina Li">
+        <p class="collaborator-name">Selina Li</p>
+        <p class="collaborator-position">Undergraduate Researcher</p>
+    </div>
     <!-- second row-->
     <!-- <div class="collaborator">
         <img src="../_static/people/mayo.jpg" alt="Mayo Faulkner">
