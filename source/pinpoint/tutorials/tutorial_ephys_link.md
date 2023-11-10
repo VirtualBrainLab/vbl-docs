@@ -8,10 +8,15 @@ We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis
 manipulators.
 
 **These features are only available on the Windows Desktop build of Pinpoint**
-they will not run in the web browser. **If you would like to use beta version of
-Ephys Link with Pinpoint, please use Steam to install Pinpoint and [switch to
-the `ephys-link-beta`branch](https://partner.steamgames.com/doc/store/application/branches#:~:text=To%20switch%20to%20a%20custom,be%20the%20%22BETAS%22%20tab)
-.**
+they will not run in the web browser.
+
+[//]: # (**If you would like to use beta version of)
+
+[//]: # (Ephys Link with Pinpoint, please use Steam to install Pinpoint and [switch to)
+
+[//]: # (the `ephys-link-beta`branch]&#40;https://partner.steamgames.com/doc/store/application/branches#:~:text=To%20switch%20to%20a%20custom,be%20the%20%22BETAS%22%20tab&#41;)
+
+[//]: # (.**)
 
 To enable this feature, an instance of an Ephys Link server must be running on
 the local network. Please see the
