@@ -20,11 +20,11 @@ The easiest way to use Pinpoint is through our [web app](https://data.virtualbra
 
 ### Standalone builds
 
-Our recommended source for the latest Windows and Linux Desktop builds is through [Pinpoint on Steam](https://store.steampowered.com/app/2434260/Pinpoint/), downloading via Steam ensures your client will always stay up to date.
+Our recommended source for the latest Windows and Linux Desktop builds is through [Pinpoint on Steam](https://store.steampowered.com/app/2434260/Pinpoint/), downloading via Steam ensures your client will always stay up to date. Please note that the standalone Pinpoint builds require an internet connection at startup to download and cache the reference atlas data. Once cached, you can relaunch Pinpoint with no connection to the internet.
 
-You can also find minor releases on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases)
+You can also find minor releases and release notes on the [releases page](https://github.com/VirtualBrainLab/Pinpoint/releases).
 
-Please note that the standalone Pinpoint builds require an internet connection to download and cache the reference atlas data.
+If you need to use an older release of Pinpoint, you can find them by navigating to our [data website](https://data.virtualbrainlab.org/), by using the version tagged Beta branches on Steam, or by downloading older releases from the Github pages. 
 
 <!-- ### Additional linux instructions
 
