@@ -3,7 +3,10 @@
 [![PyPI version](https://badge.fury.io/py/ephys-link.svg)](https://badge.fury.io/py/ephys-link)
 [![CodeQL](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml)
 [![Dependency Review](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+<img width="100%" src="https://github.com/VirtualBrainLab/ephys-link/assets/82800265/0c7c60b1-0926-4697-a461-221554f82de1" alt="Manipulator and probe in pinpoint moving in sync">
 
 The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link)
 (or Ephys Link for short) is a Python [Socket.IO](https://socket.io/docs/v4/#what-socketio-is) server that allows any
@@ -11,7 +14,7 @@ Socket.IO-compliant application (such
 as [Pinpoint](https://github.com/VirtualBrainLab/Pinpoint))
 to communicate with manipulators used in electrophysiology experiments.
 
-Currently, Ephys Link only supports Sensapex uMp-4 Micromanipulators and New Scale 3-axis
+Currently, Ephys Link only supports Sensapex uMp-4 and uMp-3 Micromanipulators and New Scale 3-axis
 manipulators. However, this platform is designed to be extensible to other
 manipulators and more may be added in the future.
 
@@ -25,7 +28,10 @@ the [API reference](https://virtualbrainlab.org/api_reference_ephys_link.html).
 
 ### Prerequisites
 
-1. [Python > 3.8, < 3.12](https://www.python.org/downloads/release/python-3116/) and pip.
+1. [Python ≥ 3.8, < 3.13](https://www.python.org/downloads/release/python-3116/)
+   1. Python 3.12+ requires the latest version
+      of Microsoft Visual C++ (MSVC v143+ x86/64) and the Windows SDK (10/11) to
+      be installed. They can be acquired through the [Visual Studio Build Tools Installer](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 2. An **x86 Windows PC is required** to run the server.
 3. For Sensapex devices, the controller unit must be connected via an ethernet
    cable and powered. A USB-to-ethernet adapter is acceptable. For New Scale manipulators,
@@ -36,18 +42,16 @@ the [API reference](https://virtualbrainlab.org/api_reference_ephys_link.html).
    connected to the computer. Follow the instructions on that repo for how to
    set up the Arduino.
 
-> #### Using a Python virtual environment is encouraged.
->
-> Create a virtual environment by running `python -m venv ephys_link`
->
-> Activate the environment by running `.\ephys_link\scripts\activate`
->
-> A virtual environment helps to isolate installed packages from other packages on your computer and ensures a clean
-> installation of Ephys Link
-
 **NOTE:** Ephys Link is an HTTP server without cross-origin support. The server
 is currently designed to interface with local/desktop instances of Pinpoint. It
 will not work with the web browser versions of Pinpoint at this time.
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+<h3>Using a Python virtual environment is encouraged.</h3>
+<p>Create a virtual environment by running <code>python -m venv ephys_link</code></p>
+<p>Activate the environment by running <code>.\ephys_link\scripts\activate</code></p>
+<p>A virtual environment helps to isolate installed packages from other packages on your computer and ensures a clean installation of Ephys Link</p>
+</div>
 
 ### Install for use
 
@@ -63,13 +67,26 @@ Update the server like any other Python package:
 pip install --upgrade ephys-link
 ```
 
+### Install for development
+
+1. Clone the repository.
+2. Install [Hatch](https://hatch.pypa.io/latest/install/)
+3. In a terminal, navigate to the repository's root directory and run
+
+   ```bash
+   hatch shell
+   ```
+
+This will create a virtual environment and install the package in editable mode.
+
 ## Usage
 
 Run the following commands in a terminal to start the server for the desired manipulator platform:
 
 | Manipulator Platform                 | Command                              |
 |--------------------------------------|--------------------------------------|
-| Sensapex                             | `ephys-link`                         |
+| Sensapex uMp-4                       | `ephys-link`                         |
+| Sensapex uMp-3                       | `ephys-link -t ump3`                 |
 | New Scale                            | `ephys-link -t new_scale`            |
 | New Scale via Pathfinder HTTP server | `ephys-link -t new_scale_pathfinder` |
 
@@ -96,7 +113,7 @@ connected to New Scale via Pathfinder HTTP server Pinpoint is not supported. Onl
 
 ### Options
 
-All options can be viewed with `python -m ephys_link --help`.
+All options can be viewed with `ephys_link --help`.
 
 | Option                           | Input                                               | Default     | Description                                                    |
 |----------------------------------|-----------------------------------------------------|-------------|----------------------------------------------------------------|
