@@ -1,7 +1,7 @@
-﻿oursin.probes
-=============
+﻿oursin.primitives
+=================
 
-.. automodule:: oursin.probes
+.. automodule:: oursin.primitives
 
    
    
@@ -16,10 +16,9 @@
    
       create
       delete
-      set_angle
       set_color
       set_position
-      set_size
+      set_scale
    
    
 

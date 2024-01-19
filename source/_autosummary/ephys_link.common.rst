@@ -15,7 +15,6 @@
       :nosignatures:
    
       dprint
-      set_debug
    
    
 
@@ -34,6 +33,7 @@
       GotoPositionInputDataFormat
       InsideBrainInputDataFormat
       PositionalOutputData
+      ShankCountOutputData
       StateOutputData
    
    

@@ -15,21 +15,15 @@
       :nosignatures:
    
       create
-      set_colors
-      set_font_sizes
-      set_positions
-      set_texts
+      delete
+      set_color
+      set_position
+      set_size
+      set_text
    
    
 
    
-   
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      Text
    
    
 

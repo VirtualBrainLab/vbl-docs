@@ -14,21 +14,16 @@
    .. autosummary::
       :nosignatures:
    
-      on_camera_img
-      on_camera_img_meta
-      set_light_camera
-      set_light_rotation
+      set_pan
+      set_position
+      set_rotation
+      set_target
+      set_target_area
+      set_zoom
    
    
 
    
-   
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      Camera
    
    
 

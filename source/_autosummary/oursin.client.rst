@@ -20,8 +20,6 @@
       connected
       disconnect
       message
-      receive_camera_img
-      receive_camera_img_meta
    
    
 

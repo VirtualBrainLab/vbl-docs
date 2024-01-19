@@ -1,7 +1,7 @@
-﻿oursin.probes
-=============
+﻿oursin.neurons
+==============
 
-.. automodule:: oursin.probes
+.. automodule:: oursin.neurons
 
    
    
@@ -16,9 +16,10 @@
    
       create
       delete
-      set_angle
       set_color
+      set_material
       set_position
+      set_shape
       set_size
    
    

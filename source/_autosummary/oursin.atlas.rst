@@ -26,5 +26,5 @@
    :template: custom-module-template.rst
    :recursive:
 
-   oursin.atlas.ontology
+   oursin.atlas.ccf
 
