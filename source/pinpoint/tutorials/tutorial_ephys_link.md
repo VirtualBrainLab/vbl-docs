@@ -8,7 +8,8 @@ observe live where probes are placed inside the mouse brain.
 
 1. [Configure and launch Ephys Link](configure-and-launch-ephys-link)
 2. [Connect to the server from Pinpoint](ephys-link-connection)
-3. [Mirror the positions of _in vivo_ probes in Pinpoint](ephys-link-mirror-probes)
+3. [Mirror the positions of _in
+   vivo_ probes in Pinpoint](ephys-link-mirror-probes)
 
 [//]: # (**If you would like to use beta version of)
 
@@ -37,6 +38,7 @@ observe live where probes are placed inside the mouse brain.
 [//]: # (<br>)
 
 (configure-and-launch-ephys-link)=
+
 ## 1. Configure and Launch Ephys Link
 
 ### Install Ephys Link
@@ -80,6 +82,7 @@ Press "Launch Server" to save your configuration and start the server. The
 configuration window will close and the server will use the console window.
 
 (ephys-link-connection)=
+
 ## 2. Connect to Ephys Link from Pinpoint
 
 ![Connecting to Ephys Link](../../_static/images/tutorial/ephys_link/ephys_link_connection.png)
@@ -94,10 +97,11 @@ configuration window will close and the server will use the console window.
 7. Press \[ESC\] again to close the settings menu
 
 (ephys-link-mirror-probes)=
+
 ## 3. Mirror the Positions of _in vivo_ Probes in Pinpoint
 
-This step is not required for New Scale Pathfinder connections. See below
-for details.
+This step is not required for New Scale Pathfinder MPM connections. [See below
+for details](mpm-no-need-config).
 
 ![Connect a probe to a manipulator](../../_static/images/tutorial/ephys_link/ephys_link_connect_probe.png)
 
@@ -139,7 +143,9 @@ orient the manipulator's direction.
 Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
-![Sensapex handedness](../../_static/images/tutorial/sensapex_manipulators.png)
+![Sensapex handedness](../../_static/images/tutorial/ephys_link/sensapex_manipulators.png)
+
+(mpm-no-need-config)=
 
 ### New Scale Pathfinder MPM connections do not require configuration
 
