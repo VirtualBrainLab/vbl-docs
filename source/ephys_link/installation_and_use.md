@@ -127,21 +127,3 @@ More options can be viewed by running `ephys_link.exe -h`.
 New Scale manipulators have two methods of connection. The first method is through the Pathfinder MPM Control software (`-t new_scale_pathfinder`) and the second is via a direct hardware
 connection (`-t new_scale`). The first method is only available if Pathfinder is running on the same computer
 as Ephys Link. New Scale manipulators should be connected to the Pathfinder software first and the Pathfinder HTTP server should be running.
-
-**Note:** Currently (July 2023), Ephys Copilot automation and manual control within Pinpoint is not supported when
-connected to New Scale via Pathfinder MPM.
-
-### Options
-
-All options can be viewed with `ephys_link --help`.
-
-| Option                           | Input                                               | Default     | Description                                                    |
-|----------------------------------|-----------------------------------------------------|-------------|----------------------------------------------------------------|
-| `-h, --help`                     |                                                     |             | Show help message and options                                  |
-| `-b, --background`               |                                                     |             | Launch server without startup window                           |
-| `-t TYPE, --type TYPE`           | `sensapex` or `new_scale` or `new_scale_pathfinder` | `sensapex`  | Select manipulator type                                        |
-| `-p PORT, --port PORT`           | Valid HTTP port number                              | `8081`      | HTTP port to serve on                                          |
-| `--pathfinder_port`              | Valid HTTP port number                              | `8080`      | HTTP port Pathfinder's server is running on                    |
-| `-s [SERIAL], --serial [SERIAL]` | Serial port name (i.e. `COM3`) or empty             | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
-| `-d, --debug`                    |                                                     |             | Enable verbose logging for debugging                           |
-| `--version`                      |                                                     |             | Version number of server                                       |
