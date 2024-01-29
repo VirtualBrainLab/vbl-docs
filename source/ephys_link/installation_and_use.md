@@ -15,7 +15,7 @@ Socket.IO-compliant application (such
 as [Pinpoint](https://github.com/VirtualBrainLab/Pinpoint))
 to communicate with manipulators used in electrophysiology experiments.
 
-**Supported Platforms:**
+**Supported Manipulator Platforms:**
 
 | Manufacturer | Model                                                                     |
 |--------------|---------------------------------------------------------------------------|
@@ -30,7 +30,7 @@ the [package's development documentation](https://virtualbrainlab.org/ephys_link
 For detailed descriptions of the server's API, see
 the [API reference](https://virtualbrainlab.org/api_reference_ephys_link.html).
 
-# Installation
+## Installation
 
 ### Prerequisites
 
