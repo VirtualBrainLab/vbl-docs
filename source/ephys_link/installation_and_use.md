@@ -135,7 +135,7 @@ downloaded):
 | New Scale Pathfinder MPM Control v2.8.8+ | `EphysLink.exe -b -t new_scale_pathfinder` |
 | New Scale M3-USB-3:1-EP                  | `EphysLink.exe -b -t new_scale`            |
 
-More options can be viewed by running `ephys_link.exe -h`.
+More options can be viewed by running `EphysLink.exe -h`.
 
 ### "New Scale Pathfinder MPM Control" vs "New Scale M3-USB-3:1-EP"
 
