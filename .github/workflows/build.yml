@@ -40,7 +40,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: 🔨 Build
-      run: make html
+      run: make -j N html
 
     - name: ⬆️ Upload artifact
       uses: actions/upload-pages-artifact@v3
