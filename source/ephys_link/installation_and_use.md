@@ -1,30 +1,35 @@
 # Ephys Link
 
 [![PyPI version](https://badge.fury.io/py/ephys-link.svg)](https://badge.fury.io/py/ephys-link)
-[![Build](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml)
 [![CodeQL](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml)
 [![Dependency Review](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml)
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
+<!-- [![Build](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml) -->
+
 <img width="100%" src="https://github.com/VirtualBrainLab/ephys-link/assets/82800265/0c7c60b1-0926-4697-a461-221554f82de1" alt="Manipulator and probe in pinpoint moving in sync">
 
 The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link)
-(or Ephys Link for short) is a Python [Socket.IO](https://socket.io/docs/v4/#what-socketio-is) server that allows any
+(or Ephys Link for short) is a
+Python [Socket.IO](https://socket.io/docs/v4/#what-socketio-is) server that
+allows any
 Socket.IO-compliant application (such
 as [Pinpoint](https://github.com/VirtualBrainLab/Pinpoint))
 to communicate with manipulators used in electrophysiology experiments.
 
 **Supported Manipulators:**
 
-| Manufacturer | Model                                                                     |
-|--------------|---------------------------------------------------------------------------|
-| Sensapex     | <ul> <li>uMp-4</li> <li>uMp-3</li> </ul>                                  |
-| New Scale    | <ul> <li>Pathfinder MPM Control v2.8.8+</li> <li>M3-USB-3:1-EP</li> </ul> |
+| Manufacturer | Model                                                                   |
+|--------------|-------------------------------------------------------------------------|
+| Sensapex     | <ul> <li>uMp-4</li> <li>uMp-3</li> </ul>                                |
+| New Scale    | <ul> <li>Pathfinder MPM Control v2.8+</li> <li>M3-USB-3:1-EP</li> </ul> |
 
-Ephys Link is an open and extensible platform. It is designed to easily support integration with other manipulators.
+Ephys Link is an open and extensible platform. It is designed to easily support
+integration with other manipulators.
 
-For more information regarding the server's implementation and how the code is organized, see
+For more information regarding the server's implementation and how the code is
+organized, see
 the [package's development documentation](https://virtualbrainlab.org/ephys_link/development.html).
 
 For detailed descriptions of the server's API, see
@@ -36,9 +41,9 @@ the [API reference](https://virtualbrainlab.org/api_reference_ephys_link.html).
 
 1. An **x86 Windows PC is required** to run the server.
 2. For Sensapex devices, the controller unit must be connected via an ethernet
-   cable and powered. A USB-to-ethernet adapter is acceptable. For New Scale manipulators,
-   the controller unit must be connected via USB and be powered by a 6V power
-   supply.
+   cable and powered. A USB-to-ethernet adapter is acceptable. For New Scale
+   manipulators, the controller unit must be connected via USB and be powered by
+   a 6V power supply.
 3. To use the emergency stop feature, ensure an Arduino with
    the [StopSignal](https://github.com/VirtualBrainLab/StopSignal) sketch is
    connected to the computer. Follow the instructions on that repo for how to
@@ -53,33 +58,23 @@ will not work with the web browser versions of Pinpoint at this time.
 1. Download the latest executable from
    the [releases page](https://github.com/VirtualBrainLab/ephys-link/releases/latest).
 2. Double-click the executable file to launch the configuration window.
-   1. Take note of the IP address and port. **Copy this information into Pinpoint to connect**.
+    1. Take note of the IP address and port. **Copy this information into
+       Pinpoint to connect**.
 3. Select the desired configuration and click "Launch Server".
 
-The configuration window will close and the server will launch. Your configurations will be saved for future use.
+The configuration window will close and the server will launch. Your
+configurations will be saved for future use.
 
-To connect to the server from Pinpoint, provide the IP address and port. For example, if the server is running on the
+To connect to the server from Pinpoint, provide the IP address and port. For
+example, if the server is running on the
 same computer that Pinpoint is, use
 
 - Server: `localhost`
 - Port: `8081`
 
-If the server is running on a different (local) computer, use the IP address of that computer as shown in the startup
+If the server is running on a different (local) computer, use the IP address of
+that computer as shown in the startup
 window instead of `localhost`.
-
-### Install for Development
-
-1. Clone the repository.
-2. Install [Hatch](https://hatch.pypa.io/latest/install/)
-3. Install the latest Microsoft Visual C++ (MSVC v143+ x86/64) and the Windows SDK (10/11)
-   via [Visual Studio Build Tools Installer](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-4. In a terminal, navigate to the repository's root directory and run
-
-   ```bash
-   hatch shell
-   ```
-
-This will create a virtual environment, install Python 12 (if not found), and install the package in editable mode.
 
 ### Install as a Python package
 
@@ -96,52 +91,59 @@ server = Server()
 server.launch("sensapex", 8081)
 ```
 
+### Install for Development
+
+1. Clone the repository.
+2. Install [Hatch](https://hatch.pypa.io/latest/install/)
+3. Install the latest Microsoft Visual C++ (MSVC v143+ x86/64) and the Windows
+   SDK (10/11)
+   via [Visual Studio Build Tools Installer](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+4. In a terminal, navigate to the repository's root directory and run
+
+   ```bash
+   hatch shell
+   ```
+
+This will create a virtual environment, install Python 12 (if not found), and
+install the package in editable mode.
+
 ## CLI Usage
 
-Ephys Link can be launched from the command line directly without the configuration window. This is useful for computers
+Ephys Link can be launched from the command line directly without the
+configuration window. This is useful for computers
 or servers without graphical user interfaces.
 
-With the standalone executable downloaded, invoking the executable from the command line:
+With the standalone executable downloaded, invoking the executable from the
+command line:
 
 ```bash
-ephys_link-vX.X.X-Windows-x86_64.exe -b
+EphysLink-vX.X.X.exe -b
 ```
 
-Use the actual name of the executable you downloaded. The `-b` or `--background` flag will launch the server without the
+Use the actual name of the executable you downloaded. The `-b` or `--background`
+flag will launch the server without the
 configuration window and read configuration from CLI arguments.
 
-Run the following commands in a terminal to start the server for the desired manipulator platform without the startup
-window (replace `ephys_link.exe` with the actual name of the executable you downloaded):
+Run the following commands in a terminal to start the server for the desired
+manipulator platform without the startup
+window (replace `EphysLink.exe` with the actual name of the executable you
+downloaded):
 
-| Manipulator Platform                     | Command                                     |
-|------------------------------------------|---------------------------------------------|
-| Sensapex uMp-4                           | `ephys_link.exe -b`                         |
-| Sensapex uMp-3                           | `ephys_link.exe -b -t ump3`                 |
-| New Scale Pathfinder MPM Control v2.8.8+ | `ephys_link.exe -b -t new_scale_pathfinder` |
-| New Scale M3-USB-3:1-EP                  | `ephys_link.exe -b -t new_scale`            |
+| Manipulator Platform                     | Command                                    |
+|------------------------------------------|--------------------------------------------|
+| Sensapex uMp-4                           | `EphysLink.exe -b`                         |
+| Sensapex uMp-3                           | `EphysLink.exe -b -t ump3`                 |
+| New Scale Pathfinder MPM Control v2.8.8+ | `EphysLink.exe -b -t new_scale_pathfinder` |
+| New Scale M3-USB-3:1-EP                  | `EphysLink.exe -b -t new_scale`            |
 
-More options can be viewed by running `ephys_link.exe -h`.
+More options can be viewed by running `EphysLink.exe -h`.
 
 ### "New Scale Pathfinder MPM Control" vs "New Scale M3-USB-3:1-EP"
 
-New Scale manipulators have two methods of connection. The first method is through the Pathfinder MPM Control software (`-t new_scale_pathfinder`) and the second is via a direct hardware
-connection (`-t new_scale`). The first method is only available if Pathfinder is running on the same computer
-as Ephys Link. New Scale manipulators should be connected to the Pathfinder software first and the Pathfinder HTTP server should be running.
-
-**Note:** Currently (July 2023), Ephys Copilot automation and manual control within Pinpoint is not supported when
-connected to New Scale via Pathfinder MPM.
-
-### Options
-
-All options can be viewed with `ephys_link --help`.
-
-| Option                           | Input                                               | Default     | Description                                                    |
-|----------------------------------|-----------------------------------------------------|-------------|----------------------------------------------------------------|
-| `-h, --help`                     |                                                     |             | Show help message and options                                  |
-| `-b, --background`               |                                                     |             | Launch server without startup window                           |
-| `-t TYPE, --type TYPE`           | `sensapex` or `new_scale` or `new_scale_pathfinder` | `sensapex`  | Select manipulator type                                        |
-| `-p PORT, --port PORT`           | Valid HTTP port number                              | `8081`      | HTTP port to serve on                                          |
-| `--pathfinder_port`              | Valid HTTP port number                              | `8080`      | HTTP port Pathfinder's server is running on                    |
-| `-s [SERIAL], --serial [SERIAL]` | Serial port name (i.e. `COM3`) or empty             | `no-e-stop` | Emergency stop serial port. Auto searches if no port specified |
-| `-d, --debug`                    |                                                     |             | Enable verbose logging for debugging                           |
-| `--version`                      |                                                     |             | Version number of server                                       |
+New Scale manipulators have two methods of connection. The first method is
+through the Pathfinder MPM Control software (`-t new_scale_pathfinder`) and the
+second is via a direct hardware
+connection (`-t new_scale`). The first method is only available if Pathfinder is
+running on the same computer
+as Ephys Link. New Scale manipulators should be connected to the Pathfinder
+software first and the Pathfinder HTTP server should be running.

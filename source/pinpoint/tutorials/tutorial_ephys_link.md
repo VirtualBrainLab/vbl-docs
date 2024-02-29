@@ -4,11 +4,12 @@ Pinpoint can be connected to electrophysiology manipulators
 enabling experimenters to automate the placement of manipulators as well as
 observe live where probes are placed inside the mouse brain.
 
-We currently (July 2023) support Sensapex uMp-4 and New Scale 3-axis
-manipulators.
+**In this tutorial you will learn how to:**
 
-**These features are only available on the Windows Desktop build of Pinpoint**
-they will not run in the web browser.
+1. [Configure and launch Ephys Link](configure-and-launch-ephys-link)
+2. [Connect to the server from Pinpoint](ephys-link-connection)
+3. [Mirror the positions of _in
+   vivo_ probes in Pinpoint](ephys-link-mirror-probes)
 
 [//]: # (**If you would like to use beta version of)
 
@@ -18,19 +19,73 @@ they will not run in the web browser.
 
 [//]: # (.**)
 
-To enable this feature, an instance of an Ephys Link server must be running on
-the local network. Please see the
-instructions [here](https://virtualbrainlab.org/ephys_link/installation_and_use.html#installation)
-on how to install and run a server.
+[//]: # (To enable this feature, an instance of an Ephys Link server must be running on)
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube-nocookie.com/embed/QK87XBd46aQ?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
-</div>
-<br>
+[//]: # (the local network. Please see the)
 
-## Connecting to a server
+[//]: # (instructions [here]&#40;https://virtualbrainlab.org/ephys_link/installation_and_use.html#installation&#41;)
 
-![Connecting to Ephys Link](../../_static/images/Ephys-Link-connection.png)
+[//]: # (on how to install and run a server.)
+
+[//]: # ()
+
+[//]: # (<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">)
+
+[//]: # (  <iframe src="https://www.youtube-nocookie.com/embed/QK87XBd46aQ?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>)
+
+[//]: # (</div>)
+
+[//]: # (<br>)
+
+(configure-and-launch-ephys-link)=
+
+## 1. Configure and Launch Ephys Link
+
+### Install Ephys Link
+
+First, install Ephys Link. Follow the instructions on
+the [installation page](https://virtualbrainlab.org/ephys_link/installation_and_use.html#installation).
+We recommend most users install
+the [standalone executable](https://virtualbrainlab.org/ephys_link/installation_and_use.html#install-as-standalone-executable).
+
+### Launch Ephys Link
+
+With the executable downloaded, simply double-click the executable file to
+launch
+the configuration window.
+
+![Ephys Link configuration window](../../_static/images/tutorial/ephys_link/ephys_link_launch.png)
+
+### Configuring Ephys Link
+
+You can configure the server using the configuration window. All changes are
+preserved for future launches.
+
+- **Serving Settings**
+    - **IP:** the local IP address of the computer running the server. If
+      Pinpoint
+      is running on the same computer as Ephys Link, `localhost` will work as
+      the IP. Otherwise, copy this address to Pinpoint.
+    - **Port:** the port number that the server will listen on. Also copy this
+      to
+      Pinpoint.
+- **Platform Type:** Select the appropriate manipulator platform for your setup.
+- **Pathfinder Settings:** If you are using New Scale's Pathfinder MPM Control
+  software to control your manipulators, please enable the HTTP server and
+  specify the port number here (it should be 8080 by default).
+- **Emergency Stop Settings:** If you are using the Arduino hardware stop
+  button, please specify the serial port. An empty value will be used to
+  automatically detect the port and a value of `no-e-stop` will disable this
+  feature.
+
+Press "Launch Server" to save your configuration and start the server. The
+configuration window will close and the server will use the console window.
+
+(ephys-link-connection)=
+
+## 2. Connect to Ephys Link from Pinpoint
+
+![Connecting to Ephys Link](../../_static/images/tutorial/ephys_link/ephys_link_connection.png)
 
 1. Press \[ESC\] to open the settings menu
 2. Switch to the "Ephys Link" tab
@@ -41,19 +96,21 @@ on how to install and run a server.
    configuration of manipulators and linking them to probes in the scene.
 7. Press \[ESC\] again to close the settings menu
 
-## Linking a probe in the planner to a manipulator _in vivo_
+(ephys-link-mirror-probes)=
 
-This step is not required for New Scale Pathfinder connections. See below
-for details.
+## 3. Mirror the Positions of _in vivo_ Probes in Pinpoint
 
-![Connect a probe to a manipulator](../../_static/images/Ephys-Link-connect-probe.png)
+This step is not required for New Scale Pathfinder MPM connections. [See below
+for details](mpm-no-need-config).
+
+![Connect a probe to a manipulator](../../_static/images/tutorial/ephys_link/ephys_link_connect_probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
 2. Press \[ESC\] to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
-5. Use the dropdown to configure the manipulator's handedness. Currently (July
-   2023), configuration is necessary for Sensapex uMp manipulators only.
+5. Use the dropdown to configure the manipulator's handedness. As of July
+   2023 configuration is necessary for Sensapex uMp manipulators only.
    Configuration is hidden for New Scale manipulators. See the section below for
    more information.
 6. Use the dropdown to select a probe to link to this manipulator. Probes are
@@ -73,6 +130,9 @@ for details.
    back to their zero coordinate.
 10. Press \[ESC\] again to close the settings menu.
 
+At this point, the _in vivo_ probe positions should be mirrored in Pinpoint in
+real time.
+
 ### Sensapex Handedness
 
 Handedness determines the orientation of the manipulator and which
@@ -83,17 +143,19 @@ orient the manipulator's direction.
 Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
-![Sensapex handedness](../../_static/images/tutorial/sensapex_manipulators.png)
+![Sensapex handedness](../../_static/images/tutorial/ephys_link/sensapex_manipulators.png)
 
-### New Scale Pathfinder connections do not require configuration
+(mpm-no-need-config)=
+
+### New Scale Pathfinder MPM connections do not require configuration
 
 Launching Ephys Link requires specifying the type of manipulator that is being
 used. Configuration in Pinpoint will differ depending on the type of
 manipulator. **New Scale Pathfinder connections do not require any
 configuration** in Pinpoint as all manipulators are configured in Pathfinder.
 Pinpoint will automatically create probes (colored in magenta) for
-each manipulator from Pathfinder and automatically echo their positions and
-angles.
+each manipulator from Pathfinder and automatically echo their positions,
+angles, and shank count.
 
 ## Enabling experiment automation (Ephys Copilot)
 

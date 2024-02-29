@@ -18,7 +18,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Virtual Brain Lab'
-copyright = '2023, Daniel Birman'
+copyright = '2022 - Present, Daniel Birman'
 author = 'Daniel Birman, Kenneth Yang'
 
 # The full version, including alpha/beta/rc tags

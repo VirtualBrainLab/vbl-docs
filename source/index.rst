@@ -46,7 +46,6 @@ Please see the individual projects for installation instructions and documentati
 
    urchin/installation_and_use
    urchin/tutorial
-   ibl/ibl_tools
 
 .. toctree::
    :hidden:
@@ -56,7 +55,6 @@ Please see the individual projects for installation instructions and documentati
    about/overview
    about/vbl_manual
    development
-   about/contract_us
 
 .. toctree::
    :hidden:
