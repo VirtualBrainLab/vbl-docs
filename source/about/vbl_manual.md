@@ -124,6 +124,7 @@ Information about lab member grant applications is shared here with permission. 
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
+| NSF ACED | DB  | 2024 | Pending |  |
 | UW Mary Gates Scholarship 2x Resubmission | KY  | 2024 | Pending | |
 | UW Mary Gates Scholarship 2x | KY  | 2023 | Not funded | |
 | CZI Open Source Software | DB  | 2023 | Pending |  |
