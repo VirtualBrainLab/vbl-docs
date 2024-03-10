@@ -115,44 +115,47 @@ stop button feature.
 This step is not required for New Scale Pathfinder MPM connections. [See below
 for details](mpm-no-need-config).
 
-![Connect a probe to a manipulator](../../_static/images/tutorial/ephys_link/ephys_link_connect_probe.png)
+![Spawn probes in the planner scene](../../_static/images/tutorial/ephys_link/ephys_link_spawn.png)
 
 1. Spawn the corresponding probes in the planner scene.
-    1. Ensure the orientation of the probe in the scene matches the orientation
-       of your _in vivo_ probe. Use the "Yaw", "Pitch", and "Roll" text boxes to
-       configure. A value of 0, 0, 0 by default means the probe is parallel to
-       the ground, pointing anteriorly, and probe head stage is facing
-       ventrally.
-    2. For Sensapex uMp-4 use a table protractor to identify these angles, for
+2. Ensure the orientation of the probe in the scene matches the orientation
+   of your _in vivo_ probe. Use the "Yaw", "Pitch", and "Roll" text boxes to
+   configure. A value of 0, 0, 0 by default means the probe is parallel to
+   the ground, pointing anteriorly, and probe head stage is facing
+   ventrally.
+    1. For Sensapex uMp-4 use a table protractor to identify these angles, for
        Sensapex uMp-3 and New Scale manipulators, use the angles from your rigs.
-2. Press <kbd>ESC</kbd> to open the settings menu.
-3. Switch to the "Ephys Link" tab.
-4. Scroll down to the panel that represents the _in vivo_ manipulator.
-5. Use the dropdown to configure the manipulator's handedness. As of March 2024,
+
+![Connect a probe to a manipulator](../../_static/images/tutorial/ephys_link/ephys_link_connect_probe.png)
+
+1. Press <kbd>ESC</kbd> to open the settings menu.
+2. Switch to the "Ephys Link" tab.
+3. Scroll down to the panel that represents the _in vivo_ manipulator.
+4. Use the dropdown to configure the manipulator's handedness. As of March 2024,
    handedness configuration is necessary for Sensapex uMp manipulators only.
    Configuration is hidden for New Scale
    manipulators. [See the section below for
    more information.](sensapex-handedness)
-6. Use the dropdown to select a probe to link to this manipulator. Probes are
+5. Use the dropdown to select a probe to link to this manipulator. Probes are
    identified by their unique ID (UUID) and their color in the scene.
-7. Upon connection, the probe's stereotaxic position will be used as the zero
+6. Upon connection, the probe's stereotaxic position will be used as the zero
    coordinate that all movements will be relative to. This zero coordinate can
    be edited manually through the text boxes or by clicking the home button
-   (label 7.1) to re-read the manipulator's position and reset the probe in
+   (label 6.1) to re-read the manipulator's position and reset the probe in
    Pinpoint.
     1. For Sensapex manipulator users, you may zero out the manipulator's
        position on the touch screen controller. The values there will not affect
        Pinpoint.
-8. The probe's offset from the brain surface and which direction it is
+7. The probe's offset from the brain surface and which direction it is
    calculated can be adjusted here. The offset is the distance from the probe
    tip to the brain surface. This offset can be determined as the distance from
    the tip to the brain surface along the DV axis or the probe's depth axis.
-9. Manual control of the manipulators can be enabled here. This allows
+8. Manual control of the manipulators can be enabled here. This allows
    manipulators to be controlled with
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorials/tutorial_basics.html#keyboard)
    used to move probes in the planner around. Manipulators can also be driven
    back to their zero coordinate.
-10. Press <kbd>ESC</kbd> again to close the settings menu.
+9. Press <kbd>ESC</kbd> again to close the settings menu.
 
 At this point, the _in vivo_ probe positions should be mirrored in Pinpoint in
 real time.
