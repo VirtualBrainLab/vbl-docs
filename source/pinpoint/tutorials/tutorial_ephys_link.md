@@ -1,15 +1,15 @@
-# Ephys Link
+# Connecting to Manipulators via Ephys Link
 
 Pinpoint can be connected to electrophysiology manipulators
 enabling experimenters to automate the placement of manipulators as well as
-observe live where probes are placed inside the mouse brain.
+observe live where probes are placed inside the brain.
 
 **In this tutorial you will learn how to:**
 
 1. [Configure and launch Ephys Link](configure-and-launch-ephys-link)
-2. [Connect to the server from Pinpoint](ephys-link-connection)
-3. [Mirror the positions of _in
+2. [Mirror the positions of _in
    vivo_ probes in Pinpoint](ephys-link-mirror-probes)
+3. [Automate insertions with Ephys Copilot](ephys-copilot)
 
 [//]: # (**If you would like to use beta version of)
 
@@ -41,20 +41,25 @@ observe live where probes are placed inside the mouse brain.
 
 ## 1. Configure and Launch Ephys Link
 
-### Install Ephys Link
-
-First, install Ephys Link. Follow the instructions on
-the [installation page](https://virtualbrainlab.org/ephys_link/installation_and_use.html#installation).
-We recommend most users install
-the [standalone executable](https://virtualbrainlab.org/ephys_link/installation_and_use.html#install-as-standalone-executable).
-
-### Launch Ephys Link
-
-With the executable downloaded, simply double-click the executable file to
-launch
-the configuration window.
+Ephys Link comes bundled with Pinpoint. Navigate to the "Ephys Link" tab in the
+menu to configure and launch the server.
 
 ![Ephys Link configuration window](../../_static/images/tutorial/ephys_link/ephys_link_launch.png)
+
+The basic process is as follows:
+
+1. Press <kbd>ESC</kbd> or <kbd>H</kbd> to open the main menu.
+2. Navigate to the "Ephys Link" tab.
+3. Use the dropdown to select the manipulator platform that you are using.
+4. Press the launch button to start the server. After a few seconds, you will
+   see the Ephys Link window open separately and Pinpoint will establish a
+   connection. Leave the Ephys Link window running in the background.
+5. Your manipulators will appear here. You can configure them and link them to
+   probes in the scene.
+6. To disconnect from the server, press the disconnect button. The Ephys Link
+   window will close as well. Ephys Link will disconnect and close automatically
+   when you close Pinpoint.
+7. When you are finished, press <kbd>ESC</kbd> or <kbd>H</kbd> to close the settings menu.
 
 ### Configuring Ephys Link
 
