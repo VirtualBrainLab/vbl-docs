@@ -46,8 +46,6 @@ menu to configure and launch the server.
 
 ![Ephys Link configuration window](../../_static/images/tutorial/ephys_link/ephys_link_launch.png)
 
-The basic process is as follows:
-
 1. Press <kbd>ESC</kbd> or <kbd>H</kbd> to open the main menu.
 2. Navigate to the "Ephys Link" tab.
 3. Use the dropdown to select the manipulator platform that you are using.
@@ -59,32 +57,56 @@ The basic process is as follows:
 6. To disconnect from the server, press the disconnect button. The Ephys Link
    window will close as well. Ephys Link will disconnect and close automatically
    when you close Pinpoint.
-7. When you are finished, press <kbd>ESC</kbd> or <kbd>H</kbd> to close the settings menu.
+7. When you are finished, press <kbd>ESC</kbd> or <kbd>H</kbd> to close the
+   settings menu.
 
-### Configuring Ephys Link
+Below are more details on the configuration options for each manipulator type.
 
-You can configure the server using the configuration window. All changes are
-preserved for future launches.
+### Connecting to Sensapex Manipulators
 
-- **Serving Settings**
-    - **IP:** the local IP address of the computer running the server. If
-      Pinpoint
-      is running on the same computer as Ephys Link, `localhost` will work as
-      the IP. Otherwise, copy this address to Pinpoint.
-    - **Port:** the port number that the server will listen on. Also copy this
-      to
-      Pinpoint.
-- **Platform Type:** Select the appropriate manipulator platform for your setup.
-- **Pathfinder Settings:** If you are using New Scale's Pathfinder MPM Control
-  software to control your manipulators, please enable the HTTP server and
-  specify the port number here (it should be 8080 by default).
-- **Emergency Stop Settings:** If you are using the Arduino hardware stop
-  button, please specify the serial port. An empty value will be used to
-  automatically detect the port and a value of `no-e-stop` will disable this
-  feature.
+Select the appropriate Sensapex model from the dropdown.
 
-Press "Launch Server" to save your configuration and start the server. The
-configuration window will close and the server will use the console window.
+- "Sensapex uMp-4": 4-axis manipulators.
+- "Sensapex uMp-3": 3-axis manipulators.
+
+### Connecting to New Scale Manipulators via Pathfinder MPM Control
+
+1. Open Pathfinder MPM.
+2. Connect your manipulators.
+3. Ensure
+   the [HTTP server is broadcasting](https://www.newscaletech.com/sending-commands-to-pathfinder-from-other-applications/).
+4. In Pinpoint, select the "New Scale Pathfinder MPM Control v2.8.8+" option
+   from the dropdown.
+5. A text box will appear to let you configure the port number of Pathfinder's
+   HTTP server. You only need to change this value if you changed the
+   broadcasting port in Pathfinder (the default of 8080 should work for most
+   users).
+6. Press "Launch".
+7. Pinpoint will connect to Pathfinder and generate dummy probes for
+   visualization in Pinpoint.
+
+Pathfinder's configuration is automatic so there is no need to continue with the
+rest of this tutorial.
+
+### Connecting to New Scale Manipulators via M3-USB-3:1-EP
+
+1. Select "New Scale M3-USB-3:1-EP" from the dropdown.
+2. Press "Launch".
+3. After the Ephys Link window opens, a second window will open to select the
+   serial port that the manipulators are connected to. Select the appropriate
+   port and press "OK".
+
+### Connecting to an Existing Server Instance (Advanced)
+
+This option is for users who have Ephys
+Link [installed](https://virtualbrainlab.org/ephys_link/installation_and_use.html#installation)
+and running on a separate machine than Pinpoint. This is useful for users who
+have a dedicated computer for controlling manipulators or are using the hardware
+stop button feature.
+
+1. Select "Connect to Existing Server" from the dropdown.
+2. Text boxes will appear to let you configure the IP address and port number of
+   the server. Fill in the appropriate values and press "Connect".
 
 (ephys-link-connection)=
 
