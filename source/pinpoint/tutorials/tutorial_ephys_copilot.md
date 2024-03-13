@@ -8,21 +8,23 @@
 
 **Overview**
 
-1. Launch Pinpoint
-2. Create/load experiment
-3. Create dummy probes for visualization
-4. Launch Ephys Link
-5. Configure manipulators
-6. Connect dummy probes to manipulators
-7. Activate Copilot
-8. Calibrate manipulators to Bregma
-9. Drive manipulators to target
-10. Calibrate to the Dura
-11. Punch through the Dura
-12. Drive to target depth
-13. Record data
-14. Return to the surface
-15. Clean up
+1. [Launch Pinpoint](launch-pinpoint)
+2. [Create/load experiment](create-load-experiment)
+3. [Create dummy probes for visualization](create-dummy-probes)
+4. [Launch Ephys Link](launch-ephys-link)
+5. [Configure manipulators](configure-manipulators)
+6. [Connect dummy probes to manipulators](connect-dummy-probes)
+7. [Activate Copilot](activate-copilot)
+8. [Calibrate manipulators to Bregma](calibrate-manipulators-to-bregma)
+9. [Drive manipulators to target](drive-manipulators-to-target)
+10. [Calibrate to the Dura](calibrate-to-dura)
+11. [Punch through the Dura](punch-through-dura)
+12. [Drive to target depth](drive-to-target-depth)
+13. [Record data](record-data)
+14. [Return to the surface](return-to-surface)
+15. [Clean up](clean-up)
+
+(launch-pinpoint)=
 
 ## 1. Launch Pinpoint
 
@@ -33,6 +35,8 @@
 2. Wait until you see the brain in the middle of the screen. The app may take a
    while to open if it is updating. You may need to switch to it if other
    windows are in front.
+
+(create-load-experiment)=
 
 ## 2. Create/load experiment
 
@@ -49,6 +53,8 @@ accounts system to load an experiment you've already created.
    remember to re-enable them when you're ready to use them in step 9.
    ![img.png](../../_static/images/tutorial/ephys_copilot/loaded_experiment.png)
 5. Press <kbd>ESC</kbd> to close the main menu.
+
+(create-dummy-probes)=
 
 ## 3. Create dummy probes for visualization
 
@@ -72,6 +78,8 @@ accounts system to load an experiment you've already created.
        scene.
        ![img.png](../../_static/images/tutorial/ephys_copilot/probe_color_btn.png)
 
+(launch-ephys-link)=
+
 ## 4. Launch Ephys Link
 
 1. Press <kbd>ESC</kbd> to open the main menu.
@@ -86,6 +94,8 @@ accounts system to load an experiment you've already created.
 5. Your manipulators will appear as separate panels in the Ephys Link window.
    ![img.png](../../_static/images/tutorial/ephys_copilot/ephys_link_connected.png)
 
+(configure-manipulators)=
+
 ## 5. Configure manipulators
 
 1. Set the handedness of each manipulator by selecting it from the dropdown.
@@ -97,6 +107,8 @@ accounts system to load an experiment you've already created.
        handedness of Sensapex manipulators. Use this to determine the handedness
        of your manipulator.
        ![Sensapex handedness](../../_static/images/tutorial/ephys_link/sensapex_manipulators.png)
+
+(connect-dummy-probes)=
 
 ## 6. Connect dummy probes to manipulators
 
@@ -113,12 +125,16 @@ You may notice that the dummy probes do not reflect the same position as your
 _in vivo_ manipulators. This is because the manipulators have not been
 calibrated to Bregma yet. We will do this in a later part.
 
+(activate-copilot)=
+
 ## 7. Activate Copilot
 
 1. Press the Enable Copilot Checkbox to activate the Copilot panel.
    ![img.png](../../_static/images/tutorial/ephys_copilot/enable_copilot.png)<br><br>
-2. Close the menu by pressing <kbd>ESC</kbd> to see the Copilot panel.
+2. Close the menu by pressing <kbd>ESC</kbd>.
    ![img.png](../../_static/images/tutorial/ephys_copilot/copilot_panel_solo.png)
+
+(calibrate-manipulators-to-bregma)=
 
 ## 8. Calibrate manipulators to Bregma
 
@@ -139,12 +155,15 @@ calibrated to Bregma yet. We will do this in a later part.
 **At this point:** your dummy probes should reflect the positions of your _in
 vivo_ manipulators.
 
+(drive-manipulators-to-target)=
+
 ## 9. Drive manipulators to target
 
 1. Use the dropdown menu under each manipulator to select their target insertion
    point. These options are from the experiment you created/loaded in part 2. If
-   you don't see any options, make sure the angles of the dummy probe match the
-   angles of the insertion.
+   you don't see any options, make sure you enable any probes you disabled from
+   the accounts tab and that the angles of the dummy probe match the angles of
+   the insertion.
    ![img.png](../../_static/images/tutorial/ephys_copilot/select_target.png)
 2. With targets selected, lines will be drawn showing the path probes will take
    to reach their target entry coordinates.
@@ -160,6 +179,8 @@ vivo_ manipulators.
 
 **At this point:** your manipulators should be hovering above the brain at their
 target entry coordinates.
+
+(calibrate-to-dura)=
 
 ## 10. Calibrate to the Dura
 
@@ -177,12 +198,16 @@ coordinates and the dummy probes should reflect this. If you need to make any
 adjustments, you may do so manually and then press the down arrow button again
 when the tip is back at the Dura.
 
+(punch-through-dura)=
+
 ## 11. Punch through the Dura
 
 1. **Get up and physically move** to your manipulators.
 2. **Using the depth axis, manually** punch the probe tip through the Dura.
 
 **At this point:** your manipulators should be through the Dura.
+
+(drive-to-target-depth)=
 
 ## 12. Drive to target depth
 
@@ -204,9 +229,13 @@ when the tip is back at the Dura.
 may
 record data!
 
+(record-data)=
+
 ## 13. Record data
 
 😀🔬🧠👩‍🔬👨‍🔬🧑‍🔬
+
+(return-to-surface)=
 
 ## 14. Return to the surface
 
@@ -223,8 +252,11 @@ record data!
 **At this point:** your manipulators should be back at their target entry
 coordinates outside the brain.
 
-To re-insert the probes, go back to step 10 (calibrating to the Dura) and repeat
+To re-insert the probes, go back to [step 10](calibrate-to-dura) (calibrating to
+the Dura) and repeat
 the drive process.
+
+(clean-up)=
 
 ## 15. Clean up
 
