@@ -121,8 +121,8 @@ for details](mpm-no-need-config).
 2. Ensure the orientation of the probe in the scene matches the orientation
    of your _in vivo_ probe. Use the "Yaw", "Pitch", and "Roll" text boxes to
    configure. A value of 0, 0, 0 by default means the probe is parallel to
-   the ground, pointing anteriorly, and probe head stage is facing
-   ventrally.
+   the ground, pointing anteriorly, and probe's circuitry is facing
+   dorsally.
     1. For Sensapex uMp-4 use a table protractor to identify these angles, for
        Sensapex uMp-3 and New Scale manipulators, use the angles from your rigs.
 
