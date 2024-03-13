@@ -36,9 +36,19 @@
 
 ## 2. Create/load experiment
 
-Use the accounts system to log in and load an experiment.
+You can use Pinpoint normally to plan an experiment. Alternatively, use the
+accounts system to load an experiment you've already created.
 
-TODO: Add more details once accounts are operational.
+1. Press <kbd>ESC</kbd> to open the main menu.
+2. Switch to the "Accounts" tab.
+   ![img.png](../../_static/images/tutorial/ephys_copilot/accounts_tab.png)
+3. Enter your username and password and press "Login". Your experiments and it's
+   probes will show up.
+   ![img.png](../../_static/images/tutorial/ephys_copilot/accounts_login.png)
+4. (Optional) Uncheck "Enable in scene" to hide the probes in the scene. Just
+   remember to re-enable them when you're ready to use them in step 9.
+   ![img.png](../../_static/images/tutorial/ephys_copilot/loaded_experiment.png)
+5. Press <kbd>ESC</kbd> to close the main menu.
 
 ## 3. Create dummy probes for visualization
 
@@ -105,8 +115,7 @@ calibrated to Bregma yet. We will do this in a later part.
 
 ## 7. Activate Copilot
 
-1. Press the Enable Copilot Checkbox to activate the Copilot panel. The Copilot
-   Panel opens behind the main menu.
+1. Press the Enable Copilot Checkbox to activate the Copilot panel.
    ![img.png](../../_static/images/tutorial/ephys_copilot/enable_copilot.png)<br><br>
 2. Close the menu by pressing <kbd>ESC</kbd> to see the Copilot panel.
    ![img.png](../../_static/images/tutorial/ephys_copilot/copilot_panel_solo.png)
@@ -143,7 +152,6 @@ vivo_ manipulators.
 3. When ready, press "Move to Target Insertion" for each manipulator to drive
    them to their target entry coordinates. You may drive them all at once to
    save time, just watch out for collisions.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/move_to_target.png)
 4. At any point, you may press the "Stop Movement" button or the hardware stop
    button to pause the movement of that manipulator.
    ![img.png](../../_static/images/tutorial/ephys_copilot/stop_movement.png)
@@ -178,22 +186,22 @@ when the tip is back at the Dura.
 
 ## 12. Drive to target depth
 
-1. Set your desired drive speed with the slider. The default is 5 µm/s.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/drive_speed.png)
-2. Set your desired drive past distance. The default is 100 µm.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/drive_past.png)
-3. When ready, press "Drive to Target Depth" for each manipulator to drive them
+1. Set your desired drive speed with the slider and drive past distance. The
+   defaults are 5 µm/s and 50 µm.
+   ![img.png](../../_static/images/tutorial/ephys_copilot/drive_config.png)
+2. When ready, press "Drive to Target Depth" for each manipulator to drive them
    to their target depth. To save time, you can drive them all at once.
    ![img.png](../../_static/images/tutorial/ephys_copilot/drive_to_depth.png)
-4. At any point, you may press the "Stop Movement" button or the hardware stop
+3. At any point, you may press the "Stop Movement" button or the hardware stop
    button to pause the movement of that manipulator.   
    ![img.png](../../_static/images/tutorial/ephys_copilot/stop_drive.png)
     1. To resume movement, press "Move to Target Insertion" again. If you use
        the hardware stop button, you will have to reset it.
-5. Wait for the manipulators to reach their target depth. You can watch the
+4. Wait for the manipulators to reach their target depth. You can watch the
    progress in the Copilot panel and in Pinpoint.
 
-**At this point:** your manipulators should be at their target depth and you may
+**At this point:** your manipulators should be at their target depth, and you
+may
 record data!
 
 ## 13. Record data
@@ -208,12 +216,15 @@ record data!
    ![img.png](../../_static/images/tutorial/ephys_copilot/return_to_surface.png)
 2. At any point, you may press the "Stop Movement" button or the hardware stop
    button to pause the movement of that manipulator.   
-   ![img.png](../../_static/images/tutorial/ephys_copilot/stop_drive.png)
+   ![img.png](../../_static/images/tutorial/ephys_copilot/stop_return.png)
     1. To resume movement, press "Move to Target Insertion" again. If you use
        the hardware stop button, you will have to reset it.
 
 **At this point:** your manipulators should be back at their target entry
 coordinates outside the brain.
+
+To re-insert the probes, go back to step 10 (calibrating to the Dura) and repeat
+the drive process.
 
 ## 15. Clean up
 
