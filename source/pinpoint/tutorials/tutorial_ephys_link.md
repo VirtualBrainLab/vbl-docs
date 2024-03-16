@@ -87,14 +87,14 @@ configuration window will close and the server will use the console window.
 
 ![Connecting to Ephys Link](../../_static/images/tutorial/ephys_link/ephys_link_connection.png)
 
-1. Press \[ESC\] to open the settings menu
+1. Press <kbd>ESC</kbd> to open the settings menu
 2. Switch to the "Ephys Link" tab
 3. Fill in the server's IP address
 4. And the port number
 5. Click "Connect". Upon success, the connect button will read "Disconnect"
 6. Panels for each manipulator will appear here. These panels allow for the
    configuration of manipulators and linking them to probes in the scene.
-7. Press \[ESC\] again to close the settings menu
+7. Press <kbd>ESC</kbd> again to close the settings menu
 
 (ephys-link-mirror-probes)=
 
@@ -106,7 +106,7 @@ for details](mpm-no-need-config).
 ![Connect a probe to a manipulator](../../_static/images/tutorial/ephys_link/ephys_link_connect_probe.png)
 
 1. Spawn the corresponding probe in the planner scene.
-2. Press \[ESC\] to open the settings menu.
+2. Press <kbd>ESC</kbd> to open the settings menu.
 3. Switch to the "Ephys Link" tab.
 4. Scroll down to the panel that represents the _in vivo_ manipulator.
 5. Use the dropdown to configure the manipulator's handedness. As of July
@@ -128,7 +128,7 @@ for details](mpm-no-need-config).
    the [same keyboard shortcuts](https://virtualbrainlab.org/pinpoint/tutorial.html#keyboard)
    used to move probes in the planner around. Manipulators can also be driven
    back to their zero coordinate.
-10. Press \[ESC\] again to close the settings menu.
+10. Press <kbd>ESC</kbd> again to close the settings menu.
 
 At this point, the _in vivo_ probe positions should be mirrored in Pinpoint in
 real time.

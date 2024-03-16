@@ -101,27 +101,27 @@ The axis keys are [W/S] for AP, [A/D] for ML, [Q/E] for DV, and [Z/X] for depth.
 You can also press the keyboard keys to move the probe along that axis in 1/10/100/1000um
 increments. Pressing and holding a key moves continuously.
 
-Press \[SHIFT\] to increase the speed of each movement. Press \[CTRL\] to reduce the speed. 
+Press <kbd>SHIFT</kbd> to increase the speed of each movement. Press <kbd>CTRL</kbd> to reduce the speed. 
 
 ![probe controls](https://virtualbrainlab.org/_static/images/pinpoint/ProbeControls.png)
 
-Use \[W/A/S/D\] to move the probe along the AP or ML axis. Use \[Q/E\] to move the
-probe along the DV axis and \[Z/X\] to move the probe along the depth axis.
+Use <kbd>W/A/S/D</kbd> to move the probe along the AP or ML axis. Use <kbd>Q/E</kbd> to move the
+probe along the DV axis and <kbd>Z/X</kbd> to move the probe along the depth axis.
 
 You can also rotate the probe with keyboard clicks.
 
-Use \[1/3\] to yaw the probe around the vertical axis. Note that NP2.4
+Use <kbd>1/3</kbd> to yaw the probe around the vertical axis. Note that NP2.4
 probes spin around shank 0 (the leftmost probe shank when looking from the front).
 
-Use \[R/F\] to change the pitch angle of the probe on the manipulator (restricted to
+Use <kbd>R/F</kbd> to change the pitch angle of the probe on the manipulator (restricted to
 the vertical to horizontal range).
 
-Use \[,/.\] to roll the probe along its own axis.
+Use <kbd>,/.</kbd> to roll the probe along its own axis.
 
-Probes can be deleted with \[Backspace\]. To recover a probe you didn't mean to
-delete press \[CTRL + Backspace\].
+Probes can be deleted with <kbd>Backspace</kbd>. To recover a probe you didn't mean to
+delete press <kbd>CTRL + Backspace</kbd>.
 
-You can also quickly switch between probes in the scene by pressing the \[N\] and \[M\] keys.
+You can also quickly switch between probes in the scene by pressing the <kbd>N</kbd> and <kbd>M</kbd> keys.
 
 ### Controller
 
@@ -153,7 +153,7 @@ Note that insertions are defined in a Coordinate **Space** with a particular **T
 
 <image src="../../_static/images/tutorial/help.png" alt="overview image" position="left" style="width:100%">
 
-The Settings menu is accessed by pressing \[ESC\]. Press ESC again to close
+The Settings menu is accessed by pressing <kbd>ESC</kbd>. Press ESC again to close
 the window. The tabs **(1)** on the left side switch between the different
 sub-menus.
 
