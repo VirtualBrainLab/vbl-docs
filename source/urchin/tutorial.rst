@@ -12,5 +12,6 @@ Tutorials
    tutorials/urchin-examples/basics/Text
    tutorials/urchin-examples/basics/videos
    tutorials/urchin-examples/basics/neurons_meshes
+   tutorials/urchin-examples/basics/volumes
    .. tutorials/urchin-examples/basics/lines
    .. tutorials/urchin-examples/basics/explode_example
