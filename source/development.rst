@@ -7,6 +7,7 @@ Development
    :caption: Table of Contents
 
    misc/general
+   misc/server
    misc/brain_atlas
    pinpoint/development
    urchin/development
