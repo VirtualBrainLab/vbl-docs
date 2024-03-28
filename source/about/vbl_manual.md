@@ -125,9 +125,9 @@ Information about lab member grant applications is shared here with permission. 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
 | NSF ACED | DB  | 2024 | Pending |  |
-| UW Mary Gates Scholarship 2x Resubmission | KY  | 2024 | Pending | |
+| UW Mary Gates Scholarship 2x Resubmission | KY  | 2024 | Not funded | |
 | UW Mary Gates Scholarship 2x | KY  | 2023 | Not funded | |
-| CZI Open Source Software | DB  | 2023 | Pending |  |
+| CZI Open Source Software | DB  | 2023 | Not funded |  |
 | SURFiN | JS  | 2023 | Funded | $9,500 |
 | Heroku Open Source Credit Program | DB  | 2023 | Funded | $1000 |
 | UW Mary Gates Scholarship Resubmission | KY  | 2023 | Funded | $5,000 |
