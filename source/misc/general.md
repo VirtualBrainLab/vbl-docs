@@ -1,5 +1,11 @@
 # General
 
+## Hatch
+
+```
+hatch config set dirs.env.virtual .direnv
+```
+
 ## How to renew certificates
 
 Run `certbot renew --cert-name data.virtualbrainlab.org` on the data server.
