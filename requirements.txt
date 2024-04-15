@@ -2,7 +2,7 @@ ephys-link
 myst-parser==2.0.0
 sphinx==6.2.1
 sphinx-rtd-theme==2.0.0
-sphinx-autobuild==2024.2.4
+sphinx-autobuild==2024.4.13
 oursin
 nbsphinx
 sphinx-gallery
