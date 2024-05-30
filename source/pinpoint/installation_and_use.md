@@ -24,13 +24,11 @@ You can also find minor releases and release notes on the [releases page](https:
 
 If you need to use an older release of Pinpoint, you can find them by navigating to our [data website](https://data.virtualbrainlab.org/), by using the version tagged Beta branches on Steam, or by downloading older releases from the Github pages. 
 
-<!-- ### Additional linux instructions
+### Additional linux instructions
 
-To run the linux executable you need to go to the unzipped folder and run `chmod +x` on the .x86_64 file. Some users may run into permissions issues, in which case running ` chown -R yourusername .` from within the folder should repair those. -->
+Steam builds on Linux should launch automatically.
 
-<!-- ### Additional mac instructions
-
-The mac executable currently only runs on MacOS **Mojave** and earlier. You will probably have a security issue because the app is unsigned. Go to Systems Preferences > Security & Privacy > General and allow the file to "run anyway".  -->
+To run the linux executable from the Github release, you need to go to the unzipped folder and run `chmod +x` on the .x86_64 file. Some users may run into permissions issues, in which case running `chown -R yourusername .` from within the folder should repair those.
 
 ## Instructions
 
