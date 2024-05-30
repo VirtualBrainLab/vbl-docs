@@ -25,7 +25,7 @@ Undergraduate Researcher (Mary Gates Scholar, UW 2025)
 
 Kenneth maintains ephys-link and the Pinpoint automation stack.
 
-<image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
+<!-- <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh"> -->
 
 <!-- **Jasmine Schoch**
 

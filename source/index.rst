@@ -25,6 +25,8 @@ We develop 3D visualization tools for experimenting with, exploring, and simulat
    </div>
    </div>
 
+Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`_.
+
 .. toctree::
    :hidden:
    :maxdepth: 2
