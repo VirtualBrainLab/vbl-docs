@@ -1,9 +1,7 @@
 
 # About
 
-The VBL develops tools for [experimenting](../pinpoint/installation_and_use.md) with, [exploring](../urchin/installation_and_use.md), and simulating brains.
-
-We are located within the [Steinmetz Lab](http://steinmetzlab.net) at the University of Washington and many of our projects are collaborations with the [International Brain Laboratory](https://www.internationalbrainlab.com).
+The VBL develops tools for [experimenting](../pinpoint/installation_and_use.md) with and [exploring](../urchin/installation_and_use.md) brains.
 
 Please see the individual projects for installation instructions and documentation. You can find all our code on [Github](https://github.com/VirtualBrainLab).
 
@@ -25,15 +23,15 @@ Dan maintains the core tools in the VBL.
 
 Undergraduate Researcher (Mary Gates Scholar, UW 2025)
 
-Kenneth is building the Electrophysiology Manipulator Link software, allowing you to integrate Sensapex and New Scale manipulators with Pinpoint.
+Kenneth maintains ephys-link and the Pinpoint automation stack.
 
 <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh">
 
-**Jasmine Schoch**
+<!-- **Jasmine Schoch**
 
 Undergraduate Researcher (SURFiN Fellow, UW 2025)
 
-Jasmine is piloting new educational tools, which we are hoping to roll out in 2023.
+Jasmine is piloting new educational tools, which we are hoping to roll out in 2023. -->
 
 <!-- <image src="../_static/people/selina.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
 
@@ -104,17 +102,17 @@ Selina is piloting new 2-photon integrations in Urchin. -->
         <p class="collaborator-position">Undergraduate Researcher</p>
     </div>
     <!-- second row-->
+    <div class="collaborator">
+        <img src="../_static/people/jasmine.jpg" alt="Mayo Faulkner">
+        <p class="collaborator-name">Jasmine Schoch</p>
+        <p class="collaborator-position">Undergraduate Researcher</p>
+    </div>
     <!-- <div class="collaborator">
-        <img src="../_static/people/mayo.jpg" alt="Mayo Faulkner">
-        <p class="collaborator-name">Mayo Faulkner, PhD</p>
-        <p class="collaborator-position">UX Engineer - IBL</p>
-    </div>
-    <div class="collaborator">
         <img src="../_static/people/cyrille.jpg" alt="Cyrille Rossant">
-        <p class="collaborator-name">Cyrille Rossant, PhD</p>
-        <p class="collaborator-position">Scientific Programmer - IBL</p>
-    </div>
-    <div class="collaborator">
+        <p class="collaborator-name">Kenneth Yang</p>
+        <p class="collaborator-position">Undergraduate Reseearcher</p>
+    </div> -->
+    <!-- <div class="collaborator">
         <img src="../_static/people/yoni.jpg" alt="Collaborator 3">
         <p class="collaborator-name">Alice Johnson</p>
         <p class="collaborator-position">Position: Engineer</p>

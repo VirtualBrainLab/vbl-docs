@@ -53,7 +53,6 @@ Please see the individual projects for installation instructions and documentati
    :caption: VBL
 
    about/overview
-   about/vbl_manual
    development
 
 .. toctree::
