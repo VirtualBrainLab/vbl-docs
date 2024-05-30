@@ -14,8 +14,6 @@ VBL
 
 We develop 3D visualization tools for experimenting with, exploring, and simulating brains.
 
-We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the University of Washington and many of our projects are collaborations with the `International Brain Laboratory <https://www.internationalbrainlab.com>`_.
-
 .. raw:: html
 
    <div style="display:flex;">
@@ -26,8 +24,6 @@ We are located within the `Steinmetz Lab <http://steinmetzlab.net>`_ at the Univ
    <img style="width:100%" src="./_static/images/ibl_logo.png">
    </div>
    </div>
-
-Please see the individual projects for installation instructions and documentation. You can find all our code on `Github <https://github.com/VirtualBrainLab>`_.
 
 .. toctree::
    :hidden:
