@@ -6,10 +6,10 @@ Pinpoint is a tool for planning electrophysiology recordings and other *in vivo*
 
 Code is on our [Github repository](https://github.com/VirtualBrainLab/Pinpoint/).
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+<!-- <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
 <p>Pinpoint / New Scale Webinar</p>
 <p><b>Thursday Apr 18th 8AM PST/11AM EST</b> we'll be hosting a webinar with New Scale. Sign up <a href="https://r20.rs6.net/tn.jsp?f=001r45186-_W6L8rvvWnmIUDiCWp-K9_mKW8UEdjhjEer7N1W0UoTB5iTlxapxVTS8u7ey18EDsC3EChhO5_P3oOLonK1m3vrt7c_tiEhWuWDqr1OoLb07_IQDwpTlxXvWr3ntCixCi-rzfFxmVHK181ORCKEpoNDfRfHxlseEjuAbAe_hQa2du6g9zCRnmGUy0kCB0tjIXCio9RdQ5J2x38uPx1EmbcAafETVRUhaYnDSxUtZMkfxNqnWUSuOlprulOKfHr9F91jBVNZCyraMLVmqMJtcmkKNnjACbl1r1bqU=&c=aRT56swgTfpvquKmdNvKIJpyWwrSDmnWLJWC4N5FFUhdR_SCji7EAw==&ch=oT9R18qiioeHaIgMSbuA81vIoSqkLwssG1WfWDJ2mgHyAbtGDZgDFw==">here</a></p>
-</div>
+</div> -->
 
 
 ## Install
