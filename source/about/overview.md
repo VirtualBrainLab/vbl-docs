@@ -21,9 +21,9 @@ Dan maintains the core tools in the VBL, Pinpoint, Urchin, and BrainAtlas for Un
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
-Undergraduate Researcher (Mary Gates Scholar, UW 2025)
+Undergraduate Researcher (Washington Research Foundation Fellow, Mary Gates Scholar, UW CS 2025)
 
-Kenneth maintains ephys-link and the Pinpoint automation stack.
+Kenneth maintains Ephys Link and the Pinpoint automation stack.
 
 ***
 
