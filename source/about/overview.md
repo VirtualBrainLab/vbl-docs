@@ -13,33 +13,17 @@ Please see the individual projects for installation instructions and documentati
 
 **[Daniel Birman, PhD](https://danbirman.com)**
 
-Washington Research Foundation Postdoctoral Fellow
+Software Engineer at the Allen Institute for Neural Dynamics
 
-Dan maintains the core tools in the VBL.
+Dan maintains the core tools in the VBL, Pinpoint, Urchin, and BrainAtlas for Unity.
 
 <image src="../_static/people/kenneth.jpg" alt="Kenneth" position="left" style="border-radius: 8px;width:20vh">
 
 **[Kenneth Yang](https://www.linkedin.com/in/kenneth-yang-816027219/)**
 
-Undergraduate Researcher (Mary Gates Scholar, UW 2025)
+Undergraduate Researcher (Washington Research Foundation Fellow, Mary Gates Scholar, UW CS 2025)
 
-Kenneth maintains ephys-link and the Pinpoint automation stack.
-
-<!-- <image src="../_static/people/jasmine.jpg" alt="Jasmine" position="left" style="border-radius: 8px;width:20vh"> -->
-
-<!-- **Jasmine Schoch**
-
-Undergraduate Researcher (SURFiN Fellow, UW 2025)
-
-Jasmine is piloting new educational tools, which we are hoping to roll out in 2023. -->
-
-<!-- <image src="../_static/people/selina.png" alt="Selina" position="left" style="border-radius: 8px;width:20vh">
-
-**Selina Li**
-
-Undergraduate Researcher (UM 2024)
-
-Selina is piloting new 2-photon integrations in Urchin. -->
+Kenneth maintains Ephys Link and the Pinpoint automation stack.
 
 ***
 
@@ -123,4 +107,4 @@ Selina is piloting new 2-photon integrations in Urchin. -->
 
 ## Funding
 
-The VBL is funded indirectly by generous grants from the Washington Research Foundation, National Science Foundation, Simons Collaboration for the Global Brain, and the Wellcome Trust.
+The VBL is funded indirectly by the Washington Research Foundation, National Science Foundation, Simons Collaboration for the Global Brain, the Wellcome Trust, and the Allen Institute.
