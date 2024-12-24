@@ -11,4 +11,3 @@ Development
    misc/brain_atlas
    pinpoint/development
    urchin/development
-   ephys_link/development
