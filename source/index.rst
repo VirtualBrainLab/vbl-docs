@@ -35,7 +35,7 @@ Please see the individual projects for installation instructions and documentati
    pinpoint/installation_and_use
    pinpoint/tutorial
    pinpoint/in_vivo_alignment
-   ephys_link/installation_and_use
+   Ephys Link <https://virtualbrainlab.github.io/ephys-link/>
 
 .. toctree::
    :hidden:
@@ -59,5 +59,4 @@ Please see the individual projects for installation instructions and documentati
    :caption: API Reference
 
    api_reference_urn.rst
-   api_reference_ephys_link.rst
 
