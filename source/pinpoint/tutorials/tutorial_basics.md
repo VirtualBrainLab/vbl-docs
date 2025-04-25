@@ -1,5 +1,11 @@
 # Trajectory Planning
 
+<div style="border: 1px solid #f5c2c7; background-color: #f8d7da; color: #842029; padding: 1em; border-radius: 0.5em; margin: 1em 0;">
+  <strong>⚠️ Important:</strong><br>
+  The accounts system is now <strong>deprecated</strong> and will be removed in the coming months.<br>
+  Please use <strong>Pinpoint v1.x</strong> to access your data in the meantime.
+</div>
+
 Press [ESC] at any time to open the help and settings menu.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -63,7 +69,7 @@ The Probe panel provides easy access to the information about the active probe i
 
 The three buttons on the top right **lock** the probe (preventing accidental keyboard or mouse movements), **duplicate** the probe in the scene, and **download** the probe data to the clipboard. You can paste the copied data into any text editor.
 
-The bottom row has the **Accounts dropdown** where you can choose which experiments this probe is saved in, as well as the **snap to dura** button and **home** button.
+The bottom row has the **snap to dura** button and **home** button.
 
 The home button moves the probe back to the current reference coordinate (defined in the Atlas settings). The snap to dura button snaps the probe back to the surface of the brain, moving only along the depth axis. 
 
@@ -169,21 +175,6 @@ sub-menus.
   <iframe src="https://www.youtube-nocookie.com/embed/qLoy63HSswA?rel=0&modestbranding=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Overview"></iframe>
 </div>
 <br>
-
-## Account
-
-The Accounts tab in the settings allows you to save insertions across computers.
-Insertions are stored in experiments. One insertion can be shared across
-multiple experiments.
-
-![Connect a probe to a manipulator](../../_static/images/tutorial/accounts.png)
-
-1. Register a new account, we kindly ask that you use an email address so that we can keep in touch about major updates to Pinpoint in the future. We won't give away your email or send a message more than once or twice a year.
-2. Log in to your account by providing the username and password. Leave the "stay logged in" toggle checked if you are on a private computer.
-3. Open the experiment edit panel to add and remove experiments and re-name them. Experiments are just buckets, you can use them in any way you want: to represent mice, to actually represent different experiments, to represent differents sets of insertions targeting particular brain regions, etc.
-4. Select the current active experiment from the dropdown. This will change the visible list of insertions below.
-5. The insertion list shows the insertions in the active experiment. You can rename insertions, delete them from the experiment, and enable/disable them in the 3D scene. Coming soon: we will add options to mark insertions as "recorded" so that we can calculate coverage maps for experiments.
-6. Any time your local data is out-of-sync with the data stored on the server the "unsaved changes" message will appear. If you are using Pinpoint in a browser **please note that unsaved changes do not get saved if you exit the browser**, the program auto-saves changes about once a minute. If you are using Pinpoint in a desktop app, exiting will automatically save all changes.
 
 ## Surgery
 

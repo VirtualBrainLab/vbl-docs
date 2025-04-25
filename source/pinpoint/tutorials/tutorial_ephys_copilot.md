@@ -36,27 +36,9 @@
    while to open if it is updating. You may need to switch to it if other
    windows are in front.
 
-(create-load-experiment)=
-
-## 2. Create/load experiment
-
-You can use Pinpoint normally to plan an experiment. Alternatively, use the
-accounts system to load an experiment you've already created.
-
-1. Press <kbd>ESC</kbd> to open the main menu.
-2. Switch to the "Accounts" tab.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/accounts_tab.png)
-3. Enter your username and password and press "Login". Your experiments and it's
-   probes will show up.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/accounts_login.png)
-4. (Optional) Uncheck "Enable in scene" to hide the probes in the scene. Just
-   remember to re-enable them when you're ready to use them in step 9.
-   ![img.png](../../_static/images/tutorial/ephys_copilot/loaded_experiment.png)
-5. Press <kbd>ESC</kbd> to close the main menu.
-
 (create-dummy-probes)=
 
-## 3. Create dummy probes for visualization
+## 2. Create dummy probes for visualization
 
 1. Click the "Add new probe" button in the top right corner of the screen:
 
@@ -80,7 +62,7 @@ accounts system to load an experiment you've already created.
 
 (launch-ephys-link)=
 
-## 4. Launch Ephys Link
+## 3. Launch Ephys Link
 
 1. Press <kbd>ESC</kbd> to open the main menu.
 2. Switch to the "Ephys Link" tab.
@@ -96,7 +78,7 @@ accounts system to load an experiment you've already created.
 
 (configure-manipulators)=
 
-## 5. Configure manipulators
+## 4. Configure manipulators
 
 1. Set the handedness of each manipulator by selecting it from the dropdown.
    ![img.png](../../_static/images/tutorial/ephys_copilot/handedness_dropdown.png)
@@ -110,7 +92,7 @@ accounts system to load an experiment you've already created.
 
 (connect-dummy-probes)=
 
-## 6. Connect dummy probes to manipulators
+## 5. Connect dummy probes to manipulators
 
 1. Click the dropdown by "Link Probe" and select the probe you want to link to
    the manipulator.
@@ -127,7 +109,7 @@ calibrated to Bregma yet. We will do this in a later part.
 
 (activate-copilot)=
 
-## 7. Activate Copilot
+## 6. Activate Copilot
 
 1. Press the Enable Copilot Checkbox to activate the Copilot panel.
    ![img.png](../../_static/images/tutorial/ephys_copilot/enable_copilot.png)<br><br>
@@ -136,7 +118,7 @@ calibrated to Bregma yet. We will do this in a later part.
 
 (calibrate-manipulators-to-bregma)=
 
-## 8. Calibrate manipulators to Bregma
+## 7. Calibrate manipulators to Bregma
 
 1. **Get up and physically move** to your manipulators.
 2. **Manually** move a manipulator and touch the probe tip to Bregma.
@@ -157,13 +139,10 @@ vivo_ manipulators.
 
 (drive-manipulators-to-target)=
 
-## 9. Drive manipulators to target
+## 8. Drive manipulators to target
 
 1. Use the dropdown menu under each manipulator to select their target insertion
-   point. These options are from the experiment you created/loaded in part 2. If
-   you don't see any options, make sure you enable any probes you disabled from
-   the accounts tab and that the angles of the dummy probe match the angles of
-   the insertion.
+   point. If you don't see any options, check that your experiment probes have the same angles as your manipulators.
    ![img.png](../../_static/images/tutorial/ephys_copilot/select_target.png)
 2. With targets selected, lines will be drawn showing the path probes will take
    to reach their target entry coordinates.
@@ -182,7 +161,7 @@ target entry coordinates.
 
 (calibrate-to-dura)=
 
-## 10. Calibrate to the Dura
+## 9. Calibrate to the Dura
 
 1. **Get up and physically move** to your manipulators.
 2. **Manually** move a manipulator ventrally (on the **DV / Z** axis) until the
@@ -200,7 +179,7 @@ when the tip is back at the Dura.
 
 (punch-through-dura)=
 
-## 11. Punch through the Dura
+## 10. Punch through the Dura
 
 1. **Get up and physically move** to your manipulators.
 2. **Using the depth axis, manually** punch the probe tip through the Dura.
@@ -209,7 +188,7 @@ when the tip is back at the Dura.
 
 (drive-to-target-depth)=
 
-## 12. Drive to target depth
+## 11. Drive to target depth
 
 1. Set your desired drive speed with the slider and drive past distance. The
    defaults are 5 µm/s and 50 µm.
@@ -231,7 +210,7 @@ record data!
 
 (record-data)=
 
-## 13. Record data
+## 12. Record data
 
 😀🔬🧠👩‍🔬👨‍🔬🧑‍🔬
 
