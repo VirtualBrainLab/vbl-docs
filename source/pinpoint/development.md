@@ -65,7 +65,7 @@ Manager classes handle the high-level coordination of functionality in Pinpoint.
 
 #### Function code
 
-Function classes handle the isolated functionality of specific features in Pinpoint. For example, the code allowing control of the Camera is an isolated functionality. Other examples include the Accounts system, Ephys Link, the Rig code, etc.
+Function classes handle the isolated functionality of specific features in Pinpoint. For example, the code allowing control of the Camera is an isolated functionality. Other examples include Ephys Link, the Rig code, etc.
 
 #### Modules
 
