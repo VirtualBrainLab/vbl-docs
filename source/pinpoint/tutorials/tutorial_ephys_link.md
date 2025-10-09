@@ -85,9 +85,6 @@ Select the appropriate Sensapex model from the dropdown.
 7. Pinpoint will connect to Pathfinder and generate dummy probes for
    visualization in Pinpoint.
 
-Pathfinder's configuration is automatic so there is no need to continue with the
-rest of this tutorial. [See below for details](mpm-no-need-config).
-
 ### Connecting to New Scale Manipulators via M3-USB-3:1-EP
 
 1. Select "New Scale M3-USB-3:1-EP" from the dropdown.
@@ -173,18 +170,6 @@ Below is a diagram of the handedness of Sensapex manipulators. Use this to
 determine the handedness of your manipulator.
 
 ![Sensapex handedness](../../_static/images/tutorial/ephys_link/sensapex_manipulators.png)
-
-(mpm-no-need-config)=
-
-### New Scale Pathfinder MPM connections do not require configuration
-
-Launching Ephys Link requires specifying the type of manipulator that is being
-used. Configuration in Pinpoint will differ depending on the type of
-manipulator. **New Scale Pathfinder connections do not require any
-configuration** in Pinpoint as all manipulators are configured in Pathfinder.
-Pinpoint will automatically create probes (colored in magenta) for
-each manipulator from Pathfinder and automatically echo their positions,
-angles, and shank count.
 
 (ephys-copilot)=
 
