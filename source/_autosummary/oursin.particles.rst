@@ -15,10 +15,6 @@
       :nosignatures:
    
       clear
-      create
-      set_colors
-      set_positions
-      set_sizes
    
    
 
@@ -29,7 +25,7 @@
    .. autosummary::
       :nosignatures:
    
-      Particle
+      ParticleSystem
    
    
 

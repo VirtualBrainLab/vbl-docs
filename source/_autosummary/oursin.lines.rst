@@ -14,14 +14,20 @@
    .. autosummary::
       :nosignatures:
    
+      clear
       create
       delete
-      set_color
-      set_position
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Line
    
    
 

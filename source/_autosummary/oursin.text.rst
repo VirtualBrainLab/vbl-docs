@@ -14,16 +14,23 @@
    .. autosummary::
       :nosignatures:
    
+      clear
       create
-      delete
-      set_color
-      set_position
-      set_size
-      set_text
+      set_colors
+      set_font_sizes
+      set_positions
+      set_texts
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Text
    
    
 

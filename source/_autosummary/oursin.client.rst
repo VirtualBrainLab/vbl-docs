@@ -20,6 +20,12 @@
       connected
       disconnect
       message
+      receive_camera_img
+      receive_camera_img_meta
+      receive_dock_callback
+      receive_neuron_callback
+      receive_volume_click
+      urchin_loaded_callback
    
    
 
