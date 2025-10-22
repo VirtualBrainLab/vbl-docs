@@ -14,16 +14,24 @@
    .. autosummary::
       :nosignatures:
    
+      clear
       create
       delete
-      set_angle
-      set_color
-      set_position
-      set_size
+      set_angles
+      set_colors
+      set_positions
+      set_scales
    
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Probe
    
    
 

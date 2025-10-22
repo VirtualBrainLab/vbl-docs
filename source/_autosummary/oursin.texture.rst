@@ -1,7 +1,7 @@
-﻿oursin.volumes
+﻿oursin.texture
 ==============
 
-.. automodule:: oursin.volumes
+.. automodule:: oursin.texture
 
    
    
@@ -15,10 +15,10 @@
       :nosignatures:
    
       clear
-      clear_clicks
-      colormap
-      compress_volume
-      save_clicks
+      create
+      delete
+      set_images
+      set_positions
    
    
 
@@ -29,7 +29,7 @@
    .. autosummary::
       :nosignatures:
    
-      Volume
+      Texture
    
    
 

@@ -1,4 +1,4 @@
-oursin.colors
+﻿oursin.colors
 =============
 
 .. automodule:: oursin.colors
@@ -26,6 +26,6 @@ oursin.colors
    :template: custom-module-template.rst
    :recursive:
 
-   oursin.colors.colors
-   oursin.colors.xkcd_rgb
+   colors
+   xkcd_rgb
 

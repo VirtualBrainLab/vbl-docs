@@ -14,6 +14,7 @@
    .. autosummary::
       :nosignatures:
    
+      clear
       create
       delete
       set_colors

@@ -15,11 +15,7 @@
       :nosignatures:
    
       clear
-      clear_areas
-      clear_neurons
-      clear_probes
-      clear_texts
-      clear_volumes
+      is_running_in_colab
       setup
    
    

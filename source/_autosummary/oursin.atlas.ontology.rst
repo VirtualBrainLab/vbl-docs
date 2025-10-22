@@ -19,6 +19,7 @@ oursin.atlas.ontology
       :nosignatures:
    
       Atlas
+      CustomAtlas
       Structure
    
    
