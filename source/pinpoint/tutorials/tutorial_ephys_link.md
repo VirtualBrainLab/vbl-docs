@@ -109,9 +109,6 @@ stop button feature.
 
 ## 2. Mirror the Positions of _in vivo_ Probes in Pinpoint
 
-This step is not required for New Scale Pathfinder MPM connections. [See below
-for details](mpm-no-need-config).
-
 ![Spawn probes in the planner scene](../../_static/images/tutorial/ephys_link/ephys_link_spawn.png)
 
 1. Spawn the corresponding probes in the planner scene.
