@@ -132,11 +132,11 @@ stop button feature.
    more information.](sensapex-handedness)
 5. Use the dropdown to select a probe to link to this manipulator. Probes are
    identified by their unique ID (UUID) and their color in the scene.
-6. Upon connection, the probe's stereotaxic position will be used as the zero
-   coordinate that all movements will be relative to. This zero coordinate can
-   be edited manually through the text boxes or by clicking the home button
-   (label 6.1) to re-read the manipulator's position and reset the probe in
-   Pinpoint.
+6. Upon connection, the manipulator will set the default reference coordinate to
+   0,0,0, so the probe may look like it moved away from your expected location.
+   You can manually set the reference coordinate through the text boxes, or you
+   can touch the _in vivo_ probe to bregma and use the home button (label 6.1)
+   to re-read the manipulator's position and sync the reference coordinate.
     1. For Sensapex manipulator users, you may zero out the manipulator's
        position on the touch screen controller. The values there will not affect
        Pinpoint.
