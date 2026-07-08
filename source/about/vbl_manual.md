@@ -124,6 +124,8 @@ Information about lab member grant applications is shared here with permission. 
 
 | Source    | Person  | Date applied  | Outcome   | Funding   |
 | ---       | ---     | ---           | ---       | ---       |
+| WRF Undergraduate Fellowship | KY  | 2025 | Funded | $8,000 |
+| Unity for Humanity | KY/DB  | 2025 | Not funded | |
 | NSF ACED | DB  | 2024 | Pending |  |
 | UW Mary Gates Scholarship 2x Resubmission | KY  | 2024 | Not funded | |
 | UW Mary Gates Scholarship 2x | KY  | 2023 | Not funded | |
